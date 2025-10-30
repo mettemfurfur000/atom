@@ -32,6 +32,7 @@ public class ModelPlaceListener implements Listener {
         event.setCancelled(true);
         
         Location placeLoc = event.getBlockPlaced().getLocation().clone();
+        placeLoc.add(0.5, 0.5, 0.5);
         
         float yaw = event.getPlayer().getLocation().getYaw();
         float pitch = event.getPlayer().getLocation().getPitch();
