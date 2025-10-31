@@ -20,7 +20,7 @@ public class CogManager {
 
         plugin.getLogger().info("=== RECALCULATING POWER ===");
         
-        // Reset all non-source cogs
+        
         for (Cog cog : cogs) {
             if (!cog.isPowerSource()) {
                 cog.setPowered(false);
@@ -33,7 +33,7 @@ public class CogManager {
         Set<Cog> visited = new HashSet<>();
         Queue<CogPowerInfo> queue = new LinkedList<>();
 
-        // Initialize with power sources
+        
         for (Cog cog : cogs) {
             if (cog.isPowerSource()) {
                 queue.add(new CogPowerInfo(cog, 1));
@@ -43,7 +43,7 @@ public class CogManager {
             }
         }
 
-        // Propagate power through network
+        
         while (!queue.isEmpty()) {
             CogPowerInfo current = queue.poll();
             Cog currentCog = current.cog;

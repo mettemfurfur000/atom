@@ -81,4 +81,9 @@ public class AnvilSurfaceType implements BlockType {
     public boolean requiresUpdate() {
         return false;
     }
+    
+    @Override
+    public ItemStack getDropItem() {
+        return new ItemStack(Material.ANVIL);
+    }
 }

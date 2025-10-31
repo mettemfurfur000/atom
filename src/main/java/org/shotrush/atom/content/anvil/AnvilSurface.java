@@ -85,7 +85,7 @@ public class AnvilSurface extends InteractiveSurface {
         Bukkit.getRegionScheduler().run(Atom.getInstance(), itemLoc, task -> {
             ItemDisplay display = (ItemDisplay) itemLoc.getWorld().spawnEntity(itemLoc, EntityType.ITEM_DISPLAY);
             display.setItemStack(item.getItem());
-            // Rotate based on player yaw
+            
             float yawRadians = (float) Math.toRadians(item.getYaw());
             AxisAngle4f yawRotation = new AxisAngle4f(yawRadians, 0, 1, 0);
             AxisAngle4f tiltRotation = new AxisAngle4f((float) Math.PI / 2, 1, 0, 0);

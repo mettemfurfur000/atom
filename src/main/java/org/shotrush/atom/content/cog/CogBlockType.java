@@ -7,13 +7,12 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.BlockFace;
+import org.bukkit.inventory.ItemStack;
 import org.shotrush.atom.Atom;
 import org.shotrush.atom.core.blocks.*;
 import org.shotrush.atom.content.cog.*;;
 
-/**
- * Block type definition for Cogs
- */
+
 @AutoRegister(priority = 10)
 public class CogBlockType implements BlockType {
     private final Atom plugin;
@@ -79,6 +78,11 @@ public class CogBlockType implements BlockType {
 
     @Override
     public boolean requiresUpdate() {
-        return true; // Cogs need to rotate
+        return true; 
+    }
+    
+    @Override
+    public ItemStack getDropItem() {
+        return plugin.getItemRegistry().getItem(getIdentifier()).create();
     }
 }

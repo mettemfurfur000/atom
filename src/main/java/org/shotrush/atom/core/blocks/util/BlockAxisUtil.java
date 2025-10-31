@@ -3,18 +3,14 @@ package org.shotrush.atom.core.blocks.util;
 import org.bukkit.Location;
 import org.bukkit.block.BlockFace;
 
-/**
- * Utility for axis-based block operations
- */
+
 public class BlockAxisUtil {
     
     public enum Axis {
         X, Y, Z, UNKNOWN
     }
     
-    /**
-     * Gets the axis from a block face
-     */
+    
     public static Axis getAxis(BlockFace face) {
         return switch (face) {
             case UP, DOWN -> Axis.Y;
@@ -24,16 +20,12 @@ public class BlockAxisUtil {
         };
     }
     
-    /**
-     * Checks if two block faces are on the same axis
-     */
+    
     public static boolean isSameAxis(BlockFace face1, BlockFace face2) {
         return getAxis(face1) == getAxis(face2) && getAxis(face1) != Axis.UNKNOWN;
     }
     
-    /**
-     * Checks if two locations are connected along a specific axis
-     */
+    
     public static boolean isConnectedAlongAxis(Location loc1, Location loc2, Axis axis) {
         int dx = Math.abs(loc1.getBlockX() - loc2.getBlockX());
         int dy = Math.abs(loc1.getBlockY() - loc2.getBlockY());
@@ -47,9 +39,7 @@ public class BlockAxisUtil {
         };
     }
     
-    /**
-     * Gets the primary axis of movement between two locations
-     */
+    
     public static Axis getPrimaryAxis(Location from, Location to) {
         int dx = Math.abs(from.getBlockX() - to.getBlockX());
         int dy = Math.abs(from.getBlockY() - to.getBlockY());
@@ -62,9 +52,7 @@ public class BlockAxisUtil {
         return Axis.UNKNOWN;
     }
     
-    /**
-     * Gets the offset along an axis
-     */
+    
     public static int getAxisOffset(Location from, Location to, Axis axis) {
         return switch (axis) {
             case X -> to.getBlockX() - from.getBlockX();

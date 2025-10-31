@@ -20,9 +20,7 @@ import java.lang.reflect.Constructor;
 import java.util.*;
 import java.util.stream.Collectors;
 
-/**
- * Manager for all custom blocks
- */
+
 public class CustomBlockManager implements Listener {
 
     private final Atom plugin;
@@ -42,22 +40,20 @@ public class CustomBlockManager implements Listener {
         this.blocks = new ArrayList<>();
         this.dataManager = new CustomBlockDataManager(plugin, registry);
 
-        // Register block types
+        
         registerBlockTypes();
 
-        // Register event listener
+        
         Bukkit.getPluginManager().registerEvents(this, plugin);
 
-        // Load existing blocks
+        
         loadBlocks();
         
-        // Start global update timer
+        
         startGlobalUpdate();
     }
 
-    /**
-     * Automatically registers all block types annotated with @AutoRegister
-     */
+    
     private void registerBlockTypes() {
         plugin.getLogger().info("Auto-registering block types...");
         
@@ -65,7 +61,7 @@ public class CustomBlockManager implements Listener {
             Reflections reflections = new Reflections("org.shotrush.atom");
             Set<Class<?>> annotatedClasses = reflections.getTypesAnnotatedWith(AutoRegister.class);
             
-            // Sort by priority
+            
             List<Class<?>> sortedClasses = annotatedClasses.stream()
                 .sorted(Comparator.comparingInt(cls -> 
                     cls.getAnnotation(AutoRegister.class).priority()))
@@ -90,10 +86,7 @@ public class CustomBlockManager implements Listener {
         }
     }
 
-    /**
-     * Starts the global update timer (Folia-compatible)
-     * The global task only updates the angle, blocks handle their own thread safety
-     */
+    
     private void startGlobalUpdate() {
         globalUpdateTask = Bukkit.getGlobalRegionScheduler().runAtFixedRate(plugin, task -> {
             globalAngle += 0.1f;
@@ -101,8 +94,8 @@ public class CustomBlockManager implements Listener {
                 globalAngle = 0;
             }
 
-            // Update all blocks that need updates
-            // Each block's update() method handles its own thread safety
+            
+            
             for (CustomBlock block : new ArrayList<>(blocks)) {
                 BlockType type = registry.getBlockType(block.getBlockType());
                 if (type != null && type.requiresUpdate()) {
@@ -201,7 +194,7 @@ public class CustomBlockManager implements Listener {
         ItemMeta meta = item.getItemMeta();
         if (meta == null) return;
 
-        // Check all registered block types
+        
         for (Map.Entry<String, BlockType> entry : registry.getAllBlockTypes().entrySet()) {
             BlockType blockType = entry.getValue();
             if (item.getType() != blockType.getItemMaterial()) continue;
@@ -232,6 +225,34 @@ public class CustomBlockManager implements Listener {
         }
     }
 
+    @EventHandler
+    public void onBlockBreak(org.bukkit.event.block.BlockBreakEvent event) {
+        if (event.isCancelled()) return;
+        if (event.getBlock().getType() != Material.BARRIER) return;
+        
+        Location brokenLoc = event.getBlock().getLocation();
+        for (int i = 0; i < blocks.size(); i++) {
+            CustomBlock block = blocks.get(i);
+            if (block.getBlockLocation().equals(brokenLoc)) {
+                event.setCancelled(true);
+                
+                BlockType blockType = registry.getBlockType(block.getBlockType());
+                if (blockType != null) {
+                    ItemStack dropItem = blockType.getDropItem();
+                    if (dropItem != null) {
+                        brokenLoc.getWorld().dropItemNaturally(brokenLoc, dropItem);
+                    }
+                }
+                
+                block.remove();
+                blocks.remove(i);
+                block.onRemoved();
+                event.getPlayer().sendMessage("§cCustom block removed");
+                return;
+            }
+        }
+    }
+
     @EventHandler(priority = org.bukkit.event.EventPriority.HIGHEST)
     public void onPlayerInteractEntity(PlayerInteractEntityEvent event) {
         if (event.isCancelled()) return;
@@ -247,12 +268,12 @@ public class CustomBlockManager implements Listener {
         if (event.getClickedBlock() == null) return;
         if (event.getClickedBlock().getType() != Material.BARRIER) return;
         
-        // Check if player is holding a wrench
+        
         ItemStack itemInHand = event.getPlayer().getInventory().getItemInMainHand();
         boolean hasWrench = plugin.getItemRegistry().getItem("wrench") != null &&
                            plugin.getItemRegistry().getItem("wrench").isCustomItem(itemInHand);
         
-        // Only handle barrier clicks if player has a wrench
+        
         if (!hasWrench) {
             return;
         }
@@ -288,7 +309,7 @@ public class CustomBlockManager implements Listener {
                     }
                 });
                 
-                // InteractiveSurface (like AnvilSurface) handles interactions even without wrench
+                
                 if (block instanceof org.shotrush.atom.core.blocks.InteractiveSurface) {
                     event.setCancelled(true);
                     if (hasWrench) {
@@ -306,13 +327,13 @@ public class CustomBlockManager implements Listener {
                             return;
                         }
                     } else {
-                        // No wrench - let InteractiveSurface handle it (place items)
+                        
                         block.onWrenchInteract(player, false);
                         return;
                     }
                 }
                 
-                // Other blocks only respond to wrench
+                
                 if (hasWrench) {
                     event.setCancelled(true);
                     if (player.isSneaking()) {

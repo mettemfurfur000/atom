@@ -23,7 +23,7 @@ public class Cog extends CustomBlock {
     private boolean isPowered;
     private int rotationDirection;
 
-    // Constructor for initial placement
+    
     public Cog(Location spawnLocation, Location blockLocation, BlockFace blockFace) {
         super(spawnLocation, blockLocation, blockFace);
         this.isPowerSource = false;
@@ -31,7 +31,7 @@ public class Cog extends CustomBlock {
         this.rotationDirection = 1;
     }
     
-    // Constructor for loading from file
+    
     public Cog(Location spawnLocation, BlockFace blockFace, boolean isPowerSource) {
         super(spawnLocation, blockFace);
         this.isPowerSource = isPowerSource;
@@ -63,15 +63,15 @@ public class Cog extends CustomBlock {
 
     @Override
     public void spawn(Atom plugin) {
-        // Schedule spawn on the region's thread (Folia-compatible)
+        
         Bukkit.getRegionScheduler().run(plugin, spawnLocation, task -> {
-            // First, remove any existing entities at this location
+            
             cleanupExistingEntities();
             
-            // Place barrier block
+            
             blockLocation.getBlock().setType(Material.BARRIER);
 
-            // Create ItemDisplay at spawn location (center of block)
+            
             ItemDisplay display = (ItemDisplay) spawnLocation.getWorld().spawnEntity(spawnLocation, EntityType.ITEM_DISPLAY);
             spawnDisplay(display, plugin);
         });
@@ -79,7 +79,7 @@ public class Cog extends CustomBlock {
     
     private void spawnDisplay(ItemDisplay display, Atom plugin) {
 
-        // Create diamond item with custom model data
+        
         ItemStack diamondItem = new ItemStack(Material.DIAMOND);
         ItemMeta diamondMeta = diamondItem.getItemMeta();
         if (diamondMeta != null) {
@@ -91,11 +91,11 @@ public class Cog extends CustomBlock {
 
         display.setItemStack(diamondItem);
         
-        // Set interpolation to 0 to prevent unwanted animations
+        
         display.setInterpolationDuration(0);
         display.setInterpolationDelay(0);
 
-        // Get the initial orientation based on the face
+        
         AxisAngle4f initialRotation = getInitialRotationFromFace(blockFace);
 
         display.setTransformation(new Transformation(
@@ -105,7 +105,7 @@ public class Cog extends CustomBlock {
                 new AxisAngle4f()
         ));
 
-        // Create Interaction entity at spawn location with larger hitbox to catch clicks before barrier
+        
         Interaction interaction = (Interaction) spawnLocation.getWorld().spawnEntity(spawnLocation, EntityType.INTERACTION);
         interaction.setInteractionWidth(1f);
         interaction.setInteractionHeight(1f);
@@ -114,18 +114,15 @@ public class Cog extends CustomBlock {
         interaction.setGravity(false);
         interaction.addPassenger(display);
 
-        // Store UUIDs
+        
         this.interactionUUID = interaction.getUniqueId();
         this.displayUUID = display.getUniqueId();
     }
 
-    /**
-     * Updates the cog's rotation based on a global angle
-     * Must be called from the entity's owning region thread
-     */
+    
     public void updateRotation(float globalAngle) {
         if (!isPowered) return;
-        if (displayUUID == null) return; // Not spawned yet
+        if (displayUUID == null) return; 
         
         Entity entity = Bukkit.getEntity(displayUUID);
         if (!(entity instanceof ItemDisplay)) return;
@@ -133,7 +130,7 @@ public class Cog extends CustomBlock {
         ItemDisplay display = (ItemDisplay) entity;
         if (display.isDead() || !display.isValid()) return;
 
-        // Schedule on entity's thread (Folia-compatible)
+        
         display.getScheduler().run(Atom.getInstance(), task -> {
             AxisAngle4f baseRotation = getInitialRotationFromFace(blockFace);
             AxisAngle4f spinRotation = new AxisAngle4f(globalAngle * rotationDirection, 0, 1, 0);
@@ -150,22 +147,20 @@ public class Cog extends CustomBlock {
         }, null);
     }
 
-    /**
-     * Toggles this cog as a power source
-     */
+    
     public void togglePowerSource() {
         this.isPowerSource = !this.isPowerSource;
         this.isPowered = this.isPowerSource;
         
-        // Update the model
+        
         Entity entity = Bukkit.getEntity(displayUUID);
         if (entity instanceof ItemDisplay) {
             ItemDisplay display = (ItemDisplay) entity;
         
-            // Store the current transformation
+            
             Transformation currentTransform = display.getTransformation();
         
-            // Create new item with updated model
+            
             ItemStack diamondItem = new ItemStack(Material.DIAMOND);
             ItemMeta diamondMeta = diamondItem.getItemMeta();
             if (diamondMeta != null) {
@@ -175,15 +170,15 @@ public class Cog extends CustomBlock {
                 diamondItem.setItemMeta(diamondMeta);
             }
         
-            // Set interpolation duration to 0 to prevent animation
+            
             display.setInterpolationDuration(0);
             display.setInterpolationDelay(0);
         
-            // Update item and restore transformation
+            
             display.setItemStack(diamondItem);
             display.setTransformation(currentTransform);
         
-            // Folia-compatible teleport to ensure it stays in place
+            
             display.teleportAsync(display.getLocation());
         }
     }
@@ -245,7 +240,7 @@ public class Cog extends CustomBlock {
         return result;
     }
 
-    // Getters and setters
+    
     public boolean isPowerSource() {
         return isPowerSource;
     }

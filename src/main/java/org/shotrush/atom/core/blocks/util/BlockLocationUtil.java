@@ -6,28 +6,22 @@ import org.shotrush.atom.core.blocks.CustomBlock;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Utility class for block location operations
- */
+
 public class BlockLocationUtil {
     
-    /**
-     * Gets all 6 adjacent locations (cardinal directions)
-     */
+    
     public static Location[] getAdjacentLocations(Location loc) {
         return new Location[] {
-            loc.clone().add(1, 0, 0),   // East
-            loc.clone().add(-1, 0, 0),  // West
-            loc.clone().add(0, 1, 0),   // Up
-            loc.clone().add(0, -1, 0),  // Down
-            loc.clone().add(0, 0, 1),   // South
-            loc.clone().add(0, 0, -1)   // North
+            loc.clone().add(1, 0, 0),   
+            loc.clone().add(-1, 0, 0),  
+            loc.clone().add(0, 1, 0),   
+            loc.clone().add(0, -1, 0),  
+            loc.clone().add(0, 0, 1),   
+            loc.clone().add(0, 0, -1)   
         };
     }
     
-    /**
-     * Gets all 26 adjacent locations (including diagonals)
-     */
+    
     public static Location[] getAllAdjacentLocations(Location loc) {
         List<Location> locations = new ArrayList<>();
         for (int x = -1; x <= 1; x++) {
@@ -41,9 +35,7 @@ public class BlockLocationUtil {
         return locations.toArray(new Location[0]);
     }
     
-    /**
-     * Checks if two locations are at the same block position
-     */
+    
     public static boolean isSameBlock(Location loc1, Location loc2) {
         if (loc1 == null || loc2 == null) return false;
         if (!loc1.getWorld().equals(loc2.getWorld())) return false;
@@ -53,9 +45,7 @@ public class BlockLocationUtil {
                loc1.getBlockZ() == loc2.getBlockZ();
     }
     
-    /**
-     * Finds all blocks of a specific type adjacent to a location
-     */
+    
     public static <T extends CustomBlock> List<T> getAdjacentBlocks(
             Location location, 
             List<CustomBlock> allBlocks, 
@@ -77,9 +67,7 @@ public class BlockLocationUtil {
         return adjacent;
     }
     
-    /**
-     * Gets the Manhattan distance between two block locations
-     */
+    
     public static int getManhattanDistance(Location loc1, Location loc2) {
         if (!loc1.getWorld().equals(loc2.getWorld())) {
             return Integer.MAX_VALUE;
@@ -90,9 +78,7 @@ public class BlockLocationUtil {
                Math.abs(loc1.getBlockZ() - loc2.getBlockZ());
     }
     
-    /**
-     * Checks if two locations are adjacent (distance of 1)
-     */
+    
     public static boolean isAdjacent(Location loc1, Location loc2) {
         return getManhattanDistance(loc1, loc2) == 1;
     }

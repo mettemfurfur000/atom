@@ -28,7 +28,9 @@ public abstract class InteractiveSurface extends CustomBlock {
         if (placedItems.size() >= getMaxItems()) return false;
         if (!canPlaceItem(item)) return false;
         
-        PlacedItem placedItem = new PlacedItem(item.clone(), position, yaw);
+        ItemStack singleItem = item.clone();
+        singleItem.setAmount(1);
+        PlacedItem placedItem = new PlacedItem(singleItem, position, yaw);
         placedItems.add(placedItem);
         spawnItemDisplay(placedItem);
         return true;

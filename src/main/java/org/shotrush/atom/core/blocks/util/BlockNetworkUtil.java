@@ -7,20 +7,10 @@ import java.util.function.BiConsumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
-/**
- * Utility for network/graph operations on blocks
- */
+
 public class BlockNetworkUtil {
     
-    /**
-     * Performs a breadth-first search starting from source blocks
-     * 
-     * @param allBlocks All blocks to search through
-     * @param blockType The type of block to search for
-     * @param isSource Predicate to identify source blocks
-     * @param onVisit Callback when visiting each block (current, depth)
-     * @param <T> The block type
-     */
+    
     public static <T extends CustomBlock> void breadthFirstSearch(
             List<CustomBlock> allBlocks,
             Class<T> blockType,
@@ -31,7 +21,7 @@ public class BlockNetworkUtil {
         Set<T> visited = new HashSet<>();
         Queue<BlockDepthPair<T>> queue = new LinkedList<>();
         
-        // Find all source blocks
+        
         for (T block : blocks) {
             if (isSource.test(block)) {
                 queue.add(new BlockDepthPair<>(block, 0));
@@ -39,7 +29,7 @@ public class BlockNetworkUtil {
             }
         }
         
-        // BFS traversal
+        
         while (!queue.isEmpty()) {
             BlockDepthPair<T> current = queue.poll();
             onVisit.accept(current.block, current.depth);
@@ -59,17 +49,7 @@ public class BlockNetworkUtil {
         }
     }
     
-    /**
-     * Performs a breadth-first search with custom state propagation
-     * 
-     * @param allBlocks All blocks to search through
-     * @param blockType The type of block to search for
-     * @param isSource Predicate to identify source blocks
-     * @param getInitialState Function to get initial state for source blocks
-     * @param onVisit Callback when visiting each block (current, state, adjacent getter)
-     * @param <T> The block type
-     * @param <S> The state type
-     */
+    
     public static <T extends CustomBlock, S> void breadthFirstSearchWithState(
             List<CustomBlock> allBlocks,
             Class<T> blockType,
@@ -81,7 +61,7 @@ public class BlockNetworkUtil {
         Set<T> visited = new HashSet<>();
         Queue<BlockStatePair<T, S>> queue = new LinkedList<>();
         
-        // Find all source blocks
+        
         for (T block : blocks) {
             if (isSource.test(block)) {
                 S initialState = getInitialState.apply(block);
@@ -90,7 +70,7 @@ public class BlockNetworkUtil {
             }
         }
         
-        // BFS traversal with state
+        
         while (!queue.isEmpty()) {
             BlockStatePair<T, S> current = queue.poll();
             
@@ -102,7 +82,7 @@ public class BlockNetworkUtil {
             
             onVisit.accept(current.block, current.state, adjacent);
             
-            // Process unvisited adjacent blocks
+            
             for (T adj : adjacent) {
                 if (!visited.contains(adj)) {
                     visited.add(adj);
@@ -111,9 +91,7 @@ public class BlockNetworkUtil {
         }
     }
     
-    /**
-     * Filters blocks by type
-     */
+    
     public static <T extends CustomBlock> List<T> filterBlocks(
             List<CustomBlock> allBlocks, 
             Class<T> blockType) {
@@ -127,9 +105,7 @@ public class BlockNetworkUtil {
         return filtered;
     }
     
-    /**
-     * Finds all connected blocks in a network
-     */
+    
     public static <T extends CustomBlock> Set<T> findConnectedNetwork(
             T startBlock,
             List<CustomBlock> allBlocks,
@@ -161,7 +137,7 @@ public class BlockNetworkUtil {
         return network;
     }
     
-    // Helper classes
+    
     private static class BlockDepthPair<T> {
         final T block;
         final int depth;

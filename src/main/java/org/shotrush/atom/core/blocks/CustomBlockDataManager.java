@@ -12,9 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Manages saving/loading of all custom blocks
- */
+
 public class CustomBlockDataManager {
     private final Atom plugin;
     private final CustomBlockRegistry registry;
@@ -41,13 +39,11 @@ public class CustomBlockDataManager {
         dataConfig = YamlConfiguration.loadConfiguration(dataFile);
     }
 
-    /**
-     * Saves all blocks to file
-     */
+    
     public void saveBlocks(List<CustomBlock> blocks) {
         dataConfig.set("blocks", null);
         
-        // Group blocks by type
+        
         Map<String, List<String>> blocksByType = new HashMap<>();
         
         for (CustomBlock block : blocks) {
@@ -58,7 +54,7 @@ public class CustomBlockDataManager {
             }
         }
         
-        // Save by type
+        
         for (Map.Entry<String, List<String>> entry : blocksByType.entrySet()) {
             dataConfig.set("blocks." + entry.getKey(), entry.getValue());
         }
@@ -71,9 +67,7 @@ public class CustomBlockDataManager {
         }
     }
 
-    /**
-     * Loads all blocks from file
-     */
+    
     public List<CustomBlock> loadBlocks() {
         List<CustomBlock> blocks = new ArrayList<>();
         

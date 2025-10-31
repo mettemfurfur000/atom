@@ -22,18 +22,18 @@ public final class Atom extends JavaPlugin {
     public void onEnable() {
         instance = this;
         
-        // Initialize core systems
+        
         dataStorage = new DataStorage(this);
         ageManager = new AgeManager(this, dataStorage);
         itemRegistry = new CustomItemRegistry(this);
         
-        // Register custom items
+        
         itemRegistry.register(new WrenchItem(this));
         
-        // Initialize block system
+        
         blockManager = new CustomBlockManager(this);
         
-        // Setup commands
+        
         setupCommands();
         
         getLogger().info("Atom plugin has been enabled!");
