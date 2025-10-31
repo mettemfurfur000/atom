@@ -105,7 +105,7 @@ public class Cog extends CustomBlock {
                 new AxisAngle4f()
         ));
 
-        // Create Interaction entity at spawn location
+        // Create Interaction entity at spawn location with larger hitbox to catch clicks before barrier
         Interaction interaction = (Interaction) spawnLocation.getWorld().spawnEntity(spawnLocation, EntityType.INTERACTION);
         interaction.setInteractionWidth(1f);
         interaction.setInteractionHeight(1f);

@@ -5,12 +5,15 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.shotrush.atom.core.blocks.CustomBlockManager;
 import org.shotrush.atom.commands.*;
 import org.shotrush.atom.core.age.AgeManager;
+import org.shotrush.atom.core.items.CustomItemRegistry;
 import org.shotrush.atom.core.storage.DataStorage;
+import org.shotrush.atom.content.tools.WrenchItem;
 
 public final class Atom extends JavaPlugin {
 
     private static Atom instance;
     private CustomBlockManager blockManager;
+    private CustomItemRegistry itemRegistry;
     private DataStorage dataStorage;
     private AgeManager ageManager;
     private PaperCommandManager commandManager;
@@ -22,6 +25,10 @@ public final class Atom extends JavaPlugin {
         // Initialize core systems
         dataStorage = new DataStorage(this);
         ageManager = new AgeManager(this, dataStorage);
+        itemRegistry = new CustomItemRegistry(this);
+        
+        // Register custom items
+        itemRegistry.register(new WrenchItem(this));
         
         // Initialize block system
         blockManager = new CustomBlockManager(this);
@@ -35,10 +42,10 @@ public final class Atom extends JavaPlugin {
     private void setupCommands() {
         commandManager = new PaperCommandManager(this);
         
-        // Register all commands
         commandManager.registerCommand(new CogCommand());
         commandManager.registerCommand(new WrenchCommand());
         commandManager.registerCommand(new RemoveCogsCommand());
+        commandManager.registerCommand(new AnvilCommand());
         commandManager.registerCommand(new AgeCommand(this));
     }
 
@@ -66,5 +73,9 @@ public final class Atom extends JavaPlugin {
     
     public AgeManager getAgeManager() {
         return ageManager;
+    }
+    
+    public CustomItemRegistry getItemRegistry() {
+        return itemRegistry;
     }
 }

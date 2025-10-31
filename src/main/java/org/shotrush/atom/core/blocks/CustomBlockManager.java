@@ -7,6 +7,7 @@ import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockPlaceEvent;
+import org.bukkit.event.player.PlayerInteractAtEntityEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -187,9 +188,11 @@ public class CustomBlockManager implements Listener {
     }
 
     public void giveWrench(Player player) {
-        ItemStack wrench = createWrench();
-        player.getInventory().addItem(wrench);
-        player.sendMessage("§aYou received a Mechanical Wrench!");
+        ItemStack wrench = plugin.getItemRegistry().createItem("wrench");
+        if (wrench != null) {
+            player.getInventory().addItem(wrench);
+            player.sendMessage("§aYou received a Mechanical Wrench!");
+        }
     }
 
     @EventHandler
@@ -229,42 +232,121 @@ public class CustomBlockManager implements Listener {
         }
     }
 
-    @EventHandler
+    @EventHandler(priority = org.bukkit.event.EventPriority.HIGHEST)
     public void onPlayerInteractEntity(PlayerInteractEntityEvent event) {
-        Entity entity = event.getRightClicked();
-        Player player = event.getPlayer();
-
-        if (!(entity instanceof Interaction)) return;
-
-        ItemStack itemInHand = player.getInventory().getItemInMainHand();
-        if (itemInHand.getType() != Material.WOODEN_HOE) return;
-
-        ItemMeta meta = itemInHand.getItemMeta();
-        if (meta == null || !meta.getPersistentDataContainer().has(wrenchKey, PersistentDataType.BYTE)) {
+        if (event.isCancelled()) return;
+        if (event.getHand() != org.bukkit.inventory.EquipmentSlot.HAND) return;
+        handleInteraction(event.getRightClicked(), event.getPlayer(), event);
+    }
+    
+    @EventHandler(priority = org.bukkit.event.EventPriority.LOWEST)
+    public void onPlayerInteractBlock(org.bukkit.event.player.PlayerInteractEvent event) {
+        if (event.isCancelled()) return;
+        if (event.getAction() != org.bukkit.event.block.Action.RIGHT_CLICK_BLOCK) return;
+        if (event.getHand() != org.bukkit.inventory.EquipmentSlot.HAND) return;
+        if (event.getClickedBlock() == null) return;
+        if (event.getClickedBlock().getType() != Material.BARRIER) return;
+        
+        // Check if player is holding a wrench
+        ItemStack itemInHand = event.getPlayer().getInventory().getItemInMainHand();
+        boolean hasWrench = plugin.getItemRegistry().getItem("wrench") != null &&
+                           plugin.getItemRegistry().getItem("wrench").isCustomItem(itemInHand);
+        
+        // Only handle barrier clicks if player has a wrench
+        if (!hasWrench) {
             return;
         }
-
-        if (player.isSneaking()) {
-            for (int i = 0; i < blocks.size(); i++) {
-                CustomBlock block = blocks.get(i);
-                if (block.getInteractionUUID().equals(entity.getUniqueId())) {
-                    block.remove();
-                    blocks.remove(i);
-                    block.onRemoved();
-                    player.sendMessage("§cBlock removed!");
-                    event.setCancelled(true);
-                    return;
-                }
+        
+        Location clickedLoc = event.getClickedBlock().getLocation();
+        for (CustomBlock block : blocks) {
+            if (block.getBlockLocation().equals(clickedLoc)) {
+                handleBarrierInteraction(block, event.getPlayer(), event);
+                return;
             }
-        } else {
-            for (CustomBlock block : blocks) {
-                if (block.getInteractionUUID().equals(entity.getUniqueId())) {
-                    if (block.onWrenchInteract(player, false)) {
-                        event.setCancelled(true);
+        }
+    }
+    
+    private void handleInteraction(Entity entity, Player player, org.bukkit.event.Cancellable event) {
+        if (!(entity instanceof Interaction)) return;
+        
+        Interaction interaction = (Interaction) entity;
+
+        ItemStack itemInHand = player.getInventory().getItemInMainHand();
+        boolean hasWrench = plugin.getItemRegistry().getItem("wrench") != null &&
+                           plugin.getItemRegistry().getItem("wrench").isCustomItem(itemInHand);
+
+        for (int i = 0; i < blocks.size(); i++) {
+            CustomBlock block = blocks.get(i);
+            if (block.getInteractionUUID().equals(entity.getUniqueId())) {
+                event.setCancelled(true);
+                
+                Bukkit.getRegionScheduler().run(plugin, interaction.getLocation(), task -> {
+                    org.bukkit.entity.Entity ent = Bukkit.getEntity(interaction.getUniqueId());
+                    if (ent instanceof Interaction inter) {
+                        inter.setResponsive(false);
+                        inter.setResponsive(true);
+                    }
+                });
+                
+                // InteractiveSurface (like AnvilSurface) handles interactions even without wrench
+                if (block instanceof org.shotrush.atom.core.blocks.InteractiveSurface) {
+                    event.setCancelled(true);
+                    if (hasWrench) {
+                        if (player.isSneaking()) {
+                            if (block.onWrenchInteract(player, true)) {
+                                return;
+                            }
+                            block.remove();
+                            blocks.remove(i);
+                            block.onRemoved();
+                            player.sendMessage("§cBlock removed!");
+                            return;
+                        } else {
+                            block.onWrenchInteract(player, false);
+                            return;
+                        }
+                    } else {
+                        // No wrench - let InteractiveSurface handle it (place items)
+                        block.onWrenchInteract(player, false);
                         return;
                     }
                 }
+                
+                // Other blocks only respond to wrench
+                if (hasWrench) {
+                    event.setCancelled(true);
+                    if (player.isSneaking()) {
+                        if (block.onWrenchInteract(player, true)) {
+                            return;
+                        }
+                        block.remove();
+                        blocks.remove(i);
+                        block.onRemoved();
+                        player.sendMessage("§cBlock removed!");
+                        return;
+                    } else {
+                        block.onWrenchInteract(player, false);
+                        return;
+                    }
+                }
+                return;
             }
+        }
+    }
+    
+    private void handleBarrierInteraction(CustomBlock block, Player player, org.bukkit.event.Cancellable event) {
+        event.setCancelled(true);
+        
+        if (player.isSneaking()) {
+            if (block.onWrenchInteract(player, true)) {
+                return;
+            }
+            blocks.remove(block);
+            block.remove();
+            block.onRemoved();
+            player.sendMessage("§cBlock removed!");
+        } else {
+            block.onWrenchInteract(player, false);
         }
     }
 
