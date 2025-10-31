@@ -20,14 +20,13 @@ public class CustomBlockRegistry {
     }
 
     
-    public void register(BlockType blockType) {
-        String id = blockType.getIdentifier();
-        blockTypes.put(id, blockType);
+    public void register(String identifier, BlockType blockType) {
+        blockTypes.put(identifier, blockType);
         
-        NamespacedKey key = new NamespacedKey(plugin, id + "_item");
-        keyToIdentifier.put(key, id);
+        NamespacedKey key = new NamespacedKey(plugin, identifier + "_item");
+        keyToIdentifier.put(key, identifier);
         
-        plugin.getLogger().info("Registered block type: " + id);
+        plugin.getLogger().info("Registered block type: " + identifier);
     }
 
     

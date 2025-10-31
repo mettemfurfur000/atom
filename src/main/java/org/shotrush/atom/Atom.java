@@ -1,22 +1,28 @@
 package org.shotrush.atom;
 
 import co.aikar.commands.PaperCommandManager;
+import lombok.Getter;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.shotrush.atom.core.AutoRegisterManager;
 import org.shotrush.atom.core.blocks.CustomBlockManager;
 import org.shotrush.atom.commands.*;
 import org.shotrush.atom.core.age.AgeManager;
 import org.shotrush.atom.core.items.CustomItemRegistry;
 import org.shotrush.atom.core.storage.DataStorage;
-import org.shotrush.atom.content.tools.WrenchItem;
+import org.shotrush.atom.core.skin.SkinListener;
 
 public final class Atom extends JavaPlugin {
 
+    @Getter
     private static Atom instance;
+    @Getter
     private CustomBlockManager blockManager;
+    @Getter
     private CustomItemRegistry itemRegistry;
+    @Getter
     private DataStorage dataStorage;
+    @Getter
     private AgeManager ageManager;
-    private PaperCommandManager commandManager;
 
     @Override
     public void onEnable() {
@@ -26,13 +32,12 @@ public final class Atom extends JavaPlugin {
         dataStorage = new DataStorage(this);
         ageManager = new AgeManager(this, dataStorage);
         itemRegistry = new CustomItemRegistry(this);
-        
-        
-        itemRegistry.register(new WrenchItem(this));
-        
-        
         blockManager = new CustomBlockManager(this);
         
+        AutoRegisterManager.registerItems(this, itemRegistry);
+        AutoRegisterManager.registerBlocks(this, blockManager.getRegistry());
+        
+        getServer().getPluginManager().registerEvents(new SkinListener(), this);
         
         setupCommands();
         
@@ -40,7 +45,7 @@ public final class Atom extends JavaPlugin {
     }
     
     private void setupCommands() {
-        commandManager = new PaperCommandManager(this);
+        PaperCommandManager commandManager = new PaperCommandManager(this);
         
         commandManager.registerCommand(new CogCommand());
         commandManager.registerCommand(new WrenchCommand());
@@ -58,24 +63,5 @@ public final class Atom extends JavaPlugin {
         
         getLogger().info("Atom plugin has been disabled!");
     }
-    
-    public static Atom getInstance() {
-        return instance;
-    }
-    
-    public CustomBlockManager getBlockManager() {
-        return blockManager;
-    }
-    
-    public DataStorage getDataStorage() {
-        return dataStorage;
-    }
-    
-    public AgeManager getAgeManager() {
-        return ageManager;
-    }
-    
-    public CustomItemRegistry getItemRegistry() {
-        return itemRegistry;
-    }
+
 }

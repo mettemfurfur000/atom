@@ -10,7 +10,8 @@ import org.bukkit.block.BlockFace;
 import org.bukkit.inventory.ItemStack;
 import org.shotrush.atom.Atom;
 import org.shotrush.atom.core.blocks.*;
-import org.shotrush.atom.content.cog.*;;
+import org.shotrush.atom.content.cog.*;
+import org.shotrush.atom.core.items.CustomItem;;
 
 
 @AutoRegister(priority = 10)
@@ -83,6 +84,10 @@ public class CogBlockType implements BlockType {
     
     @Override
     public ItemStack getDropItem() {
-        return plugin.getItemRegistry().getItem(getIdentifier()).create();
+        CustomItem item = plugin.getItemRegistry().getItem(getIdentifier());
+        if (item != null) {
+            return item.create();
+        }
+        return new ItemStack(getItemMaterial());
     }
 }

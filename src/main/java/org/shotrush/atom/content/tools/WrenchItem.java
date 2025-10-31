@@ -3,10 +3,12 @@ package org.shotrush.atom.content.tools;
 import org.bukkit.Material;
 import org.bukkit.plugin.Plugin;
 import org.shotrush.atom.core.items.CustomItem;
+import org.shotrush.atom.core.items.annotation.AutoRegister;
 
 import java.util.Arrays;
 import java.util.List;
 
+@AutoRegister(priority = 1)
 public class WrenchItem extends CustomItem {
     
     public WrenchItem(Plugin plugin) {

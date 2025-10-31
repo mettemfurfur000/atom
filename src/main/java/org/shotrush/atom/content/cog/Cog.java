@@ -1,5 +1,6 @@
 package org.shotrush.atom.content.cog;
 
+import lombok.Setter;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -21,6 +22,7 @@ import org.shotrush.atom.content.cog.*;;
 public class Cog extends CustomBlock {
     private boolean isPowerSource;
     private boolean isPowered;
+    @Setter
     private int rotationDirection;
 
     
@@ -268,10 +270,6 @@ public class Cog extends CustomBlock {
         return rotationDirection;
     }
 
-    public void setRotationDirection(int direction) {
-        this.rotationDirection = direction;
-    }
-
     public boolean isSameAxisAs(Cog other) {
         return getAxis(this.blockFace).equals(getAxis(other.blockFace));
     }
@@ -316,6 +314,10 @@ public class Cog extends CustomBlock {
     
     @Override
     public boolean onWrenchInteract(org.bukkit.entity.Player player, boolean sneaking) {
+        if (sneaking) {
+            return false;
+        }
+        
         togglePowerSource();
         player.sendMessage(isPowerSource ? 
             "§aCog is now a power source!" : 

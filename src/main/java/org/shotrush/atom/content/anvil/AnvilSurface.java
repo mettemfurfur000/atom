@@ -66,8 +66,8 @@ public class AnvilSurface extends InteractiveSurface {
             ));
             
             Interaction interaction = (Interaction) spawnLocation.getWorld().spawnEntity(spawnLocation, EntityType.INTERACTION);
-            interaction.setInteractionWidth(1.01f);
-            interaction.setInteractionHeight(1.01f);
+            interaction.setInteractionWidth(1f);
+            interaction.setInteractionHeight(1f);
             interaction.setResponsive(true);
             
             this.displayUUID = base.getUniqueId();
@@ -125,6 +125,7 @@ public class AnvilSurface extends InteractiveSurface {
     public void remove() {
         for (PlacedItem item : placedItems) {
             removeItemDisplay(item);
+            blockLocation.getWorld().dropItemNaturally(blockLocation, item.getItem());
         }
         if (displayUUID != null) {
             Entity entity = Bukkit.getEntity(displayUUID);

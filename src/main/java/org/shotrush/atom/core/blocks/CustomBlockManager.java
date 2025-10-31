@@ -72,7 +72,7 @@ public class CustomBlockManager implements Listener {
                     try {
                         Constructor<?> constructor = clazz.getConstructor(Atom.class);
                         BlockType blockType = (BlockType) constructor.newInstance(plugin);
-                        registry.register(blockType);
+                        registry.register(blockType.getIdentifier(), blockType);
                         plugin.getLogger().info("  ✓ Registered: " + blockType.getIdentifier());
                     } catch (Exception e) {
                         plugin.getLogger().warning("Failed to register block type: " + clazz.getName());
@@ -254,10 +254,29 @@ public class CustomBlockManager implements Listener {
     }
 
     @EventHandler(priority = org.bukkit.event.EventPriority.HIGHEST)
-    public void onPlayerInteractEntity(PlayerInteractEntityEvent event) {
+    public void onPlayerInteract(PlayerInteractEntityEvent event) {
         if (event.isCancelled()) return;
         if (event.getHand() != org.bukkit.inventory.EquipmentSlot.HAND) return;
-        handleInteraction(event.getRightClicked(), event.getPlayer(), event);
+        
+        Entity entity = event.getRightClicked();
+        if (!(entity instanceof Interaction)) return;
+        
+        Interaction interaction = (Interaction) entity;
+        for (int i = 0; i < blocks.size(); i++) {
+            CustomBlock block = blocks.get(i);
+            if (block.getInteractionUUID().equals(entity.getUniqueId())) {
+                Bukkit.getRegionScheduler().run(plugin, interaction.getLocation(), task -> {
+                    org.bukkit.entity.Entity ent = Bukkit.getEntity(interaction.getUniqueId());
+                    if (ent instanceof Interaction inter) {
+                        inter.setResponsive(false);
+                        inter.setResponsive(true);
+                    }
+                });
+                
+                handleBlockInteraction(block, i, event.getPlayer(), event);
+                return;
+            }
+        }
     }
     
     @EventHandler(priority = org.bukkit.event.EventPriority.LOWEST)
@@ -268,106 +287,58 @@ public class CustomBlockManager implements Listener {
         if (event.getClickedBlock() == null) return;
         if (event.getClickedBlock().getType() != Material.BARRIER) return;
         
-        
-        ItemStack itemInHand = event.getPlayer().getInventory().getItemInMainHand();
-        boolean hasWrench = plugin.getItemRegistry().getItem("wrench") != null &&
-                           plugin.getItemRegistry().getItem("wrench").isCustomItem(itemInHand);
-        
-        
-        if (!hasWrench) {
-            return;
-        }
-        
         Location clickedLoc = event.getClickedBlock().getLocation();
-        for (CustomBlock block : blocks) {
+        for (int i = 0; i < blocks.size(); i++) {
+            CustomBlock block = blocks.get(i);
             if (block.getBlockLocation().equals(clickedLoc)) {
-                handleBarrierInteraction(block, event.getPlayer(), event);
+                handleBlockInteraction(block, i, event.getPlayer(), event);
                 return;
             }
         }
     }
     
-    private void handleInteraction(Entity entity, Player player, org.bukkit.event.Cancellable event) {
-        if (!(entity instanceof Interaction)) return;
-        
-        Interaction interaction = (Interaction) entity;
-
+    private void handleBlockInteraction(CustomBlock block, int index, Player player, org.bukkit.event.Cancellable event) {
         ItemStack itemInHand = player.getInventory().getItemInMainHand();
         boolean hasWrench = plugin.getItemRegistry().getItem("wrench") != null &&
                            plugin.getItemRegistry().getItem("wrench").isCustomItem(itemInHand);
 
-        for (int i = 0; i < blocks.size(); i++) {
-            CustomBlock block = blocks.get(i);
-            if (block.getInteractionUUID().equals(entity.getUniqueId())) {
-                event.setCancelled(true);
-                
-                Bukkit.getRegionScheduler().run(plugin, interaction.getLocation(), task -> {
-                    org.bukkit.entity.Entity ent = Bukkit.getEntity(interaction.getUniqueId());
-                    if (ent instanceof Interaction inter) {
-                        inter.setResponsive(false);
-                        inter.setResponsive(true);
-                    }
-                });
-                
-                
-                if (block instanceof org.shotrush.atom.core.blocks.InteractiveSurface) {
-                    event.setCancelled(true);
-                    if (hasWrench) {
-                        if (player.isSneaking()) {
-                            if (block.onWrenchInteract(player, true)) {
-                                return;
-                            }
-                            block.remove();
-                            blocks.remove(i);
-                            block.onRemoved();
-                            player.sendMessage("§cBlock removed!");
-                            return;
-                        } else {
-                            block.onWrenchInteract(player, false);
-                            return;
-                        }
-                    } else {
-                        
-                        block.onWrenchInteract(player, false);
+        if (block instanceof org.shotrush.atom.core.blocks.InteractiveSurface) {
+            event.setCancelled(true);
+            if (hasWrench) {
+                if (player.isSneaking()) {
+                    if (block.onWrenchInteract(player, true)) {
                         return;
                     }
+                    block.remove();
+                    blocks.remove(index);
+                    block.onRemoved();
+                    player.sendMessage("§cBlock removed!");
+                    return;
+                } else {
+                    block.onWrenchInteract(player, false);
+                    return;
                 }
-                
-                
-                if (hasWrench) {
-                    event.setCancelled(true);
-                    if (player.isSneaking()) {
-                        if (block.onWrenchInteract(player, true)) {
-                            return;
-                        }
-                        block.remove();
-                        blocks.remove(i);
-                        block.onRemoved();
-                        player.sendMessage("§cBlock removed!");
-                        return;
-                    } else {
-                        block.onWrenchInteract(player, false);
-                        return;
-                    }
-                }
+            } else {
+                block.onWrenchInteract(player, false);
                 return;
             }
         }
-    }
-    
-    private void handleBarrierInteraction(CustomBlock block, Player player, org.bukkit.event.Cancellable event) {
-        event.setCancelled(true);
         
-        if (player.isSneaking()) {
-            if (block.onWrenchInteract(player, true)) {
+        if (hasWrench) {
+            event.setCancelled(true);
+            if (player.isSneaking()) {
+                if (block.onWrenchInteract(player, true)) {
+                    return;
+                }
+                block.remove();
+                blocks.remove(index);
+                block.onRemoved();
+                player.sendMessage("§cBlock removed!");
+                return;
+            } else {
+                block.onWrenchInteract(player, false);
                 return;
             }
-            blocks.remove(block);
-            block.remove();
-            block.onRemoved();
-            player.sendMessage("§cBlock removed!");
-        } else {
-            block.onWrenchInteract(player, false);
         }
     }
 
