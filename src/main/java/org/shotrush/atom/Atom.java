@@ -22,9 +22,9 @@ import org.shotrush.atom.world.RockChunkGenerator;
 public final class Atom extends JavaPlugin {
 
     @Getter
-    private static Atom instance;
+    public static Atom instance;
     @Getter
-    private CustomBlockManager blockManager;
+    public CustomBlockManager blockManager;
     @Getter
     private CustomItemRegistry itemRegistry;
     @Getter

@@ -1,14 +1,12 @@
 package org.shotrush.atom.content.foragingage.blocks;
 
-import org.bukkit.Bukkit;
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.World;
+import org.bukkit.*;
 import org.bukkit.block.BlockFace;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.ItemDisplay;
 import org.bukkit.inventory.ItemStack;
+
 import org.joml.AxisAngle4f;
 import org.joml.Vector3f;
 import org.shotrush.atom.Atom;
@@ -27,20 +25,19 @@ public class Pebble extends CustomBlock {
     }
 
     @Override
-    public void spawn(Atom plugin) {
-        Bukkit.getRegionScheduler().run(plugin, spawnLocation, task -> {
-            ItemDisplay display = (ItemDisplay) spawnLocation.getWorld().spawnEntity(spawnLocation, EntityType.ITEM_DISPLAY);
-            
-            ItemStack pebbleItem = createItemWithCustomModel(Material.STONE_BUTTON, "pebble");
+    public void spawn(Atom plugin, RegionAccessor accessor) {
+        ItemDisplay display = (ItemDisplay) accessor.spawnEntity(spawnLocation, EntityType.ITEM_DISPLAY);
 
-            float randomYaw = (float) (Math.random() * Math.PI * 2);
-            AxisAngle4f randomRotation = new AxisAngle4f(randomYaw, 0, 1, 0);
+        ItemStack pebbleItem = createItemWithCustomModel(Material.STONE_BUTTON, "pebble");
 
-            float randomX = (float) (Math.random() * 0.4 - 0.2);
-            float randomZ = (float) (Math.random() * 0.4 - 0.2);
+        float randomYaw = (float) (Math.random() * Math.PI * 2);
+        AxisAngle4f randomRotation = new AxisAngle4f(randomYaw, 0, 1, 0);
 
-            spawnDisplay(display, plugin, pebbleItem, new Vector3f(randomX, 0.05f, randomZ), randomRotation, new Vector3f(0.7f, 0.4f, 0.7f), false, 0.5f, 0.2f);
-        });
+        float randomX = (float) (Math.random() * 0.4 - 0.2);
+        float randomZ = (float) (Math.random() * 0.4 - 0.2);
+
+        spawnDisplay(display, plugin, pebbleItem, new Vector3f(randomX, 0.05f, randomZ), randomRotation, new Vector3f(0.7f, 0.4f, 0.7f), false, 0.5f, 0.2f);
+
     }
 
     @Override
@@ -86,8 +83,8 @@ public class Pebble extends CustomBlock {
     @Override
     public String[] getLore() {
         return new String[]{
-            "§7A small stone pebble",
-            "§8[Decorative Item]"
+                "§7A small stone pebble",
+                "§8[Decorative Item]"
         };
     }
 
@@ -98,14 +95,14 @@ public class Pebble extends CustomBlock {
             if (parts.length >= 5) {
                 World world = Bukkit.getWorld(parts[0]);
                 if (world == null) return null;
-                
+
                 double x = Double.parseDouble(parts[1]);
                 double y = Double.parseDouble(parts[2]);
                 double z = Double.parseDouble(parts[3]);
                 Location location = new Location(world, x, y, z);
-                
+
                 BlockFace face = BlockFace.valueOf(parts[4]);
-                
+
                 return new Pebble(location, face);
             }
         } catch (Exception e) {
@@ -118,7 +115,7 @@ public class Pebble extends CustomBlock {
     public ItemStack getDropItem() {
         return new ItemStack(Material.BRUSH, 1);
     }
-    
+
     public String getModelName() {
         return "pebble";
     }

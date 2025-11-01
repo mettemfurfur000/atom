@@ -1,12 +1,16 @@
 package org.shotrush.atom.world
 
 import org.bukkit.HeightMap
+import org.bukkit.Location
 import org.bukkit.Material
 import org.bukkit.World
+import org.bukkit.block.BlockFace
 import org.bukkit.generator.BlockPopulator
 import org.bukkit.generator.ChunkGenerator
 import org.bukkit.generator.LimitedRegion
 import org.bukkit.generator.WorldInfo
+import org.shotrush.atom.Atom
+import org.shotrush.atom.core.blocks.CustomBlockRegistry
 import java.util.*
 
 object RockChunkGenerator : ChunkGenerator() {
@@ -38,6 +42,9 @@ object RockBlockPopulator : BlockPopulator() {
         Material.AZALEA_LEAVES,
         Material.FLOWERING_AZALEA_LEAVES,
     )
+    val rock by lazy { Atom.instance.blockManager.registry.getBlockType("pebble") }
+    val stick by lazy { Atom.instance.blockManager.registry.getBlockType("ground_stick") }
+
     private val CAN_REPLACE = setOf(
         Material.LEAF_LITTER,
         Material.SNOW
@@ -76,13 +83,18 @@ object RockBlockPopulator : BlockPopulator() {
                 val adjToStone = isAdjacentToStone(limitedRegion, x, y, z)
 
                 val mat = when {
-                    underLeaves -> BLOCK_UNDER_LEAVES
-                    adjToStone -> BLOCK_ADJ_TO_STONE
-                    adjToLeaves -> BLOCK_ADJ_TO_LEAVES
-                    else -> BLOCK_OPEN
+                    underLeaves -> stick
+                    adjToStone -> rock
+                    adjToLeaves -> stick
+                    else -> rock
                 }
+                val location = Location(limitedRegion.world, x.toDouble(), y.toDouble(), z.toDouble())
+                val spawn = location.clone().add(0.5, 0.0, 0.5)
 
-                limitedRegion.setBlockData(x, y, z, mat.createBlockData())
+//                limitedRegion.setBlockData(x, y, z, mat.createBlockData())
+                val block = mat.createBlock(spawn, location, BlockFace.NORTH)
+                block.spawn(Atom.instance, limitedRegion)
+                Atom.instance.blockManager.blocks.add(block)
             }
         }
     }

@@ -25,10 +25,10 @@ public class CustomBlockManager implements Listener {
 
     private final Atom plugin;
     @Getter
-    private final CustomBlockRegistry registry;
+    public final CustomBlockRegistry registry;
     private final NamespacedKey wrenchKey;
     @Getter
-    private final List<CustomBlock> blocks;
+    public final List<CustomBlock> blocks;
     private final CustomBlockDataManager dataManager;
     private ScheduledTask globalUpdateTask;
     private float globalAngle = 0;

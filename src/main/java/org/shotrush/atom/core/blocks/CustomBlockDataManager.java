@@ -42,7 +42,7 @@ public class CustomBlockDataManager {
     
     public void saveBlocks(List<CustomBlock> blocks) {
         dataConfig.set("blocks", null);
-        
+
         
         Map<String, List<String>> blocksByType = new HashMap<>();
         

@@ -1,9 +1,6 @@
 package org.shotrush.atom.content.blocks.anvil;
 
-import org.bukkit.Bukkit;
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.World;
+import org.bukkit.*;
 import org.bukkit.block.BlockFace;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
@@ -52,20 +49,18 @@ public class AnvilSurface extends InteractiveSurface {
         float offset = itemCount * 0.15f - 0.3f;
         return new Vector3f(offset, 0.6f, 0);
     }
-    
+
     @Override
-    public void spawn(Atom plugin) {
-        Bukkit.getRegionScheduler().run(plugin, spawnLocation, task -> {
-            ItemDisplay base = (ItemDisplay) spawnLocation.getWorld().spawnEntity(spawnLocation, EntityType.ITEM_DISPLAY);
-            ItemStack anvilItem = new ItemStack(Material.ANVIL);
-            
-            spawnDisplay(base, plugin, anvilItem, new Vector3f(0, 0.5f, 0), new AxisAngle4f(), new Vector3f(1, 1, 1), true, 1f, 1f);
-            for (PlacedItem item : placedItems) {
-                spawnItemDisplay(item);
-            }
-        });
+    public void spawn(Atom plugin, RegionAccessor accessor) {
+        ItemDisplay base = (ItemDisplay) accessor.spawnEntity(spawnLocation, EntityType.ITEM_DISPLAY);
+        ItemStack anvilItem = new ItemStack(Material.ANVIL);
+
+        spawnDisplay(base, plugin, anvilItem, new Vector3f(0, 0.5f, 0), new AxisAngle4f(), new Vector3f(1, 1, 1), true, 1f, 1f);
+        for (PlacedItem item : placedItems) {
+            spawnItemDisplay(item);
+        }
     }
-    
+
     @Override
     protected AxisAngle4f getItemDisplayRotation(PlacedItem item) {
         float yawRadians = (float) Math.toRadians(item.getYaw());
