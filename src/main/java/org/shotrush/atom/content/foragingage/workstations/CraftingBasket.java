@@ -40,14 +40,14 @@ public class CraftingBasket extends InteractiveSurface {
     @Override
     public Vector3f calculatePlacement(Player player, int itemCount) {
         float[][] positions = {
-            {-0.15f, 0.3f, 0f},
-            {0.15f, 0.3f, 0f}
+            {-0.2f, 0.2f, 0f},
+            {0.2f, 0.2f, 0f}
         };
         
         if (itemCount < positions.length) {
             return new Vector3f(positions[itemCount][0], positions[itemCount][1], positions[itemCount][2]);
         }
-        return new Vector3f(0, 0.3f, 0);
+        return new Vector3f(0, 0.2f, 0);
     }
 
     @Override
