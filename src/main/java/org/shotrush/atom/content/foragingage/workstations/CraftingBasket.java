@@ -54,7 +54,7 @@ public class CraftingBasket extends InteractiveSurface {
     public void spawn(Atom plugin) {
         Bukkit.getRegionScheduler().run(plugin, spawnLocation, task -> {
             ItemDisplay display = (ItemDisplay) spawnLocation.getWorld().spawnEntity(spawnLocation, EntityType.ITEM_DISPLAY);
-            ItemStack basketItem = createItemWithCustomModel(Material.DIAMOND, "crafting_basket");
+            ItemStack basketItem = createItemWithCustomModel(Material.STONE_BUTTON, "crafting_basket");
             
             spawnDisplay(display, plugin, basketItem, new Vector3f(0, 0.5f, 0), new AxisAngle4f(), new Vector3f(1f, 1f, 1f), false, 1f, 0.2f);
             
@@ -147,7 +147,7 @@ public class CraftingBasket extends InteractiveSurface {
 
     @Override
     public Material getItemMaterial() {
-        return Material.DEAD_BUSH;
+        return Material.STONE_BUTTON;
     }
 
     @Override

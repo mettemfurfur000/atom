@@ -40,14 +40,19 @@ public class KnappingStation extends InteractiveSurface {
 
     @Override
     public Vector3f calculatePlacement(Player player, int itemCount) {
-        return new Vector3f(-0.1f, 0.77f, 0.1f);
+        return new Vector3f(-0.15f, 0.98f, 0.17f);
     }
 
     @Override
     public void spawn(Atom plugin) {
         Bukkit.getRegionScheduler().run(plugin, spawnLocation, task -> {
+            // Place barrier block at the block location
+            if (blockLocation != null) {
+                blockLocation.getBlock().setType(Material.BARRIER);
+            }
+            
             ItemDisplay display = (ItemDisplay) spawnLocation.getWorld().spawnEntity(spawnLocation, EntityType.ITEM_DISPLAY);
-            ItemStack stationItem = createItemWithCustomModel(Material.DIAMOND, "knapping_station");
+            ItemStack stationItem = createItemWithCustomModel(Material.STONE_BUTTON, "knapping_station");
             
             spawnDisplay(display, plugin, stationItem, new Vector3f(0, 0.5f, 0), new AxisAngle4f(), new Vector3f(1f, 1f, 1f), false, 0.65f, 0.75f);
             
@@ -89,6 +94,11 @@ public class KnappingStation extends InteractiveSurface {
 
     @Override
     public void remove() {
+        // Remove barrier block
+        if (blockLocation != null && blockLocation.getBlock().getType() == Material.BARRIER) {
+            blockLocation.getBlock().setType(Material.AIR);
+        }
+        
         for (PlacedItem item : placedItems) {
             removeItemDisplay(item);
             spawnLocation.getWorld().dropItemNaturally(spawnLocation, item.getItem());
@@ -112,7 +122,7 @@ public class KnappingStation extends InteractiveSurface {
         
         if (hand.getType() == Material.BRUSH) {
             if (!placedItems.isEmpty()) {
-                player.swingMainHand();
+                //player.swingMainHand();
                 player.sendMessage("§7*knapping sounds*");
             } else {
                 player.sendMessage("§cPlace flint first!");
@@ -151,7 +161,7 @@ public class KnappingStation extends InteractiveSurface {
 
     @Override
     public Material getItemMaterial() {
-        return Material.OAK_SLAB;
+        return Material.STONE_BUTTON;
     }
 
     @Override

@@ -14,6 +14,6 @@ public class CogCommand extends BaseCommand {
     @Default
     @CommandPermission("atom.cog")
     public void onCog(Player player) {
-        Atom.getInstance().getBlockManager().giveBlockItem(player, "cog");
+        Atom.getInstance().getBlockManager().giveBlockItem(player, "cog_small");
     }
 }

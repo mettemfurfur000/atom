@@ -122,6 +122,14 @@ public class CustomBlockManager implements Listener {
             block.spawn(plugin);
             blocks.add(block);
         }
+        // Recalculate power for all cogs after loading
+        Bukkit.getGlobalRegionScheduler().runDelayed(plugin, task -> {
+            org.shotrush.atom.content.blocks.cog.CogManager cogManager =
+                    new org.shotrush.atom.content.blocks.cog.CogManager(plugin);
+            cogManager.recalculatePower(blocks);
+            plugin.getLogger().info("Recalculated cog power after server restart");
+        }, 5L); // Small delay to ensure all blocks are fully spawned
+
         plugin.getLogger().info("Loaded " + loadedBlocks.size() + " block(s)");
     }
 
@@ -174,6 +182,11 @@ public class CustomBlockManager implements Listener {
         if (meta != null) {
             meta.setDisplayName(blockType.getDisplayName());
             meta.setLore(Arrays.asList(blockType.getLore()));
+            
+            // Add custom model data
+            org.bukkit.inventory.meta.components.CustomModelDataComponent component = meta.getCustomModelDataComponent();
+            component.setStrings(java.util.List.of(blockTypeId));
+            meta.setCustomModelDataComponent(component);
             
             NamespacedKey key = registry.getKey(blockTypeId);
             meta.getPersistentDataContainer().set(key, PersistentDataType.BYTE, (byte) 1);

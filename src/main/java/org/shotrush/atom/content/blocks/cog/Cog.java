@@ -66,11 +66,11 @@ public class Cog extends CustomBlock {
             ItemDisplay display = (ItemDisplay) spawnLocation.getWorld().spawnEntity(spawnLocation, EntityType.ITEM_DISPLAY);
 
             String modelName = isPowerSource ? "cog_small_powered" : "cog_small";
-            ItemStack diamondItem = createItemWithCustomModel(Material.DIAMOND, modelName);
+            ItemStack buttonItem = createItemWithCustomModel(Material.STONE_BUTTON, modelName);
 
             AxisAngle4f initialRotation = BlockRotationUtil.getInitialRotationFromFace(blockFace);
 
-            spawnDisplay(display, plugin, diamondItem, new Vector3f(0, 0.5f, 0), initialRotation, new Vector3f(1, 1, 1), true, 1f, 1f);
+            spawnDisplay(display, plugin, buttonItem, new Vector3f(0, 0.5f, 0), initialRotation, new Vector3f(1, 1, 1), true, 1f, 1f);
         });
     }
     
@@ -92,14 +92,14 @@ public class Cog extends CustomBlock {
             
             Transformation currentTransform = display.getTransformation();
             String modelName = isPowerSource ? "cog_small_powered" : "cog_small";
-            ItemStack diamondItem = createItemWithCustomModel(Material.DIAMOND, modelName);
+            ItemStack buttonItem = createItemWithCustomModel(Material.STONE_BUTTON, modelName);
         
             
             display.setInterpolationDuration(0);
             display.setInterpolationDelay(0);
         
             
-            display.setItemStack(diamondItem);
+            display.setItemStack(buttonItem);
             display.setTransformation(currentTransform);
         
             
@@ -209,7 +209,7 @@ public class Cog extends CustomBlock {
 
     @Override
     public String getIdentifier() {
-        return "cog";
+        return "cog_small";
     }
 
     @Override
@@ -219,7 +219,7 @@ public class Cog extends CustomBlock {
 
     @Override
     public Material getItemMaterial() {
-        return Material.IRON_BLOCK;
+        return Material.STONE_BUTTON;
     }
 
     @Override

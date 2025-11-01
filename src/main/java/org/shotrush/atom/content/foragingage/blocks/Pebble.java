@@ -80,7 +80,7 @@ public class Pebble extends CustomBlock {
 
     @Override
     public Material getItemMaterial() {
-        return Material.STONE;
+        return Material.STONE_BUTTON;
     }
 
     @Override
