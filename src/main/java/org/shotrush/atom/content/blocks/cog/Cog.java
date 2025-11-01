@@ -1,5 +1,6 @@
-package org.shotrush.atom.content.cog;
+package org.shotrush.atom.content.blocks.cog;
 
+import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -10,19 +11,21 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Interaction;
 import org.bukkit.entity.ItemDisplay;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.util.Transformation;
 import org.joml.AxisAngle4f;
-import org.joml.Quaternionf;
 import org.joml.Vector3f;
 import org.shotrush.atom.Atom;
 import org.shotrush.atom.core.blocks.*;
-import org.shotrush.atom.content.cog.*;;
+import org.shotrush.atom.core.blocks.annotation.AutoRegister;
+import org.shotrush.atom.core.blocks.util.BlockRotationUtil;
+;
 
+@AutoRegister(priority = 10)
 public class Cog extends CustomBlock {
+    @Getter
     private boolean isPowerSource;
     private boolean isPowered;
-    @Setter
+    @Getter @Setter
     private int rotationDirection;
 
     
@@ -62,91 +65,25 @@ public class Cog extends CustomBlock {
     public void update(float globalAngle) {
         updateRotation(globalAngle);
     }
-
     @Override
     public void spawn(Atom plugin) {
         
         Bukkit.getRegionScheduler().run(plugin, spawnLocation, task -> {
-            
             cleanupExistingEntities();
-            
-            
-            blockLocation.getBlock().setType(Material.BARRIER);
-
-            
             ItemDisplay display = (ItemDisplay) spawnLocation.getWorld().spawnEntity(spawnLocation, EntityType.ITEM_DISPLAY);
-            spawnDisplay(display, plugin);
+
+            String modelName = isPowerSource ? "cog_small_powered" : "cog_small";
+            ItemStack diamondItem = createItemWithCustomModel(Material.DIAMOND, modelName);
+
+            AxisAngle4f initialRotation = BlockRotationUtil.getInitialRotationFromFace(blockFace);
+
+            spawnDisplay(display, plugin, diamondItem, new Vector3f(0, 0.5f, 0), initialRotation, new Vector3f(1, 1, 1), true, 1f, 1f);
         });
     }
     
-    private void spawnDisplay(ItemDisplay display, Atom plugin) {
-
-        
-        ItemStack diamondItem = new ItemStack(Material.DIAMOND);
-        ItemMeta diamondMeta = diamondItem.getItemMeta();
-        if (diamondMeta != null) {
-            org.bukkit.inventory.meta.components.CustomModelDataComponent component = diamondMeta.getCustomModelDataComponent();
-            component.setStrings(java.util.List.of(isPowerSource ? "cog_small_powered" : "cog_small"));
-            diamondMeta.setCustomModelDataComponent(component);
-            diamondItem.setItemMeta(diamondMeta);
-        }
-
-        display.setItemStack(diamondItem);
-        
-        
-        display.setInterpolationDuration(0);
-        display.setInterpolationDelay(0);
-
-        
-        AxisAngle4f initialRotation = getInitialRotationFromFace(blockFace);
-
-        display.setTransformation(new Transformation(
-                new Vector3f(0, 0.5f, 0),
-                initialRotation,
-                new Vector3f(1, 1, 1),
-                new AxisAngle4f()
-        ));
-
-        
-        Interaction interaction = (Interaction) spawnLocation.getWorld().spawnEntity(spawnLocation, EntityType.INTERACTION);
-        interaction.setInteractionWidth(1f);
-        interaction.setInteractionHeight(1f);
-        interaction.setResponsive(true);
-        interaction.setInvulnerable(true);
-        interaction.setGravity(false);
-        interaction.addPassenger(display);
-
-        
-        this.interactionUUID = interaction.getUniqueId();
-        this.displayUUID = display.getUniqueId();
-    }
-
-    
     public void updateRotation(float globalAngle) {
         if (!isPowered) return;
-        if (displayUUID == null) return; 
-        
-        Entity entity = Bukkit.getEntity(displayUUID);
-        if (!(entity instanceof ItemDisplay)) return;
-        
-        ItemDisplay display = (ItemDisplay) entity;
-        if (display.isDead() || !display.isValid()) return;
-
-        
-        display.getScheduler().run(Atom.getInstance(), task -> {
-            AxisAngle4f baseRotation = getInitialRotationFromFace(blockFace);
-            AxisAngle4f spinRotation = new AxisAngle4f(globalAngle * rotationDirection, 0, 1, 0);
-            AxisAngle4f combinedRotation = combineRotations(baseRotation, spinRotation);
-
-            Transformation transformation = new Transformation(
-                    new Vector3f(0, 0.5f, 0),
-                    combinedRotation,
-                    new Vector3f(1, 1, 1),
-                    new AxisAngle4f()
-            );
-
-            display.setTransformation(transformation);
-        }, null);
+        updateDisplayRotation(globalAngle, rotationDirection, new Vector3f(0, 0.5f, 0), new Vector3f(1, 1, 1));
     }
 
     
@@ -161,16 +98,8 @@ public class Cog extends CustomBlock {
         
             
             Transformation currentTransform = display.getTransformation();
-        
-            
-            ItemStack diamondItem = new ItemStack(Material.DIAMOND);
-            ItemMeta diamondMeta = diamondItem.getItemMeta();
-            if (diamondMeta != null) {
-                org.bukkit.inventory.meta.components.CustomModelDataComponent component = diamondMeta.getCustomModelDataComponent();
-                component.setStrings(java.util.List.of(isPowerSource ? "cog_small_powered" : "cog_small"));
-                diamondMeta.setCustomModelDataComponent(component);
-                diamondItem.setItemMeta(diamondMeta);
-            }
+            String modelName = isPowerSource ? "cog_small_powered" : "cog_small";
+            ItemStack diamondItem = createItemWithCustomModel(Material.DIAMOND, modelName);
         
             
             display.setInterpolationDuration(0);
@@ -219,43 +148,12 @@ public class Cog extends CustomBlock {
         return interaction != null && display != null && !interaction.isDead() && !display.isDead();
     }
 
-    private AxisAngle4f getInitialRotationFromFace(BlockFace face) {
-        switch (face) {
-            case UP, DOWN:
-                return new AxisAngle4f();
-            case NORTH, SOUTH:
-                return new AxisAngle4f((float) Math.PI / 2, 1, 0, 0);
-            case WEST, EAST:
-                return new AxisAngle4f((float) Math.PI / 2, 0, 0, 1);
-            default:
-                return new AxisAngle4f();
-        }
-    }
-
-    private AxisAngle4f combineRotations(AxisAngle4f first, AxisAngle4f second) {
-        Quaternionf q1 = new Quaternionf().rotateAxis(first.angle, first.x, first.y, first.z);
-        Quaternionf q2 = new Quaternionf().rotateAxis(second.angle, second.x, second.y, second.z);
-        q1.mul(q2);
-
-        AxisAngle4f result = new AxisAngle4f();
-        q1.get(result);
-        return result;
-    }
-
-    
-    public boolean isPowerSource() {
-        return isPowerSource;
-    }
 
     public void setPowerSource(boolean powerSource) {
         this.isPowerSource = powerSource;
         if (powerSource) {
             this.isPowered = true;
         }
-    }
-
-    public boolean isPowered() {
-        return isPowered;
     }
 
     public void setPowered(boolean powered) {
@@ -266,28 +164,8 @@ public class Cog extends CustomBlock {
         }
     }
 
-    public int getRotationDirection() {
-        return rotationDirection;
-    }
-
     public boolean isSameAxisAs(Cog other) {
-        return getAxis(this.blockFace).equals(getAxis(other.blockFace));
-    }
-
-    private String getAxis(BlockFace face) {
-        switch (face) {
-            case UP:
-            case DOWN:
-                return "Y";
-            case NORTH:
-            case SOUTH:
-                return "Z";
-            case EAST:
-            case WEST:
-                return "X";
-            default:
-                return "UNKNOWN";
-        }
+        return BlockRotationUtil.isSameAxis(this.blockFace, other.blockFace);
     }
 
     public boolean isConnectedAlongAxis(Cog other) {
@@ -298,18 +176,14 @@ public class Cog extends CustomBlock {
         int dy = Math.abs(thisLoc.getBlockY() - otherLoc.getBlockY());
         int dz = Math.abs(thisLoc.getBlockZ() - otherLoc.getBlockZ());
         
-        String axis = getAxis(this.blockFace);
+        BlockRotationUtil.Axis axis = BlockRotationUtil.getAxis(this.blockFace);
         
-        switch (axis) {
-            case "Y":
-                return dy > 0 && dx == 0 && dz == 0;
-            case "Z":
-                return dz > 0 && dx == 0 && dy == 0;
-            case "X":
-                return dx > 0 && dy == 0 && dz == 0;
-            default:
-                return false;
-        }
+        return switch (axis) {
+            case Y -> dy > 0 && dx == 0 && dz == 0;
+            case Z -> dz > 0 && dx == 0 && dy == 0;
+            case X -> dx > 0 && dy == 0 && dz == 0;
+            default -> false;
+        };
     }
     
     @Override
@@ -338,5 +212,68 @@ public class Cog extends CustomBlock {
     public void onRemoved() {
         CogManager cogManager = new CogManager(Atom.getInstance());
         cogManager.recalculatePower(Atom.getInstance().getBlockManager().getBlocks());
+    }
+
+    @Override
+    public String getIdentifier() {
+        return "cog";
+    }
+
+    @Override
+    public String getDisplayName() {
+        return "§6⚙ Mechanical Cog";
+    }
+
+    @Override
+    public Material getItemMaterial() {
+        return Material.IRON_BLOCK;
+    }
+
+    @Override
+    public String[] getLore() {
+        return new String[]{
+            "§7Place this item to create a",
+            "§7rotating mechanical cog",
+            "§8• Use a wrench to power/remove",
+            "§8[Mechanical Component]"
+        };
+    }
+
+    @Override
+    public CustomBlock deserialize(String data) {
+        try {
+            String[] parts = data.split(";");
+            if (parts.length >= 5) {
+                org.bukkit.World world = Bukkit.getWorld(parts[0]);
+                if (world == null) return null;
+                
+                double x = Double.parseDouble(parts[1]);
+                double y = Double.parseDouble(parts[2]);
+                double z = Double.parseDouble(parts[3]);
+                Location location = new Location(world, x, y, z);
+                
+                BlockFace face = BlockFace.valueOf(parts[4]);
+                boolean isPowerSource = parts.length > 5 && Boolean.parseBoolean(parts[5]);
+                
+                return new Cog(location, face, isPowerSource);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public boolean requiresUpdate() {
+        return true;
+    }
+
+    @Override
+    public ItemStack getDropItem() {
+        org.shotrush.atom.core.items.CustomItem item = Atom.getInstance().getItemRegistry().getItem(getIdentifier());
+        if (item != null) {
+            return item.create();
+        }
+        return new ItemStack(getItemMaterial());
     }
 }

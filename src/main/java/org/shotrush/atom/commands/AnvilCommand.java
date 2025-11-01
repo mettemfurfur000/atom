@@ -4,7 +4,9 @@ import co.aikar.commands.BaseCommand;
 import co.aikar.commands.annotation.*;
 import org.bukkit.entity.Player;
 import org.shotrush.atom.Atom;
+import org.shotrush.atom.commands.annotation.AutoRegister;
 
+@AutoRegister(priority = 20)
 @CommandAlias("anvil")
 @Description("Get an anvil surface block")
 public class AnvilCommand extends BaseCommand {

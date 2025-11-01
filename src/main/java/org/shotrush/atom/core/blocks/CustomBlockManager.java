@@ -70,10 +70,15 @@ public class CustomBlockManager implements Listener {
             for (Class<?> clazz : sortedClasses) {
                 if (BlockType.class.isAssignableFrom(clazz)) {
                     try {
-                        Constructor<?> constructor = clazz.getConstructor(Atom.class);
-                        BlockType blockType = (BlockType) constructor.newInstance(plugin);
-                        registry.register(blockType.getIdentifier(), blockType);
-                        plugin.getLogger().info("  ✓ Registered: " + blockType.getIdentifier());
+                        if (CustomBlock.class.isAssignableFrom(clazz)) {
+                            registry.register(clazz, plugin);
+                            plugin.getLogger().info("  ✓ Registered: " + clazz.getSimpleName());
+                        } else {
+                            Constructor<?> constructor = clazz.getConstructor(Atom.class);
+                            BlockType blockType = (BlockType) constructor.newInstance(plugin);
+                            registry.register(blockType.getIdentifier(), blockType);
+                            plugin.getLogger().info("  ✓ Registered: " + blockType.getIdentifier());
+                        }
                     } catch (Exception e) {
                         plugin.getLogger().warning("Failed to register block type: " + clazz.getName());
                         e.printStackTrace();
@@ -207,6 +212,13 @@ public class CustomBlockManager implements Listener {
             Location blockLocation = event.getBlock().getLocation();
             Location spawnLocation = blockLocation.clone().add(0.5, 0, 0.5);
             
+            for (CustomBlock existingBlock : blocks) {
+                if (existingBlock.getBlockLocation().equals(blockLocation)) {
+                    event.getPlayer().sendMessage("§cA block is already placed here!");
+                    return;
+                }
+            }
+            
             CustomBlock customBlock = blockType.createBlock(
                 spawnLocation,
                 blockLocation,
@@ -274,6 +286,39 @@ public class CustomBlockManager implements Listener {
                 });
                 
                 handleBlockInteraction(block, i, event.getPlayer(), event);
+                return;
+            }
+        }
+    }
+    
+    @EventHandler(priority = org.bukkit.event.EventPriority.HIGHEST)
+    public void onEntityDamage(org.bukkit.event.entity.EntityDamageByEntityEvent event) {
+        if (event.isCancelled()) return;
+        if (!(event.getDamager() instanceof Player)) return;
+        if (!(event.getEntity() instanceof Interaction)) return;
+        
+        Player player = (Player) event.getDamager();
+        Interaction interaction = (Interaction) event.getEntity();
+        
+        for (int i = 0; i < blocks.size(); i++) {
+            CustomBlock block = blocks.get(i);
+            if (block.getInteractionUUID().equals(interaction.getUniqueId())) {
+                event.setCancelled(true);
+
+                if (block.getBlockLocation().getBlock().getType() != Material.BARRIER) {
+                    BlockType blockType = registry.getBlockType(block.getBlockType());
+                    if (blockType != null) {
+                        ItemStack dropItem = blockType.getDropItem();
+                        if (dropItem != null) {
+                            block.getSpawnLocation().getWorld().dropItemNaturally(block.getSpawnLocation(), dropItem);
+                        }
+                    }
+                    
+                    block.remove();
+                    blocks.remove(i);
+                    block.onRemoved();
+                    player.sendMessage("§cCustom block removed");
+                }
                 return;
             }
         }

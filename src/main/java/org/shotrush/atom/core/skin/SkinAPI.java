@@ -26,6 +26,18 @@ public class SkinAPI {
             profile.setProperty(new ProfileProperty("textures", value));
         }
         player.setPlayerProfile(profile);
+
+        for (Player online : Bukkit.getOnlinePlayers()) {
+            if (!online.equals(player)) {
+                online.hidePlayer(Objects.requireNonNull(Bukkit.getPluginManager().getPlugin("Atom")), player);
+                online.getScheduler().runDelayed(
+                        Objects.requireNonNull(Bukkit.getPluginManager().getPlugin("Atom")),
+                    task -> online.showPlayer(Objects.requireNonNull(Bukkit.getPluginManager().getPlugin("Atom")), player),
+                    null,
+                    2L
+                );
+            }
+        }
     }
     
     public static void setDefaultSkin(Player player) {

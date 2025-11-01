@@ -1,12 +1,12 @@
-package org.shotrush.atom.content.anvil;
+package org.shotrush.atom.content.blocks.anvil;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.World;
 import org.bukkit.block.BlockFace;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
-import org.bukkit.entity.Interaction;
 import org.bukkit.entity.ItemDisplay;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -14,10 +14,12 @@ import org.bukkit.util.Transformation;
 import org.joml.AxisAngle4f;
 import org.joml.Vector3f;
 import org.shotrush.atom.Atom;
+import org.shotrush.atom.core.blocks.CustomBlock;
 import org.shotrush.atom.core.blocks.InteractiveSurface;
+import org.shotrush.atom.core.blocks.annotation.AutoRegister;
+import org.shotrush.atom.core.blocks.util.BlockRotationUtil;
 
-import java.util.UUID;
-
+@AutoRegister(priority = 20)
 public class AnvilSurface extends InteractiveSurface {
     
     public AnvilSurface(Location spawnLocation, Location blockLocation, BlockFace blockFace) {
@@ -54,25 +56,10 @@ public class AnvilSurface extends InteractiveSurface {
     @Override
     public void spawn(Atom plugin) {
         Bukkit.getRegionScheduler().run(plugin, spawnLocation, task -> {
-            blockLocation.getBlock().setType(Material.BARRIER);
-            
             ItemDisplay base = (ItemDisplay) spawnLocation.getWorld().spawnEntity(spawnLocation, EntityType.ITEM_DISPLAY);
-            base.setItemStack(new ItemStack(Material.ANVIL));
-            base.setTransformation(new Transformation(
-                new Vector3f(0, 0.5f, 0),
-                new AxisAngle4f(),
-                new Vector3f(1, 1, 1),
-                new AxisAngle4f()
-            ));
+            ItemStack anvilItem = new ItemStack(Material.ANVIL);
             
-            Interaction interaction = (Interaction) spawnLocation.getWorld().spawnEntity(spawnLocation, EntityType.INTERACTION);
-            interaction.setInteractionWidth(1f);
-            interaction.setInteractionHeight(1f);
-            interaction.setResponsive(true);
-            
-            this.displayUUID = base.getUniqueId();
-            this.interactionUUID = interaction.getUniqueId();
-            
+            spawnDisplay(base, plugin, anvilItem, new Vector3f(0, 0.5f, 0), new AxisAngle4f(), new Vector3f(1, 1, 1), true, 1f, 1f);
             for (PlacedItem item : placedItems) {
                 spawnItemDisplay(item);
             }
@@ -92,7 +79,7 @@ public class AnvilSurface extends InteractiveSurface {
             
             display.setTransformation(new Transformation(
                 new Vector3f(0, 0.45f, 0),
-                combineRotations(yawRotation, tiltRotation),
+                BlockRotationUtil.combineRotations(yawRotation, tiltRotation),
                 new Vector3f(0.3f, 0.3f, 0.3f),
                 new AxisAngle4f()
             ));
@@ -108,15 +95,6 @@ public class AnvilSurface extends InteractiveSurface {
         }
     }
     
-    private AxisAngle4f combineRotations(AxisAngle4f first, AxisAngle4f second) {
-        org.joml.Quaternionf q1 = new org.joml.Quaternionf().rotateAxis(first.angle, first.x, first.y, first.z);
-        org.joml.Quaternionf q2 = new org.joml.Quaternionf().rotateAxis(second.angle, second.x, second.y, second.z);
-        q1.mul(q2);
-        
-        AxisAngle4f result = new AxisAngle4f();
-        q1.get(result);
-        return result;
-    }
     
     @Override
     public void update(float globalAngle) {}
@@ -194,5 +172,61 @@ public class AnvilSurface extends InteractiveSurface {
         
         player.sendMessage("§cSurface is full!");
         return false;
+    }
+    @Override
+    public String getIdentifier() {
+        return "anvil_surface";
+    }
+
+    @Override
+    public String getDisplayName() {
+        return "§7⚒ Anvil Surface";
+    }
+
+    @Override
+    public Material getItemMaterial() {
+        return Material.ANVIL;
+    }
+
+    @Override
+    public String[] getLore() {
+        return new String[]{
+            "§7Place items on this surface",
+            "§8• Right-click: Place item",
+            "§8• Shift + Right-click: Remove item"
+        };
+    }
+
+    @Override
+    public CustomBlock deserialize(String data) {
+        String[] parts = data.split(";");
+        World world = Bukkit.getWorld(parts[0]);
+        Location spawnLocation = new Location(world, 
+            Double.parseDouble(parts[1]),
+            Double.parseDouble(parts[2]),
+            Double.parseDouble(parts[3])
+        );
+        BlockFace face = BlockFace.valueOf(parts[4]);
+        AnvilSurface surface = new AnvilSurface(spawnLocation, face);
+        
+        int itemCount = Integer.parseInt(parts[5]);
+        for (int i = 0; i < itemCount; i++) {
+            String[] itemData = parts[6 + i].split(",");
+            Material mat = Material.valueOf(itemData[0]);
+            Vector3f pos = new Vector3f(
+                Float.parseFloat(itemData[1]),
+                Float.parseFloat(itemData[2]),
+                Float.parseFloat(itemData[3])
+            );
+            float yaw = itemData.length > 4 ? Float.parseFloat(itemData[4]) : 0f;
+            surface.placeItem(new ItemStack(mat), pos, yaw);
+        }
+        
+        return surface;
+    }
+
+    @Override
+    public ItemStack getDropItem() {
+        return new ItemStack(Material.ANVIL);
     }
 }

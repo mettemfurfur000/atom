@@ -25,13 +25,6 @@ public class SkinListener implements Listener {
                 } else {
                     SkinAPI.setDefaultSkin(player);
                 }
-                
-                for (Player online : Bukkit.getOnlinePlayers()) {
-                    if (!online.equals(player)) {
-                        online.hidePlayer(Objects.requireNonNull(Bukkit.getPluginManager().getPlugin("Atom")), player);
-                        online.showPlayer(Objects.requireNonNull(Bukkit.getPluginManager().getPlugin("Atom")), player);
-                    }
-                }
             },
             null,
             20L

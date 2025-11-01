@@ -1,4 +1,4 @@
-package org.shotrush.atom.content.cog;
+package org.shotrush.atom.content.blocks.cog;
 
 import org.bukkit.plugin.Plugin;
 import org.shotrush.atom.core.blocks.CustomBlock;

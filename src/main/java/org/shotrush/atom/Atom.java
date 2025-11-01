@@ -40,22 +40,13 @@ public final class Atom extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new SkinListener(), this);
         
         setupCommands();
-        
         getLogger().info("Atom plugin has been enabled!");
     }
     
     private void setupCommands() {
         PaperCommandManager commandManager = new PaperCommandManager(this);
-        
-        commandManager.registerCommand(new CogCommand());
-        commandManager.registerCommand(new WrenchCommand());
-        commandManager.registerCommand(new RemoveCogsCommand());
-        commandManager.registerCommand(new AnvilCommand());
-        commandManager.registerCommand(new AgeCommand(this));
-        commandManager.registerCommand(new SkinCommand());
+        AutoRegisterManager.registerCommands(this, commandManager);
     }
-
-    @Override
     public void onDisable() {
         if (blockManager != null) {
             blockManager.stopGlobalUpdate();

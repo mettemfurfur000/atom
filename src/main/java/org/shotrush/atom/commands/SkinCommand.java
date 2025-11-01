@@ -7,8 +7,10 @@ import co.aikar.commands.annotation.Subcommand;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import org.shotrush.atom.Atom;
+import org.shotrush.atom.commands.annotation.AutoRegister;
 import org.shotrush.atom.core.skin.SkinAPI;
 
+@AutoRegister(priority = 60)
 @CommandAlias("skin")
 @CommandPermission("atom.skin")
 public class SkinCommand extends BaseCommand {

@@ -1,5 +1,6 @@
 package org.shotrush.atom.core.blocks;
 
+import lombok.Setter;
 import org.bukkit.Location;
 import org.bukkit.block.BlockFace;
 import org.bukkit.entity.Player;
@@ -54,6 +55,7 @@ public abstract class InteractiveSurface extends CustomBlock {
         private final ItemStack item;
         private final Vector3f position;
         private final float yaw;
+        @Setter
         private java.util.UUID displayUUID;
         
         public PlacedItem(ItemStack item, Vector3f position, float yaw) {
@@ -66,6 +68,5 @@ public abstract class InteractiveSurface extends CustomBlock {
         public Vector3f getPosition() { return position; }
         public float getYaw() { return yaw; }
         public java.util.UUID getDisplayUUID() { return displayUUID; }
-        public void setDisplayUUID(java.util.UUID uuid) { this.displayUUID = uuid; }
     }
 }

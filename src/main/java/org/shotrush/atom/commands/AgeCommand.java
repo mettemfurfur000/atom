@@ -3,19 +3,22 @@ package org.shotrush.atom.commands;
 import co.aikar.commands.BaseCommand;
 import co.aikar.commands.annotation.*;
 import org.bukkit.entity.Player;
+import org.bukkit.plugin.Plugin;
 import org.shotrush.atom.Atom;
+import org.shotrush.atom.commands.annotation.AutoRegister;
 import org.shotrush.atom.core.blocks.*;
 import org.shotrush.atom.core.age.Age;
 import org.shotrush.atom.core.age.AgeManager;
 
+@AutoRegister(priority = 50)
 @CommandAlias("age")
 @Description("Manage server ages and progression")
 public class AgeCommand extends BaseCommand {
     
     private final AgeManager ageManager;
     
-    public AgeCommand(Atom plugin) {
-        this.ageManager = plugin.getAgeManager();
+    public AgeCommand(Plugin plugin) {
+        this.ageManager = ((Atom) plugin).getAgeManager();
     }
     
     @Default
