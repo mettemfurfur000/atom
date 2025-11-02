@@ -23,8 +23,8 @@ public class KickAttackGoal implements Goal<Mob> {
     private int kickCooldown;
     private static final int COOLDOWN_TICKS = 60;
     private static final double KICK_RANGE = 3.0;
-    private static final double DAMAGE = 6.0;
-    private static final double KNOCKBACK = 3.0;
+    private static final double DAMAGE = 5.0;
+    private static final double KNOCKBACK = 1.5;
     private static final double BEHIND_ARC_ANGLE = 90.0;
     
     public KickAttackGoal(Mob mob, Plugin plugin) {
@@ -101,7 +101,7 @@ public class KickAttackGoal implements Goal<Mob> {
         target.damage(DAMAGE, mob);
         
         Vector knockbackDirection = targetLoc.toVector().subtract(mobLoc.toVector()).normalize();
-        knockbackDirection.setY(0.5);
+        knockbackDirection.setY(0.2);
         target.setVelocity(knockbackDirection.multiply(KNOCKBACK));
         
         mobLoc.getWorld().playSound(mobLoc, Sound.ENTITY_HORSE_ANGRY, 1.0f, 0.8f);

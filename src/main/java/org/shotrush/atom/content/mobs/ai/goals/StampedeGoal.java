@@ -34,7 +34,7 @@ public class StampedeGoal implements Goal<Mob> {
     private static final double STAMPEDE_SPEED = 1.6;
     private static final double GROUND_SHAKE_RADIUS = 8.0;
     private static final double TRAMPLE_RADIUS = 2.0;
-    private static final double TRAMPLE_DAMAGE = 3.0;
+    private static final double TRAMPLE_DAMAGE = 2.0;
     private int soundCooldown;
     
     public StampedeGoal(Mob mob, Plugin plugin, HerdManager herdManager) {

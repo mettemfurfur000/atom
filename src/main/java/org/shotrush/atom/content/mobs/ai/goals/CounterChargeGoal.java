@@ -137,7 +137,7 @@ public class CounterChargeGoal implements Goal<Mob> {
         target.damage(DAMAGE, mob);
         
         Vector knockbackDirection = target.getLocation().toVector().subtract(mobLoc.toVector()).normalize();
-        knockbackDirection.setY(0.3);
+        knockbackDirection.setY(0.15);
         target.setVelocity(knockbackDirection.multiply(KNOCKBACK));
         
         mobLoc.getWorld().playSound(mobLoc, Sound.ENTITY_HOGLIN_ATTACK, 1.0f, 1.2f);
