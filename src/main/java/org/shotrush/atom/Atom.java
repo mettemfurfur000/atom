@@ -16,6 +16,7 @@ import org.shotrush.atom.core.AutoRegisterManager;
 import org.shotrush.atom.core.blocks.CustomBlockManager;
 import org.shotrush.atom.content.mobs.AnimalBehaviorNew;
 import org.shotrush.atom.content.mobs.AnimalDomestication;
+import org.shotrush.atom.content.mobs.commands.HerdCommand;
 import org.shotrush.atom.content.mobs.MobScale;
 import org.shotrush.atom.content.foragingage.throwing.SpearProjectileListener;
 import org.shotrush.atom.core.age.AgeManager;
@@ -68,13 +69,14 @@ public final class Atom extends JavaPlugin {
         
         getServer().getPluginManager().registerEvents(new SpearProjectileListener(this), this);
         
-        setupCommands();
+        setupCommands(animalBehavior);
         getLogger().info("Atom plugin has been enabled!");
     }
     
-    private void setupCommands() {
+    private void setupCommands(AnimalBehaviorNew animalBehavior) {
         PaperCommandManager commandManager = new PaperCommandManager(this);
         AutoRegisterManager.registerCommands(this, commandManager);
+        commandManager.registerCommand(new HerdCommand(animalBehavior.getHerdManager()));
     }
     public void onDisable() {
         if (blockManager != null) {

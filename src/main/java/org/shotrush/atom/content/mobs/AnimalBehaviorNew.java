@@ -56,7 +56,7 @@ public class AnimalBehaviorNew implements Listener {
         this.herdManager = new HerdManager(plugin);
     }
     
-    @EventHandler
+    @EventHandler(priority = org.bukkit.event.EventPriority.HIGHEST)
     public void onAnimalSpawn(CreatureSpawnEvent event) {
         Entity entity = event.getEntity();
         
@@ -64,12 +64,12 @@ public class AnimalBehaviorNew implements Listener {
         if (!(entity instanceof Animals animal)) return;
         if (!(entity instanceof Mob mob)) return;
         
+        plugin.getLogger().info(">>> Animal spawn detected: " + animal.getType() + " (Reason: " + event.getSpawnReason() + ")");
+        
         if (AnimalDomestication.isFullyDomesticated(animal)) {
-            plugin.getLogger().info("Fully domesticated " + animal.getType() + " spawned - skipping enhancement");
+            plugin.getLogger().info("Fully domesticated - skipping");
             return;
         }
-        
-        plugin.getLogger().info("Animal spawned: " + animal.getType() + " at " + animal.getLocation() + " (Reason: " + event.getSpawnReason() + ")");
         
         double domesticationFactor = AnimalDomestication.getDomesticationFactor(animal);
         SpeciesBehavior behavior = SpeciesBehavior.get(animal.getType());
@@ -83,7 +83,7 @@ public class AnimalBehaviorNew implements Listener {
         boolean isAggressive = Math.random() < aggressionChance;
         animal.setMetadata("aggressive", new FixedMetadataValue(plugin, isAggressive));
         
-        plugin.getLogger().info(animal.getType() + " is aggressive: " + isAggressive + " (role: " + role + ")");
+        plugin.getLogger().info(">>> Aggressive: " + isAggressive + " (chance: " + String.format("%.1f%%", aggressionChance * 100) + ", role: " + role + ")");
         
         double maxStamina = 100 + (Math.random() * 100);
         animal.setMetadata("maxStamina", new FixedMetadataValue(plugin, maxStamina));
@@ -97,6 +97,8 @@ public class AnimalBehaviorNew implements Listener {
         if (isAggressive && entity instanceof Wolf wolf) {
             wolf.setAngry(true);
         }
+        
+        plugin.getLogger().info(">>> Goals registered successfully!");
         
         startStaminaRegeneration(animal);
     }
