@@ -15,6 +15,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataType;
 import org.shotrush.atom.Atom;
+import org.shotrush.atom.content.blocks.cog.CogManager;
 import org.shotrush.atom.core.blocks.annotation.AutoRegister;
 import org.reflections.Reflections;
 import org.shotrush.atom.core.util.MessageUtil;
@@ -50,11 +51,11 @@ public class CustomBlockManager implements Listener {
         Bukkit.getPluginManager().registerEvents(this, plugin);
         Bukkit.getPluginManager().registerEvents(new BarrierBreakHandler(plugin, this), plugin);
 
-        
-        loadBlocks();
-        
-        
-        startGlobalUpdate();
+        // Delay loading blocks until worlds are loaded
+        Bukkit.getGlobalRegionScheduler().runDelayed(plugin, task -> {
+            loadBlocks();
+            startGlobalUpdate();
+        }, 1L);
     }
 
     
@@ -133,11 +134,13 @@ public class CustomBlockManager implements Listener {
                 if (block.getSpawnLocation().getWorld() != null) {
                     block.spawn(plugin);
                     spawnedCount++;
-                    
+
+                    /*
                     if (block instanceof InteractiveSurface surface) {
                         surface.respawnAllItemDisplays();
                         respawnedCount += surface.getPlacedItems().size();
                     }
+                     */
                 }
             }
             
@@ -145,7 +148,12 @@ public class CustomBlockManager implements Listener {
             if (respawnedCount > 0) {
                 plugin.getLogger().info("Respawned " + respawnedCount + " item display(s)");
             }
+
+            // Recalculate power for all cogs after blocks are loaded
+            CogManager cogManager = new CogManager(plugin);
+            cogManager.recalculatePower(blocks);
         }, 20L);
+
     }
 
     public void saveBlocks() {
@@ -189,31 +197,41 @@ public class CustomBlockManager implements Listener {
     }
 
     public void giveBlockItem(Player player, String blockTypeId) {
-        BlockType blockType = registry.getBlockType(blockTypeId);
-        if (blockType == null) {
+        ItemStack item = createBlockItem(blockTypeId);
+        if (item == null) {
             MessageUtil.send(player, "§cUnknown block type: " + blockTypeId);
             return;
         }
 
+        player.getInventory().addItem(item);
+        MessageUtil.send(player, "§aYou received a " + item.getItemMeta().getDisplayName() + "!");
+    }
+
+    // Utility or service class method
+    public ItemStack createBlockItem(String blockTypeId) {
+        BlockType blockType = registry.getBlockType(blockTypeId);
+        if (blockType == null) {
+            return null;
+        }
+
         ItemStack item = new ItemStack(blockType.getItemMaterial());
         ItemMeta meta = item.getItemMeta();
-        
+
         if (meta != null) {
             meta.setDisplayName(blockType.getDisplayName());
             meta.setLore(Arrays.asList(blockType.getLore()));
-            
+
             org.bukkit.inventory.meta.components.CustomModelDataComponent component = meta.getCustomModelDataComponent();
             component.setStrings(java.util.List.of(blockTypeId));
             meta.setCustomModelDataComponent(component);
-            
+
             NamespacedKey key = registry.getKey(blockTypeId);
             meta.getPersistentDataContainer().set(key, PersistentDataType.BYTE, (byte) 1);
-            
+
             item.setItemMeta(meta);
         }
 
-        player.getInventory().addItem(item);
-        MessageUtil.send(player, "§aYou received a " + blockType.getDisplayName() + "!");
+        return item;
     }
 
     public void giveWrench(Player player) {

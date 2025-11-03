@@ -42,14 +42,18 @@ public class KnappingStation extends InteractiveSurface {
 
     @Override
     public void spawn(Atom plugin, RegionAccessor accessor) {
+        cleanupExistingEntities();
         ItemDisplay display = (ItemDisplay) accessor.spawnEntity(spawnLocation, EntityType.ITEM_DISPLAY);
         ItemStack stationItem = createItemWithCustomModel(Material.STONE_BUTTON, "knapping_station");
 
         spawnDisplay(display, plugin, stationItem, new Vector3f(0, 0.5f, 0), new AxisAngle4f(), new Vector3f(1f, 1f, 1f), true, 0.65f, 0.75f);
 
+        /* // Handled by InteractiveSurface.spawn()
         for (PlacedItem item : placedItems) {
             spawnItemDisplay(item);
         }
+         */
+
     }
 
 
@@ -151,6 +155,15 @@ public class KnappingStation extends InteractiveSurface {
     public org.shotrush.atom.core.blocks.CustomBlock deserialize(String data) {
         Object[] parsed = parseDeserializeData(data);
         if (parsed == null) return null;
-        return new KnappingStation((Location) parsed[1], (BlockFace) parsed[2]);
+        
+        KnappingStation station = new KnappingStation((Location) parsed[1], (BlockFace) parsed[2]);
+        
+        // Now deserialize the additional data into the new instance
+        String[] parts = data.split(";");
+        station.deserializeAdditionalData(parts, 5);
+        
+        return station;
     }
+
+
 }

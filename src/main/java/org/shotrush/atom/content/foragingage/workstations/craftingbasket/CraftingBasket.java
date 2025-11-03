@@ -55,14 +55,17 @@ public class CraftingBasket extends InteractiveSurface {
 
     @Override
     public void spawn(Atom plugin, RegionAccessor accessor) {
+        cleanupExistingEntities();
         ItemDisplay display = (ItemDisplay) accessor.spawnEntity(spawnLocation, EntityType.ITEM_DISPLAY);
         ItemStack basketItem = createItemWithCustomModel(Material.STONE_BUTTON, "crafting_basket");
 
         spawnDisplay(display, plugin, basketItem, new Vector3f(0, 0.5f, 0), new AxisAngle4f(), new Vector3f(1f, 1f, 1f), false, 1f, 0.2f);
 
+        /* // Handled by InteractiveSurface.spawn()
         for (PlacedItem item : placedItems) {
             spawnItemDisplay(item);
         }
+         */
     }
 
 
@@ -94,19 +97,19 @@ public class CraftingBasket extends InteractiveSurface {
     protected ItemStack checkRecipe() {
         RecipeManager recipeManager = Atom.getInstance().getRecipeManager();
         if (recipeManager == null) return null;
-        
+
         List<ItemStack> items = new ArrayList<>();
         for (PlacedItem placedItem : placedItems) {
             items.add(placedItem.getItem());
         }
-        
+
         ItemStack result = recipeManager.findMatch(items);
         if (result != null) {
             applyQualityInheritance(result);
         }
         return result;
     }
-    
+
     @Override
     public boolean onWrenchInteract(Player player, boolean sneaking) {
         ItemStack hand = player.getInventory().getItemInMainHand();
@@ -156,6 +159,13 @@ public class CraftingBasket extends InteractiveSurface {
     public org.shotrush.atom.core.blocks.CustomBlock deserialize(String data) {
         Object[] parsed = parseDeserializeData(data);
         if (parsed == null) return null;
-        return new CraftingBasket((Location) parsed[1], (BlockFace) parsed[2]);
+
+        CraftingBasket basket = new CraftingBasket((Location) parsed[1], (BlockFace) parsed[2]);
+
+        // Deserialize additional data into the new instance
+        String[] parts = data.split(";");
+        basket.deserializeAdditionalData(parts, 5);
+
+        return basket;
     }
 }

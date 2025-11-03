@@ -26,6 +26,7 @@ public class GroundStick extends CustomBlock {
 
     @Override
     public void spawn(Atom plugin, RegionAccessor accessor) {
+        cleanupExistingEntities();
         ItemDisplay display = (ItemDisplay) accessor.spawnEntity(spawnLocation, EntityType.ITEM_DISPLAY);
 
         ItemStack stickItem = createItemWithCustomModel(Material.STONE_BUTTON, "ground_stick");

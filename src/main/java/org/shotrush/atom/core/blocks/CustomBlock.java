@@ -75,6 +75,15 @@ public abstract class CustomBlock implements BlockType {
     
     protected abstract void removeEntities();
 
+    protected void cleanupExistingEntities() {
+        for (Entity entity : spawnLocation.getWorld().getNearbyEntities(spawnLocation, 0.5, 0.5, 0.5)) {
+            if (entity instanceof ItemDisplay || entity instanceof Interaction) {
+                if (entity.getLocation().distance(spawnLocation) < 0.1) {
+                    entity.remove();
+                }
+            }
+        }
+    }
     
     public abstract boolean isValid();
     
@@ -148,8 +157,9 @@ public abstract class CustomBlock implements BlockType {
                     Double.parseDouble(parts[3])
             );
             BlockFace face = BlockFace.valueOf(parts[4]);
-            
-            deserializeAdditionalData(parts, 5);
+
+            // handled in InteractiveSurface as only that has additional data
+            //deserializeAdditionalData(parts, 5);
             
             return new Object[]{world, location, face};
         } catch (Exception e) {
@@ -166,19 +176,18 @@ public abstract class CustomBlock implements BlockType {
 
     @Override
     public ItemStack getDropItem() {
-        ItemStack item = createItemWithCustomModel(getItemMaterial(), getIdentifier());
-        ItemMeta meta = item.getItemMeta();
-        
-        if (meta != null) {
-            meta.setDisplayName(getDisplayName());
-            meta.setLore(java.util.Arrays.asList(getLore()));
-            
-            NamespacedKey key = new NamespacedKey(Atom.getInstance(), getIdentifier());
-            meta.getPersistentDataContainer().set(key, org.bukkit.persistence.PersistentDataType.BYTE, (byte) 1);
-            
-            item.setItemMeta(meta);
+        // Access the plugin instance and its CustomBlockManager
+        Atom plugin = Atom.getInstance();
+        CustomBlockManager manager = plugin.getBlockManager();
+
+        // Use the shared block item creation logic
+        ItemStack item = manager.createBlockItem(getIdentifier());
+
+        if (item == null) {
+            plugin.getLogger().warning("Failed to create drop item for " + getIdentifier());
+            return new ItemStack(getItemMaterial()); // fallback
         }
-        
+
         return item;
     }
     public String getBlockType() {

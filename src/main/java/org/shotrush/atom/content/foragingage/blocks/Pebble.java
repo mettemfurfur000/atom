@@ -26,6 +26,7 @@ public class Pebble extends CustomBlock {
 
     @Override
     public void spawn(Atom plugin, RegionAccessor accessor) {
+        cleanupExistingEntities();
         ItemDisplay display = (ItemDisplay) accessor.spawnEntity(spawnLocation, EntityType.ITEM_DISPLAY);
 
         ItemStack pebbleItem = createItemWithCustomModel(Material.STONE_BUTTON, "pebble");

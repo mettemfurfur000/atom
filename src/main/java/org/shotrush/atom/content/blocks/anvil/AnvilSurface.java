@@ -54,13 +54,16 @@ public class AnvilSurface extends InteractiveSurface {
 
     @Override
     public void spawn(Atom plugin, RegionAccessor accessor) {
+        cleanupExistingEntities();
         ItemDisplay base = (ItemDisplay) accessor.spawnEntity(spawnLocation, EntityType.ITEM_DISPLAY);
         ItemStack anvilItem = new ItemStack(Material.ANVIL);
 
         spawnDisplay(base, plugin, anvilItem, new Vector3f(0, 0.5f, 0), new AxisAngle4f(), new Vector3f(1, 1, 1), true, 1f, 1f);
+        /* // Handled by InteractiveSurface.spawn()
         for (PlacedItem item : placedItems) {
             spawnItemDisplay(item);
         }
+         */
     }
 
     @Override
@@ -165,34 +168,22 @@ public class AnvilSurface extends InteractiveSurface {
 
     @Override
     public CustomBlock deserialize(String data) {
+        Object[] parsed = parseDeserializeData(data);
+        if (parsed == null) return null;
+
+        AnvilSurface surface = new AnvilSurface((Location) parsed[1], (BlockFace) parsed[2]);
+
+        // Deserialize additional data into the new instance
         String[] parts = data.split(";");
-        World world = Bukkit.getWorld(parts[0]);
-        Location spawnLocation = new Location(world, 
-            Double.parseDouble(parts[1]),
-            Double.parseDouble(parts[2]),
-            Double.parseDouble(parts[3])
-        );
-        BlockFace face = BlockFace.valueOf(parts[4]);
-        AnvilSurface surface = new AnvilSurface(spawnLocation, face);
-        
-        int itemCount = Integer.parseInt(parts[5]);
-        for (int i = 0; i < itemCount; i++) {
-            String[] itemData = parts[6 + i].split(",");
-            Material mat = Material.valueOf(itemData[0]);
-            Vector3f pos = new Vector3f(
-                Float.parseFloat(itemData[1]),
-                Float.parseFloat(itemData[2]),
-                Float.parseFloat(itemData[3])
-            );
-            float yaw = itemData.length > 4 ? Float.parseFloat(itemData[4]) : 0f;
-            surface.placeItem(new ItemStack(mat), pos, yaw);
-        }
-        
+        surface.deserializeAdditionalData(parts, 5);
+
         return surface;
     }
 
+    /*
     @Override
     public ItemStack getDropItem() {
         return new ItemStack(Material.ANVIL);
     }
+    */
 }

@@ -111,16 +111,6 @@ public class Cog extends CustomBlock {
         }
     }
 
-    private void cleanupExistingEntities() {
-        for (Entity entity : spawnLocation.getWorld().getNearbyEntities(spawnLocation, 0.5, 0.5, 0.5)) {
-            if (entity instanceof ItemDisplay || entity instanceof Interaction) {
-                if (entity.getLocation().distance(spawnLocation) < 0.1) {
-                    entity.remove();
-                }
-            }
-        }
-    }
-
     @Override
     protected void removeEntities() {
         Entity interaction = Bukkit.getEntity(interactionUUID);
@@ -264,6 +254,7 @@ public class Cog extends CustomBlock {
         return true;
     }
 
+    /*
     @Override
     public ItemStack getDropItem() {
         org.shotrush.atom.core.items.CustomItem item = Atom.getInstance().getItemRegistry().getItem(getIdentifier());
@@ -272,4 +263,5 @@ public class Cog extends CustomBlock {
         }
         return createItemWithCustomModel(Material.STONE_BUTTON, getIdentifier());
     }
+     */
 }
