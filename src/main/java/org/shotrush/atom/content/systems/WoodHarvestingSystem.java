@@ -110,7 +110,7 @@ public class WoodHarvestingSystem implements Listener {
     }
     
     private boolean isUsingSharpenedFlint(ItemStack item) {
-        return ItemsKt.isItem(Items.INSTANCE.getSharpenedFlint(), item);
+        return SharpenedFlint.isSharpenedFlint(item);
     }
     
     private boolean isUsingAxe(ItemStack item) {
@@ -120,14 +120,7 @@ public class WoodHarvestingSystem implements Listener {
     }
     
     private void damageFlint(ItemStack item, Player player) {
-        CustomItemRegistry registry = Atom.instance.getItemRegistry();
-        if (registry != null) {
-            SharpenedFlint sharpenedFlint = (SharpenedFlint) registry.getItem("sharpened_flint");
-            if (sharpenedFlint != null) {
-                
-                sharpenedFlint.damageItem(item, player, 0.15);
-            }
-        }
+        SharpenedFlint.damageItem(item, player, 0.15);
     }
 
     public boolean isWoodBlock(Material material) {

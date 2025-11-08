@@ -8,6 +8,7 @@ import org.bukkit.plugin.Plugin;
 import org.shotrush.atom.Atom;
 import org.shotrush.atom.content.foragingage.items.LeatherItem;
 import org.shotrush.atom.content.foragingage.items.MeatItem;
+import org.shotrush.atom.content.foragingage.items.SharpenedFlint;
 import org.shotrush.atom.core.blocks.InteractiveSurface;
 import org.shotrush.atom.core.items.CustomItem;
 import org.shotrush.atom.core.util.ActionBarManager;
@@ -41,13 +42,12 @@ public class LeatherBedHandler extends WorkstationHandler<LeatherBedHandler.Brus
     
     @Override
     protected boolean isValidTool(ItemStack item) {
-        CustomItem sharpenedFlint = Atom.getInstance().getItemRegistry().getItem("sharpened_flint");
+        if(SharpenedFlint.isSharpenedFlint(item)) return true;
         CustomItem knife = Atom.getInstance().getItemRegistry().getItem("knife");
-        
-        boolean isSharpenedFlint = sharpenedFlint != null && sharpenedFlint.isCustomItem(item);
+
         boolean isKnife = knife != null && knife.isCustomItem(item);
         
-        return isSharpenedFlint || isKnife;
+        return isKnife;
     }
     
     @Override
@@ -172,12 +172,9 @@ public class LeatherBedHandler extends WorkstationHandler<LeatherBedHandler.Brus
             curingLeathers.put(bed.getSpawnLocation(), new CuringLeather(bed, currentTime, animalSource));
         }
         
-        
-        CustomItem toolCustom = Atom.getInstance().getItemRegistry().getCustomItem(tool);
-        if (toolCustom != null && toolCustom.getIdentifier().equals("sharpened_flint")) {
-            org.shotrush.atom.content.foragingage.items.SharpenedFlint sharpenedFlint = 
-                (org.shotrush.atom.content.foragingage.items.SharpenedFlint) toolCustom;
-            sharpenedFlint.damageItem(tool, player, 0.3);
+
+        if (SharpenedFlint.isSharpenedFlint(tool)) {
+            SharpenedFlint.damageItem(tool, player, 0.3);
         }
         
         player.playSound(player.getLocation(), Sound.BLOCK_WOOL_BREAK, 1.0f, 1.0f);

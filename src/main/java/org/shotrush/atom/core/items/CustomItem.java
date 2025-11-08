@@ -8,6 +8,7 @@ import org.shotrush.atom.core.data.PersistentData;
 
 import java.util.List;
 
+@Deprecated(forRemoval = true)
 public abstract class CustomItem {
     protected final Plugin plugin;
     
