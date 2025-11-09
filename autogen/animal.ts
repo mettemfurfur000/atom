@@ -73,7 +73,7 @@ const animalDisplay: Record<AnimalId, string> = {
 
 function itemKey(id: AnimalId, type: ItemType) {
     if (type.includes("leather")) return `atom:animal_leather_${type.split("_")[0]}_${id}`;
-    if (type.includes("meat")) return `atom:animal_leather_${type.split("_")[0]}_${id}`;
+    if (type.includes("meat")) return `atom:animal_meat_${type.split("_")[0]}_${id}`;
     return `atom:animal_${type}_${id}`;
 }
 
