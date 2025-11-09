@@ -32,9 +32,9 @@ type ItemType =
 
 const CATEGORY_KEY = "atom:animal_product";
 const CATEGORY = {
-    name: "<!i><white><i18n:category.animal_product.name></white>",
+    name: "<!i><white><lang:category.animal_product.name></white>",
     hidden: true,
-    lore: ["<!i><gray><i18n:category.animal_product.lore>"],
+    lore: ["<!i><gray><lang:category.animal_product.lore>"],
     icon: "minecraft:leather",
     list: [] as string[],
 };
@@ -105,12 +105,12 @@ function itemBlock(id: AnimalId, type: ItemType) {
         [itemKey(id, type)]: {
             material: baseMaterial,
             data: {
-                "item-name": `<!i><white><l10n:item.animal_${itemNameKeySuffix}.${id}.name>`,
+                "item-name": `<!i><white><lang:item.animal_${itemNameKeySuffix}.${id}.name>`,
                 lore: [
                     "",
                     type.includes('leather') || type === 'bone'
-                        ? "<!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>"
-                        : "<!i><white><image:atom:badge_food> <image:atom:badge_age_foraging>",
+                        ? "<!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>"
+                        : "<!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>",
                 ],
                 "remove-components": ["attribute_modifiers"],
             },
@@ -191,7 +191,7 @@ function generateDoc() {
     return {
         items,
         categories,
-        translations: {
+        lang: {
             en,
         },
     };

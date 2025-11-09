@@ -1,22 +1,23 @@
 categories:
   atom:default:
     priority: 1
-    name: <!i><white><i18n:category.atom.name></white>
+    name: <!i><white><lang:category.atom.name></white>
     lore:
-      - <!i><gray><i18n:category.atom.lore>
+      - <!i><gray><lang:category.atom.lore>
     icon: atom:sharpened_flint
     list:
       - '#atom:animal_product'
       - '#atom:foraging'
   atom:foraging:
-    name: <!i><white><i18n:category.foraging.name></white>
+    name: <!i><white><lang:category.foraging.name></white>
     hidden: true
     lore:
-      - <!i><gray><i18n:category.foraging.lore>
+      - <!i><gray><lang:category.foraging.lore>
     icon: atom:pebble
     list:
       - '#atom:animal_product'
       - 'atom:sharpened_flint'
       - 'atom:pebble'
       - 'atom:flint_knife'
+      - 'atom:straw'
 

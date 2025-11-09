@@ -1,4 +1,4 @@
-translations:
+lang:
   en:
     item.sharpened_flint.name: Sharpened Flint
     item.flint_knife.name: Flint Knife
@@ -8,9 +8,3 @@ translations:
     category.atom.lore: Contains all Atom assets
     category.foraging.name: Foraging Age
     category.foraging.lore: Contains all Foraging Age assets
-# This section is for localizing internal block IDs (craftengine:xxx_xx).
-# Some other plugins support displaying block names using lang components.
-# This might be useful for the client-side, but it's not mandatory.
-lang:
-  en_us:
-#    block_name:default:chinese_lantern: Chinese Lantern

@@ -2,7 +2,12 @@ items:
   atom:pebble:
     material: nether_brick
     data:
-      item-name: <!i><l10n:item.pebble>
+      item-name: <!i><lang:item.pebble>
+      lore:
+        - <!i><gray><lang:item.pebble.lore_1>
+        - <!i><gray><lang:item.pebble.lore_2>
+        - ""
+        - <!i><white><image:atom:badge_tool> <image:atom:badge_natural> <image:atom:badge_age_foraging>
     model:
       template: default:model/simplified_generated
       arguments:
@@ -126,3 +131,8 @@ recipes:
     result:
       id: atom:cobblestone
       count: 1
+lang:
+  en:
+    item.pebble.name: Pebble
+    item.pebble.lore_1: "A small, shiny pebble."
+    item.pebble.lore_2: "Can be used for knapping"

@@ -2,10 +2,10 @@ items:
   atom:animal_leather_raw_cow:
     material: leather
     data:
-      item-name: <!i><white><l10n:item.animal_raw_leather.cow.name>
+      item-name: <!i><white><lang:item.animal_raw_leather.cow.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -15,10 +15,10 @@ items:
   atom:animal_leather_cooked_cow:
     material: beef
     data:
-      item-name: <!i><white><l10n:item.animal_cooked_meat.cow.name>
+      item-name: <!i><white><lang:item.animal_cooked_meat.cow.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_food> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -28,10 +28,10 @@ items:
   atom:animal_leather_burnt_cow:
     material: beef
     data:
-      item-name: <!i><white><l10n:item.animal_burnt_meat.cow.name>
+      item-name: <!i><white><lang:item.animal_burnt_meat.cow.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_food> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -41,10 +41,10 @@ items:
   atom:animal_leather_cured_cow:
     material: leather
     data:
-      item-name: <!i><white><l10n:item.animal_cured_leather.cow.name>
+      item-name: <!i><white><lang:item.animal_cured_leather.cow.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -54,10 +54,10 @@ items:
   atom:animal_bone_cow:
     material: bone
     data:
-      item-name: <!i><white><l10n:item.animal_bone.cow.name>
+      item-name: <!i><white><lang:item.animal_bone.cow.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -67,10 +67,10 @@ items:
   atom:animal_leather_raw_pig:
     material: leather
     data:
-      item-name: <!i><white><l10n:item.animal_raw_leather.pig.name>
+      item-name: <!i><white><lang:item.animal_raw_leather.pig.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -80,10 +80,10 @@ items:
   atom:animal_leather_cooked_pig:
     material: beef
     data:
-      item-name: <!i><white><l10n:item.animal_cooked_meat.pig.name>
+      item-name: <!i><white><lang:item.animal_cooked_meat.pig.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_food> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -93,10 +93,10 @@ items:
   atom:animal_leather_burnt_pig:
     material: beef
     data:
-      item-name: <!i><white><l10n:item.animal_burnt_meat.pig.name>
+      item-name: <!i><white><lang:item.animal_burnt_meat.pig.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_food> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -106,10 +106,10 @@ items:
   atom:animal_leather_cured_pig:
     material: leather
     data:
-      item-name: <!i><white><l10n:item.animal_cured_leather.pig.name>
+      item-name: <!i><white><lang:item.animal_cured_leather.pig.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -119,10 +119,10 @@ items:
   atom:animal_bone_pig:
     material: bone
     data:
-      item-name: <!i><white><l10n:item.animal_bone.pig.name>
+      item-name: <!i><white><lang:item.animal_bone.pig.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -132,10 +132,10 @@ items:
   atom:animal_leather_raw_sheep:
     material: leather
     data:
-      item-name: <!i><white><l10n:item.animal_raw_leather.sheep.name>
+      item-name: <!i><white><lang:item.animal_raw_leather.sheep.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -145,10 +145,10 @@ items:
   atom:animal_leather_cooked_sheep:
     material: beef
     data:
-      item-name: <!i><white><l10n:item.animal_cooked_meat.sheep.name>
+      item-name: <!i><white><lang:item.animal_cooked_meat.sheep.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_food> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -158,10 +158,10 @@ items:
   atom:animal_leather_burnt_sheep:
     material: beef
     data:
-      item-name: <!i><white><l10n:item.animal_burnt_meat.sheep.name>
+      item-name: <!i><white><lang:item.animal_burnt_meat.sheep.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_food> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -171,10 +171,10 @@ items:
   atom:animal_leather_cured_sheep:
     material: leather
     data:
-      item-name: <!i><white><l10n:item.animal_cured_leather.sheep.name>
+      item-name: <!i><white><lang:item.animal_cured_leather.sheep.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -184,10 +184,10 @@ items:
   atom:animal_bone_sheep:
     material: bone
     data:
-      item-name: <!i><white><l10n:item.animal_bone.sheep.name>
+      item-name: <!i><white><lang:item.animal_bone.sheep.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -197,10 +197,10 @@ items:
   atom:animal_leather_raw_chicken:
     material: leather
     data:
-      item-name: <!i><white><l10n:item.animal_raw_leather.chicken.name>
+      item-name: <!i><white><lang:item.animal_raw_leather.chicken.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -210,10 +210,10 @@ items:
   atom:animal_leather_cooked_chicken:
     material: beef
     data:
-      item-name: <!i><white><l10n:item.animal_cooked_meat.chicken.name>
+      item-name: <!i><white><lang:item.animal_cooked_meat.chicken.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_food> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -223,10 +223,10 @@ items:
   atom:animal_leather_burnt_chicken:
     material: beef
     data:
-      item-name: <!i><white><l10n:item.animal_burnt_meat.chicken.name>
+      item-name: <!i><white><lang:item.animal_burnt_meat.chicken.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_food> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -236,10 +236,10 @@ items:
   atom:animal_leather_cured_chicken:
     material: leather
     data:
-      item-name: <!i><white><l10n:item.animal_cured_leather.chicken.name>
+      item-name: <!i><white><lang:item.animal_cured_leather.chicken.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -249,10 +249,10 @@ items:
   atom:animal_bone_chicken:
     material: bone
     data:
-      item-name: <!i><white><l10n:item.animal_bone.chicken.name>
+      item-name: <!i><white><lang:item.animal_bone.chicken.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -262,10 +262,10 @@ items:
   atom:animal_leather_raw_rabbit:
     material: leather
     data:
-      item-name: <!i><white><l10n:item.animal_raw_leather.rabbit.name>
+      item-name: <!i><white><lang:item.animal_raw_leather.rabbit.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -275,10 +275,10 @@ items:
   atom:animal_leather_cooked_rabbit:
     material: beef
     data:
-      item-name: <!i><white><l10n:item.animal_cooked_meat.rabbit.name>
+      item-name: <!i><white><lang:item.animal_cooked_meat.rabbit.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_food> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -288,10 +288,10 @@ items:
   atom:animal_leather_burnt_rabbit:
     material: beef
     data:
-      item-name: <!i><white><l10n:item.animal_burnt_meat.rabbit.name>
+      item-name: <!i><white><lang:item.animal_burnt_meat.rabbit.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_food> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -301,10 +301,10 @@ items:
   atom:animal_leather_cured_rabbit:
     material: leather
     data:
-      item-name: <!i><white><l10n:item.animal_cured_leather.rabbit.name>
+      item-name: <!i><white><lang:item.animal_cured_leather.rabbit.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -314,10 +314,10 @@ items:
   atom:animal_bone_rabbit:
     material: bone
     data:
-      item-name: <!i><white><l10n:item.animal_bone.rabbit.name>
+      item-name: <!i><white><lang:item.animal_bone.rabbit.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -327,10 +327,10 @@ items:
   atom:animal_leather_raw_horse:
     material: leather
     data:
-      item-name: <!i><white><l10n:item.animal_raw_leather.horse.name>
+      item-name: <!i><white><lang:item.animal_raw_leather.horse.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -340,10 +340,10 @@ items:
   atom:animal_leather_cooked_horse:
     material: beef
     data:
-      item-name: <!i><white><l10n:item.animal_cooked_meat.horse.name>
+      item-name: <!i><white><lang:item.animal_cooked_meat.horse.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_food> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -353,10 +353,10 @@ items:
   atom:animal_leather_burnt_horse:
     material: beef
     data:
-      item-name: <!i><white><l10n:item.animal_burnt_meat.horse.name>
+      item-name: <!i><white><lang:item.animal_burnt_meat.horse.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_food> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -366,10 +366,10 @@ items:
   atom:animal_leather_cured_horse:
     material: leather
     data:
-      item-name: <!i><white><l10n:item.animal_cured_leather.horse.name>
+      item-name: <!i><white><lang:item.animal_cured_leather.horse.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -379,10 +379,10 @@ items:
   atom:animal_bone_horse:
     material: bone
     data:
-      item-name: <!i><white><l10n:item.animal_bone.horse.name>
+      item-name: <!i><white><lang:item.animal_bone.horse.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -392,10 +392,10 @@ items:
   atom:animal_leather_raw_donkey:
     material: leather
     data:
-      item-name: <!i><white><l10n:item.animal_raw_leather.donkey.name>
+      item-name: <!i><white><lang:item.animal_raw_leather.donkey.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -405,10 +405,10 @@ items:
   atom:animal_leather_cooked_donkey:
     material: beef
     data:
-      item-name: <!i><white><l10n:item.animal_cooked_meat.donkey.name>
+      item-name: <!i><white><lang:item.animal_cooked_meat.donkey.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_food> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -418,10 +418,10 @@ items:
   atom:animal_leather_burnt_donkey:
     material: beef
     data:
-      item-name: <!i><white><l10n:item.animal_burnt_meat.donkey.name>
+      item-name: <!i><white><lang:item.animal_burnt_meat.donkey.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_food> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -431,10 +431,10 @@ items:
   atom:animal_leather_cured_donkey:
     material: leather
     data:
-      item-name: <!i><white><l10n:item.animal_cured_leather.donkey.name>
+      item-name: <!i><white><lang:item.animal_cured_leather.donkey.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -444,10 +444,10 @@ items:
   atom:animal_bone_donkey:
     material: bone
     data:
-      item-name: <!i><white><l10n:item.animal_bone.donkey.name>
+      item-name: <!i><white><lang:item.animal_bone.donkey.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -457,10 +457,10 @@ items:
   atom:animal_leather_raw_mule:
     material: leather
     data:
-      item-name: <!i><white><l10n:item.animal_raw_leather.mule.name>
+      item-name: <!i><white><lang:item.animal_raw_leather.mule.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -470,10 +470,10 @@ items:
   atom:animal_leather_cooked_mule:
     material: beef
     data:
-      item-name: <!i><white><l10n:item.animal_cooked_meat.mule.name>
+      item-name: <!i><white><lang:item.animal_cooked_meat.mule.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_food> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -483,10 +483,10 @@ items:
   atom:animal_leather_burnt_mule:
     material: beef
     data:
-      item-name: <!i><white><l10n:item.animal_burnt_meat.mule.name>
+      item-name: <!i><white><lang:item.animal_burnt_meat.mule.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_food> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -496,10 +496,10 @@ items:
   atom:animal_leather_cured_mule:
     material: leather
     data:
-      item-name: <!i><white><l10n:item.animal_cured_leather.mule.name>
+      item-name: <!i><white><lang:item.animal_cured_leather.mule.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -509,10 +509,10 @@ items:
   atom:animal_bone_mule:
     material: bone
     data:
-      item-name: <!i><white><l10n:item.animal_bone.mule.name>
+      item-name: <!i><white><lang:item.animal_bone.mule.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -522,10 +522,10 @@ items:
   atom:animal_leather_raw_llama:
     material: leather
     data:
-      item-name: <!i><white><l10n:item.animal_raw_leather.llama.name>
+      item-name: <!i><white><lang:item.animal_raw_leather.llama.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -535,10 +535,10 @@ items:
   atom:animal_leather_cooked_llama:
     material: beef
     data:
-      item-name: <!i><white><l10n:item.animal_cooked_meat.llama.name>
+      item-name: <!i><white><lang:item.animal_cooked_meat.llama.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_food> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -548,10 +548,10 @@ items:
   atom:animal_leather_burnt_llama:
     material: beef
     data:
-      item-name: <!i><white><l10n:item.animal_burnt_meat.llama.name>
+      item-name: <!i><white><lang:item.animal_burnt_meat.llama.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_food> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -561,10 +561,10 @@ items:
   atom:animal_leather_cured_llama:
     material: leather
     data:
-      item-name: <!i><white><l10n:item.animal_cured_leather.llama.name>
+      item-name: <!i><white><lang:item.animal_cured_leather.llama.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -574,10 +574,10 @@ items:
   atom:animal_bone_llama:
     material: bone
     data:
-      item-name: <!i><white><l10n:item.animal_bone.llama.name>
+      item-name: <!i><white><lang:item.animal_bone.llama.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -587,10 +587,10 @@ items:
   atom:animal_leather_raw_goat:
     material: leather
     data:
-      item-name: <!i><white><l10n:item.animal_raw_leather.goat.name>
+      item-name: <!i><white><lang:item.animal_raw_leather.goat.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -600,10 +600,10 @@ items:
   atom:animal_leather_cooked_goat:
     material: beef
     data:
-      item-name: <!i><white><l10n:item.animal_cooked_meat.goat.name>
+      item-name: <!i><white><lang:item.animal_cooked_meat.goat.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_food> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -613,10 +613,10 @@ items:
   atom:animal_leather_burnt_goat:
     material: beef
     data:
-      item-name: <!i><white><l10n:item.animal_burnt_meat.goat.name>
+      item-name: <!i><white><lang:item.animal_burnt_meat.goat.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_food> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -626,10 +626,10 @@ items:
   atom:animal_leather_cured_goat:
     material: leather
     data:
-      item-name: <!i><white><l10n:item.animal_cured_leather.goat.name>
+      item-name: <!i><white><lang:item.animal_cured_leather.goat.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -639,10 +639,10 @@ items:
   atom:animal_bone_goat:
     material: bone
     data:
-      item-name: <!i><white><l10n:item.animal_bone.goat.name>
+      item-name: <!i><white><lang:item.animal_bone.goat.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -652,10 +652,10 @@ items:
   atom:animal_leather_raw_cat:
     material: leather
     data:
-      item-name: <!i><white><l10n:item.animal_raw_leather.cat.name>
+      item-name: <!i><white><lang:item.animal_raw_leather.cat.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -665,10 +665,10 @@ items:
   atom:animal_leather_cooked_cat:
     material: beef
     data:
-      item-name: <!i><white><l10n:item.animal_cooked_meat.cat.name>
+      item-name: <!i><white><lang:item.animal_cooked_meat.cat.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_food> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -678,10 +678,10 @@ items:
   atom:animal_leather_burnt_cat:
     material: beef
     data:
-      item-name: <!i><white><l10n:item.animal_burnt_meat.cat.name>
+      item-name: <!i><white><lang:item.animal_burnt_meat.cat.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_food> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -691,10 +691,10 @@ items:
   atom:animal_leather_cured_cat:
     material: leather
     data:
-      item-name: <!i><white><l10n:item.animal_cured_leather.cat.name>
+      item-name: <!i><white><lang:item.animal_cured_leather.cat.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -704,10 +704,10 @@ items:
   atom:animal_bone_cat:
     material: bone
     data:
-      item-name: <!i><white><l10n:item.animal_bone.cat.name>
+      item-name: <!i><white><lang:item.animal_bone.cat.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -717,10 +717,10 @@ items:
   atom:animal_leather_raw_wolf:
     material: leather
     data:
-      item-name: <!i><white><l10n:item.animal_raw_leather.wolf.name>
+      item-name: <!i><white><lang:item.animal_raw_leather.wolf.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -730,10 +730,10 @@ items:
   atom:animal_leather_cooked_wolf:
     material: beef
     data:
-      item-name: <!i><white><l10n:item.animal_cooked_meat.wolf.name>
+      item-name: <!i><white><lang:item.animal_cooked_meat.wolf.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_food> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -743,10 +743,10 @@ items:
   atom:animal_leather_burnt_wolf:
     material: beef
     data:
-      item-name: <!i><white><l10n:item.animal_burnt_meat.wolf.name>
+      item-name: <!i><white><lang:item.animal_burnt_meat.wolf.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_food> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -756,10 +756,10 @@ items:
   atom:animal_leather_cured_wolf:
     material: leather
     data:
-      item-name: <!i><white><l10n:item.animal_cured_leather.wolf.name>
+      item-name: <!i><white><lang:item.animal_cured_leather.wolf.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -769,10 +769,10 @@ items:
   atom:animal_bone_wolf:
     material: bone
     data:
-      item-name: <!i><white><l10n:item.animal_bone.wolf.name>
+      item-name: <!i><white><lang:item.animal_bone.wolf.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -782,10 +782,10 @@ items:
   atom:animal_leather_raw_fox:
     material: leather
     data:
-      item-name: <!i><white><l10n:item.animal_raw_leather.fox.name>
+      item-name: <!i><white><lang:item.animal_raw_leather.fox.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -795,10 +795,10 @@ items:
   atom:animal_leather_cooked_fox:
     material: beef
     data:
-      item-name: <!i><white><l10n:item.animal_cooked_meat.fox.name>
+      item-name: <!i><white><lang:item.animal_cooked_meat.fox.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_food> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -808,10 +808,10 @@ items:
   atom:animal_leather_burnt_fox:
     material: beef
     data:
-      item-name: <!i><white><l10n:item.animal_burnt_meat.fox.name>
+      item-name: <!i><white><lang:item.animal_burnt_meat.fox.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_food> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -821,10 +821,10 @@ items:
   atom:animal_leather_cured_fox:
     material: leather
     data:
-      item-name: <!i><white><l10n:item.animal_cured_leather.fox.name>
+      item-name: <!i><white><lang:item.animal_cured_leather.fox.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -834,10 +834,10 @@ items:
   atom:animal_bone_fox:
     material: bone
     data:
-      item-name: <!i><white><l10n:item.animal_bone.fox.name>
+      item-name: <!i><white><lang:item.animal_bone.fox.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -847,10 +847,10 @@ items:
   atom:animal_leather_raw_panda:
     material: leather
     data:
-      item-name: <!i><white><l10n:item.animal_raw_leather.panda.name>
+      item-name: <!i><white><lang:item.animal_raw_leather.panda.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -860,10 +860,10 @@ items:
   atom:animal_leather_cooked_panda:
     material: beef
     data:
-      item-name: <!i><white><l10n:item.animal_cooked_meat.panda.name>
+      item-name: <!i><white><lang:item.animal_cooked_meat.panda.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_food> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -873,10 +873,10 @@ items:
   atom:animal_leather_burnt_panda:
     material: beef
     data:
-      item-name: <!i><white><l10n:item.animal_burnt_meat.panda.name>
+      item-name: <!i><white><lang:item.animal_burnt_meat.panda.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_food> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -886,10 +886,10 @@ items:
   atom:animal_leather_cured_panda:
     material: leather
     data:
-      item-name: <!i><white><l10n:item.animal_cured_leather.panda.name>
+      item-name: <!i><white><lang:item.animal_cured_leather.panda.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -899,10 +899,10 @@ items:
   atom:animal_bone_panda:
     material: bone
     data:
-      item-name: <!i><white><l10n:item.animal_bone.panda.name>
+      item-name: <!i><white><lang:item.animal_bone.panda.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -912,10 +912,10 @@ items:
   atom:animal_leather_raw_polar_bear:
     material: leather
     data:
-      item-name: <!i><white><l10n:item.animal_raw_leather.polar_bear.name>
+      item-name: <!i><white><lang:item.animal_raw_leather.polar_bear.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -925,10 +925,10 @@ items:
   atom:animal_leather_cooked_polar_bear:
     material: beef
     data:
-      item-name: <!i><white><l10n:item.animal_cooked_meat.polar_bear.name>
+      item-name: <!i><white><lang:item.animal_cooked_meat.polar_bear.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_food> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -938,10 +938,10 @@ items:
   atom:animal_leather_burnt_polar_bear:
     material: beef
     data:
-      item-name: <!i><white><l10n:item.animal_burnt_meat.polar_bear.name>
+      item-name: <!i><white><lang:item.animal_burnt_meat.polar_bear.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_food> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -951,10 +951,10 @@ items:
   atom:animal_leather_cured_polar_bear:
     material: leather
     data:
-      item-name: <!i><white><l10n:item.animal_cured_leather.polar_bear.name>
+      item-name: <!i><white><lang:item.animal_cured_leather.polar_bear.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -964,10 +964,10 @@ items:
   atom:animal_bone_polar_bear:
     material: bone
     data:
-      item-name: <!i><white><l10n:item.animal_bone.polar_bear.name>
+      item-name: <!i><white><lang:item.animal_bone.polar_bear.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -977,10 +977,10 @@ items:
   atom:animal_leather_raw_ocelot:
     material: leather
     data:
-      item-name: <!i><white><l10n:item.animal_raw_leather.ocelot.name>
+      item-name: <!i><white><lang:item.animal_raw_leather.ocelot.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -990,10 +990,10 @@ items:
   atom:animal_leather_cooked_ocelot:
     material: beef
     data:
-      item-name: <!i><white><l10n:item.animal_cooked_meat.ocelot.name>
+      item-name: <!i><white><lang:item.animal_cooked_meat.ocelot.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_food> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -1003,10 +1003,10 @@ items:
   atom:animal_leather_burnt_ocelot:
     material: beef
     data:
-      item-name: <!i><white><l10n:item.animal_burnt_meat.ocelot.name>
+      item-name: <!i><white><lang:item.animal_burnt_meat.ocelot.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_food> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -1016,10 +1016,10 @@ items:
   atom:animal_leather_cured_ocelot:
     material: leather
     data:
-      item-name: <!i><white><l10n:item.animal_cured_leather.ocelot.name>
+      item-name: <!i><white><lang:item.animal_cured_leather.ocelot.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -1029,10 +1029,10 @@ items:
   atom:animal_bone_ocelot:
     material: bone
     data:
-      item-name: <!i><white><l10n:item.animal_bone.ocelot.name>
+      item-name: <!i><white><lang:item.animal_bone.ocelot.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -1042,10 +1042,10 @@ items:
   atom:animal_leather_raw_camel:
     material: leather
     data:
-      item-name: <!i><white><l10n:item.animal_raw_leather.camel.name>
+      item-name: <!i><white><lang:item.animal_raw_leather.camel.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -1055,10 +1055,10 @@ items:
   atom:animal_leather_cooked_camel:
     material: beef
     data:
-      item-name: <!i><white><l10n:item.animal_cooked_meat.camel.name>
+      item-name: <!i><white><lang:item.animal_cooked_meat.camel.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_food> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -1068,10 +1068,10 @@ items:
   atom:animal_leather_burnt_camel:
     material: beef
     data:
-      item-name: <!i><white><l10n:item.animal_burnt_meat.camel.name>
+      item-name: <!i><white><lang:item.animal_burnt_meat.camel.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_food> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -1081,10 +1081,10 @@ items:
   atom:animal_leather_cured_camel:
     material: leather
     data:
-      item-name: <!i><white><l10n:item.animal_cured_leather.camel.name>
+      item-name: <!i><white><lang:item.animal_cured_leather.camel.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -1094,10 +1094,10 @@ items:
   atom:animal_bone_camel:
     material: bone
     data:
-      item-name: <!i><white><l10n:item.animal_bone.camel.name>
+      item-name: <!i><white><lang:item.animal_bone.camel.name>
       lore:
         - ""
-        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+        - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
       remove-components:
         - attribute_modifiers
     model:
@@ -1106,10 +1106,10 @@ items:
         path: minecraft:item/bone
 categories:
   atom:animal_product:
-    name: <!i><white><i18n:category.animal_product.name></white>
+    name: <!i><white><lang:category.animal_product.name></white>
     hidden: true
     lore:
-      - <!i><gray><i18n:category.animal_product.lore>
+      - <!i><gray><lang:category.animal_product.lore>
     icon: minecraft:leather
     list:
       - atom:animal_leather_raw_cow
@@ -1214,7 +1214,7 @@ categories:
       - atom:animal_leather_raw_camel
       - atom:animal_leather_cured_camel
       - atom:animal_bone_camel
-translations:
+lang:
   en:
     category.animal_product.name: Animal Products
     category.animal_product.lore: Contains all animal meats and materials

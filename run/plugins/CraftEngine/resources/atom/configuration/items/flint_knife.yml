@@ -2,10 +2,10 @@ items:
   atom:flint_knife:
     material: wooden_sword
     data:
-      item-name: <!i><white><l10n:item.flint_knife.name>
+      item-name: <!i><white><lang:item.flint_knife.name>
       lore:
-        - <!i><gray><l10n:item.flint_knife.lore_1>
-        - <!i><gray><l10n:item.flint_knife.lore_2>
+        - <!i><gray><lang:item.flint_knife.lore_1>
+        - <!i><gray><lang:item.flint_knife.lore_2>
         - ""
         - <!i><white><image:atom:badge_tool> <image:atom:badge_age_foraging>
       remove-components:

@@ -2,7 +2,7 @@ items:
   atom:sharpened_flint:
     material: brush
     data:
-      item-name: <!i><white><l10n:item.sharpened_flint.name>
+      item-name: <!i><white><lang:item.sharpened_flint.name>
       lore:
         - ""
         - <!i><white><image:atom:badge_age_foraging>
