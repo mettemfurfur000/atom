@@ -46,6 +46,25 @@ val rotateNeg90: Transform = { p ->
     Pattern(out.map { String(it) })
 }
 
+typealias MultiTransform = (Pattern) -> List<Pattern>
+
+val variants: MultiTransform = { p ->
+    val set = linkedSetOf<Pattern>()
+
+    fun addUnique(x: Pattern) {
+        set.add(x)
+    }
+
+    val vx = invertX(p)
+    val vy = invertY(p)
+    val r90 = rotate90(p)
+    val r270 = rotateNeg90(p)
+    val r180 = rotate90(r90)
+
+    listOf(vx, vy, r90, r180, r270, invertX(r90), invertY(r90)).forEach(::addUnique)
+    set.toList()
+}
+
 // Builder DSL: allows registering < 5x5 shapes
 class PatternSetBuilder(
     private val filledChars: Set<Char> = setOf('#'),
@@ -60,18 +79,24 @@ class PatternSetBuilder(
         require(r.size in 1..N) { "Height must be 1..$N" }
         require(w in 1..N) { "Width must be 1..$N" }
         require(r.all { it.length == w }) { "All rows must have equal length" }
-        pattern(Pattern(r.toList()))
+        pattern(Pattern(r.toList()), true)
     }
 
-    fun pattern(p: Pattern) {
+    fun pattern(p: Pattern, addLast: Boolean = false) {
         require(p.height in 1..N && p.width in 1..N) { "Pattern must be within $N x $N" }
         patterns += p
-        last = p
+        if (addLast)
+            last = p
     }
 
     fun transform(transform: Transform) {
         val prev = last ?: error("No previous pattern to transform")
         pattern(transform(prev))
+    }
+
+    fun transform(transform: MultiTransform) {
+        val prev = last ?: error("No previous pattern to transform")
+        transform(prev).forEach(::pattern)
     }
 
     fun build(): List<Pattern> = patterns.toList()
@@ -83,7 +108,7 @@ fun patternSet(block: PatternSetBuilder.() -> Unit): List<Pattern> =
 fun matchesPatternAnywhere(
     gridColumnMajor: List<Boolean>,
     pattern: Pattern,
-    filledChars: Set<Char> = setOf('#')
+    filledChars: Set<Char> = setOf('#'),
 ): Boolean {
     require(gridColumnMajor.size == N * N) { "grid must have size 25" }
     val ph = pattern.height
@@ -109,7 +134,7 @@ private fun matchesAt(
     pattern: Pattern,
     top: Int,
     left: Int,
-    filledChars: Set<Char>
+    filledChars: Set<Char>,
 ): Boolean {
     for (r in 0 until pattern.height) {
         val prow = pattern[r]
@@ -127,7 +152,7 @@ private fun outsideRegionEmpty(
     top: Int,
     left: Int,
     ph: Int,
-    pw: Int
+    pw: Int,
 ): Boolean {
     for (r in 0 until N) {
         for (c in 0 until N) {
@@ -141,7 +166,7 @@ private fun outsideRegionEmpty(
 data class KnappingRecipe(
     val id: String,
     val patterns: List<Pattern>,
-    val resultId: String
+    val resultId: String,
 )
 
 object KnappingRecipes {
@@ -211,6 +236,31 @@ object KnappingRecipes {
                 "#   #",
                 "#####",
             )
+        }
+        register("hammer_head") {
+            rows(
+                "#####",
+                "#####",
+                "#####",
+            )
+        }
+        register("knife_blade") {
+            rows(
+                " #",
+                "##",
+                "##",
+                "##",
+            )
+            transform(variants)
+        }
+        register("saw_blade") {
+            rows(
+                "## ",
+                " ###",
+                "  ##",
+                "   #",
+            )
+            transform(variants)
         }
     }
 }
