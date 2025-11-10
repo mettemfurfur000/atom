@@ -19,7 +19,7 @@ const ALL_TOOLS = [
 ] as const;
 type ToolType = (typeof ALL_TOOLS)[number];
 
-const CLASSIC_MATERIALS: Material[] = ["iron"];
+const CLASSIC_MATERIALS: Material[] = ["iron", "stone"];
 const CLASSIC_TOOLS: ToolType[] = ["pickaxe", "shovel", "hoe", "sword", "axe"];
 
 // Which material belongs to which tech-age badge

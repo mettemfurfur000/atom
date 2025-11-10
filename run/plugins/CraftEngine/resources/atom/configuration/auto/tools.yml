@@ -11,18 +11,6 @@ items:
       template: default:model/simplified_generated
       arguments:
         path: minecraft:item/tool/head/stone_pickaxe
-  atom:stone_pickaxe:
-    material: iron_pickaxe
-    data:
-      item-name: <!i><white><lang:item.tool.stone.pickaxe.name>
-      lore:
-        - <!i><gray><lang:item.tool.common.lore>
-        - ""
-        - <!i><white><image:atom:badge_tool> <image:atom:badge_age_foraging>
-    model:
-      template: default:model/simplified_generated
-      arguments:
-        path: minecraft:item/tool/stone_pickaxe
   atom:stone_shovel_head:
     material: paper
     data:
@@ -35,18 +23,6 @@ items:
       template: default:model/simplified_generated
       arguments:
         path: minecraft:item/tool/head/stone_shovel
-  atom:stone_shovel:
-    material: iron_shovel
-    data:
-      item-name: <!i><white><lang:item.tool.stone.shovel.name>
-      lore:
-        - <!i><gray><lang:item.tool.common.lore>
-        - ""
-        - <!i><white><image:atom:badge_tool> <image:atom:badge_age_foraging>
-    model:
-      template: default:model/simplified_generated
-      arguments:
-        path: minecraft:item/tool/stone_shovel
   atom:stone_hoe_head:
     material: paper
     data:
@@ -59,18 +35,6 @@ items:
       template: default:model/simplified_generated
       arguments:
         path: minecraft:item/tool/head/stone_hoe
-  atom:stone_hoe:
-    material: iron_hoe
-    data:
-      item-name: <!i><white><lang:item.tool.stone.hoe.name>
-      lore:
-        - <!i><gray><lang:item.tool.common.lore>
-        - ""
-        - <!i><white><image:atom:badge_tool> <image:atom:badge_age_foraging>
-    model:
-      template: default:model/simplified_generated
-      arguments:
-        path: minecraft:item/tool/stone_hoe
   atom:stone_sword_head:
     material: paper
     data:
@@ -83,18 +47,6 @@ items:
       template: default:model/simplified_generated
       arguments:
         path: minecraft:item/tool/head/stone_sword
-  atom:stone_sword:
-    material: iron_sword
-    data:
-      item-name: <!i><white><lang:item.tool.stone.sword.name>
-      lore:
-        - <!i><gray><lang:item.tool.common.lore>
-        - ""
-        - <!i><white><image:atom:badge_tool> <image:atom:badge_age_foraging>
-    model:
-      template: default:model/simplified_generated
-      arguments:
-        path: minecraft:item/tool/stone_sword
   atom:stone_axe_head:
     material: paper
     data:
@@ -107,18 +59,6 @@ items:
       template: default:model/simplified_generated
       arguments:
         path: minecraft:item/tool/head/stone_axe
-  atom:stone_axe:
-    material: iron_axe
-    data:
-      item-name: <!i><white><lang:item.tool.stone.axe.name>
-      lore:
-        - <!i><gray><lang:item.tool.common.lore>
-        - ""
-        - <!i><white><image:atom:badge_tool> <image:atom:badge_age_foraging>
-    model:
-      template: default:model/simplified_generated
-      arguments:
-        path: minecraft:item/tool/stone_axe
   atom:stone_hammer_head:
     material: paper
     data:
@@ -934,14 +874,9 @@ categories:
       - atom:steel_saw
       - atom:steel_shovel
       - atom:steel_sword
-      - atom:stone_axe
       - atom:stone_hammer
-      - atom:stone_hoe
       - atom:stone_knife
-      - atom:stone_pickaxe
       - atom:stone_saw
-      - atom:stone_shovel
-      - atom:stone_sword
   atom:tool_heads:
     name: <!i><white><lang:category.tool_heads.name></white>
     hidden: true
