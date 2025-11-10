@@ -31,10 +31,10 @@ class KnappingBlockBehavior(val block: CustomBlock) : BlockBehavior(), EntityBlo
     ): BlockEntity = KnappingBlockEntity(pos, state)
 }
 
-class KnappingBlockEntity(pos: BlockPos, blockState: ImmutableBlockState) : BlockEntity(
-    Workstations.KNAPPING_STATION_ENTITY_TYPE, pos,
-    blockState
-) {
+class KnappingBlockEntity(
+    pos: BlockPos,
+    blockState: ImmutableBlockState,
+) : BlockEntity(Workstations.KNAPPING_STATION_ENTITY_TYPE, pos, blockState) {
 
     init {
         Atom.instance?.logger?.info("KnappingBlockEntity init at $pos")
