@@ -157,7 +157,7 @@ function buildItemEntry(
     baseMaterial: string,
     displayName: string,
     lore: string[],
-    modelPath: string,
+    model: string | Record<string, any>,
     removeComponents?: string[]
 ) {
     return {
@@ -168,7 +168,7 @@ function buildItemEntry(
                 lore,
                 ...(removeComponents ? {"remove-components": removeComponents} : {}),
             },
-            model: simplifiedGeneratedModel(modelPath),
+            model: typeof model === "string" ? simplifiedGeneratedModel(model) : model,
         },
     };
 }
@@ -250,6 +250,58 @@ function buildMold(def: Mold, variant: MoldVariant) {
     );
 }
 
+// Filled molds (fired/wax) helpers/builders
+function filledMoldKey(id: MoldId, variant: "fired" | "wax") {
+    return `atom:filled_${variant}_mold_${id}`;
+}
+
+function filledMoldTextures(def: Mold, variant: "fired" | "wax") {
+    const layer0 = variant === "fired"
+        ? `${firedBaseTexture}${def.id}_empty`
+        : `${waxBaseTexture}${def.id}`;
+    const layer1 = `${firedBaseTexture}${def.id}_overlay`
+    return {layer0, layer1};
+}
+
+function filledMoldModel(def: Mold, variant: "fired" | "wax") {
+    const tex = filledMoldTextures(def, variant);
+    return {
+        type: "minecraft:model",
+        path: `minecraft:item/custom/gen/tool/filled_${variant}_${def.id}`,
+        generation: {
+            parent: "minecraft:item/handheld",
+            textures: {
+                "layer0": tex.layer0,
+                "layer1": tex.layer1,
+            },
+        },
+        tints: [
+            {type: "minecraft:constant", value: "255,255,255"},
+            {type: "minecraft:dye", default: "255,255,255"},
+        ],
+    };
+}
+
+function buildFilledMold(def: Mold, variant: "fired" | "wax") {
+    const key = filledMoldKey(def.id, variant);
+
+    const lore: (string | null)[] = [
+        "<!i><gray>Filled with: <gold>MATERIAL_HERE</gold>",
+        "",
+        `<!i><dark_gray><lang:item.mold.${def.id}.lore>`,
+        "",
+        `<!i><white>${badge("utility")} ${ageBadge("copper")}`,
+    ];
+
+    return buildItemEntry(
+        key,
+        FIRED_OR_WAX_BASE_MATERIAL,
+        l10nMold(variant, def.id),
+        lore.filter((l): l is string => l !== null),
+        filledMoldModel(def, variant)
+    );
+}
+
 // ---------------------- Generators ----------------------
 
 function generateMolds() {
@@ -257,10 +309,20 @@ function generateMolds() {
     const list: string[] = [];
     const variants: MoldVariant[] = ["clay", "fired", "wax"];
 
+    // Base molds (clay/fired/wax)
     for (const def of MOLDS) {
         for (const v of variants) {
             Object.assign(items, buildMold(def, v));
             list.push(moldKey(def.id, v));
+        }
+    }
+
+    // Filled molds (fired/wax) — like items/test.yml
+    const filledVariants = ["fired", "wax"] as const;
+    for (const def of MOLDS) {
+        for (const v of filledVariants) {
+            Object.assign(items, buildFilledMold(def, v));
+            list.push(filledMoldKey(def.id, v));
         }
     }
 

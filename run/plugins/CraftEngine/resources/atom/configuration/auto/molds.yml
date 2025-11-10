@@ -339,10 +339,382 @@ items:
         - <!i><dark_gray><lang:item.mold.sword_blade.lore>
         - ""
         - <!i><white><image:atom:badge_utility> <image:atom:badge_age_copper>
+    components:
+      - type: minecraft:tooltip_display
+        hidden_components:
+          - minecraft:dyed_color
     model:
       template: default:model/simplified_generated
       arguments:
         path: minecraft:item/ceramic/wax_sword_blade
+  atom:filled_fired_mold_axe_head:
+    material: brick
+    data:
+      item-name: <!i><white><lang:item.mold.fired.axe_head.name>
+      lore:
+        - "<!i><gray>Filled with: <gold>MATERIAL_HERE</gold>"
+        - ""
+        - <!i><dark_gray><lang:item.mold.axe_head.lore>
+        - ""
+        - <!i><white><image:atom:badge_utility> <image:atom:badge_age_copper>
+    model:
+      type: minecraft:model
+      path: minecraft:item/custom/gen/tool/filled_fired_axe_head
+      generation:
+        parent: minecraft:item/handheld
+        textures:
+          layer0: minecraft:item/ceramic/fired/axe_head_empty
+          layer1: minecraft:item/ceramic/fired/axe_head_overlay
+      tints:
+        - type: minecraft:constant
+          value: 255,255,255
+        - type: minecraft:dye
+          default: 255,255,255
+  atom:filled_wax_mold_axe_head:
+    material: brick
+    data:
+      item-name: <!i><white><lang:item.mold.wax.axe_head.name>
+      lore:
+        - "<!i><gray>Filled with: <gold>MATERIAL_HERE</gold>"
+        - ""
+        - <!i><dark_gray><lang:item.mold.axe_head.lore>
+        - ""
+        - <!i><white><image:atom:badge_utility> <image:atom:badge_age_copper>
+    model:
+      type: minecraft:model
+      path: minecraft:item/custom/gen/tool/filled_wax_axe_head
+      generation:
+        parent: minecraft:item/handheld
+        textures:
+          layer0: minecraft:item/ceramic/wax_axe_head
+          layer1: minecraft:item/ceramic/fired/axe_head_overlay
+      tints:
+        - type: minecraft:constant
+          value: 255,255,255
+        - type: minecraft:dye
+          default: 255,255,255
+  atom:filled_fired_mold_hammer_head:
+    material: brick
+    data:
+      item-name: <!i><white><lang:item.mold.fired.hammer_head.name>
+      lore:
+        - "<!i><gray>Filled with: <gold>MATERIAL_HERE</gold>"
+        - ""
+        - <!i><dark_gray><lang:item.mold.hammer_head.lore>
+        - ""
+        - <!i><white><image:atom:badge_utility> <image:atom:badge_age_copper>
+    model:
+      type: minecraft:model
+      path: minecraft:item/custom/gen/tool/filled_fired_hammer_head
+      generation:
+        parent: minecraft:item/handheld
+        textures:
+          layer0: minecraft:item/ceramic/fired/hammer_head_empty
+          layer1: minecraft:item/ceramic/fired/hammer_head_overlay
+      tints:
+        - type: minecraft:constant
+          value: 255,255,255
+        - type: minecraft:dye
+          default: 255,255,255
+  atom:filled_wax_mold_hammer_head:
+    material: brick
+    data:
+      item-name: <!i><white><lang:item.mold.wax.hammer_head.name>
+      lore:
+        - "<!i><gray>Filled with: <gold>MATERIAL_HERE</gold>"
+        - ""
+        - <!i><dark_gray><lang:item.mold.hammer_head.lore>
+        - ""
+        - <!i><white><image:atom:badge_utility> <image:atom:badge_age_copper>
+    model:
+      type: minecraft:model
+      path: minecraft:item/custom/gen/tool/filled_wax_hammer_head
+      generation:
+        parent: minecraft:item/handheld
+        textures:
+          layer0: minecraft:item/ceramic/wax_hammer_head
+          layer1: minecraft:item/ceramic/fired/hammer_head_overlay
+      tints:
+        - type: minecraft:constant
+          value: 255,255,255
+        - type: minecraft:dye
+          default: 255,255,255
+  atom:filled_fired_mold_ingot:
+    material: brick
+    data:
+      item-name: <!i><white><lang:item.mold.fired.ingot.name>
+      lore:
+        - "<!i><gray>Filled with: <gold>MATERIAL_HERE</gold>"
+        - ""
+        - <!i><dark_gray><lang:item.mold.ingot.lore>
+        - ""
+        - <!i><white><image:atom:badge_utility> <image:atom:badge_age_copper>
+    model:
+      type: minecraft:model
+      path: minecraft:item/custom/gen/tool/filled_fired_ingot
+      generation:
+        parent: minecraft:item/handheld
+        textures:
+          layer0: minecraft:item/ceramic/fired/ingot_empty
+          layer1: minecraft:item/ceramic/fired/ingot_overlay
+      tints:
+        - type: minecraft:constant
+          value: 255,255,255
+        - type: minecraft:dye
+          default: 255,255,255
+  atom:filled_wax_mold_ingot:
+    material: brick
+    data:
+      item-name: <!i><white><lang:item.mold.wax.ingot.name>
+      lore:
+        - "<!i><gray>Filled with: <gold>MATERIAL_HERE</gold>"
+        - ""
+        - <!i><dark_gray><lang:item.mold.ingot.lore>
+        - ""
+        - <!i><white><image:atom:badge_utility> <image:atom:badge_age_copper>
+    model:
+      type: minecraft:model
+      path: minecraft:item/custom/gen/tool/filled_wax_ingot
+      generation:
+        parent: minecraft:item/handheld
+        textures:
+          layer0: minecraft:item/ceramic/wax_ingot
+          layer1: minecraft:item/ceramic/fired/ingot_overlay
+      tints:
+        - type: minecraft:constant
+          value: 255,255,255
+        - type: minecraft:dye
+          default: 255,255,255
+  atom:filled_fired_mold_knife_blade:
+    material: brick
+    data:
+      item-name: <!i><white><lang:item.mold.fired.knife_blade.name>
+      lore:
+        - "<!i><gray>Filled with: <gold>MATERIAL_HERE</gold>"
+        - ""
+        - <!i><dark_gray><lang:item.mold.knife_blade.lore>
+        - ""
+        - <!i><white><image:atom:badge_utility> <image:atom:badge_age_copper>
+    model:
+      type: minecraft:model
+      path: minecraft:item/custom/gen/tool/filled_fired_knife_blade
+      generation:
+        parent: minecraft:item/handheld
+        textures:
+          layer0: minecraft:item/ceramic/fired/knife_blade_empty
+          layer1: minecraft:item/ceramic/fired/knife_blade_overlay
+      tints:
+        - type: minecraft:constant
+          value: 255,255,255
+        - type: minecraft:dye
+          default: 255,255,255
+  atom:filled_wax_mold_knife_blade:
+    material: brick
+    data:
+      item-name: <!i><white><lang:item.mold.wax.knife_blade.name>
+      lore:
+        - "<!i><gray>Filled with: <gold>MATERIAL_HERE</gold>"
+        - ""
+        - <!i><dark_gray><lang:item.mold.knife_blade.lore>
+        - ""
+        - <!i><white><image:atom:badge_utility> <image:atom:badge_age_copper>
+    model:
+      type: minecraft:model
+      path: minecraft:item/custom/gen/tool/filled_wax_knife_blade
+      generation:
+        parent: minecraft:item/handheld
+        textures:
+          layer0: minecraft:item/ceramic/wax_knife_blade
+          layer1: minecraft:item/ceramic/fired/knife_blade_overlay
+      tints:
+        - type: minecraft:constant
+          value: 255,255,255
+        - type: minecraft:dye
+          default: 255,255,255
+  atom:filled_fired_mold_pickaxe_head:
+    material: brick
+    data:
+      item-name: <!i><white><lang:item.mold.fired.pickaxe_head.name>
+      lore:
+        - "<!i><gray>Filled with: <gold>MATERIAL_HERE</gold>"
+        - ""
+        - <!i><dark_gray><lang:item.mold.pickaxe_head.lore>
+        - ""
+        - <!i><white><image:atom:badge_utility> <image:atom:badge_age_copper>
+    model:
+      type: minecraft:model
+      path: minecraft:item/custom/gen/tool/filled_fired_pickaxe_head
+      generation:
+        parent: minecraft:item/handheld
+        textures:
+          layer0: minecraft:item/ceramic/fired/pickaxe_head_empty
+          layer1: minecraft:item/ceramic/fired/pickaxe_head_overlay
+      tints:
+        - type: minecraft:constant
+          value: 255,255,255
+        - type: minecraft:dye
+          default: 255,255,255
+  atom:filled_wax_mold_pickaxe_head:
+    material: brick
+    data:
+      item-name: <!i><white><lang:item.mold.wax.pickaxe_head.name>
+      lore:
+        - "<!i><gray>Filled with: <gold>MATERIAL_HERE</gold>"
+        - ""
+        - <!i><dark_gray><lang:item.mold.pickaxe_head.lore>
+        - ""
+        - <!i><white><image:atom:badge_utility> <image:atom:badge_age_copper>
+    model:
+      type: minecraft:model
+      path: minecraft:item/custom/gen/tool/filled_wax_pickaxe_head
+      generation:
+        parent: minecraft:item/handheld
+        textures:
+          layer0: minecraft:item/ceramic/wax_pickaxe_head
+          layer1: minecraft:item/ceramic/fired/pickaxe_head_overlay
+      tints:
+        - type: minecraft:constant
+          value: 255,255,255
+        - type: minecraft:dye
+          default: 255,255,255
+  atom:filled_fired_mold_saw_blade:
+    material: brick
+    data:
+      item-name: <!i><white><lang:item.mold.fired.saw_blade.name>
+      lore:
+        - "<!i><gray>Filled with: <gold>MATERIAL_HERE</gold>"
+        - ""
+        - <!i><dark_gray><lang:item.mold.saw_blade.lore>
+        - ""
+        - <!i><white><image:atom:badge_utility> <image:atom:badge_age_copper>
+    model:
+      type: minecraft:model
+      path: minecraft:item/custom/gen/tool/filled_fired_saw_blade
+      generation:
+        parent: minecraft:item/handheld
+        textures:
+          layer0: minecraft:item/ceramic/fired/saw_blade_empty
+          layer1: minecraft:item/ceramic/fired/saw_blade_overlay
+      tints:
+        - type: minecraft:constant
+          value: 255,255,255
+        - type: minecraft:dye
+          default: 255,255,255
+  atom:filled_wax_mold_saw_blade:
+    material: brick
+    data:
+      item-name: <!i><white><lang:item.mold.wax.saw_blade.name>
+      lore:
+        - "<!i><gray>Filled with: <gold>MATERIAL_HERE</gold>"
+        - ""
+        - <!i><dark_gray><lang:item.mold.saw_blade.lore>
+        - ""
+        - <!i><white><image:atom:badge_utility> <image:atom:badge_age_copper>
+    model:
+      type: minecraft:model
+      path: minecraft:item/custom/gen/tool/filled_wax_saw_blade
+      generation:
+        parent: minecraft:item/handheld
+        textures:
+          layer0: minecraft:item/ceramic/wax_saw_blade
+          layer1: minecraft:item/ceramic/fired/saw_blade_overlay
+      tints:
+        - type: minecraft:constant
+          value: 255,255,255
+        - type: minecraft:dye
+          default: 255,255,255
+  atom:filled_fired_mold_shovel_head:
+    material: brick
+    data:
+      item-name: <!i><white><lang:item.mold.fired.shovel_head.name>
+      lore:
+        - "<!i><gray>Filled with: <gold>MATERIAL_HERE</gold>"
+        - ""
+        - <!i><dark_gray><lang:item.mold.shovel_head.lore>
+        - ""
+        - <!i><white><image:atom:badge_utility> <image:atom:badge_age_copper>
+    model:
+      type: minecraft:model
+      path: minecraft:item/custom/gen/tool/filled_fired_shovel_head
+      generation:
+        parent: minecraft:item/handheld
+        textures:
+          layer0: minecraft:item/ceramic/fired/shovel_head_empty
+          layer1: minecraft:item/ceramic/fired/shovel_head_overlay
+      tints:
+        - type: minecraft:constant
+          value: 255,255,255
+        - type: minecraft:dye
+          default: 255,255,255
+  atom:filled_wax_mold_shovel_head:
+    material: brick
+    data:
+      item-name: <!i><white><lang:item.mold.wax.shovel_head.name>
+      lore:
+        - "<!i><gray>Filled with: <gold>MATERIAL_HERE</gold>"
+        - ""
+        - <!i><dark_gray><lang:item.mold.shovel_head.lore>
+        - ""
+        - <!i><white><image:atom:badge_utility> <image:atom:badge_age_copper>
+    model:
+      type: minecraft:model
+      path: minecraft:item/custom/gen/tool/filled_wax_shovel_head
+      generation:
+        parent: minecraft:item/handheld
+        textures:
+          layer0: minecraft:item/ceramic/wax_shovel_head
+          layer1: minecraft:item/ceramic/fired/shovel_head_overlay
+      tints:
+        - type: minecraft:constant
+          value: 255,255,255
+        - type: minecraft:dye
+          default: 255,255,255
+  atom:filled_fired_mold_sword_blade:
+    material: brick
+    data:
+      item-name: <!i><white><lang:item.mold.fired.sword_blade.name>
+      lore:
+        - "<!i><gray>Filled with: <gold>MATERIAL_HERE</gold>"
+        - ""
+        - <!i><dark_gray><lang:item.mold.sword_blade.lore>
+        - ""
+        - <!i><white><image:atom:badge_utility> <image:atom:badge_age_copper>
+    model:
+      type: minecraft:model
+      path: minecraft:item/custom/gen/tool/filled_fired_sword_blade
+      generation:
+        parent: minecraft:item/handheld
+        textures:
+          layer0: minecraft:item/ceramic/fired/sword_blade_empty
+          layer1: minecraft:item/ceramic/fired/sword_blade_overlay
+      tints:
+        - type: minecraft:constant
+          value: 255,255,255
+        - type: minecraft:dye
+          default: 255,255,255
+  atom:filled_wax_mold_sword_blade:
+    material: brick
+    data:
+      item-name: <!i><white><lang:item.mold.wax.sword_blade.name>
+      lore:
+        - "<!i><gray>Filled with: <gold>MATERIAL_HERE</gold>"
+        - ""
+        - <!i><dark_gray><lang:item.mold.sword_blade.lore>
+        - ""
+        - <!i><white><image:atom:badge_utility> <image:atom:badge_age_copper>
+    model:
+      type: minecraft:model
+      path: minecraft:item/custom/gen/tool/filled_wax_sword_blade
+      generation:
+        parent: minecraft:item/handheld
+        textures:
+          layer0: minecraft:item/ceramic/wax_sword_blade
+          layer1: minecraft:item/ceramic/fired/sword_blade_overlay
+      tints:
+        - type: minecraft:constant
+          value: 255,255,255
+        - type: minecraft:dye
+          default: 255,255,255
 categories:
   atom:molds:
     name: <!i><white><lang:category.molds.name></white>
@@ -375,6 +747,22 @@ categories:
       - atom:clay_mold_sword_blade
       - atom:fired_mold_sword_blade
       - atom:wax_mold_sword_blade
+      - atom:filled_fired_mold_axe_head
+      - atom:filled_wax_mold_axe_head
+      - atom:filled_fired_mold_hammer_head
+      - atom:filled_wax_mold_hammer_head
+      - atom:filled_fired_mold_ingot
+      - atom:filled_wax_mold_ingot
+      - atom:filled_fired_mold_knife_blade
+      - atom:filled_wax_mold_knife_blade
+      - atom:filled_fired_mold_pickaxe_head
+      - atom:filled_wax_mold_pickaxe_head
+      - atom:filled_fired_mold_saw_blade
+      - atom:filled_wax_mold_saw_blade
+      - atom:filled_fired_mold_shovel_head
+      - atom:filled_wax_mold_shovel_head
+      - atom:filled_fired_mold_sword_blade
+      - atom:filled_wax_mold_sword_blade
 lang:
   en:
     category.molds.name: Clay and Fired Molds

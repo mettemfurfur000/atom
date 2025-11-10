@@ -1,6 +1,7 @@
 package org.shotrush.atom
 
 import co.aikar.commands.PaperCommandManager
+import com.github.shynixn.mccoroutine.folia.SuspendingJavaPlugin
 import lombok.Getter
 import org.bukkit.Bukkit
 import org.bukkit.Material
@@ -20,8 +21,9 @@ import org.shotrush.atom.core.blocks.CustomBlockManager
 import org.shotrush.atom.core.items.CustomItemRegistry
 import org.shotrush.atom.core.storage.DataStorage
 import org.shotrush.atom.core.workstations.WorkstationManager
+import org.shotrush.atom.listener.TestListener
 
-class Atom : JavaPlugin() {
+class Atom : SuspendingJavaPlugin() {
     var blockManager: CustomBlockManager? = null
         private set
 
@@ -55,8 +57,10 @@ class Atom : JavaPlugin() {
 
         Workstations.init()
 
+        TestListener.register(this)
         setupCommands()
         logger.info("Atom plugin has been enabled!")
+
     }
 
     private fun setupCommands() {
