@@ -31,7 +31,7 @@ import org.shotrush.atom.core.api.annotation.RegisterSystem;
 )
 public class ItemHeatSystem implements Listener {
     @Getter
-    private static ItemHeatSystem instance;
+    public static ItemHeatSystem instance;
     private final Atom plugin;
     private static final NamespacedKey HEAT_MODIFIER_KEY = new NamespacedKey("atom", "heat_modifier");
     

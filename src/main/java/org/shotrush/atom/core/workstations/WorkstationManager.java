@@ -23,7 +23,7 @@ import java.util.Objects;
 public class WorkstationManager {
     
     @Getter
-    private static WorkstationManager instance;
+    public static WorkstationManager instance;
     private final Map<Location, WorkstationData> workstations = new HashMap<>();
     private final Plugin plugin;
     

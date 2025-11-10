@@ -26,6 +26,7 @@ repositories {
         url = uri("https://repo.dmulloy2.net/repository/public/")
     }
     maven("https://repo.momirealms.net/releases/")
+    maven("https://repo.triumphteam.dev/snapshots")
 }
 
 dependencies {
@@ -49,6 +50,11 @@ dependencies {
     compileOnly("net.dmulloy2:ProtocolLib:5.4.0")
     compileOnly("net.momirealms:craft-engine-core:0.0.65")
     compileOnly("net.momirealms:craft-engine-bukkit:0.0.65")
+//    implementation("dev.triumphteam:triumph-gui-paper:4.0.0-SNAPSHOT")
+    implementation("dev.triumphteam:triumph-gui-paper-kotlin:4.0.0-SNAPSHOT")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2")
+    implementation("com.github.shynixn.mccoroutine:mccoroutine-folia-api:2.22.0")
+    implementation("com.github.shynixn.mccoroutine:mccoroutine-folia-core:2.22.0")
 }
 
 tasks.withType(xyz.jpenilla.runtask.task.AbstractRun::class) {
@@ -70,6 +76,7 @@ tasks {
         url("https://github.com/dmulloy2/ProtocolLib/releases/download/5.4.0/ProtocolLib.jar")
         modrinth("craftengine", "0.0.65")
         modrinth("terra", "6.6.6-BETA-bukkit")
+//        modrinth("betterhud2", "OUzj5ALL")
     }
 
     // Configure run-paper

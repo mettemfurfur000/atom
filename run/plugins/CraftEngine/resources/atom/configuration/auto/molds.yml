@@ -1,0 +1,288 @@
+items:
+  atom:clay_mold_axe_head:
+    material: clay_ball
+    data:
+      item-name: <!i><white><lang:item.mold.clay.axe_head.name>
+      lore:
+        - <!i><gray><lang:item.mold.common.lore>
+        - <!i><gray><lang:item.mold.unfired.lore>
+        - ""
+        - <!i><gray><lang:item.mold.axe_head.lore>
+        - ""
+        - <!i><white><image:atom:badge_material> <image:atom:badge_age_copper>
+    model:
+      template: default:model/simplified_generated
+      arguments:
+        path: minecraft:item/ceramic/unfired_axe_head
+  atom:fired_mold_axe_head:
+    material: brick
+    data:
+      item-name: <!i><white><lang:item.mold.fired.axe_head.name>
+      lore:
+        - <!i><gray><lang:item.mold.common.lore>
+        - ""
+        - <!i><gray><lang:item.mold.axe_head.lore>
+        - ""
+        - <!i><white><image:atom:badge_utility> <image:atom:badge_age_copper>
+    model:
+      template: default:model/simplified_generated
+      arguments:
+        path: minecraft:item/ceramic/fired/axe_head_empty
+  atom:clay_mold_hammer_head:
+    material: clay_ball
+    data:
+      item-name: <!i><white><lang:item.mold.clay.hammer_head.name>
+      lore:
+        - <!i><gray><lang:item.mold.common.lore>
+        - <!i><gray><lang:item.mold.unfired.lore>
+        - ""
+        - <!i><gray><lang:item.mold.hammer_head.lore>
+        - ""
+        - <!i><white><image:atom:badge_material> <image:atom:badge_age_copper>
+    model:
+      template: default:model/simplified_generated
+      arguments:
+        path: minecraft:item/ceramic/unfired_hammer_head
+  atom:fired_mold_hammer_head:
+    material: brick
+    data:
+      item-name: <!i><white><lang:item.mold.fired.hammer_head.name>
+      lore:
+        - <!i><gray><lang:item.mold.common.lore>
+        - ""
+        - <!i><gray><lang:item.mold.hammer_head.lore>
+        - ""
+        - <!i><white><image:atom:badge_utility> <image:atom:badge_age_copper>
+    model:
+      template: default:model/simplified_generated
+      arguments:
+        path: minecraft:item/ceramic/fired/hammer_head_empty
+  atom:clay_mold_ingot:
+    material: clay_ball
+    data:
+      item-name: <!i><white><lang:item.mold.clay.ingot.name>
+      lore:
+        - <!i><gray><lang:item.mold.common.lore>
+        - <!i><gray><lang:item.mold.unfired.lore>
+        - ""
+        - <!i><gray><lang:item.mold.ingot.lore>
+        - ""
+        - <!i><white><image:atom:badge_material> <image:atom:badge_age_copper>
+    model:
+      template: default:model/simplified_generated
+      arguments:
+        path: minecraft:item/ceramic/unfired_ingot
+  atom:fired_mold_ingot:
+    material: brick
+    data:
+      item-name: <!i><white><lang:item.mold.fired.ingot.name>
+      lore:
+        - <!i><gray><lang:item.mold.common.lore>
+        - ""
+        - <!i><gray><lang:item.mold.ingot.lore>
+        - ""
+        - <!i><white><image:atom:badge_utility> <image:atom:badge_age_copper>
+    model:
+      template: default:model/simplified_generated
+      arguments:
+        path: minecraft:item/ceramic/fired/ingot_empty
+  atom:clay_mold_knife_blade:
+    material: clay_ball
+    data:
+      item-name: <!i><white><lang:item.mold.clay.knife_blade.name>
+      lore:
+        - <!i><gray><lang:item.mold.common.lore>
+        - <!i><gray><lang:item.mold.unfired.lore>
+        - ""
+        - <!i><gray><lang:item.mold.knife_blade.lore>
+        - ""
+        - <!i><white><image:atom:badge_material> <image:atom:badge_age_copper>
+    model:
+      template: default:model/simplified_generated
+      arguments:
+        path: minecraft:item/ceramic/unfired_knife_blade
+  atom:fired_mold_knife_blade:
+    material: brick
+    data:
+      item-name: <!i><white><lang:item.mold.fired.knife_blade.name>
+      lore:
+        - <!i><gray><lang:item.mold.common.lore>
+        - ""
+        - <!i><gray><lang:item.mold.knife_blade.lore>
+        - ""
+        - <!i><white><image:atom:badge_utility> <image:atom:badge_age_copper>
+    model:
+      template: default:model/simplified_generated
+      arguments:
+        path: minecraft:item/ceramic/fired/knife_blade_empty
+  atom:clay_mold_pickaxe_head:
+    material: clay_ball
+    data:
+      item-name: <!i><white><lang:item.mold.clay.pickaxe_head.name>
+      lore:
+        - <!i><gray><lang:item.mold.common.lore>
+        - <!i><gray><lang:item.mold.unfired.lore>
+        - ""
+        - <!i><gray><lang:item.mold.pickaxe_head.lore>
+        - ""
+        - <!i><white><image:atom:badge_material> <image:atom:badge_age_copper>
+    model:
+      template: default:model/simplified_generated
+      arguments:
+        path: minecraft:item/ceramic/unfired_pickaxe_head
+  atom:fired_mold_pickaxe_head:
+    material: brick
+    data:
+      item-name: <!i><white><lang:item.mold.fired.pickaxe_head.name>
+      lore:
+        - <!i><gray><lang:item.mold.common.lore>
+        - ""
+        - <!i><gray><lang:item.mold.pickaxe_head.lore>
+        - ""
+        - <!i><white><image:atom:badge_utility> <image:atom:badge_age_copper>
+    model:
+      template: default:model/simplified_generated
+      arguments:
+        path: minecraft:item/ceramic/fired/pickaxe_head_empty
+  atom:clay_mold_saw_blade:
+    material: clay_ball
+    data:
+      item-name: <!i><white><lang:item.mold.clay.saw_blade.name>
+      lore:
+        - <!i><gray><lang:item.mold.common.lore>
+        - <!i><gray><lang:item.mold.unfired.lore>
+        - ""
+        - <!i><gray><lang:item.mold.saw_blade.lore>
+        - ""
+        - <!i><white><image:atom:badge_material> <image:atom:badge_age_copper>
+    model:
+      template: default:model/simplified_generated
+      arguments:
+        path: minecraft:item/ceramic/unfired_saw_blade
+  atom:fired_mold_saw_blade:
+    material: brick
+    data:
+      item-name: <!i><white><lang:item.mold.fired.saw_blade.name>
+      lore:
+        - <!i><gray><lang:item.mold.common.lore>
+        - ""
+        - <!i><gray><lang:item.mold.saw_blade.lore>
+        - ""
+        - <!i><white><image:atom:badge_utility> <image:atom:badge_age_copper>
+    model:
+      template: default:model/simplified_generated
+      arguments:
+        path: minecraft:item/ceramic/fired/saw_blade_empty
+  atom:clay_mold_shovel_head:
+    material: clay_ball
+    data:
+      item-name: <!i><white><lang:item.mold.clay.shovel_head.name>
+      lore:
+        - <!i><gray><lang:item.mold.common.lore>
+        - <!i><gray><lang:item.mold.unfired.lore>
+        - ""
+        - <!i><gray><lang:item.mold.shovel_head.lore>
+        - ""
+        - <!i><white><image:atom:badge_material> <image:atom:badge_age_copper>
+    model:
+      template: default:model/simplified_generated
+      arguments:
+        path: minecraft:item/ceramic/unfired_shovel_head
+  atom:fired_mold_shovel_head:
+    material: brick
+    data:
+      item-name: <!i><white><lang:item.mold.fired.shovel_head.name>
+      lore:
+        - <!i><gray><lang:item.mold.common.lore>
+        - ""
+        - <!i><gray><lang:item.mold.shovel_head.lore>
+        - ""
+        - <!i><white><image:atom:badge_utility> <image:atom:badge_age_copper>
+    model:
+      template: default:model/simplified_generated
+      arguments:
+        path: minecraft:item/ceramic/fired/shovel_head_empty
+  atom:clay_mold_sword_blade:
+    material: clay_ball
+    data:
+      item-name: <!i><white><lang:item.mold.clay.sword_blade.name>
+      lore:
+        - <!i><gray><lang:item.mold.common.lore>
+        - <!i><gray><lang:item.mold.unfired.lore>
+        - ""
+        - <!i><gray><lang:item.mold.sword_blade.lore>
+        - ""
+        - <!i><white><image:atom:badge_material> <image:atom:badge_age_copper>
+    model:
+      template: default:model/simplified_generated
+      arguments:
+        path: minecraft:item/ceramic/unfired_sword_blade
+  atom:fired_mold_sword_blade:
+    material: brick
+    data:
+      item-name: <!i><white><lang:item.mold.fired.sword_blade.name>
+      lore:
+        - <!i><gray><lang:item.mold.common.lore>
+        - ""
+        - <!i><gray><lang:item.mold.sword_blade.lore>
+        - ""
+        - <!i><white><image:atom:badge_utility> <image:atom:badge_age_copper>
+    model:
+      template: default:model/simplified_generated
+      arguments:
+        path: minecraft:item/ceramic/fired/sword_blade_empty
+categories:
+  atom:molds:
+    name: <!i><white><lang:category.molds.name></white>
+    hidden: true
+    lore:
+      - <!i><gray><lang:category.molds.lore>
+    icon: atom:clay_mold_shovel_head
+    list:
+      - atom:clay_mold_axe_head
+      - atom:fired_mold_axe_head
+      - atom:clay_mold_hammer_head
+      - atom:fired_mold_hammer_head
+      - atom:clay_mold_ingot
+      - atom:fired_mold_ingot
+      - atom:clay_mold_knife_blade
+      - atom:fired_mold_knife_blade
+      - atom:clay_mold_pickaxe_head
+      - atom:fired_mold_pickaxe_head
+      - atom:clay_mold_saw_blade
+      - atom:fired_mold_saw_blade
+      - atom:clay_mold_shovel_head
+      - atom:fired_mold_shovel_head
+      - atom:clay_mold_sword_blade
+      - atom:fired_mold_sword_blade
+lang:
+  en:
+    category.molds.name: Clay and Fired Molds
+    category.molds.lore: Reusable molds for shaping tools and parts
+    item.mold.common.lore: A mold used in early crafting
+    item.mold.unfired.lore: Fire this in a kiln to create a mold
+    item.mold.fired.lore: Fired mold
+    item.mold.clay.axe_head.name: Clay Axe Head Mold
+    item.mold.fired.axe_head.name: Fired Axe Head Mold
+    item.mold.axe_head.lore: Used to make a Axe Head
+    item.mold.clay.hammer_head.name: Clay Hammer Head Mold
+    item.mold.fired.hammer_head.name: Fired Hammer Head Mold
+    item.mold.hammer_head.lore: Used to make a Hammer Head
+    item.mold.clay.ingot.name: Clay Ingot Mold
+    item.mold.fired.ingot.name: Fired Ingot Mold
+    item.mold.ingot.lore: Used to make a Ingot
+    item.mold.clay.knife_blade.name: Clay Knife Blade Mold
+    item.mold.fired.knife_blade.name: Fired Knife Blade Mold
+    item.mold.knife_blade.lore: Used to make a Knife Blade
+    item.mold.clay.pickaxe_head.name: Clay Pickaxe Head Mold
+    item.mold.fired.pickaxe_head.name: Fired Pickaxe Head Mold
+    item.mold.pickaxe_head.lore: Used to make a Pickaxe Head
+    item.mold.clay.saw_blade.name: Clay Saw Blade Mold
+    item.mold.fired.saw_blade.name: Fired Saw Blade Mold
+    item.mold.saw_blade.lore: Used to make a Saw Blade
+    item.mold.clay.shovel_head.name: Clay Shovel Head Mold
+    item.mold.fired.shovel_head.name: Fired Shovel Head Mold
+    item.mold.shovel_head.lore: Used to make a Shovel Head
+    item.mold.clay.sword_blade.name: Clay Sword Blade Mold
+    item.mold.fired.sword_blade.name: Fired Sword Blade Mold
+    item.mold.sword_blade.lore: Used to make a Sword Blade

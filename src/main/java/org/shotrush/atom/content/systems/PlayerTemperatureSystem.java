@@ -24,7 +24,7 @@ import org.shotrush.atom.core.util.ActionBarManager;
 public class PlayerTemperatureSystem implements Listener {
     
     @Getter
-    private static PlayerTemperatureSystem instance;
+    public static PlayerTemperatureSystem instance;
     
     private final Plugin plugin;
     private final Map<UUID, Double> playerTemperatures = new HashMap<>();

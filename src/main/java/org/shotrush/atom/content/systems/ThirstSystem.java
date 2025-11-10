@@ -29,7 +29,7 @@ import org.shotrush.atom.core.util.ActionBarManager;
 public class ThirstSystem implements Listener {
     
     @Getter
-    private static ThirstSystem instance;
+    public static ThirstSystem instance;
     
     private final Plugin plugin;
     private final Map<UUID, Integer> thirstLevels = new HashMap<>();

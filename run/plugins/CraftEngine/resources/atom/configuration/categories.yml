@@ -6,10 +6,10 @@ categories:
       - <!i><gray><lang:category.atom.lore>
     icon: atom:sharpened_flint
     list:
-      - '#atom:animal_product'
       - '#atom:foraging'
       - '#atom:copper'
       - '#atom:bronze'
+      - '#atom:animal_product'
   atom:foraging:
     name: <!i><white><lang:category.foraging.name></white>
     hidden: true
@@ -34,6 +34,7 @@ categories:
       - <!i><white><image:atom:badge_age_copper>
     icon: minecraft:copper_ingot
     list:
+      - '#atom:molds'
   atom:bronze:
     name: <!i><white><lang:category.bronze.name></white>
     hidden: true
