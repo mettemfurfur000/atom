@@ -1,0 +1,13 @@
+items:
+  atom:ui_molding:
+    material: paper
+    model:
+      template: default:model/simplified_generated
+      arguments:
+        path: minecraft:ui/clay
+  atom:ui_molding_pressed:
+    material: paper
+    model:
+      template: default:model/simplified_generated
+      arguments:
+        path: minecraft:ui/clay_dark

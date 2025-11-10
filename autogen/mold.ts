@@ -9,6 +9,7 @@ type MoldDef = {
 const baseTexture = "minecraft:item/ceramic/"
 const unfiredBaseTexture = "minecraft:item/ceramic/unfired_"
 const firedBaseTexture = "minecraft:item/ceramic/fired/"
+const waxBaseTexture = "minecraft:item/ceramic/wax_"
 
 // Add or remove mold defs as needed
 const MOLDS = [
@@ -27,7 +28,7 @@ type Mold = typeof MOLDS[number];
 type MoldId = (typeof MOLDS)[number]["id"];
 
 // Item variants
-type MoldVariant = "clay" | "fired";
+type MoldVariant = "clay" | "fired" | "wax";
 
 const CATEGORY_KEY = "atom:molds";
 
@@ -38,7 +39,14 @@ function itemKey(id: MoldId, variant: MoldVariant) {
 
 // Helper: texture path by variant
 function textureFor(def: Mold, variant: MoldVariant) {
-    return variant === "clay" ? unfiredBaseTexture + def.id : firedBaseTexture + def.id + "_empty";
+    switch (variant) {
+        case "wax":
+            return waxBaseTexture + def.id;
+        case "fired":
+            return firedBaseTexture + def.id + "_empty";
+        case "clay":
+            return unfiredBaseTexture + def.id;
+    }
 }
 
 // Common item data builder
@@ -48,9 +56,9 @@ function buildItem(def: Mold, variant: MoldVariant) {
     const l10nKey = `<!i><white><lang:item.mold.${variant}.${def.id}.name>`;
     const lore = [
         "<!i><gray><lang:item.mold.common.lore>", // generic line; set translation
-        variant === "clay" ? "<!i><gray><lang:item.mold.unfired.lore>" : null,
+        variant === "clay" ? "<!i><red><lang:item.mold.unfired.lore>" : null,
         "",
-        `<!i><gray><lang:item.mold.${def.id}.lore>`,
+        `<!i><dark_gray><lang:item.mold.${def.id}.lore>`,
         "",
         variant === "clay"
             ? "<!i><white><image:atom:badge_material> <image:atom:badge_age_copper>"
@@ -77,7 +85,7 @@ function buildItem(def: Mold, variant: MoldVariant) {
 function generateDoc() {
     const items: Record<string, unknown> = {};
     const list: string[] = [];
-    const variants: MoldVariant[] = ["clay", "fired"];
+    const variants: MoldVariant[] = ["clay", "fired", "wax"];
 
     // Build items
     for (const def of MOLDS) {
@@ -102,15 +110,16 @@ function generateDoc() {
     const en: Record<string, string> = {
         "category.molds.name": "Clay and Fired Molds",
         "category.molds.lore": "Reusable molds for shaping tools and parts",
-        "item.mold.common.lore": "A mold used in early crafting",
+        "item.mold.common.lore": "A mold used in crafting tools and weapons",
         "item.mold.unfired.lore": "Fire this in a kiln to create a mold",
-        "item.mold.fired.lore": "Fired mold",
     };
 
     for (const def of MOLDS) {
+        en[`item.mold.wax.${def.id}.name`] = `Wax ${def.display} Mold`;
         en[`item.mold.clay.${def.id}.name`] = `Clay ${def.display} Mold`;
         en[`item.mold.fired.${def.id}.name`] = `Fired ${def.display} Mold`;
-        en[`item.mold.${def.id}.lore`] = `Used to make a ${def.display}`;
+        var connecting = def.display.toLowerCase().charAt(0) === 'a' ? 'an' : 'a';
+        en[`item.mold.${def.id}.lore`] = `Used to make ${connecting} ${def.display}`;
     }
 
     return {

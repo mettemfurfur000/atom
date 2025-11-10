@@ -19,12 +19,12 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
 import org.shotrush.atom.core.api.annotation.RegisterSystem;
 
-@RegisterSystem(
-    id = "workstation_listener",
-    priority = 6,
-    toggleable = true,
-    description = "Generic listener for CraftEngine workstation blocks"
-)
+//@RegisterSystem(
+//    id = "workstation_listener",
+//    priority = 6,
+//    toggleable = true,
+//    description = "Generic listener for CraftEngine workstation blocks"
+//)
 public class WorkstationListener implements Listener {
     private static final java.util.Set<String> WORKSTATION_TYPES = java.util.Set.of(
         "knapping_station", "leather_bed", "crafting_basket"

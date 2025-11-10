@@ -1,0 +1,23 @@
+<root>
+    <item name='net.momirealms.craftengine.core.block.BlockBehavior net.momirealms.craftengine.core.block.CustomBlock block()'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='net.momirealms.craftengine.core.block.BlockBehavior net.momirealms.craftengine.core.entity.player.InteractionResult useOnBlock(net.momirealms.craftengine.core.item.context.UseOnContext, net.momirealms.craftengine.core.block.ImmutableBlockState)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='net.momirealms.craftengine.core.block.BlockBehavior net.momirealms.craftengine.core.entity.player.InteractionResult useOnBlock(net.momirealms.craftengine.core.item.context.UseOnContext, net.momirealms.craftengine.core.block.ImmutableBlockState) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='net.momirealms.craftengine.core.block.BlockBehavior net.momirealms.craftengine.core.entity.player.InteractionResult useOnBlock(net.momirealms.craftengine.core.item.context.UseOnContext, net.momirealms.craftengine.core.block.ImmutableBlockState) 1'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='net.momirealms.craftengine.core.block.BlockBehavior net.momirealms.craftengine.core.entity.player.InteractionResult useWithoutItem(net.momirealms.craftengine.core.item.context.UseOnContext, net.momirealms.craftengine.core.block.ImmutableBlockState)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='net.momirealms.craftengine.core.block.BlockBehavior net.momirealms.craftengine.core.entity.player.InteractionResult useWithoutItem(net.momirealms.craftengine.core.item.context.UseOnContext, net.momirealms.craftengine.core.block.ImmutableBlockState) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='net.momirealms.craftengine.core.block.BlockBehavior net.momirealms.craftengine.core.entity.player.InteractionResult useWithoutItem(net.momirealms.craftengine.core.item.context.UseOnContext, net.momirealms.craftengine.core.block.ImmutableBlockState) 1'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+</root>
