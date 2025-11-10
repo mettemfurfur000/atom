@@ -8,9 +8,16 @@ import org.bukkit.block.Block
 import org.bukkit.inventory.ItemStack
 import org.shotrush.atom.item.isItem
 
-fun ItemStack.matches(key: Key) = CraftEngineItems.getCustomItemId(this) == key
-fun ItemStack.matches(key: String) = matches(Key.of(key))
-fun ItemStack.matches(namespace: String, path: String) = matches(Key.of(namespace, path))
+fun ItemStack.isCustomItem() = CraftEngineItems.isCustomItem(this)
+fun ItemStack.getNamespacedKey(): String = if(isCustomItem()) {
+    CraftEngineItems.getCustomItemId(this).toString()
+} else {
+    type.key.toString()
+}
+fun ItemStack.matches(regex: Regex) = getNamespacedKey().matches(regex)
+fun ItemStack.matches(key: Key) = getNamespacedKey() == key.toString()
+fun ItemStack.matches(key: String) = getNamespacedKey() == key
+fun ItemStack.matches(namespace: String, path: String) = getNamespacedKey() == "$namespace:$path"
 fun ItemStack.matches(item: CustomItem<ItemStack>) = item.isItem(this)
 
 fun Block.matches(key: Key) = CraftEngineBlocks.getCustomBlockState(this)?.owner()?.matchesKey(key) ?: false

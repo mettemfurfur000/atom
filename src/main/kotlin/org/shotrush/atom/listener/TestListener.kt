@@ -31,10 +31,12 @@ object TestListener : Listener {
         atom.server.pluginManager.registerSuspendingEvents(this, atom, eventDispatcher)
     }
 
+    val FilledRegex = Regex("atom:filled_(.+)_mold_(.+)")
+
     @EventHandler
     fun onPlayerInteract(event: PlayerInteractEvent) {
         val item = event.item ?: return
-        if (item.matches("atom:filled_fired_mold_axe_head")) {
+        if (item.matches(FilledRegex)) {
             println("Player ${event.player.name} used a mold axe head!")
             // Pick a random material and set the name and color accordingly
             val materials = listOf(
