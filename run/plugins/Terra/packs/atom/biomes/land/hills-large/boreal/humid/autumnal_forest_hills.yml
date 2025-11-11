@@ -29,6 +29,7 @@ slant:
 features:
   flora:
     - GRASS
+    - PEBBLES
     - LEAF_LITTER
     - POPPY_PATCH
     - DANDELION_PATCH

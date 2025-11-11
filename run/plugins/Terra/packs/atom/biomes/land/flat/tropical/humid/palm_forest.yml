@@ -22,6 +22,7 @@ palette:
 features:
   flora:
     - GRASS
+    - PEBBLES
     - LARGE_LEAF_VINES
     - POPPY_PATCH
     - DANDELION_PATCH

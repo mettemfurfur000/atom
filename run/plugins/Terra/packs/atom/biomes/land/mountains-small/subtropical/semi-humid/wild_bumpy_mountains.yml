@@ -30,6 +30,7 @@ slant:
 features:
   flora:
     - GRASS
+    - PEBBLES
     - SUBTROPICAL_BUSHES
     - FERNS
     - TALL_GRASS

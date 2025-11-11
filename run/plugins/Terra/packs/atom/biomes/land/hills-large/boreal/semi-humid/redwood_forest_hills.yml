@@ -43,6 +43,7 @@ features:
     - LILAC_PATCH
     - LILY_OF_THE_VALLEY_PATCH
     - GRASS
+    - PEBBLES
     - FERNS
   trees:
     - GIANT_REDWOODS

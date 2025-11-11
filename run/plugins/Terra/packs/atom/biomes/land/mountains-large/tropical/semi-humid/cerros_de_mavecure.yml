@@ -29,5 +29,6 @@ slant-depth: 4
 features:
   flora:
     - GRASS
+    - PEBBLES
   trees:
     - JUNGLE_TREES

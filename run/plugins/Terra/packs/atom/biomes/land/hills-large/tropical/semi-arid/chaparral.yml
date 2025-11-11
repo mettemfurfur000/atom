@@ -27,6 +27,7 @@ slant:
 
 features:
   flora:
+    - PEBBLES
     - DRY_GRASS
     - POPPY_PATCH
     - DANDELION_PATCH

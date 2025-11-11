@@ -17,6 +17,7 @@ colors:
 features:
   flora:
     - GRASS
+    - PEBBLES
     - POPPY_PATCH
     - DANDELION_PATCH
     - ROSE_BUSH_PATCH

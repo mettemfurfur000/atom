@@ -24,4 +24,5 @@ features:
     - STONE_SLABS
   flora:
     - GRASS
+    - PEBBLES
     - SMALL_DRIPLEAF

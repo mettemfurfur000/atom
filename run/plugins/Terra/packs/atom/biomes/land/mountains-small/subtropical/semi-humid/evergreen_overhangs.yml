@@ -29,6 +29,7 @@ slant:
 features:
   flora:
     - GRASS
+    - PEBBLES
     - WHITE_FLOWER_COVER
     - FERNS
   trees:

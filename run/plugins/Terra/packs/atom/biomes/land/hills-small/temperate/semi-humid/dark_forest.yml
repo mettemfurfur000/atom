@@ -28,6 +28,7 @@ slant:
 features:
   flora:
     - GRASS
+    - PEBBLES
     - LEAF_LITTER
   trees:
     - SPARSE_LARGE_MUSHROOMS

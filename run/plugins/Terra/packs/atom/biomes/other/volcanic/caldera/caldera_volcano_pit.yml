@@ -35,6 +35,7 @@ ocean:
 features:
   flora:
     - GRASS
+    - PEBBLES
     - CALDERA_SEAGRASS
     - SMALL_DRIPLEAF
   trees:

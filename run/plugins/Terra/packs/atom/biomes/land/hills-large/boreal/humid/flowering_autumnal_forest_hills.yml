@@ -29,6 +29,7 @@ slant:
 features:
   flora:
     - GRASS
+    - PEBBLES
     - WILDFLOWERS
     - LEAF_LITTER
     - MIXED_FLOWER_COVER

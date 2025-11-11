@@ -30,6 +30,7 @@ slant:
 features:
   flora:
     - GRASS
+    - PEBBLES
     - FERNS
     - LARGE_LEAF_VINES
     - POPPY_PATCH

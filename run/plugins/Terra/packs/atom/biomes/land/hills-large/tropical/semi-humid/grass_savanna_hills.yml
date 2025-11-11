@@ -5,6 +5,7 @@ color: $biomes/colors.yml:GRASS_SAVANNA_HILLS
 
 features:
   flora:
+    - PEBBLES
     - TALL_GRASS
     - POPPY_PATCH
     - DANDELION_PATCH

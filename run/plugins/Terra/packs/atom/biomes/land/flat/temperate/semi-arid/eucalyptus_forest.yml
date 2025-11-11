@@ -10,6 +10,7 @@ colors:
 features:
   flora:
     - GRASS
+    - PEBBLES
     - POPPY_PATCH
     - OXEYE_DAISY_PATCH
     - CORNFLOWER_PATCH

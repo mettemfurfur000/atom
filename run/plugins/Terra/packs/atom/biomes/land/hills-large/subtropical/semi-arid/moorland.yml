@@ -23,6 +23,7 @@ palette:
 features:
   flora:
     - GRASS
+    - PEBBLES
     - TALL_GRASS
     - DEAD_BUSHES
   trees:

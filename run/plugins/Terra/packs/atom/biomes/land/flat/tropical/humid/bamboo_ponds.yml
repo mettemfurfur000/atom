@@ -32,6 +32,7 @@ slant-depth: 1
 features:
   flora:
     - GRASS
+    - PEBBLES
     - POPPY_PATCH
     - DANDELION_PATCH
     - LILY_PADS

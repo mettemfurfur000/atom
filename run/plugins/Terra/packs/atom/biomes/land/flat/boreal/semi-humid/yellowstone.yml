@@ -47,6 +47,7 @@ slant-depth: 12
 features:
   flora:
     - GRASS
+    - PEBBLES
     - POPPY_PATCH
     - DANDELION_PATCH
   trees:

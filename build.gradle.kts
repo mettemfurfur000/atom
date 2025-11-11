@@ -27,6 +27,7 @@ repositories {
     }
     maven("https://repo.momirealms.net/releases/")
     maven("https://repo.triumphteam.dev/snapshots")
+    maven("https://maven.nostal.ink/repository/maven-public/")
 }
 
 dependencies {
@@ -57,6 +58,7 @@ dependencies {
     implementation("com.github.shynixn.mccoroutine:mccoroutine-folia-core:2.22.0")
     implementation("dev.jorel:commandapi-paper-shade:11.0.0")
     implementation("dev.jorel:commandapi-kotlin-paper:11.0.0")
+    implementation("plutoproject.adventurekt:core:2.1.1")
 }
 
 tasks.withType(xyz.jpenilla.runtask.task.AbstractRun::class) {

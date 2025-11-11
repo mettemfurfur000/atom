@@ -13,3 +13,4 @@ features:
   flora:
     - WHITE_FLOWER_COVER
     - GRASS
+    - PEBBLES

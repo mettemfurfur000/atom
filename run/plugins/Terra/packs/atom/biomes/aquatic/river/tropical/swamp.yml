@@ -30,6 +30,7 @@ slant-depth: 1
 features:
   flora:
     - GRASS
+    - PEBBLES
     - FIREFLY_BUSHES
     - POPPY_PATCH
     - DANDELION_PATCH

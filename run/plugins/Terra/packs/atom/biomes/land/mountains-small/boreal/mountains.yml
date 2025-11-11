@@ -34,6 +34,7 @@ features:
     - POPPY_PATCH
     - DANDELION_PATCH
     - GRASS
+    - PEBBLES
     - FERNS
   trees:
     - SPRUCE_TREE_PATCHES

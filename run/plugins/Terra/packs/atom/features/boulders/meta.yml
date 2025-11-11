@@ -1,0 +1,24 @@
+pebble-blocks:
+  - minecraft:mud
+  - minecraft:grass_block
+  - minecraft:podzol
+  - minecraft:dirt
+  - minecraft:coarse_dirt
+  - minecraft:moss_block
+  - minecraft:rooted_dirt
+  - minecraft:sand
+  - minecraft:red_sand
+  - minecraft:sandstone
+  - minecraft:red_sandstone
+  - minecraft:smooth_sandstone
+  - minecraft:smooth_red_sandstone
+  - minecraft:gravel
+  - minecraft:stone
+  - minecraft:deepslate
+  - minecraft:tuff
+  - minecraft:cobbled_deepslate
+  - minecraft:coal_ore
+  - minecraft:andesite
+  - minecraft:diorite
+  - minecraft:granite
+  - minecraft:iron_ore

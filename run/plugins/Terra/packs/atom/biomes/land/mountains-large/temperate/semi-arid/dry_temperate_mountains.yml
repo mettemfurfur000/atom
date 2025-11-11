@@ -18,6 +18,7 @@ slant:
 features:
   flora:
     - GRASS
+    - PEBBLES
   trees:
     - OAK_BUSH_PATCHES
     - SPARSE_OAK_TREES

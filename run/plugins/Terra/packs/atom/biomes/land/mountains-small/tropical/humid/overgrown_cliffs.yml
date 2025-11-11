@@ -90,6 +90,7 @@ slant:
 features:
   flora:
     - GRASS
+    - PEBBLES
     - CROSSING_VINES
     - LARGE_LEAF_VINES
     - LARGE_CEILING_VINES

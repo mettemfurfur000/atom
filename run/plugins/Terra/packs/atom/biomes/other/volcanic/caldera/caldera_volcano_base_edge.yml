@@ -32,4 +32,5 @@ features:
   flora:
     - CALDERA_SEAGRASS
     - GRASS
+    - PEBBLES
     - SMALL_DRIPLEAF

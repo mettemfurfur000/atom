@@ -12,6 +12,7 @@ colors:
 features:
   flora:
     - GRASS
+    - PEBBLES
     - PINK_PETALS
   trees:
     - DENSE_SAKURA_TREES
