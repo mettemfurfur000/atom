@@ -3,14 +3,14 @@ package org.shotrush.atom
 import co.aikar.commands.PaperCommandManager
 import com.github.shynixn.mccoroutine.folia.SuspendingJavaPlugin
 import dev.jorel.commandapi.CommandAPI
-import dev.jorel.commandapi.CommandAPIBukkitConfig
 import dev.jorel.commandapi.CommandAPIPaperConfig
-import lombok.Getter
+import net.minecraft.world.item.ToolMaterial
 import org.bukkit.Bukkit
 import org.bukkit.Material
-import org.bukkit.plugin.java.JavaPlugin
+import org.bukkit.NamespacedKey
 import org.shotrush.atom.commands.LivingCommands
 import org.shotrush.atom.commands.MoldCommand
+import org.shotrush.atom.content.RecipeManagement
 import org.shotrush.atom.content.mobs.ai.debug.MobAIDebugCommand
 import org.shotrush.atom.content.mobs.ai.debug.VisualDebugger
 import org.shotrush.atom.content.mobs.commands.HerdCommand
@@ -73,7 +73,6 @@ class Atom : SuspendingJavaPlugin() {
         PlayerDataTrackingListener.register(this)
         setupCommands()
         logger.info("Atom plugin has been enabled!")
-
     }
 
     private fun setupCommands() {
@@ -82,7 +81,7 @@ class Atom : SuspendingJavaPlugin() {
 
         AtomAPI.registerCommands(commandManager)
 
-        
+
         commandManager.registerCommand(org.shotrush.atom.content.workstation.commands.WorkstationCommands())
 
         val herdManager = AtomAPI.Systems.getService("herd_manager", HerdManager::class.java)

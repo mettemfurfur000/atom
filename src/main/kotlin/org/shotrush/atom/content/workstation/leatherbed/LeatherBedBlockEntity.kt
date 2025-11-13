@@ -175,15 +175,11 @@ class LeatherBedBlockEntity(
                 center,
                 Items.getAnimalProduct(animalType, AnimalProduct.RawMeat).buildItemStack()
             )
-            center.world.dropItemNaturally(
-                center,
-                Items.getAnimalProduct(animalType, AnimalProduct.Leather).buildItemStack()
-            )
+            storedItem = Items.getAnimalProduct(animalType, AnimalProduct.Leather).buildItemStack()
         } else {
             center.world.dropItemNaturally(center, storedItem)
+            storedItem = ItemStack.empty()
         }
-
-        storedItem = ItemStack.empty()
 
         if (SharpenedFlint.isSharpenedFlint(tool)) {
             SharpenedFlint.damageItem(tool, player, 0.3)
