@@ -8,6 +8,7 @@ import net.minecraft.world.item.ToolMaterial
 import org.bukkit.Bukkit
 import org.bukkit.Material
 import org.bukkit.NamespacedKey
+import org.shotrush.atom.commands.Commands
 import org.shotrush.atom.commands.LivingCommands
 import org.shotrush.atom.commands.MoldCommand
 import org.shotrush.atom.content.RecipeManagement
@@ -93,8 +94,7 @@ class Atom : SuspendingJavaPlugin() {
             commandManager.registerCommand(MobAIDebugCommand(visualDebugger, herdManager))
         }
 
-        MoldCommand.register()
-        LivingCommands.register()
+        Commands.register()
     }
 
     override fun onDisable() {

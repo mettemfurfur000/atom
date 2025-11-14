@@ -2,12 +2,21 @@ package org.shotrush.atom.content.base
 
 import net.momirealms.craftengine.core.block.entity.render.DynamicBlockEntityRenderer
 import net.momirealms.craftengine.core.entity.player.Player
+import org.shotrush.atom.content.base.display.RendererSceneBuilder
 
 @Suppress("UnstableApiUsage")
-abstract class AtomBlockEntityRenderer : DynamicBlockEntityRenderer {
-    abstract override fun show(player: Player)
+abstract class AtomBlockEntityRenderer(block: RendererSceneBuilder.() -> Unit) : DynamicBlockEntityRenderer {
+    val scene = RendererSceneBuilder().apply(block).build()
 
-    abstract override fun hide(player: Player)
+    override fun show(player: Player) {
+        scene.show(player)
+    }
 
-    abstract override fun update(player: Player)
+    override fun hide(player: Player) {
+        scene.hide(player)
+    }
+
+    override fun update(player: Player) {
+        scene.update(player)
+    }
 }
