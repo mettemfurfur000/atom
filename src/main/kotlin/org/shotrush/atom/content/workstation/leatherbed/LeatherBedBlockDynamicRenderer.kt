@@ -15,9 +15,10 @@ import net.momirealms.craftengine.core.util.HorizontalDirection
 import net.momirealms.craftengine.core.util.QuaternionUtils
 import org.bukkit.inventory.ItemStack
 import org.joml.Vector3f
+import org.shotrush.atom.content.base.AtomBlockEntityRenderer
 import java.util.*
 
-class LeatherBedBlockDynamicRenderer(val entity: LeatherBedBlockEntity) : DynamicBlockEntityRenderer {
+class LeatherBedBlockDynamicRenderer(val entity: LeatherBedBlockEntity) : AtomBlockEntityRenderer() {
     private var cachedSpawnPacket: Any? = null
     private var cachedDespawnPacket: Any? = null
     private var entityId = 0
@@ -99,5 +100,4 @@ class LeatherBedBlockDynamicRenderer(val entity: LeatherBedBlockEntity) : Dynami
         displayNewItem()
         show(player)
     }
-
 }

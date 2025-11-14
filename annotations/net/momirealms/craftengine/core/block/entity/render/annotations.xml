@@ -1,0 +1,11 @@
+<root>
+    <item name='net.momirealms.craftengine.core.block.entity.render.DynamicBlockEntityRenderer void hide(net.momirealms.craftengine.core.entity.player.Player) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='net.momirealms.craftengine.core.block.entity.render.DynamicBlockEntityRenderer void show(net.momirealms.craftengine.core.entity.player.Player) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='net.momirealms.craftengine.core.block.entity.render.DynamicBlockEntityRenderer void update(net.momirealms.craftengine.core.entity.player.Player) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+</root>

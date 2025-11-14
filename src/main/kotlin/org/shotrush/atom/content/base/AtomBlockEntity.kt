@@ -21,7 +21,17 @@ abstract class AtomBlockEntity(
             pos.z().toDouble()
         )
 
+    fun getChunk() = world?.getChunkAtIfLoaded(ChunkPos(pos))
+
     fun markDirty() {
-        world?.getChunkAtIfLoaded(ChunkPos(pos))?.setDirty(true)
+        getChunk()?.setDirty(true)
+        updateRender()
+    }
+
+    fun updateRender() {
+        val render = blockEntityRenderer ?: return
+        val chunk = getChunk() ?: return
+        val tracking = chunk.trackedBy
+        tracking.forEach(render::update)
     }
 }

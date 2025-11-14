@@ -55,7 +55,6 @@ class LeatherBedBlockEntity(
         private set(value) {
             field = value
             markDirty()
-            updateRender()
         }
 
     init {
@@ -79,14 +78,6 @@ class LeatherBedBlockEntity(
         if (!storedItem.isEmpty) {
             world.world().dropItemNaturally(pos, BukkitItemManager.instance().wrap(storedItem))
         }
-    }
-
-    fun updateRender() {
-        val render = blockEntityRenderer as? LeatherBedBlockDynamicRenderer ?: return
-        if (world == null) return
-        val chunk = world.getChunkAtIfLoaded(ChunkPos(pos)) ?: return
-        val tracking = chunk.trackedBy
-        tracking.forEach(render::update)
     }
 
     val dropLocation: Location
