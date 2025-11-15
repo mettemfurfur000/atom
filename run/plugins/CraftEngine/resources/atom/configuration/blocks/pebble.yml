@@ -162,7 +162,7 @@ recipes:
     ingredients:
       A: atom:pebble
     result:
-      id: atom:cobblestone
+      id: minecraft:cobblestone
       count: 1
 lang:
   en:

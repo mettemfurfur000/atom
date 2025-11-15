@@ -52,6 +52,7 @@ dependencies {
     compileOnly("net.momirealms:craft-engine-core:0.0.65")
     compileOnly("net.momirealms:craft-engine-bukkit:0.0.65")
     compileOnly("net.momirealms:craft-engine-nms-helper:1.0.127")
+    compileOnly("io.github.toxicity188:bettermodel:1.14.1")
     implementation("dev.triumphteam:triumph-gui-paper-kotlin:4.0.0-SNAPSHOT")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2")
     implementation("com.github.shynixn.mccoroutine:mccoroutine-folia-api:2.22.0")
@@ -80,6 +81,7 @@ tasks {
         url("https://github.com/dmulloy2/ProtocolLib/releases/download/5.4.0/ProtocolLib.jar")
         modrinth("craftengine", "0.0.65")
         modrinth("terra", "6.6.6-BETA-bukkit")
+        hangar("BetterModel", "1.14.2-SNAPSHOT-427")
 //        modrinth("betterhud2", "OUzj5ALL")
     }
 
