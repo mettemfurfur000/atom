@@ -65,7 +65,10 @@ class KnappingBlockBehavior(block: CustomBlock) : AbstractBlockBehavior(block), 
             val clicksState = mutableListStateOf(*default.toTypedArray())
             val clicks by clicksState
             containerType = chestContainer { rows = 5 }
-            title(MiniMessage.miniMessage().deserialize("<shift:-8><white><font:minecraft:ui>\ub200</font><shift:-170><dark_gray>Knapping Station"))
+            title(
+                MiniMessage.miniMessage()
+                    .deserialize("<shift:-8><white><font:minecraft:ui>\ub200</font><shift:-170><dark_gray>Knapping Station")
+            )
             component {
                 remember(clicksState)
                 render { container ->
@@ -114,15 +117,29 @@ class KnappingBlockBehavior(block: CustomBlock) : AbstractBlockBehavior(block), 
         val item = context.item.item
         if (item !is ItemStack) return InteractionResult.PASS
         val key = item.getNamespacedKey()
+
         if (!item.isCustomItem()) {
             if (item.type == Material.CLAY_BALL) {
-                openUI(KnappingUIItem.Clay, player, { Molds.getMold(it, MoldType.Clay).buildItemStack() }) {
+                openUI(KnappingUIItem.Clay, player, { shape ->
+                    // Check if this shape produces a vanilla item directly
+                    if (shape.isVanillaItem()) {
+                        ItemStack(shape.vanillaItem!!)
+                    } else {
+                        Molds.getMold(shape, MoldType.Clay).buildItemStack()
+                    }
+                }) {
                     if (player.gameMode != GameMode.CREATIVE)
                         context.item.count(context.item.count() - 1)
                 }
                 return InteractionResult.SUCCESS
             } else if (item.type == Material.HONEYCOMB) {
-                openUI(KnappingUIItem.Wax, player, { Molds.getMold(it, MoldType.Clay).buildItemStack() }) {
+                openUI(KnappingUIItem.Wax, player, { shape ->
+                    if (shape.isVanillaItem()) {
+                        ItemStack(shape.vanillaItem!!)
+                    } else {
+                        Molds.getMold(shape, MoldType.Clay).buildItemStack()
+                    }
+                }) {
                     if (player.gameMode != GameMode.CREATIVE)
                         context.item.count(context.item.count() - 1)
                 }
@@ -133,7 +150,13 @@ class KnappingBlockBehavior(block: CustomBlock) : AbstractBlockBehavior(block), 
                 openUI(
                     KnappingUIItem.Stone,
                     player,
-                    { Molds.getToolHead(it, org.shotrush.atom.item.Material.Stone).buildItemStack() }) {
+                    { shape ->
+                        if (shape.isVanillaItem()) {
+                            ItemStack(shape.vanillaItem!!)
+                        } else {
+                            Molds.getToolHead(shape, org.shotrush.atom.item.Material.Stone).buildItemStack()
+                        }
+                    }) {
                     if (player.gameMode != GameMode.CREATIVE)
                         context.item.count(context.item.count() - 1)
                 }
@@ -142,28 +165,28 @@ class KnappingBlockBehavior(block: CustomBlock) : AbstractBlockBehavior(block), 
         }
         return super.useOnBlock(context, state)
     }
-}
 
-class KnappingBlockEntity(
-    pos: BlockPos,
-    blockState: ImmutableBlockState,
-) : BlockEntity(Workstations.KNAPPING_STATION_ENTITY_TYPE, pos, blockState) {
+    class KnappingBlockEntity(
+        pos: BlockPos,
+        blockState: ImmutableBlockState,
+    ) : BlockEntity(Workstations.KNAPPING_STATION_ENTITY_TYPE, pos, blockState) {
 
-    init {
-        Atom.instance?.logger?.info("KnappingBlockEntity init at $pos")
+        init {
+            Atom.instance?.logger?.info("KnappingBlockEntity init at $pos")
+        }
+
+        override fun loadCustomData(tag: CompoundTag) {
+            super.loadCustomData(tag)
+        }
+
+        override fun saveCustomData(tag: CompoundTag) {
+            super.saveCustomData(tag)
+        }
     }
 
-    override fun loadCustomData(tag: CompoundTag) {
-        super.loadCustomData(tag)
+    enum class KnappingUIItem(val getItem: (pressed: Boolean) -> ItemStack) {
+        Clay({ if (it) Items.UI_MoldingClayPressed.buildItemStack() else Items.UI_MoldingClay.buildItemStack() }),
+        Wax({ if (it) Items.UI_MoldingWaxPressed.buildItemStack() else Items.UI_MoldingWax.buildItemStack() }),
+        Stone({ if (it) Items.UI_MoldingStonePressed.buildItemStack() else Items.UI_MoldingStone.buildItemStack() })
     }
-
-    override fun saveCustomData(tag: CompoundTag) {
-        super.saveCustomData(tag)
-    }
-}
-
-enum class KnappingUIItem(val getItem: (pressed: Boolean) -> ItemStack) {
-    Clay({ if (it) Items.UI_MoldingClayPressed.buildItemStack() else Items.UI_MoldingClay.buildItemStack() }),
-    Wax({ if (it) Items.UI_MoldingWaxPressed.buildItemStack() else Items.UI_MoldingWax.buildItemStack() }),
-    Stone({ if (it) Items.UI_MoldingStonePressed.buildItemStack() else Items.UI_MoldingStone.buildItemStack() })
 }

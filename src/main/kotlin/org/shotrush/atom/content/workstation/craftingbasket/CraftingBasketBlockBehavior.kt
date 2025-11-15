@@ -47,7 +47,7 @@ class CraftingBasketBlockBehavior(
             
         val targetBlock = player.getTargetBlockExact(5)
         if (targetBlock == null) {
-            Atom.instance?.logger?.warning("No target block found for CraftingBasket")
+            Atom.instance.logger.warning("No target block found for CraftingBasket")
             return InteractionResult.PASS
         }
         

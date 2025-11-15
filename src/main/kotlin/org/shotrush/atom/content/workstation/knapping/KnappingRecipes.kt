@@ -241,5 +241,14 @@ object KnappingRecipes {
             )
             transform(invertX)
         }
+        register(MoldShape.DecoratedPot) {
+            rows(
+                " ### ",
+                " ### ",
+                " ### ",
+                "     "
+            )
+            transform(invertX)
+        }
     }
 }
