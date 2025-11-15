@@ -302,6 +302,28 @@ function buildFilledMold(def: Mold, variant: "fired" | "wax") {
     );
 }
 
+function buildToolRecipe(tool: ToolType, material: Material) {
+    let result = `atom:${material}_${tool}`
+    if(!shouldGenerateFullTool(material, tool)) {
+        result = `minecraft:${material}_${tool}`
+    }
+    if(material == "stone") {
+        return {
+            type: "shaped",
+            pattern: ["H", "V", "S"],
+            ingredients: {H: headKey(material, tool), V: "minecraft:vine", S: "minecraft:stick"},
+            result: {id: result, count: 1},
+        }
+    } else {
+        return {
+            type: "shaped",
+            pattern: ["H", "S"],
+            ingredients: {H: headKey(material, tool), S: "minecraft:stick"},
+            result: {id: result, count: 1},
+        }
+    }
+}
+
 // ---------------------- Generators ----------------------
 
 function generateMolds() {
@@ -351,6 +373,7 @@ function generateMolds() {
 
 function generateTools() {
     const items: Record<string, unknown> = {};
+    const recipes: Record<string, unknown> = {};
     const headKeys: string[] = [];
     const toolKeys: string[] = [];
 
@@ -361,6 +384,7 @@ function generateTools() {
 
             if (shouldGenerateFullTool(mat, t)) {
                 Object.assign(items, buildFullTool(mat, t));
+                recipes[toolKey(mat, t)] = buildToolRecipe(t, mat);
                 toolKeys.push(toolKey(mat, t));
             }
         }
@@ -416,7 +440,7 @@ function generateTools() {
         }
     }
 
-    return {items, categories, lang: {en}};
+    return {items, categories, lang: {en}, recipes};
 }
 
 // ---------------------- Orchestrate + Write ----------------------

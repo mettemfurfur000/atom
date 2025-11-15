@@ -1012,3 +1012,340 @@ lang:
     item.tool.steel.knife.name: Steel Knife
     item.tool_head.steel.saw.name: Steel Saw Blade
     item.tool.steel.saw.name: Steel Saw
+recipes:
+  atom:stone_hammer:
+    type: shaped
+    pattern:
+      - H
+      - V
+      - S
+    ingredients:
+      H: atom:stone_hammer_head
+      V: minecraft:vine
+      S: minecraft:stick
+    result:
+      id: atom:stone_hammer
+      count: 1
+  atom:stone_knife:
+    type: shaped
+    pattern:
+      - H
+      - V
+      - S
+    ingredients:
+      H: atom:stone_knife_head
+      V: minecraft:vine
+      S: minecraft:stick
+    result:
+      id: atom:stone_knife
+      count: 1
+  atom:stone_saw:
+    type: shaped
+    pattern:
+      - H
+      - V
+      - S
+    ingredients:
+      H: atom:stone_saw_head
+      V: minecraft:vine
+      S: minecraft:stick
+    result:
+      id: atom:stone_saw
+      count: 1
+  atom:iron_hammer:
+    type: shaped
+    pattern:
+      - H
+      - S
+    ingredients:
+      H: atom:iron_hammer_head
+      S: minecraft:stick
+    result:
+      id: atom:iron_hammer
+      count: 1
+  atom:iron_knife:
+    type: shaped
+    pattern:
+      - H
+      - S
+    ingredients:
+      H: atom:iron_knife_head
+      S: minecraft:stick
+    result:
+      id: atom:iron_knife
+      count: 1
+  atom:iron_saw:
+    type: shaped
+    pattern:
+      - H
+      - S
+    ingredients:
+      H: atom:iron_saw_head
+      S: minecraft:stick
+    result:
+      id: atom:iron_saw
+      count: 1
+  atom:copper_pickaxe:
+    type: shaped
+    pattern:
+      - H
+      - S
+    ingredients:
+      H: atom:copper_pickaxe_head
+      S: minecraft:stick
+    result:
+      id: atom:copper_pickaxe
+      count: 1
+  atom:copper_shovel:
+    type: shaped
+    pattern:
+      - H
+      - S
+    ingredients:
+      H: atom:copper_shovel_head
+      S: minecraft:stick
+    result:
+      id: atom:copper_shovel
+      count: 1
+  atom:copper_hoe:
+    type: shaped
+    pattern:
+      - H
+      - S
+    ingredients:
+      H: atom:copper_hoe_head
+      S: minecraft:stick
+    result:
+      id: atom:copper_hoe
+      count: 1
+  atom:copper_sword:
+    type: shaped
+    pattern:
+      - H
+      - S
+    ingredients:
+      H: atom:copper_sword_head
+      S: minecraft:stick
+    result:
+      id: atom:copper_sword
+      count: 1
+  atom:copper_axe:
+    type: shaped
+    pattern:
+      - H
+      - S
+    ingredients:
+      H: atom:copper_axe_head
+      S: minecraft:stick
+    result:
+      id: atom:copper_axe
+      count: 1
+  atom:copper_hammer:
+    type: shaped
+    pattern:
+      - H
+      - S
+    ingredients:
+      H: atom:copper_hammer_head
+      S: minecraft:stick
+    result:
+      id: atom:copper_hammer
+      count: 1
+  atom:copper_knife:
+    type: shaped
+    pattern:
+      - H
+      - S
+    ingredients:
+      H: atom:copper_knife_head
+      S: minecraft:stick
+    result:
+      id: atom:copper_knife
+      count: 1
+  atom:copper_saw:
+    type: shaped
+    pattern:
+      - H
+      - S
+    ingredients:
+      H: atom:copper_saw_head
+      S: minecraft:stick
+    result:
+      id: atom:copper_saw
+      count: 1
+  atom:bronze_pickaxe:
+    type: shaped
+    pattern:
+      - H
+      - S
+    ingredients:
+      H: atom:bronze_pickaxe_head
+      S: minecraft:stick
+    result:
+      id: atom:bronze_pickaxe
+      count: 1
+  atom:bronze_shovel:
+    type: shaped
+    pattern:
+      - H
+      - S
+    ingredients:
+      H: atom:bronze_shovel_head
+      S: minecraft:stick
+    result:
+      id: atom:bronze_shovel
+      count: 1
+  atom:bronze_hoe:
+    type: shaped
+    pattern:
+      - H
+      - S
+    ingredients:
+      H: atom:bronze_hoe_head
+      S: minecraft:stick
+    result:
+      id: atom:bronze_hoe
+      count: 1
+  atom:bronze_sword:
+    type: shaped
+    pattern:
+      - H
+      - S
+    ingredients:
+      H: atom:bronze_sword_head
+      S: minecraft:stick
+    result:
+      id: atom:bronze_sword
+      count: 1
+  atom:bronze_axe:
+    type: shaped
+    pattern:
+      - H
+      - S
+    ingredients:
+      H: atom:bronze_axe_head
+      S: minecraft:stick
+    result:
+      id: atom:bronze_axe
+      count: 1
+  atom:bronze_hammer:
+    type: shaped
+    pattern:
+      - H
+      - S
+    ingredients:
+      H: atom:bronze_hammer_head
+      S: minecraft:stick
+    result:
+      id: atom:bronze_hammer
+      count: 1
+  atom:bronze_knife:
+    type: shaped
+    pattern:
+      - H
+      - S
+    ingredients:
+      H: atom:bronze_knife_head
+      S: minecraft:stick
+    result:
+      id: atom:bronze_knife
+      count: 1
+  atom:bronze_saw:
+    type: shaped
+    pattern:
+      - H
+      - S
+    ingredients:
+      H: atom:bronze_saw_head
+      S: minecraft:stick
+    result:
+      id: atom:bronze_saw
+      count: 1
+  atom:steel_pickaxe:
+    type: shaped
+    pattern:
+      - H
+      - S
+    ingredients:
+      H: atom:steel_pickaxe_head
+      S: minecraft:stick
+    result:
+      id: atom:steel_pickaxe
+      count: 1
+  atom:steel_shovel:
+    type: shaped
+    pattern:
+      - H
+      - S
+    ingredients:
+      H: atom:steel_shovel_head
+      S: minecraft:stick
+    result:
+      id: atom:steel_shovel
+      count: 1
+  atom:steel_hoe:
+    type: shaped
+    pattern:
+      - H
+      - S
+    ingredients:
+      H: atom:steel_hoe_head
+      S: minecraft:stick
+    result:
+      id: atom:steel_hoe
+      count: 1
+  atom:steel_sword:
+    type: shaped
+    pattern:
+      - H
+      - S
+    ingredients:
+      H: atom:steel_sword_head
+      S: minecraft:stick
+    result:
+      id: atom:steel_sword
+      count: 1
+  atom:steel_axe:
+    type: shaped
+    pattern:
+      - H
+      - S
+    ingredients:
+      H: atom:steel_axe_head
+      S: minecraft:stick
+    result:
+      id: atom:steel_axe
+      count: 1
+  atom:steel_hammer:
+    type: shaped
+    pattern:
+      - H
+      - S
+    ingredients:
+      H: atom:steel_hammer_head
+      S: minecraft:stick
+    result:
+      id: atom:steel_hammer
+      count: 1
+  atom:steel_knife:
+    type: shaped
+    pattern:
+      - H
+      - S
+    ingredients:
+      H: atom:steel_knife_head
+      S: minecraft:stick
+    result:
+      id: atom:steel_knife
+      count: 1
+  atom:steel_saw:
+    type: shaped
+    pattern:
+      - H
+      - S
+    ingredients:
+      H: atom:steel_saw_head
+      S: minecraft:stick
+    result:
+      id: atom:steel_saw
+      count: 1

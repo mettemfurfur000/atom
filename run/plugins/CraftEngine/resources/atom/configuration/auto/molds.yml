@@ -339,10 +339,6 @@ items:
         - <!i><dark_gray><lang:item.mold.sword_blade.lore>
         - ""
         - <!i><white><image:atom:badge_utility> <image:atom:badge_age_copper>
-    components:
-      - type: minecraft:tooltip_display
-        hidden_components:
-          - minecraft:dyed_color
     model:
       template: default:model/simplified_generated
       arguments:

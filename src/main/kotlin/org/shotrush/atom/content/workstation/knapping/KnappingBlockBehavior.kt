@@ -137,7 +137,7 @@ class KnappingBlockBehavior(block: CustomBlock) : AbstractBlockBehavior(block), 
                     if (shape.isVanillaItem()) {
                         ItemStack(shape.vanillaItem!!)
                     } else {
-                        Molds.getMold(shape, MoldType.Clay).buildItemStack()
+                        Molds.getMold(shape, MoldType.Wax).buildItemStack()
                     }
                 }) {
                     if (player.gameMode != GameMode.CREATIVE)

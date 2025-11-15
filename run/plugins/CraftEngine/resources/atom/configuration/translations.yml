@@ -7,6 +7,15 @@ lang:
     item.flint_spear.name: Flint Spear
     item.flint_spear.lore_1: A simple spear
     item.flint_spear.lore_2: for hunting and combat
+
+    material.iron.name: Iron
+    material.copper.name: Copper
+    material.bronze.name: Bronze
+
+    item.clay_cauldron.name: Clay Melting Cauldron
+    item.clay_cauldron.lore_1: A cauldron for melting ores into liquids
+    item.clay_cauldron.lore_2: Use above a campfire to melt ores
+
     category.atom.name: Atom Assets
     category.atom.lore: Contains all Atom assets
     category.foraging.name: Foraging Age

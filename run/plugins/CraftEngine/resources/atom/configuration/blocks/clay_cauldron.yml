@@ -55,3 +55,15 @@ items:
         parent: minecraft:item/fluid_layer
         textures:
            0: minecraft:block/raw_iron_block
+recipes:
+  atom:clay_cauldron:
+    type: shaped
+    pattern:
+      - A A
+      - A A
+      - AAA
+    ingredients:
+      A: minecraft:brick
+    result:
+      id: atom:clay_cauldron
+      count: 1
