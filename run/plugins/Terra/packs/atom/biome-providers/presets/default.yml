@@ -51,7 +51,7 @@ biomes:
         # ---
         # Add mushroom islands
         # - Comment the following line to disable mushroom island generation
-        - << biome-providers/stages/add_mushroom_islands.yml:stages
+        # - << biome-providers/stages/add_mushroom_islands.yml:stages
         # ---
   
         # ---
