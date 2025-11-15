@@ -57,7 +57,7 @@ class LeatherBedBlockBehavior(block: CustomBlock) : InteractiveSurface(block) {
 
     override fun <T : BlockEntity> blockEntityType(state: ImmutableBlockState): BlockEntityType<T> =
         @Suppress("UNCHECKED_CAST")
-        Workstations.LEATHER_BED_ENTITY_TYPE as BlockEntityType<T>
+        Workstations.LEATHER_BED.type as BlockEntityType<T>
 
     override fun createBlockEntity(
         pos: BlockPos,
