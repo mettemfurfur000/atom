@@ -30,8 +30,10 @@ import java.util.concurrent.ConcurrentHashMap
 class CampfireBurnoutSystem(private val plugin: Plugin) : Listener {
 
     companion object {
-        private const val BURNOUT_TIME_MS = 2 * 60 * 1000L
-        private val activeCampfires = ConcurrentHashMap<Location, BurnoutJob>()
+        const val BURNOUT_TIME_MS = 2 * 60 * 1000L
+        val activeCampfires = ConcurrentHashMap<Location, BurnoutJob>()
+        internal val stabilizingLeather = ConcurrentHashMap<Location, kotlinx.coroutines.Job>()
+        internal val curingStartTimes = ConcurrentHashMap<Location, Long>()
 
         @Volatile
         private var INSTANCE: CampfireBurnoutSystem? = null
@@ -133,7 +135,7 @@ class CampfireBurnoutSystem(private val plugin: Plugin) : Listener {
         return if (remaining > 0) remaining else 0
     }
 
-    private fun playBurnoutEffects(location: Location) {
+    fun playBurnoutEffects(location: Location) {
         val center = location.clone().add(0.5, 0.5, 0.5)
 
         center.world?.playSound(center, Sound.BLOCK_FIRE_EXTINGUISH, 1.0f, 1.0f)
