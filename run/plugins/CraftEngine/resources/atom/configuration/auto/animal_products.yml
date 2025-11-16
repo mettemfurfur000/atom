@@ -6,11 +6,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:raw_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:raw_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -22,11 +22,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:undercooked_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:undercooked_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -38,11 +38,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:cooked_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:cooked_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -54,11 +54,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:burnt_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:burnt_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -70,11 +70,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:leather
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:leather
     model:
       template: default:model/simplified_generated
       arguments:
@@ -86,11 +86,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:raw_leather
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:raw_leather
     model:
       template: default:model/simplified_generated
       arguments:
@@ -102,11 +102,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:cured_leather
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:cured_leather
     model:
       template: default:model/simplified_generated
       arguments:
@@ -118,11 +118,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:bone
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:bone
     model:
       template: default:model/simplified_generated
       arguments:
@@ -134,11 +134,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:raw_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:raw_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -150,11 +150,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:undercooked_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:undercooked_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -166,11 +166,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:cooked_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:cooked_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -182,11 +182,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:burnt_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:burnt_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -198,11 +198,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:leather
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:leather
     model:
       template: default:model/simplified_generated
       arguments:
@@ -214,11 +214,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:raw_leather
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:raw_leather
     model:
       template: default:model/simplified_generated
       arguments:
@@ -230,11 +230,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:cured_leather
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:cured_leather
     model:
       template: default:model/simplified_generated
       arguments:
@@ -246,11 +246,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:bone
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:bone
     model:
       template: default:model/simplified_generated
       arguments:
@@ -262,11 +262,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:raw_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:raw_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -278,11 +278,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:undercooked_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:undercooked_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -294,11 +294,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:cooked_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:cooked_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -310,11 +310,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:burnt_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:burnt_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -326,11 +326,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:leather
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:leather
     model:
       template: default:model/simplified_generated
       arguments:
@@ -342,11 +342,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:raw_leather
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:raw_leather
     model:
       template: default:model/simplified_generated
       arguments:
@@ -358,11 +358,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:cured_leather
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:cured_leather
     model:
       template: default:model/simplified_generated
       arguments:
@@ -374,11 +374,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:bone
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:bone
     model:
       template: default:model/simplified_generated
       arguments:
@@ -390,11 +390,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:raw_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:raw_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -406,11 +406,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:undercooked_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:undercooked_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -422,11 +422,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:cooked_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:cooked_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -438,11 +438,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:burnt_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:burnt_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -454,11 +454,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:leather
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:leather
     model:
       template: default:model/simplified_generated
       arguments:
@@ -470,11 +470,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:raw_leather
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:raw_leather
     model:
       template: default:model/simplified_generated
       arguments:
@@ -486,11 +486,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:cured_leather
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:cured_leather
     model:
       template: default:model/simplified_generated
       arguments:
@@ -502,11 +502,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:bone
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:bone
     model:
       template: default:model/simplified_generated
       arguments:
@@ -518,11 +518,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:raw_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:raw_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -534,11 +534,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:undercooked_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:undercooked_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -550,11 +550,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:cooked_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:cooked_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -566,11 +566,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:burnt_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:burnt_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -582,11 +582,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:leather
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:leather
     model:
       template: default:model/simplified_generated
       arguments:
@@ -598,11 +598,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:raw_leather
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:raw_leather
     model:
       template: default:model/simplified_generated
       arguments:
@@ -614,11 +614,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:cured_leather
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:cured_leather
     model:
       template: default:model/simplified_generated
       arguments:
@@ -630,11 +630,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:bone
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:bone
     model:
       template: default:model/simplified_generated
       arguments:
@@ -646,11 +646,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:raw_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:raw_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -662,11 +662,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:undercooked_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:undercooked_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -678,11 +678,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:cooked_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:cooked_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -694,11 +694,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:burnt_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:burnt_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -710,11 +710,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:leather
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:leather
     model:
       template: default:model/simplified_generated
       arguments:
@@ -726,11 +726,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:raw_leather
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:raw_leather
     model:
       template: default:model/simplified_generated
       arguments:
@@ -742,11 +742,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:cured_leather
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:cured_leather
     model:
       template: default:model/simplified_generated
       arguments:
@@ -758,11 +758,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:bone
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:bone
     model:
       template: default:model/simplified_generated
       arguments:
@@ -774,11 +774,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:raw_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:raw_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -790,11 +790,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:undercooked_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:undercooked_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -806,11 +806,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:cooked_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:cooked_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -822,11 +822,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:burnt_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:burnt_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -838,11 +838,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:leather
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:leather
     model:
       template: default:model/simplified_generated
       arguments:
@@ -854,11 +854,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:raw_leather
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:raw_leather
     model:
       template: default:model/simplified_generated
       arguments:
@@ -870,11 +870,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:cured_leather
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:cured_leather
     model:
       template: default:model/simplified_generated
       arguments:
@@ -886,11 +886,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:bone
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:bone
     model:
       template: default:model/simplified_generated
       arguments:
@@ -902,11 +902,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:raw_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:raw_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -918,11 +918,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:undercooked_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:undercooked_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -934,11 +934,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:cooked_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:cooked_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -950,11 +950,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:burnt_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:burnt_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -966,11 +966,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:leather
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:leather
     model:
       template: default:model/simplified_generated
       arguments:
@@ -982,11 +982,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:raw_leather
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:raw_leather
     model:
       template: default:model/simplified_generated
       arguments:
@@ -998,11 +998,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:cured_leather
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:cured_leather
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1014,11 +1014,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:bone
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:bone
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1030,11 +1030,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:raw_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:raw_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1046,11 +1046,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:undercooked_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:undercooked_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1062,11 +1062,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:cooked_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:cooked_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1078,11 +1078,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:burnt_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:burnt_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1094,11 +1094,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:leather
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:leather
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1110,11 +1110,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:raw_leather
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:raw_leather
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1126,11 +1126,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:cured_leather
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:cured_leather
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1142,11 +1142,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:bone
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:bone
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1158,11 +1158,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:raw_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:raw_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1174,11 +1174,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:undercooked_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:undercooked_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1190,11 +1190,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:cooked_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:cooked_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1206,11 +1206,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:burnt_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:burnt_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1222,11 +1222,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:leather
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:leather
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1238,11 +1238,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:raw_leather
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:raw_leather
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1254,11 +1254,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:cured_leather
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:cured_leather
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1270,11 +1270,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:bone
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:bone
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1286,11 +1286,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:raw_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:raw_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1302,11 +1302,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:undercooked_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:undercooked_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1318,11 +1318,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:cooked_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:cooked_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1334,11 +1334,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:burnt_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:burnt_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1350,11 +1350,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:leather
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:leather
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1366,11 +1366,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:raw_leather
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:raw_leather
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1382,11 +1382,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:cured_leather
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:cured_leather
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1398,11 +1398,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:bone
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:bone
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1414,11 +1414,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:raw_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:raw_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1430,11 +1430,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:undercooked_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:undercooked_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1446,11 +1446,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:cooked_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:cooked_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1462,11 +1462,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:burnt_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:burnt_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1478,11 +1478,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:leather
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:leather
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1494,11 +1494,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:raw_leather
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:raw_leather
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1510,11 +1510,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:cured_leather
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:cured_leather
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1526,11 +1526,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:bone
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:bone
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1542,11 +1542,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:raw_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:raw_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1558,11 +1558,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:undercooked_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:undercooked_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1574,11 +1574,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:cooked_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:cooked_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1590,11 +1590,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:burnt_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:burnt_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1606,11 +1606,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:leather
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:leather
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1622,11 +1622,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:raw_leather
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:raw_leather
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1638,11 +1638,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:cured_leather
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:cured_leather
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1654,11 +1654,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:bone
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:bone
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1670,11 +1670,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:raw_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:raw_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1686,11 +1686,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:undercooked_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:undercooked_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1702,11 +1702,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:cooked_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:cooked_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1718,11 +1718,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:burnt_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:burnt_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1734,11 +1734,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:leather
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:leather
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1750,11 +1750,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:raw_leather
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:raw_leather
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1766,11 +1766,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:cured_leather
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:cured_leather
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1782,11 +1782,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:bone
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:bone
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1798,11 +1798,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:raw_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:raw_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1814,11 +1814,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:undercooked_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:undercooked_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1830,11 +1830,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:cooked_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:cooked_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1846,11 +1846,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:burnt_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:burnt_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1862,11 +1862,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:leather
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:leather
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1878,11 +1878,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:raw_leather
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:raw_leather
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1894,11 +1894,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:cured_leather
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:cured_leather
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1910,11 +1910,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:bone
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:bone
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1926,11 +1926,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:raw_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:raw_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1942,11 +1942,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:undercooked_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:undercooked_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1958,11 +1958,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:cooked_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:cooked_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1974,11 +1974,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:burnt_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:burnt_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -1990,11 +1990,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:leather
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:leather
     model:
       template: default:model/simplified_generated
       arguments:
@@ -2006,11 +2006,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:raw_leather
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:raw_leather
     model:
       template: default:model/simplified_generated
       arguments:
@@ -2022,11 +2022,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:cured_leather
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:cured_leather
     model:
       template: default:model/simplified_generated
       arguments:
@@ -2038,11 +2038,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:bone
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:bone
     model:
       template: default:model/simplified_generated
       arguments:
@@ -2054,11 +2054,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:raw_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:raw_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -2070,11 +2070,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:undercooked_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:undercooked_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -2086,11 +2086,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:cooked_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:cooked_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -2102,11 +2102,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:burnt_meat
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:burnt_meat
     model:
       template: default:model/simplified_generated
       arguments:
@@ -2118,11 +2118,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:leather
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:leather
     model:
       template: default:model/simplified_generated
       arguments:
@@ -2134,11 +2134,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:raw_leather
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:raw_leather
     model:
       template: default:model/simplified_generated
       arguments:
@@ -2150,11 +2150,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:cured_leather
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:cured_leather
     model:
       template: default:model/simplified_generated
       arguments:
@@ -2166,11 +2166,11 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>
-      settings:
-        tags:
-          - atom:bone
       remove-components:
         - attribute_modifiers
+    settings:
+      tags:
+        - atom:bone
     model:
       template: default:model/simplified_generated
       arguments:

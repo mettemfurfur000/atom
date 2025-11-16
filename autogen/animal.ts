@@ -122,10 +122,10 @@ function itemBlock(id: AnimalId, type: ItemType) {
                         ? "<!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>"
                         : "<!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>",
                 ],
-                settings: {
-                    tags: [`atom:${type}`]
-                },
                 "remove-components": ["attribute_modifiers"],
+            },
+            settings: {
+                tags: [`atom:${type}`]
             },
             model: {
                 template: "default:model/simplified_generated",
