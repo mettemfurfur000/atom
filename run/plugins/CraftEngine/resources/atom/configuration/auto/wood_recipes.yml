@@ -1,67 +1,595 @@
 recipes:
-  atom:saw_oak_planks:
+  atom:oak_log_to_planks:
     type: shaped
     pattern:
       - S
-      - L
+      - I
     ingredients:
       S: "#atom:tool_saw"
-      L: minecraft:oak_log
+      I: minecraft:oak_log
     result:
       id: minecraft:oak_planks
       count: 2
-  atom:saw_spruce_planks:
+  atom:oak_stripped_log_to_planks:
     type: shaped
     pattern:
       - S
-      - L
+      - I
     ingredients:
       S: "#atom:tool_saw"
-      L: minecraft:spruce_log
+      I: minecraft:stripped_oak_log
+    result:
+      id: minecraft:oak_planks
+      count: 2
+  atom:oak_log_to_stripped:
+    type: shaped
+    pattern:
+      - SI
+    ingredients:
+      S: "#atom:tool_saw"
+      I: minecraft:oak_log
+    result:
+      id: minecraft:stripped_oak_log
+      count: 1
+  atom:oak_planks_to_slab:
+    type: shaped
+    pattern:
+      - S
+      - I
+    ingredients:
+      S: "#atom:tool_saw"
+      I: minecraft:oak_planks
+    result:
+      id: minecraft:oak_slab
+      count: 2
+  atom:oak_planks_to_stairs:
+    type: shaped
+    pattern:
+      - SI
+      - II
+    ingredients:
+      S: "#atom:tool_saw"
+      I: minecraft:oak_planks
+    result:
+      id: minecraft:oak_stairs
+      count: 4
+  atom:oak_fence:
+    type: shaped
+    pattern:
+      - SPS
+      - " P "
+      - SPS
+    ingredients:
+      P: minecraft:oak_slab
+      S: atom:stick_bundle
+    result:
+      id: minecraft:oak_fence
+      count: 6
+  atom:oak_fence_gate:
+    type: shaped
+    pattern:
+      - PSP
+      - PSP
+      - PSP
+    ingredients:
+      P: minecraft:oak_slab
+      S: atom:stick_bundle
+    result:
+      id: minecraft:oak_fence_gate
+      count: 2
+  atom:oak_door:
+    type: shaped
+    pattern:
+      - PP
+      - PP
+      - PP
+    ingredients:
+      P: minecraft:oak_slab
+    result:
+      id: minecraft:oak_door
+      count: 3
+  atom:oak_trapdoor:
+    type: shaped
+    pattern:
+      - PPP
+      - PPP
+    ingredients:
+      P: minecraft:oak_slab
+    result:
+      id: minecraft:oak_trapdoor
+      count: 3
+  atom:spruce_log_to_planks:
+    type: shaped
+    pattern:
+      - S
+      - I
+    ingredients:
+      S: "#atom:tool_saw"
+      I: minecraft:spruce_log
     result:
       id: minecraft:spruce_planks
       count: 2
-  atom:saw_birch_planks:
+  atom:spruce_stripped_log_to_planks:
     type: shaped
     pattern:
       - S
-      - L
+      - I
     ingredients:
       S: "#atom:tool_saw"
-      L: minecraft:birch_log
+      I: minecraft:stripped_spruce_log
+    result:
+      id: minecraft:spruce_planks
+      count: 2
+  atom:spruce_log_to_stripped:
+    type: shaped
+    pattern:
+      - SI
+    ingredients:
+      S: "#atom:tool_saw"
+      I: minecraft:spruce_log
+    result:
+      id: minecraft:stripped_spruce_log
+      count: 1
+  atom:spruce_planks_to_slab:
+    type: shaped
+    pattern:
+      - S
+      - I
+    ingredients:
+      S: "#atom:tool_saw"
+      I: minecraft:spruce_planks
+    result:
+      id: minecraft:spruce_slab
+      count: 2
+  atom:spruce_planks_to_stairs:
+    type: shaped
+    pattern:
+      - SI
+      - II
+    ingredients:
+      S: "#atom:tool_saw"
+      I: minecraft:spruce_planks
+    result:
+      id: minecraft:spruce_stairs
+      count: 4
+  atom:spruce_fence:
+    type: shaped
+    pattern:
+      - SPS
+      - " P "
+      - SPS
+    ingredients:
+      P: minecraft:spruce_slab
+      S: atom:stick_bundle
+    result:
+      id: minecraft:spruce_fence
+      count: 6
+  atom:spruce_fence_gate:
+    type: shaped
+    pattern:
+      - PSP
+      - PSP
+      - PSP
+    ingredients:
+      P: minecraft:spruce_slab
+      S: atom:stick_bundle
+    result:
+      id: minecraft:spruce_fence_gate
+      count: 2
+  atom:spruce_door:
+    type: shaped
+    pattern:
+      - PP
+      - PP
+      - PP
+    ingredients:
+      P: minecraft:spruce_slab
+    result:
+      id: minecraft:spruce_door
+      count: 3
+  atom:spruce_trapdoor:
+    type: shaped
+    pattern:
+      - PPP
+      - PPP
+    ingredients:
+      P: minecraft:spruce_slab
+    result:
+      id: minecraft:spruce_trapdoor
+      count: 3
+  atom:birch_log_to_planks:
+    type: shaped
+    pattern:
+      - S
+      - I
+    ingredients:
+      S: "#atom:tool_saw"
+      I: minecraft:birch_log
     result:
       id: minecraft:birch_planks
       count: 2
-  atom:saw_jungle_planks:
+  atom:birch_stripped_log_to_planks:
     type: shaped
     pattern:
       - S
-      - L
+      - I
     ingredients:
       S: "#atom:tool_saw"
-      L: minecraft:jungle_log
+      I: minecraft:stripped_birch_log
+    result:
+      id: minecraft:birch_planks
+      count: 2
+  atom:birch_log_to_stripped:
+    type: shaped
+    pattern:
+      - SI
+    ingredients:
+      S: "#atom:tool_saw"
+      I: minecraft:birch_log
+    result:
+      id: minecraft:stripped_birch_log
+      count: 1
+  atom:birch_planks_to_slab:
+    type: shaped
+    pattern:
+      - S
+      - I
+    ingredients:
+      S: "#atom:tool_saw"
+      I: minecraft:birch_planks
+    result:
+      id: minecraft:birch_slab
+      count: 2
+  atom:birch_planks_to_stairs:
+    type: shaped
+    pattern:
+      - SI
+      - II
+    ingredients:
+      S: "#atom:tool_saw"
+      I: minecraft:birch_planks
+    result:
+      id: minecraft:birch_stairs
+      count: 4
+  atom:birch_fence:
+    type: shaped
+    pattern:
+      - SPS
+      - " P "
+      - SPS
+    ingredients:
+      P: minecraft:birch_slab
+      S: atom:stick_bundle
+    result:
+      id: minecraft:birch_fence
+      count: 6
+  atom:birch_fence_gate:
+    type: shaped
+    pattern:
+      - PSP
+      - PSP
+      - PSP
+    ingredients:
+      P: minecraft:birch_slab
+      S: atom:stick_bundle
+    result:
+      id: minecraft:birch_fence_gate
+      count: 2
+  atom:birch_door:
+    type: shaped
+    pattern:
+      - PP
+      - PP
+      - PP
+    ingredients:
+      P: minecraft:birch_slab
+    result:
+      id: minecraft:birch_door
+      count: 3
+  atom:birch_trapdoor:
+    type: shaped
+    pattern:
+      - PPP
+      - PPP
+    ingredients:
+      P: minecraft:birch_slab
+    result:
+      id: minecraft:birch_trapdoor
+      count: 3
+  atom:jungle_log_to_planks:
+    type: shaped
+    pattern:
+      - S
+      - I
+    ingredients:
+      S: "#atom:tool_saw"
+      I: minecraft:jungle_log
     result:
       id: minecraft:jungle_planks
       count: 2
-  atom:saw_acacia_planks:
+  atom:jungle_stripped_log_to_planks:
     type: shaped
     pattern:
       - S
-      - L
+      - I
     ingredients:
       S: "#atom:tool_saw"
-      L: minecraft:acacia_log
+      I: minecraft:stripped_jungle_log
+    result:
+      id: minecraft:jungle_planks
+      count: 2
+  atom:jungle_log_to_stripped:
+    type: shaped
+    pattern:
+      - SI
+    ingredients:
+      S: "#atom:tool_saw"
+      I: minecraft:jungle_log
+    result:
+      id: minecraft:stripped_jungle_log
+      count: 1
+  atom:jungle_planks_to_slab:
+    type: shaped
+    pattern:
+      - S
+      - I
+    ingredients:
+      S: "#atom:tool_saw"
+      I: minecraft:jungle_planks
+    result:
+      id: minecraft:jungle_slab
+      count: 2
+  atom:jungle_planks_to_stairs:
+    type: shaped
+    pattern:
+      - SI
+      - II
+    ingredients:
+      S: "#atom:tool_saw"
+      I: minecraft:jungle_planks
+    result:
+      id: minecraft:jungle_stairs
+      count: 4
+  atom:jungle_fence:
+    type: shaped
+    pattern:
+      - SPS
+      - " P "
+      - SPS
+    ingredients:
+      P: minecraft:jungle_slab
+      S: atom:stick_bundle
+    result:
+      id: minecraft:jungle_fence
+      count: 6
+  atom:jungle_fence_gate:
+    type: shaped
+    pattern:
+      - PSP
+      - PSP
+      - PSP
+    ingredients:
+      P: minecraft:jungle_slab
+      S: atom:stick_bundle
+    result:
+      id: minecraft:jungle_fence_gate
+      count: 2
+  atom:jungle_door:
+    type: shaped
+    pattern:
+      - PP
+      - PP
+      - PP
+    ingredients:
+      P: minecraft:jungle_slab
+    result:
+      id: minecraft:jungle_door
+      count: 3
+  atom:jungle_trapdoor:
+    type: shaped
+    pattern:
+      - PPP
+      - PPP
+    ingredients:
+      P: minecraft:jungle_slab
+    result:
+      id: minecraft:jungle_trapdoor
+      count: 3
+  atom:acacia_log_to_planks:
+    type: shaped
+    pattern:
+      - S
+      - I
+    ingredients:
+      S: "#atom:tool_saw"
+      I: minecraft:acacia_log
     result:
       id: minecraft:acacia_planks
       count: 2
-  atom:saw_dark_oak_planks:
+  atom:acacia_stripped_log_to_planks:
     type: shaped
     pattern:
       - S
-      - L
+      - I
     ingredients:
       S: "#atom:tool_saw"
-      L: minecraft:dark_oak_log
+      I: minecraft:stripped_acacia_log
+    result:
+      id: minecraft:acacia_planks
+      count: 2
+  atom:acacia_log_to_stripped:
+    type: shaped
+    pattern:
+      - SI
+    ingredients:
+      S: "#atom:tool_saw"
+      I: minecraft:acacia_log
+    result:
+      id: minecraft:stripped_acacia_log
+      count: 1
+  atom:acacia_planks_to_slab:
+    type: shaped
+    pattern:
+      - S
+      - I
+    ingredients:
+      S: "#atom:tool_saw"
+      I: minecraft:acacia_planks
+    result:
+      id: minecraft:acacia_slab
+      count: 2
+  atom:acacia_planks_to_stairs:
+    type: shaped
+    pattern:
+      - SI
+      - II
+    ingredients:
+      S: "#atom:tool_saw"
+      I: minecraft:acacia_planks
+    result:
+      id: minecraft:acacia_stairs
+      count: 4
+  atom:acacia_fence:
+    type: shaped
+    pattern:
+      - SPS
+      - " P "
+      - SPS
+    ingredients:
+      P: minecraft:acacia_slab
+      S: atom:stick_bundle
+    result:
+      id: minecraft:acacia_fence
+      count: 6
+  atom:acacia_fence_gate:
+    type: shaped
+    pattern:
+      - PSP
+      - PSP
+      - PSP
+    ingredients:
+      P: minecraft:acacia_slab
+      S: atom:stick_bundle
+    result:
+      id: minecraft:acacia_fence_gate
+      count: 2
+  atom:acacia_door:
+    type: shaped
+    pattern:
+      - PP
+      - PP
+      - PP
+    ingredients:
+      P: minecraft:acacia_slab
+    result:
+      id: minecraft:acacia_door
+      count: 3
+  atom:acacia_trapdoor:
+    type: shaped
+    pattern:
+      - PPP
+      - PPP
+    ingredients:
+      P: minecraft:acacia_slab
+    result:
+      id: minecraft:acacia_trapdoor
+      count: 3
+  atom:dark_oak_log_to_planks:
+    type: shaped
+    pattern:
+      - S
+      - I
+    ingredients:
+      S: "#atom:tool_saw"
+      I: minecraft:dark_oak_log
     result:
       id: minecraft:dark_oak_planks
       count: 2
+  atom:dark_oak_stripped_log_to_planks:
+    type: shaped
+    pattern:
+      - S
+      - I
+    ingredients:
+      S: "#atom:tool_saw"
+      I: minecraft:stripped_dark_oak_log
+    result:
+      id: minecraft:dark_oak_planks
+      count: 2
+  atom:dark_oak_log_to_stripped:
+    type: shaped
+    pattern:
+      - SI
+    ingredients:
+      S: "#atom:tool_saw"
+      I: minecraft:dark_oak_log
+    result:
+      id: minecraft:stripped_dark_oak_log
+      count: 1
+  atom:dark_oak_planks_to_slab:
+    type: shaped
+    pattern:
+      - S
+      - I
+    ingredients:
+      S: "#atom:tool_saw"
+      I: minecraft:dark_oak_planks
+    result:
+      id: minecraft:dark_oak_slab
+      count: 2
+  atom:dark_oak_planks_to_stairs:
+    type: shaped
+    pattern:
+      - SI
+      - II
+    ingredients:
+      S: "#atom:tool_saw"
+      I: minecraft:dark_oak_planks
+    result:
+      id: minecraft:dark_oak_stairs
+      count: 4
+  atom:dark_oak_fence:
+    type: shaped
+    pattern:
+      - SPS
+      - " P "
+      - SPS
+    ingredients:
+      P: minecraft:dark_oak_slab
+      S: atom:stick_bundle
+    result:
+      id: minecraft:dark_oak_fence
+      count: 6
+  atom:dark_oak_fence_gate:
+    type: shaped
+    pattern:
+      - PSP
+      - PSP
+      - PSP
+    ingredients:
+      P: minecraft:dark_oak_slab
+      S: atom:stick_bundle
+    result:
+      id: minecraft:dark_oak_fence_gate
+      count: 2
+  atom:dark_oak_door:
+    type: shaped
+    pattern:
+      - PP
+      - PP
+      - PP
+    ingredients:
+      P: minecraft:dark_oak_slab
+    result:
+      id: minecraft:dark_oak_door
+      count: 3
+  atom:dark_oak_trapdoor:
+    type: shaped
+    pattern:
+      - PPP
+      - PPP
+    ingredients:
+      P: minecraft:dark_oak_slab
+    result:
+      id: minecraft:dark_oak_trapdoor
+      count: 3

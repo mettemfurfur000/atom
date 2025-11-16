@@ -19,24 +19,72 @@ function recipeKey(wood: WoodType) {
 
 function logId(wood: WoodType) {
     // vanilla naming is <wood>_log for these types
-    return mc(`${wood}_log`);
+    return woodSuffixed(wood, "log");
+}
+
+function strippedLogId(wood: WoodType) {
+    return mc(`stripped_${wood}_log`);
+}
+
+function saplingId(wood: WoodType) {
+    return woodSuffixed(wood, "sapling");
+}
+
+function woodId(wood: WoodType) {
+    return woodSuffixed(wood, "wood");
+}
+
+function strippedWoodId(wood: WoodType) {
+    return mc(`stripped_${wood}_wood`);
 }
 
 function planksId(wood: WoodType) {
-    return mc(`${wood}_planks`);
+    return woodSuffixed(wood, "planks")
 }
 
-function buildSawPlankRecipe(wood: WoodType): AnyRecipe {
+function slabId(wood: WoodType) {
+    return woodSuffixed(wood, "slab");
+}
+
+function stairsId(wood: WoodType) {
+    return woodSuffixed(wood, "stairs");
+}
+
+function doorId(wood: WoodType) {
+    return woodSuffixed(wood, "door");
+}
+
+function trapdoorId(wood: WoodType) {
+    return woodSuffixed(wood, "trapdoor");
+}
+
+function woodSuffixed(wood: WoodType, suffix: string) {
+    return mc(`${wood}_${suffix}`);
+}
+
+function buildShaped<I extends string>(pattern: string[], ingredients: Record<I, string>, output: string, amount: number = 1): AnyRecipe {
     return {
         type: "shaped",
-        pattern: ["S", "L"],
+        pattern: pattern,
+        ingredients: ingredients,
+        result: {
+            id: output,
+            count: amount,
+        },
+    } as const;
+}
+
+function buildSawRecipe(input: string, output: string, pattern: string[] = ["S", "I"], amount: number = 2): AnyRecipe {
+    return {
+        type: "shaped",
+        pattern: pattern,
         ingredients: {
             S: "#" + atom("tool_saw"),
-            L: logId(wood),
+            I: input,
         },
         result: {
-            id: planksId(wood),
-            count: 2,
+            id: output,
+            count: amount,
         },
     } as const;
 }
@@ -58,7 +106,21 @@ function buildType(wood: WoodType, suffix: string, natural: boolean) {
 function generateWoodRecipes() {
     const recipes: Record<string, AnyRecipe> = {};
     for (const wood of WOOD_TYPES) {
-        recipes[recipeKey(wood)] = buildSawPlankRecipe(wood);
+        recipes[`atom:${wood}_log_to_planks`] = buildSawRecipe(logId(wood), planksId(wood));
+        recipes[`atom:${wood}_stripped_log_to_planks`] = buildSawRecipe(strippedLogId(wood), planksId(wood));
+        recipes[`atom:${wood}_log_to_stripped`] = buildSawRecipe(logId(wood), strippedLogId(wood), ["SI"], 1);
+        recipes[`atom:${wood}_planks_to_slab`] = buildSawRecipe(planksId(wood), slabId(wood));
+        recipes[`atom:${wood}_planks_to_stairs`] = buildSawRecipe(planksId(wood), stairsId(wood), ["SI", "II"], 4);
+        recipes[`atom:${wood}_fence`] = buildShaped(["SPS", " P ", "SPS"], {
+            P: slabId(wood),
+            S: 'atom:stick_bundle'
+        }, `minecraft:${wood}_fence`, 6);
+        recipes[`atom:${wood}_fence_gate`] = buildShaped(["PSP", "PSP", "PSP"], {
+            P: slabId(wood),
+            S: 'atom:stick_bundle'
+        }, `minecraft:${wood}_fence_gate`, 2);
+        recipes[`atom:${wood}_door`] = buildShaped(["PP", "PP", "PP"], {P: slabId(wood)}, `minecraft:${wood}_door`, 3);
+        recipes[`atom:${wood}_trapdoor`] = buildShaped(["PPP", "PPP"], {P: slabId(wood)}, `minecraft:${wood}_trapdoor`, 3);
     }
     return {recipes};
 }
