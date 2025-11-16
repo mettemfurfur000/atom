@@ -187,8 +187,21 @@ class GroundItemDisplayHandler(private val plugin: Plugin) : Listener {
     }
 
     private fun findFreePosition(location: Location): Location {
+        val block = location.block
+        val blockAbove = block.getRelative(0, 1, 0)
+        
+        // Check if the block we're trying to place on is solid or has special properties
+        val baseY = when {
+            // If block is solid, place on top of it
+            block.type.isSolid -> block.y + 1.0
+            // If block above is solid, place on top of that (avoid spawning inside blocks)
+            blockAbove.type.isSolid -> blockAbove.y + 1.0
+            // Otherwise place slightly above current position
+            else -> location.y + 0.1
+        }
+        
         val baseLocation = location.clone().apply {
-            y = blockY + 0.1
+            y = baseY
         }
 
         if (isPositionFree(baseLocation)) {
