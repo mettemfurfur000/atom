@@ -71,6 +71,16 @@ public class ThirstSystem implements Listener {
         thirstAccelerationEnd.remove(playerId);
     }
     
+    @EventHandler
+    public void onPlayerDeath(org.bukkit.event.entity.PlayerDeathEvent event) {
+        Player player = event.getEntity();
+        UUID playerId = player.getUniqueId();
+        
+        // Reset thirst to maximum on death
+        thirstLevels.put(playerId, MAX_THIRST);
+        org.shotrush.atom.core.api.player.PlayerDataAPI.setInt(player, "thirst.level", MAX_THIRST);
+    }
+    
     private void startThirstTickForPlayer(Player player) {
         org.shotrush.atom.core.api.scheduler.SchedulerAPI.runTaskTimer(player, task -> {
             if (!player.isOnline()) {
