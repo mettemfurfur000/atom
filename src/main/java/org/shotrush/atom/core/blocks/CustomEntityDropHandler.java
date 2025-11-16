@@ -9,6 +9,8 @@ import org.shotrush.atom.content.foragingage.items.LeatherItem;
 import org.shotrush.atom.core.api.annotation.RegisterSystem;
 import org.shotrush.atom.core.blocks.annotation.CustomEntityDrops;
 
+import org.bukkit.DyeColor;
+import org.bukkit.Material;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -167,27 +169,58 @@ public class CustomEntityDropHandler implements Listener {
             }
 
             if (amount > 0) {
-                ItemStack itemToDrop = Atom.getInstance().getItemRegistry().createItem(drop.customItemId);
+                String itemId = drop.customItemId;
+                if (drop.customItemId.equals("bone")) {
+                    itemId = "atom:animal_bone_" + animalId;
+                } else if (drop.customItemId.equals("uncured_leather")) {
+                    itemId = "atom:animal_leather_raw_" + animalId;
+                }
+
+                ItemStack itemToDrop = null;
+                try {
+                    net.momirealms.craftengine.core.item.CustomItem<ItemStack> customItem =
+                        net.momirealms.craftengine.bukkit.api.CraftEngineItems.byId(net.momirealms.craftengine.core.util.Key.of(itemId));
+                    if (customItem != null) {
+                        itemToDrop = customItem.buildItemStack();
+                    }
+                } catch (Exception e) {
+                    Atom.getInstance().getLogger().warning("Failed to create CraftEngine item: " + itemId + " - " + e.getMessage());
+                }
 
                 if (itemToDrop != null) {
                     itemToDrop.setAmount(amount);
-
-
-                    ItemMeta meta = itemToDrop.getItemMeta();
-                    if (meta != null) {
-                        if (drop.customItemId.equals("bone")) {
-                            BoneItem.setAnimalSource(meta, animalName);
-                            itemToDrop.setItemMeta(meta);
-                        } else if (drop.customItemId.equals("uncured_leather")) {
-                            LeatherItem.setAnimalSource(meta, animalName);
-                            itemToDrop.setItemMeta(meta);
-                        }
-                    }
-
                     event.getDrops().add(itemToDrop);
                 } else {
-                    Atom.getInstance().getLogger().warning("Custom item not found: " + drop.customItemId);
+                    Atom.getInstance().getLogger().warning("Custom item not found: " + itemId);
                 }
+            }
+        }
+
+        // Add wool drops for sheep
+        if (entityType == EntityType.SHEEP) {
+            Sheep sheep = (Sheep) entity;
+            if (!sheep.isSheared()) {
+                DyeColor color = sheep.getColor();
+                Material woolMaterial = switch (color) {
+                    case WHITE -> Material.WHITE_WOOL;
+                    case ORANGE -> Material.ORANGE_WOOL;
+                    case MAGENTA -> Material.MAGENTA_WOOL;
+                    case LIGHT_BLUE -> Material.LIGHT_BLUE_WOOL;
+                    case YELLOW -> Material.YELLOW_WOOL;
+                    case LIME -> Material.LIME_WOOL;
+                    case PINK -> Material.PINK_WOOL;
+                    case GRAY -> Material.GRAY_WOOL;
+                    case LIGHT_GRAY -> Material.LIGHT_GRAY_WOOL;
+                    case CYAN -> Material.CYAN_WOOL;
+                    case PURPLE -> Material.PURPLE_WOOL;
+                    case BLUE -> Material.BLUE_WOOL;
+                    case BROWN -> Material.BROWN_WOOL;
+                    case GREEN -> Material.GREEN_WOOL;
+                    case RED -> Material.RED_WOOL;
+                    case BLACK -> Material.BLACK_WOOL;
+                };
+                ItemStack wool = new ItemStack(woolMaterial, 1);
+                event.getDrops().add(wool);
             }
         }
     }

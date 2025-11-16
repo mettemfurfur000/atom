@@ -71,3 +71,17 @@ lang:
     item.leather_bed.name: Leather Drying Bed
     item.leather_bed.lore_1: "Place leather to process and cure"
     item.leather_bed.lore_2: "Use sharpened flint or knife to scrape"
+
+recipes:
+  atom:leather_bed:
+    type: shaped
+    pattern:
+      - A A
+      - ABA
+      - A A
+    ingredients:
+      A: minecraft:stick
+      B: minecraft:vine
+    result:
+      id: atom:leather_bed
+      count: 1

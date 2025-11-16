@@ -1,0 +1,9 @@
+recipes:
+  atom:bricks_from_campfire_clay:
+    type: campfire_cooking
+    category: misc
+    time: 2000
+    ingredient: minecraft:clay_ball
+    result:
+      id: minecraft:brick
+      count: 1

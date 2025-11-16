@@ -1,5 +1,6 @@
 // generate_animal_products.ts
-import {stringify} from "yaml";
+import {stringify, parse} from "yaml";
+import { writeFileSync, readFileSync } from "fs";
 
 const animals = [
     "cow",
@@ -70,6 +71,11 @@ const meatNameOverrides: Record<string, string> = {
     rabbit: "Rabbit",
 };
 
+const recipeTransitions = [
+    { from: "raw_meat", to: "undercooked_meat", category: "food" },
+    { from: "undercooked_meat", to: "cooked_meat", category: "food" },
+    { from: "cooked_meat", to: "burnt_meat", category: "food" },
+];
 function itemKey(id: AnimalId, type: ItemType) {
     if (type.includes("leather") && type !== "leather") return `atom:animal_leather_${type.split("_")[0]}_${id}`;
     if (type.includes("meat")) return `atom:animal_meat_${type.split("_")[0]}_${id}`;
@@ -162,6 +168,31 @@ function makeLabel(id: AnimalId, type: ItemType): string {
     }
 }
 
+function generateRecipes() {
+    const recipes: Record<string, unknown> = {};
+
+    for (const animal of animals) {
+        for (const transition of recipeTransitions) {
+            const fromKey = itemKey(animal, transition.from as ItemType);
+            const toKey = itemKey(animal, transition.to as ItemType);
+            const recipeKey = `atom:${toKey.replace('atom:', '')}_from_campfire_${transition.from}`;
+
+            recipes[recipeKey] = {
+                type: "campfire_cooking",
+                category: transition.category,
+                time: 2000,
+                ingredient: fromKey,
+                result: {
+                    id: toKey,
+                    count: 1,
+                },
+            };
+        }
+    }
+
+    return recipes;
+}
+
 function generateDoc() {
     const items: Record<string, unknown> = {};
     const itemKeys: string[] = [];
@@ -212,6 +243,16 @@ function generateDoc() {
     };
 }
 
-const yaml = stringify(generateDoc(), {lineWidth: 0});
-await Bun.write("../run/plugins/CraftEngine/resources/atom/configuration/auto/animal_products.yml", yaml);
+const doc = generateDoc();
+const recipes = generateRecipes();
+
+// Write recipes to a separate file
+const foodRecipesPath = "../run/plugins/CraftEngine/resources/atom/configuration/food_recipes.yml";
+const recipesYaml = stringify({ recipes }, { lineWidth: 0 });
+writeFileSync(foodRecipesPath, recipesYaml);
+console.log("Generated campfire cooking recipes into food_recipes.yml");
+
+// Generate animal products
+const yaml = stringify(doc, {lineWidth: 0});
+writeFileSync("../run/plugins/CraftEngine/resources/atom/configuration/auto/animal_products.yml", yaml);
 console.log("Generated animal_products.yml (items + categories + translations)");

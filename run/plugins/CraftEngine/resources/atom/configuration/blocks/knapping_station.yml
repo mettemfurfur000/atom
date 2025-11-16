@@ -36,3 +36,15 @@ items:
           auto-state: cactus
           model:
             path: minecraft:block/knapping_station
+recipes:
+  atom:knapping_station:
+    type: shaped
+    pattern:
+      - B
+      - A
+    ingredients:
+      A: "#minecraft:logs"
+      B: "#atom:leather"
+    result:
+      id: atom:knapping_station
+      count: 1

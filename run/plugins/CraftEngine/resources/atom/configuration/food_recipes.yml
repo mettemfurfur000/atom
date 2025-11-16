@@ -1,0 +1,409 @@
+recipes:
+  atom:animal_meat_undercooked_cow_from_campfire_raw_meat:
+    type: campfire_cooking
+    category: food
+    time: 2000
+    ingredient: atom:animal_meat_raw_cow
+    result:
+      id: atom:animal_meat_undercooked_cow
+      count: 1
+  atom:animal_meat_cooked_cow_from_campfire_undercooked_meat:
+    type: campfire_cooking
+    category: food
+    time: 2000
+    ingredient: atom:animal_meat_undercooked_cow
+    result:
+      id: atom:animal_meat_cooked_cow
+      count: 1
+  atom:animal_meat_burnt_cow_from_campfire_cooked_meat:
+    type: campfire_cooking
+    category: food
+    time: 2000
+    ingredient: atom:animal_meat_cooked_cow
+    result:
+      id: atom:animal_meat_burnt_cow
+      count: 1
+  atom:animal_meat_undercooked_pig_from_campfire_raw_meat:
+    type: campfire_cooking
+    category: food
+    time: 2000
+    ingredient: atom:animal_meat_raw_pig
+    result:
+      id: atom:animal_meat_undercooked_pig
+      count: 1
+  atom:animal_meat_cooked_pig_from_campfire_undercooked_meat:
+    type: campfire_cooking
+    category: food
+    time: 2000
+    ingredient: atom:animal_meat_undercooked_pig
+    result:
+      id: atom:animal_meat_cooked_pig
+      count: 1
+  atom:animal_meat_burnt_pig_from_campfire_cooked_meat:
+    type: campfire_cooking
+    category: food
+    time: 2000
+    ingredient: atom:animal_meat_cooked_pig
+    result:
+      id: atom:animal_meat_burnt_pig
+      count: 1
+  atom:animal_meat_undercooked_sheep_from_campfire_raw_meat:
+    type: campfire_cooking
+    category: food
+    time: 2000
+    ingredient: atom:animal_meat_raw_sheep
+    result:
+      id: atom:animal_meat_undercooked_sheep
+      count: 1
+  atom:animal_meat_cooked_sheep_from_campfire_undercooked_meat:
+    type: campfire_cooking
+    category: food
+    time: 2000
+    ingredient: atom:animal_meat_undercooked_sheep
+    result:
+      id: atom:animal_meat_cooked_sheep
+      count: 1
+  atom:animal_meat_burnt_sheep_from_campfire_cooked_meat:
+    type: campfire_cooking
+    category: food
+    time: 2000
+    ingredient: atom:animal_meat_cooked_sheep
+    result:
+      id: atom:animal_meat_burnt_sheep
+      count: 1
+  atom:animal_meat_undercooked_chicken_from_campfire_raw_meat:
+    type: campfire_cooking
+    category: food
+    time: 2000
+    ingredient: atom:animal_meat_raw_chicken
+    result:
+      id: atom:animal_meat_undercooked_chicken
+      count: 1
+  atom:animal_meat_cooked_chicken_from_campfire_undercooked_meat:
+    type: campfire_cooking
+    category: food
+    time: 2000
+    ingredient: atom:animal_meat_undercooked_chicken
+    result:
+      id: atom:animal_meat_cooked_chicken
+      count: 1
+  atom:animal_meat_burnt_chicken_from_campfire_cooked_meat:
+    type: campfire_cooking
+    category: food
+    time: 2000
+    ingredient: atom:animal_meat_cooked_chicken
+    result:
+      id: atom:animal_meat_burnt_chicken
+      count: 1
+  atom:animal_meat_undercooked_rabbit_from_campfire_raw_meat:
+    type: campfire_cooking
+    category: food
+    time: 2000
+    ingredient: atom:animal_meat_raw_rabbit
+    result:
+      id: atom:animal_meat_undercooked_rabbit
+      count: 1
+  atom:animal_meat_cooked_rabbit_from_campfire_undercooked_meat:
+    type: campfire_cooking
+    category: food
+    time: 2000
+    ingredient: atom:animal_meat_undercooked_rabbit
+    result:
+      id: atom:animal_meat_cooked_rabbit
+      count: 1
+  atom:animal_meat_burnt_rabbit_from_campfire_cooked_meat:
+    type: campfire_cooking
+    category: food
+    time: 2000
+    ingredient: atom:animal_meat_cooked_rabbit
+    result:
+      id: atom:animal_meat_burnt_rabbit
+      count: 1
+  atom:animal_meat_undercooked_horse_from_campfire_raw_meat:
+    type: campfire_cooking
+    category: food
+    time: 2000
+    ingredient: atom:animal_meat_raw_horse
+    result:
+      id: atom:animal_meat_undercooked_horse
+      count: 1
+  atom:animal_meat_cooked_horse_from_campfire_undercooked_meat:
+    type: campfire_cooking
+    category: food
+    time: 2000
+    ingredient: atom:animal_meat_undercooked_horse
+    result:
+      id: atom:animal_meat_cooked_horse
+      count: 1
+  atom:animal_meat_burnt_horse_from_campfire_cooked_meat:
+    type: campfire_cooking
+    category: food
+    time: 2000
+    ingredient: atom:animal_meat_cooked_horse
+    result:
+      id: atom:animal_meat_burnt_horse
+      count: 1
+  atom:animal_meat_undercooked_donkey_from_campfire_raw_meat:
+    type: campfire_cooking
+    category: food
+    time: 2000
+    ingredient: atom:animal_meat_raw_donkey
+    result:
+      id: atom:animal_meat_undercooked_donkey
+      count: 1
+  atom:animal_meat_cooked_donkey_from_campfire_undercooked_meat:
+    type: campfire_cooking
+    category: food
+    time: 2000
+    ingredient: atom:animal_meat_undercooked_donkey
+    result:
+      id: atom:animal_meat_cooked_donkey
+      count: 1
+  atom:animal_meat_burnt_donkey_from_campfire_cooked_meat:
+    type: campfire_cooking
+    category: food
+    time: 2000
+    ingredient: atom:animal_meat_cooked_donkey
+    result:
+      id: atom:animal_meat_burnt_donkey
+      count: 1
+  atom:animal_meat_undercooked_mule_from_campfire_raw_meat:
+    type: campfire_cooking
+    category: food
+    time: 2000
+    ingredient: atom:animal_meat_raw_mule
+    result:
+      id: atom:animal_meat_undercooked_mule
+      count: 1
+  atom:animal_meat_cooked_mule_from_campfire_undercooked_meat:
+    type: campfire_cooking
+    category: food
+    time: 2000
+    ingredient: atom:animal_meat_undercooked_mule
+    result:
+      id: atom:animal_meat_cooked_mule
+      count: 1
+  atom:animal_meat_burnt_mule_from_campfire_cooked_meat:
+    type: campfire_cooking
+    category: food
+    time: 2000
+    ingredient: atom:animal_meat_cooked_mule
+    result:
+      id: atom:animal_meat_burnt_mule
+      count: 1
+  atom:animal_meat_undercooked_llama_from_campfire_raw_meat:
+    type: campfire_cooking
+    category: food
+    time: 2000
+    ingredient: atom:animal_meat_raw_llama
+    result:
+      id: atom:animal_meat_undercooked_llama
+      count: 1
+  atom:animal_meat_cooked_llama_from_campfire_undercooked_meat:
+    type: campfire_cooking
+    category: food
+    time: 2000
+    ingredient: atom:animal_meat_undercooked_llama
+    result:
+      id: atom:animal_meat_cooked_llama
+      count: 1
+  atom:animal_meat_burnt_llama_from_campfire_cooked_meat:
+    type: campfire_cooking
+    category: food
+    time: 2000
+    ingredient: atom:animal_meat_cooked_llama
+    result:
+      id: atom:animal_meat_burnt_llama
+      count: 1
+  atom:animal_meat_undercooked_goat_from_campfire_raw_meat:
+    type: campfire_cooking
+    category: food
+    time: 2000
+    ingredient: atom:animal_meat_raw_goat
+    result:
+      id: atom:animal_meat_undercooked_goat
+      count: 1
+  atom:animal_meat_cooked_goat_from_campfire_undercooked_meat:
+    type: campfire_cooking
+    category: food
+    time: 2000
+    ingredient: atom:animal_meat_undercooked_goat
+    result:
+      id: atom:animal_meat_cooked_goat
+      count: 1
+  atom:animal_meat_burnt_goat_from_campfire_cooked_meat:
+    type: campfire_cooking
+    category: food
+    time: 2000
+    ingredient: atom:animal_meat_cooked_goat
+    result:
+      id: atom:animal_meat_burnt_goat
+      count: 1
+  atom:animal_meat_undercooked_cat_from_campfire_raw_meat:
+    type: campfire_cooking
+    category: food
+    time: 2000
+    ingredient: atom:animal_meat_raw_cat
+    result:
+      id: atom:animal_meat_undercooked_cat
+      count: 1
+  atom:animal_meat_cooked_cat_from_campfire_undercooked_meat:
+    type: campfire_cooking
+    category: food
+    time: 2000
+    ingredient: atom:animal_meat_undercooked_cat
+    result:
+      id: atom:animal_meat_cooked_cat
+      count: 1
+  atom:animal_meat_burnt_cat_from_campfire_cooked_meat:
+    type: campfire_cooking
+    category: food
+    time: 2000
+    ingredient: atom:animal_meat_cooked_cat
+    result:
+      id: atom:animal_meat_burnt_cat
+      count: 1
+  atom:animal_meat_undercooked_wolf_from_campfire_raw_meat:
+    type: campfire_cooking
+    category: food
+    time: 2000
+    ingredient: atom:animal_meat_raw_wolf
+    result:
+      id: atom:animal_meat_undercooked_wolf
+      count: 1
+  atom:animal_meat_cooked_wolf_from_campfire_undercooked_meat:
+    type: campfire_cooking
+    category: food
+    time: 2000
+    ingredient: atom:animal_meat_undercooked_wolf
+    result:
+      id: atom:animal_meat_cooked_wolf
+      count: 1
+  atom:animal_meat_burnt_wolf_from_campfire_cooked_meat:
+    type: campfire_cooking
+    category: food
+    time: 2000
+    ingredient: atom:animal_meat_cooked_wolf
+    result:
+      id: atom:animal_meat_burnt_wolf
+      count: 1
+  atom:animal_meat_undercooked_fox_from_campfire_raw_meat:
+    type: campfire_cooking
+    category: food
+    time: 2000
+    ingredient: atom:animal_meat_raw_fox
+    result:
+      id: atom:animal_meat_undercooked_fox
+      count: 1
+  atom:animal_meat_cooked_fox_from_campfire_undercooked_meat:
+    type: campfire_cooking
+    category: food
+    time: 2000
+    ingredient: atom:animal_meat_undercooked_fox
+    result:
+      id: atom:animal_meat_cooked_fox
+      count: 1
+  atom:animal_meat_burnt_fox_from_campfire_cooked_meat:
+    type: campfire_cooking
+    category: food
+    time: 2000
+    ingredient: atom:animal_meat_cooked_fox
+    result:
+      id: atom:animal_meat_burnt_fox
+      count: 1
+  atom:animal_meat_undercooked_panda_from_campfire_raw_meat:
+    type: campfire_cooking
+    category: food
+    time: 2000
+    ingredient: atom:animal_meat_raw_panda
+    result:
+      id: atom:animal_meat_undercooked_panda
+      count: 1
+  atom:animal_meat_cooked_panda_from_campfire_undercooked_meat:
+    type: campfire_cooking
+    category: food
+    time: 2000
+    ingredient: atom:animal_meat_undercooked_panda
+    result:
+      id: atom:animal_meat_cooked_panda
+      count: 1
+  atom:animal_meat_burnt_panda_from_campfire_cooked_meat:
+    type: campfire_cooking
+    category: food
+    time: 2000
+    ingredient: atom:animal_meat_cooked_panda
+    result:
+      id: atom:animal_meat_burnt_panda
+      count: 1
+  atom:animal_meat_undercooked_polar_bear_from_campfire_raw_meat:
+    type: campfire_cooking
+    category: food
+    time: 2000
+    ingredient: atom:animal_meat_raw_polar_bear
+    result:
+      id: atom:animal_meat_undercooked_polar_bear
+      count: 1
+  atom:animal_meat_cooked_polar_bear_from_campfire_undercooked_meat:
+    type: campfire_cooking
+    category: food
+    time: 2000
+    ingredient: atom:animal_meat_undercooked_polar_bear
+    result:
+      id: atom:animal_meat_cooked_polar_bear
+      count: 1
+  atom:animal_meat_burnt_polar_bear_from_campfire_cooked_meat:
+    type: campfire_cooking
+    category: food
+    time: 2000
+    ingredient: atom:animal_meat_cooked_polar_bear
+    result:
+      id: atom:animal_meat_burnt_polar_bear
+      count: 1
+  atom:animal_meat_undercooked_ocelot_from_campfire_raw_meat:
+    type: campfire_cooking
+    category: food
+    time: 2000
+    ingredient: atom:animal_meat_raw_ocelot
+    result:
+      id: atom:animal_meat_undercooked_ocelot
+      count: 1
+  atom:animal_meat_cooked_ocelot_from_campfire_undercooked_meat:
+    type: campfire_cooking
+    category: food
+    time: 2000
+    ingredient: atom:animal_meat_undercooked_ocelot
+    result:
+      id: atom:animal_meat_cooked_ocelot
+      count: 1
+  atom:animal_meat_burnt_ocelot_from_campfire_cooked_meat:
+    type: campfire_cooking
+    category: food
+    time: 2000
+    ingredient: atom:animal_meat_cooked_ocelot
+    result:
+      id: atom:animal_meat_burnt_ocelot
+      count: 1
+  atom:animal_meat_undercooked_camel_from_campfire_raw_meat:
+    type: campfire_cooking
+    category: food
+    time: 2000
+    ingredient: atom:animal_meat_raw_camel
+    result:
+      id: atom:animal_meat_undercooked_camel
+      count: 1
+  atom:animal_meat_cooked_camel_from_campfire_undercooked_meat:
+    type: campfire_cooking
+    category: food
+    time: 2000
+    ingredient: atom:animal_meat_undercooked_camel
+    result:
+      id: atom:animal_meat_cooked_camel
+      count: 1
+  atom:animal_meat_burnt_camel_from_campfire_cooked_meat:
+    type: campfire_cooking
+    category: food
+    time: 2000
+    ingredient: atom:animal_meat_cooked_camel
+    result:
+      id: atom:animal_meat_burnt_camel
+      count: 1
