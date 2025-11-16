@@ -156,8 +156,8 @@ class LeatherBedBlockEntity(
                 Items.getAnimalProduct(animalType, AnimalProduct.RawMeat).buildItemStack()
             )
 
-            // Convert to vanilla leather and start curing
-            storedItem = ItemStack(org.bukkit.Material.LEATHER, 1)
+            // Convert to processed leather and start curing
+            storedItem = Items.getAnimalProduct(animalType, AnimalProduct.Leather).buildItemStack()
 
             // Trigger the curing process through the behavior using region dispatcher
             val atom = Atom.instance
