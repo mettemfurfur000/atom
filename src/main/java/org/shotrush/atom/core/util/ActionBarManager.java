@@ -92,7 +92,7 @@ public class ActionBarManager {
             for (Player player : plugin.getServer().getOnlinePlayers()) {
                 updateActionBar(player);
             }
-        }, 1L, 20L);
+        }, 1L, 5L);
     }
     
     private void updateActionBar(Player player) {
