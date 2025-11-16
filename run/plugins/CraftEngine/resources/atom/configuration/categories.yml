@@ -4,7 +4,7 @@ categories:
     name: <!i><white><lang:category.atom.name></white>
     lore:
       - <!i><gray><lang:category.atom.lore>
-    icon: atom:sharpened_flint
+    icon: atom:sharpened_rock
     list:
       - '#atom:foraging'
       - '#atom:copper'
@@ -25,7 +25,7 @@ categories:
       - 'atom:leather_bed'
       - 'atom:crafting_basket'
       - 'atom:clay_cauldron'
-      - 'atom:sharpened_flint'
+      - 'atom:sharpened_rock'
       - 'atom:pebble'
       - 'atom:flint_knife'
       - 'atom:flint_spear'

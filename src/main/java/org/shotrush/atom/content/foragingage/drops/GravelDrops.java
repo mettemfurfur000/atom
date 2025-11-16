@@ -10,7 +10,7 @@ import org.shotrush.atom.core.blocks.annotation.CustomBlockDrops.Drop;
     },
     drops = {
         @Drop(material = Material.FLINT, chance = 0.45, min = 1, max = 1),
-        @Drop(customItemId = "sharpened_flint", chance = 0.05, min = 1, max = 1)
+        @Drop(customItemId = "sharpened_rock", chance = 0.05, min = 1, max = 1)
     },
     replaceVanillaDrops = true,
     ages = {"foraging_age"}

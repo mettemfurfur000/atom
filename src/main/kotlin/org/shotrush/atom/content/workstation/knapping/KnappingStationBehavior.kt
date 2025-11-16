@@ -69,7 +69,7 @@ class KnappingStationBehavior(
     override fun getMaxItems(): Int = 1
     
     override fun canPlaceItem(item: ItemStack): Boolean {
-        return item.type == Material.FLINT || item.matches("atom:sharpened_flint")
+        return item.type == Material.FLINT || item.matches("atom:sharpened_rock")
     }
     
     override fun calculatePlacement(player: Player, itemCount: Int): Vector3f {
@@ -386,7 +386,7 @@ class KnappingStationBehavior(
             }
             
             
-            CraftEngineItems.byId(Key.of("atom:sharpened_flint"))?.let { customItem ->
+            CraftEngineItems.byId(Key.of("atom:sharpened_rock"))?.let { customItem ->
                 val sharpenedFlint = customItem.buildItemStack()
                 
                 
@@ -439,7 +439,7 @@ class KnappingStationBehavior(
             }
             
             
-            CraftEngineItems.byId(Key.of("atom:sharpened_flint"))?.let { customItem ->
+            CraftEngineItems.byId(Key.of("atom:sharpened_rock"))?.let { customItem ->
                 val sharpenedFlint = customItem.buildItemStack()
                 ItemQualityAPI.setQuality(sharpenedFlint, ItemQuality.HIGH)
                 

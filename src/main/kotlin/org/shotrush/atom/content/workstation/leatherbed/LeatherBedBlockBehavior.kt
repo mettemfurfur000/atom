@@ -44,7 +44,7 @@ class LeatherBedBlockBehavior(block: CustomBlock) : InteractiveSurface(block) {
         internal var CURING_TIME_MS = 10 * 60 * 1000L
 
         fun isScrapingTool(item: ItemStack): Boolean {
-            return item.matches("atom:sharpened_flint") || item.matches("atom:knife")
+            return item.matches("atom:sharpened_rock") || item.matches("atom:knife")
         }
     }
 

@@ -11,7 +11,7 @@ import org.shotrush.atom.getNamespacedPath
 import kotlin.reflect.KProperty
 
 object Items {
-    val SharpenedFlint by item("atom:sharpened_flint")
+    val SharpenedFlint by item("atom:sharpened_rock")
     val UI_MoldingClay by item("atom:ui_molding_clay")
     val UI_MoldingClayPressed by item("atom:ui_molding_clay_pressed")
     val UI_MoldingWax by item("atom:ui_molding_wax")
