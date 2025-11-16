@@ -11,8 +11,14 @@ import org.shotrush.atom.content.base.display.toVector3f
 class LeatherBedBlockDynamicRenderer(val entity: LeatherBedBlockEntity) : AtomBlockEntityRenderer({
     origin(entity.pos())
     item("storedItem") {
-        translation(Vector3f(0f, -0.2f, 0.5f))
         val rotation = entity.rotation
+        val translation = when (rotation) {
+            HorizontalDirection.NORTH -> Vector3f(0f, -0.2f, -0.5f)
+            HorizontalDirection.EAST -> Vector3f(0.5f, -0.2f, 0f)
+            HorizontalDirection.SOUTH -> Vector3f(0f, -0.2f, 0.5f)
+            HorizontalDirection.WEST -> Vector3f(-0.5f, -0.2f, 0f)
+        }
+        translation(translation)
         val idx = when (rotation) {
             HorizontalDirection.NORTH -> 0
             HorizontalDirection.EAST -> 1
