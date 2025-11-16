@@ -172,7 +172,7 @@ function buildFullTool(material: Material, type: ToolType) {
     const key = toolKey(material, type);
     const lore = [
         "<!i><gray><l10n:item.tool.common.lore>",
-        "<arg:item.count>",
+        "",
         `<!i><white>${BADGE_TOOL} ${badgeAgeForMaterial(material)}`,
     ];
     const additionalSettings =

@@ -86,7 +86,7 @@
 			"to": [14, 4, 14],
 			"rotation": {"angle": 0, "axis": "y", "origin": [14, 3, 0]},
 			"faces": {
-				"up": {"uv": [2, 2, 14, 14], "texture": "#0"},
+				"up": {"uv": [2, 2, 14, 14], "texture": "#0", "cullface": "up"},
 				"down": {"uv": [2, 2, 14, 14], "texture": "#0"}
 			}
 		},

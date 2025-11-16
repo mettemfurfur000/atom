@@ -19,14 +19,27 @@ recipes:
     result:
       id: minecraft:campfire
       count: 1
-  atom:saw_test:
+  atom:ladder:
     type: shaped
     pattern:
-      - 'S'
-      - 'L'
+      - 'S S'
+      - 'SBS'
+      - 'S S'
     ingredients:
-      S: atom:material_saw
-      L: "minecraft:material_log"
+      S: minecraft:stick
+      B: atom:stick_bundle
     result:
-      id: minecraft:material_planks
-      count: 2
+      id: minecraft:ladder
+      count: 4
+  atom:composter:
+    type: shaped
+    pattern:
+      - 'P P'
+      - 'P P'
+      - 'PSP'
+    ingredients:
+      S: "#minecraft:wooden_slabs"
+      P: "#minecraft:planks"
+    result:
+      id: minecraft:composter
+      count: 1

@@ -21,7 +21,6 @@ import plutoproject.adventurekt.text.style.textRed
 import plutoproject.adventurekt.text.text
 import plutoproject.adventurekt.text.with
 import kotlin.time.Duration.Companion.milliseconds
-import kotlin.time.Duration.Companion.seconds
 
 object PlayerDataTrackingListener : Listener {
     fun register(atom: Atom) {

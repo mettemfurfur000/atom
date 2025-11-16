@@ -12,10 +12,7 @@ items:
       remove-components:
         - attribute_modifiers
       components:
-        minecraft:consumable: {
-          consume_seconds: 30000,
-          animation: "brush"
-        }
+        minecraft:max_stack_size: 1
     model:
       template: default:model/simplified_generated
       arguments:
