@@ -14,6 +14,7 @@ import org.bukkit.event.player.PlayerJoinEvent
 import org.bukkit.event.player.PlayerQuitEvent
 import org.bukkit.persistence.PersistentDataType
 import org.shotrush.atom.Atom
+import org.shotrush.atom.content.Age
 import plutoproject.adventurekt.component
 import plutoproject.adventurekt.text.style.textGold
 import plutoproject.adventurekt.text.style.textGray
@@ -79,14 +80,14 @@ object PlayerDataTrackingListener : Listener {
         player.sendMessage("")
         player.sendMessage(
             MiniMessage.miniMessage()
-                .deserialize("<gray>We are currently testing the <white><image:atom:badge_age_foraging> <gray>and the</gray> <image:atom:badge_age_copper>")
+                .deserialize("<gray>We are currently testing the <white>${Age.Foraging.badge} <gray>and the</gray> ${Age.Copper.badge}")
         )
         player.sendMessage("")
         delay(1500)
         player.showTitle(
             Title.title(
                 MiniMessage.miniMessage().deserialize("<gray>Welcome to the"),
-                MiniMessage.miniMessage().deserialize("<white><image:atom:badge_age_foraging>"),
+                MiniMessage.miniMessage().deserialize("<white>${Age.Foraging.badge}"),
                 (1.5 * 20).toInt(), 8 * 20, (1.5 * 20).toInt()
             ),
         )

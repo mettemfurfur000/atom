@@ -4,8 +4,6 @@ import org.jetbrains.annotations.Nullable;
 import org.reflections.Reflections;
 import org.shotrush.atom.Atom;
 import org.shotrush.atom.content.AnimalType;
-import org.shotrush.atom.content.foragingage.items.BoneItem;
-import org.shotrush.atom.content.foragingage.items.LeatherItem;
 import org.shotrush.atom.core.api.annotation.RegisterSystem;
 import org.shotrush.atom.core.blocks.annotation.CustomEntityDrops;
 
@@ -17,7 +15,6 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.Plugin;
 
 import java.util.*;

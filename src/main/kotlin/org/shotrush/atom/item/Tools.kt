@@ -4,6 +4,7 @@ import net.kyori.adventure.text.minimessage.MiniMessage
 import net.momirealms.craftengine.bukkit.api.CraftEngineItems
 import net.momirealms.craftengine.core.util.Key
 import org.bukkit.inventory.ItemStack
+import org.shotrush.atom.content.Age
 import org.bukkit.Material as BukkitMat
 
 object Tools {
@@ -52,15 +53,10 @@ object Tools {
 
             else -> error("Shape ${shape.id} is not a classic vanilla tool")
         }.apply {
-            val age = when (material) {
-                Material.Stone -> "foraging"
-                Material.Iron -> "iron"
-                else -> ""
-            }
             val lore = listOf(
                 "<!i><gray><lang:item.tool.common.lore>",
                 "",
-                "<!i><white><image:atom:badge_tool> <image:atom:badge_age_$age>"
+                "<!i><white><image:atom:badge_tool> ${material.age.badge}"
             )
             lore(lore.map { MiniMessage.miniMessage().deserialize(it) })
         }
