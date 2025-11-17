@@ -12,12 +12,6 @@ import kotlin.reflect.KProperty
 
 object Items {
     val SharpenedFlint by item("atom:sharpened_rock")
-    val UI_MoldingClay by item("atom:ui_molding_clay")
-    val UI_MoldingClayPressed by item("atom:ui_molding_clay_pressed")
-    val UI_MoldingWax by item("atom:ui_molding_wax")
-    val UI_MoldingWaxPressed by item("atom:ui_molding_wax_pressed")
-    val UI_MoldingStone by item("atom:ui_molding_stone")
-    val UI_MoldingStonePressed by item("atom:ui_molding_stone_pressed")
 
     fun getAnimalProduct(type: AnimalType, product: AnimalProduct): CustomItem<ItemStack> {
         return CraftEngineItems.byId(Key.of("atom", "animal_${product.id}_${type.id}"))!!
@@ -36,6 +30,14 @@ object Items {
 
     fun isAnimalProduct(item: ItemStack): Boolean {
         return item.getNamespacedKey().startsWith("atom:animal_")
+    }
+
+    object UI {
+        val ARROW_LEFT_AVAILABLE = Key.of("internal", "previous_recipe_0")
+        val ARROW_LEFT_BLOCKED = Key.of("internal", "previous_recipe_1")
+        val ARROW_RIGHT_AVAILABLE = Key.of("internal", "next_recipe_0")
+        val ARROW_RIGHT_BLOCKED = Key.of("internal", "next_recipe_1")
+        val ARROW_BACK = Key.of("internal", "return")
     }
 }
 

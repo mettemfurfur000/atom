@@ -12,6 +12,8 @@ import dev.triumphteam.nova.setValue
 import kotlinx.coroutines.delay
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.minimessage.MiniMessage
+import net.momirealms.craftengine.bukkit.api.CraftEngineItems
+import net.momirealms.craftengine.bukkit.plugin.BukkitCraftEngine
 import net.momirealms.craftengine.core.block.BlockBehavior
 import net.momirealms.craftengine.core.block.CustomBlock
 import net.momirealms.craftengine.core.block.ImmutableBlockState
@@ -21,7 +23,11 @@ import net.momirealms.craftengine.core.block.behavior.EntityBlockBehavior
 import net.momirealms.craftengine.core.block.entity.BlockEntity
 import net.momirealms.craftengine.core.block.entity.BlockEntityType
 import net.momirealms.craftengine.core.entity.player.InteractionResult
+import net.momirealms.craftengine.core.item.ItemBuildContext
 import net.momirealms.craftengine.core.item.context.UseOnContext
+import net.momirealms.craftengine.core.plugin.CraftEngine
+import net.momirealms.craftengine.core.plugin.context.ContextHolder
+import net.momirealms.craftengine.core.plugin.gui.GuiParameters
 import net.momirealms.craftengine.core.world.BlockPos
 import net.momirealms.craftengine.libraries.nbt.CompoundTag
 import org.bukkit.GameMode
@@ -33,6 +39,7 @@ import org.shotrush.atom.content.workstation.Workstations
 import org.shotrush.atom.format
 import org.shotrush.atom.getNamespacedKey
 import org.shotrush.atom.isCustomItem
+import org.shotrush.atom.item.Items
 import org.shotrush.atom.item.MoldShape
 import kotlin.time.Duration.Companion.seconds
 
@@ -157,7 +164,7 @@ class KnappingBlockBehavior(block: CustomBlock) : AbstractBlockBehavior(block), 
             // Recipe Book button (wired)
             component {
                 render { container ->
-                    container[5, 8] = ItemBuilder.from(Material.BOOK)
+                    container[4, 8] = ItemBuilder.from(Material.BOOK)
                         .name(format("<green>Knapping Table Recipes</green>"))
                         .lore(
                             format("<gray>Click to view the knapping recipes.</gray>")
@@ -256,45 +263,50 @@ class KnappingBlockBehavior(block: CustomBlock) : AbstractBlockBehavior(block), 
                         }
                     }
 
-                    // Result item at [3,8]
                     val stack = ui.buildFinalItem(entry.resultShape)
-                    container[3, 8] = ItemBuilder.from(stack)
-                        .name(format("<white>${entry.resultShape.name}</white>"))
-                        .lore(format("<gray>Recipe: <white>${entry.id}</white>"))
-                        .asGuiItem()
-
-                    // Page indicator at [1,8]
-                    container[1, 8] = ItemBuilder.from(Material.PAPER)
-                        .name(format("<yellow>Page ${page + 1} / ${entries.size}</yellow>"))
-                        .lore(format("<gray>Use arrows to browse recipes.</gray>"))
-                        .asGuiItem()
+                    container[3, 8] = ItemBuilder.from(stack).asGuiItem()
 
                     val hasPrev = page > 0
                     val hasNext = page < entries.lastIndex
 
-                    // Prev at [5,7]
-                    container[5, 7] = ItemBuilder.from(Material.ARROW)
-                        .name(format(if (hasPrev) "<green>Previous</green>" else "<dark_gray>Previous</dark_gray>"))
-                        .lore(format("<gray>View previous recipe.</gray>"))
-                        .asGuiItem { _, _ ->
-                            if (hasPrev) {
-                                patternIndex = 0
-                                page -= 1;
-                            }
-                        }
+                    val displayPage = (page + 1).toString()
+                    val displayMax = (entries.lastIndex + 1).toString()
 
-                    // Back at [5,8]
-                    container[5, 8] = ItemBuilder.from(Material.BOOK)
-                        .name(format("<red>Back</red>"))
-                        .lore(format("<gray>Return to knapping table.</gray>"))
+                    val prevItem = if (hasPrev) Items.UI.ARROW_LEFT_AVAILABLE else Items.UI.ARROW_LEFT_BLOCKED
+
+                    container[4, 7] = ItemBuilder.from(
+                        CraftEngineItems.byId(prevItem)!!.buildItemStack(
+                            ItemBuildContext.of(
+                                BukkitCraftEngine.instance().adapt(player), ContextHolder.builder().withParameter(
+                                    GuiParameters.CURRENT_PAGE, displayPage
+                                ).withParameter(GuiParameters.MAX_PAGE, displayMax)
+                            )
+                        )
+                    ).asGuiItem { _, _ ->
+                        if (hasPrev) {
+                            patternIndex = 0
+                            page -= 1;
+                        }
+                    }
+
+                    container[4, 8] = ItemBuilder.from(CraftEngineItems.byId(Items.UI.ARROW_BACK)!!.buildItemStack())
+                        .name(format("<!i><#DAA520>Back"))
+                        .lore(format("<!i><gray>Return to knapping table.</gray>"))
                         .asGuiItem { _, ctx ->
                             originalUi.open()
                         }
 
-                    // Next at [5,9]
-                    container[5, 9] = ItemBuilder.from(Material.ARROW)
-                        .name(format(if (hasNext) "<green>Next</green>" else "<dark_gray>Next</dark_gray>"))
-                        .lore(format("<gray>View next recipe.</gray>"))
+                    val item = if (hasNext) Items.UI.ARROW_RIGHT_AVAILABLE else Items.UI.ARROW_RIGHT_BLOCKED
+
+                    container[4, 9] = ItemBuilder.from(
+                        CraftEngineItems.byId(item)!!.buildItemStack(
+                            ItemBuildContext.of(
+                                BukkitCraftEngine.instance().adapt(player), ContextHolder.builder().withParameter(
+                                    GuiParameters.CURRENT_PAGE, displayPage
+                                ).withParameter(GuiParameters.MAX_PAGE, displayMax)
+                            )
+                        )
+                    )
                         .asGuiItem { _, _ ->
                             if (hasNext) {
                                 patternIndex = 0
