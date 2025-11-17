@@ -18,7 +18,7 @@ import org.shotrush.atom.getItemStack
 import org.shotrush.atom.item.Material
 import org.shotrush.atom.item.MoldType
 import org.shotrush.atom.item.Molds
-import org.shotrush.atom.item.ToolShape
+import org.shotrush.atom.item.MoldShape
 import org.shotrush.atom.matches
 import org.shotrush.atom.putItemStack
 
@@ -178,7 +178,7 @@ class ClayCauldronBlockEntity(
         }
     }
 
-    fun fillMold(player: Player, item: ItemStack, type: MoldType, shape: ToolShape): InteractionResult {
+    fun fillMold(player: Player, item: ItemStack, type: MoldType, shape: MoldShape): InteractionResult {
         if (fluid == null) return InteractionResult.PASS
         if (fluidStored < FLUID_PER_INGOT) return InteractionResult.PASS
         item.amount--

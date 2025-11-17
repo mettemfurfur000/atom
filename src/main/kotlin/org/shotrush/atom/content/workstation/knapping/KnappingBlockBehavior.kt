@@ -2,7 +2,6 @@ package org.shotrush.atom.content.workstation.knapping
 
 import com.github.shynixn.mccoroutine.folia.launch
 import dev.triumphteam.gui.GuiView
-import dev.triumphteam.gui.paper.Gui
 import dev.triumphteam.gui.paper.builder.item.ItemBuilder
 import dev.triumphteam.gui.paper.kotlin.builder.buildGui
 import dev.triumphteam.gui.paper.kotlin.builder.chestContainer
@@ -10,7 +9,6 @@ import dev.triumphteam.nova.getValue
 import dev.triumphteam.nova.mutableListStateOf
 import dev.triumphteam.nova.mutableStateOf
 import dev.triumphteam.nova.setValue
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.minimessage.MiniMessage
@@ -35,10 +33,7 @@ import org.shotrush.atom.content.workstation.Workstations
 import org.shotrush.atom.format
 import org.shotrush.atom.getNamespacedKey
 import org.shotrush.atom.isCustomItem
-import org.shotrush.atom.item.Items
-import org.shotrush.atom.item.MoldType
-import org.shotrush.atom.item.Molds
-import org.shotrush.atom.item.ToolShape
+import org.shotrush.atom.item.MoldShape
 import kotlin.time.Duration.Companion.seconds
 
 private const val N = 5
@@ -66,12 +61,12 @@ class KnappingBlockBehavior(block: CustomBlock) : AbstractBlockBehavior(block), 
     private data class RecipeEntry(
         val id: String,
         val patterns: List<Pattern>,
-        val resultShape: ToolShape,
+        val resultShape: MoldShape,
     )
 
-    private fun buildRecipeEntries(): List<RecipeEntry> {
+    private fun buildRecipeEntries(material: KnappingMaterial): List<RecipeEntry> {
         return KnappingRecipes.allRecipes.mapNotNull { kr ->
-            if (kr.patterns.isEmpty()) null
+            if (kr.patterns.isEmpty() || material !in kr.allowed) null
             else RecipeEntry(id = kr.id, patterns = kr.patterns, resultShape = kr.result)
         }.sortedBy { it.id }
     }
@@ -107,9 +102,8 @@ class KnappingBlockBehavior(block: CustomBlock) : AbstractBlockBehavior(block), 
     // ---------- Main Knapping UI (craftable) ----------
 
     fun openUI(
-        ui: KnappingUIItem,
+        ui: KnappingMaterial,
         player: Player,
-        transformer: (shape: ToolShape) -> ItemStack,
         invert: Boolean = false,
         onCraftComplete: (() -> Unit)? = null,
     ) {
@@ -146,9 +140,9 @@ class KnappingBlockBehavior(block: CustomBlock) : AbstractBlockBehavior(block), 
             component {
                 remember(clicksState)
                 render { container ->
-                    val result = KnappingRecipes.getResult(clicks)
+                    val result = KnappingRecipes.getResult(clicks, ui)
                     if (result != null) {
-                        val stack = transformer(result)
+                        val stack = ui.buildFinalItem(result)
                         container[3, 8] = ItemBuilder.from(stack)
                             .asGuiItem { player0, ctx ->
                                 player0.inventory.addItem(stack)
@@ -173,7 +167,6 @@ class KnappingBlockBehavior(block: CustomBlock) : AbstractBlockBehavior(block), 
                                 ui = ui,
                                 player = player,
                                 originalUi = ctx.guiView,
-                                transformer = transformer,
                                 invert = invert
                             )
                         }
@@ -187,31 +180,28 @@ class KnappingBlockBehavior(block: CustomBlock) : AbstractBlockBehavior(block), 
     // ---------- Recipe Book UI (read-only, paginated) ----------
 
     fun openRecipeBook(
-        ui: KnappingUIItem,
+        ui: KnappingMaterial,
         player: Player,
         originalUi: GuiView,
-        transformer: (shape: ToolShape) -> ItemStack,
         invert: Boolean,
     ) {
         openRecipeBookWithInitialPage(
             ui = ui,
             player = player,
             originalUi = originalUi,
-            transformer = transformer,
             invert = invert,
             initialPage = 0
         )
     }
 
     fun openRecipeBookWithInitialPage(
-        ui: KnappingUIItem,
+        ui: KnappingMaterial,
         player: Player,
         originalUi: GuiView,
-        transformer: (shape: ToolShape) -> ItemStack,
         invert: Boolean,
         initialPage: Int,
     ) {
-        val entries = buildRecipeEntries()
+        val entries = buildRecipeEntries(ui)
         if (entries.isEmpty()) {
             player.sendMessage(Component.text("No knapping recipes registered."))
             originalUi.open()
@@ -267,7 +257,7 @@ class KnappingBlockBehavior(block: CustomBlock) : AbstractBlockBehavior(block), 
                     }
 
                     // Result item at [3,8]
-                    val stack = transformer(entry.resultShape)
+                    val stack = ui.buildFinalItem(entry.resultShape)
                     container[3, 8] = ItemBuilder.from(stack)
                         .name(format("<white>${entry.resultShape.name}</white>"))
                         .lore(format("<gray>Recipe: <white>${entry.id}</white>"))
@@ -320,16 +310,15 @@ class KnappingBlockBehavior(block: CustomBlock) : AbstractBlockBehavior(block), 
 
     // Jump to a specific recipe id (optional helper)
     fun openRecipeAt(
-        ui: KnappingUIItem,
+        ui: KnappingMaterial,
         player: Player,
         originalUi: GuiView,
-        transformer: (shape: ToolShape) -> ItemStack,
         invert: Boolean,
         recipeId: String,
     ) {
-        val entries = buildRecipeEntries()
+        val entries = buildRecipeEntries(ui)
         val index = entries.indexOfFirst { it.id == recipeId }.let { if (it == -1) 0 else it }
-        openRecipeBookWithInitialPage(ui, player, originalUi, transformer, invert, index)
+        openRecipeBookWithInitialPage(ui, player, originalUi, invert, index)
     }
 
     override fun useOnBlock(
@@ -343,25 +332,13 @@ class KnappingBlockBehavior(block: CustomBlock) : AbstractBlockBehavior(block), 
 
         if (!item.isCustomItem()) {
             if (item.type == Material.CLAY_BALL) {
-                openUI(KnappingUIItem.Clay, player, { shape ->
-                    if (shape.isVanillaItem()) {
-                        ItemStack(shape.vanillaItem!!)
-                    } else {
-                        Molds.getMold(shape, MoldType.Clay).buildItemStack()
-                    }
-                }) {
+                openUI(KnappingMaterial.Clay, player) {
                     if (player.gameMode != GameMode.CREATIVE)
                         context.item.count(context.item.count() - 1)
                 }
                 return InteractionResult.SUCCESS
             } else if (item.type == Material.HONEYCOMB) {
-                openUI(KnappingUIItem.Wax, player, { shape ->
-                    if (shape.isVanillaItem()) {
-                        ItemStack(shape.vanillaItem!!)
-                    } else {
-                        Molds.getMold(shape, MoldType.Wax).buildItemStack()
-                    }
-                }) {
+                openUI(KnappingMaterial.Wax, player) {
                     if (player.gameMode != GameMode.CREATIVE)
                         context.item.count(context.item.count() - 1)
                 }
@@ -370,15 +347,8 @@ class KnappingBlockBehavior(block: CustomBlock) : AbstractBlockBehavior(block), 
         } else {
             if (key == "atom:pebble") {
                 openUI(
-                    KnappingUIItem.Stone,
+                    KnappingMaterial.Stone,
                     player,
-                    { shape ->
-                        if (shape.isVanillaItem()) {
-                            ItemStack(shape.vanillaItem!!)
-                        } else {
-                            Molds.getToolHead(shape, org.shotrush.atom.item.Material.Stone).buildItemStack()
-                        }
-                    },
                     invert = true
                 ) {
                     if (player.gameMode != GameMode.CREATIVE)
@@ -408,9 +378,5 @@ class KnappingBlockBehavior(block: CustomBlock) : AbstractBlockBehavior(block), 
         }
     }
 
-    enum class KnappingUIItem(val getItem: (pressed: Boolean) -> ItemStack) {
-        Clay({ if (it) Items.UI_MoldingClayPressed.buildItemStack() else Items.UI_MoldingClay.buildItemStack() }),
-        Wax({ if (it) Items.UI_MoldingWaxPressed.buildItemStack() else Items.UI_MoldingWax.buildItemStack() }),
-        Stone({ if (it) Items.UI_MoldingStonePressed.buildItemStack() else Items.UI_MoldingStone.buildItemStack() })
-    }
 }
+

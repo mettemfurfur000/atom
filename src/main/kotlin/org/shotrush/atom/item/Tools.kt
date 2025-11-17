@@ -4,32 +4,31 @@ import net.kyori.adventure.text.minimessage.MiniMessage
 import net.momirealms.craftengine.bukkit.api.CraftEngineItems
 import net.momirealms.craftengine.core.util.Key
 import org.bukkit.inventory.ItemStack
-import org.shotrush.atom.Age
 import org.bukkit.Material as BukkitMat
 
 object Tools {
     private val ClassicMaterials = setOf(Material.Stone, Material.Iron)
     private val ClassicToolIds = setOf("pickaxe", "shovel", "hoe", "sword", "axe")
 
-    private fun isClassic(shape: ToolShape, material: Material): Boolean {
+    private fun isClassic(shape: MoldShape, material: Material): Boolean {
         val toolId = shape.id
         return material in ClassicMaterials && toolId in ClassicToolIds
     }
 
-    private fun atomToolKey(shape: ToolShape, material: Material): String {
+    private fun atomToolKey(shape: MoldShape, material: Material): String {
         val toolId = shape.id
         return "${material.id}_${toolId}"
     }
 
-    private fun buildVanillaTool(shape: ToolShape, material: Material): ItemStack {
+    private fun buildVanillaTool(shape: MoldShape, material: Material): ItemStack {
         return when (shape) {
-            ToolShape.Pickaxe -> when (material) {
+            MoldShape.Pickaxe -> when (material) {
                 Material.Stone -> ItemStack(BukkitMat.STONE_PICKAXE)
                 Material.Iron -> ItemStack(BukkitMat.IRON_PICKAXE)
                 else -> error("Not a classic pair")
             }
 
-            ToolShape.Shovel -> when (material) {
+            MoldShape.Shovel -> when (material) {
                 Material.Stone -> ItemStack(BukkitMat.STONE_SHOVEL)
                 Material.Iron -> ItemStack(BukkitMat.IRON_SHOVEL)
                 else -> error("Not a classic pair")
@@ -39,13 +38,13 @@ object Tools {
 //                Material.Iron -> ItemStack(BukkitMat.IRON_HOE)
 //                else -> error("Not a classic pair")
 //            }
-            ToolShape.Sword -> when (material) {
+            MoldShape.Sword -> when (material) {
                 Material.Stone -> ItemStack(BukkitMat.STONE_SWORD)
                 Material.Iron -> ItemStack(BukkitMat.IRON_SWORD)
                 else -> error("Not a classic pair")
             }
 
-            ToolShape.Axe -> when (material) {
+            MoldShape.Axe -> when (material) {
                 Material.Stone -> ItemStack(BukkitMat.STONE_AXE)
                 Material.Iron -> ItemStack(BukkitMat.IRON_AXE)
                 else -> error("Not a classic pair")
@@ -62,7 +61,7 @@ object Tools {
         }
     }
 
-    fun getTool(shape: ToolShape, material: Material): ItemStack {
+    fun getTool(shape: MoldShape, material: Material): ItemStack {
         if (isClassic(shape, material)) {
             return buildVanillaTool(shape, material)
         }
