@@ -34,13 +34,11 @@ object Molds {
 
     fun getFilledMold(shape: MoldShape, variant: MoldType, material: Material): ItemStack {
         if (variant != MoldType.Wax && variant != MoldType.Fired) throw IllegalArgumentException("Only Wax and Fired molds can be filled!")
-        val itemKey = "filled_${variant.id}_mold_${shape.mold}"
-        val item = CraftEngineItems.byId(Key.of("atom", itemKey))!!
+        val item = CraftEngineItems.byId(Key.of("atom", "filled_${variant.id}_mold_${shape.mold}"))!!
         val stack = item.buildItemStack()
         
         // TODO: Replace MATERIAL_HERE placeholder in lore with actual material name
-        // Currently the YAML config has "MATERIAL_HERE" in the lore but we can't override it
-        // because CraftEngine applies client-bound-data.lore after buildItemStack()
+        // CraftEngine applies client-bound-data.lore after buildItemStack() so we can't override it here
         
         stack.setData(
             DataComponentTypes.DYED_COLOR, DyedItemColor.dyedItemColor(

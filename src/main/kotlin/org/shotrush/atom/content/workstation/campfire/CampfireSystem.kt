@@ -49,12 +49,26 @@ class CampfireSystem(private val plugin: Plugin) : Listener {
         registry.addListener(mold)
     }
     
+    private val resumedWorlds = mutableSetOf<String>()
+    
     @EventHandler
     fun onWorldLoad(event: org.bukkit.event.world.WorldLoadEvent) {
-        // Resume campfires for this world after it's fully loaded
-        Atom.instance.launch {
-            delay(100L) // Small delay to ensure world is fully ready
-            registry.resumeFromDisk(event.world)
+        if (resumedWorlds.add(event.world.name)) {
+            Atom.instance.launch {
+                delay(100L)
+                registry.resumeFromDisk(event.world)
+            }
+        }
+    }
+    
+    @EventHandler
+    fun onPlayerJoin(event: org.bukkit.event.player.PlayerJoinEvent) {
+        val world = event.player.world
+        if (resumedWorlds.add(world.name)) {
+            Atom.instance.launch {
+                delay(2000L)
+                registry.resumeFromDisk(world)
+            }
         }
     }
 
@@ -84,9 +98,9 @@ class CampfireSystem(private val plugin: Plugin) : Listener {
 
         // Straw fuel add when lit
         if (item.matches("atom:straw") && data.isLit) {
-            event.isCancelled = true
             val end = straw.tryAddStrawFuel(registry, block.location)
             if (end != null) {
+                event.isCancelled = true
                 item.subtract(1)
                 val remaining = (end - System.currentTimeMillis()).coerceAtLeast(0)
                 val min = (remaining / 60000L).toInt()
@@ -119,21 +133,20 @@ class CampfireSystem(private val plugin: Plugin) : Listener {
         }
     }
 
-    @EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
+    @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
     fun onBreak(event: BlockBreakEvent) {
         val b = event.block
         if (b.type != Material.CAMPFIRE && b.type != Material.SOUL_CAMPFIRE) return
         
-        // Clear campfire inventory to prevent vanilla wheat drops
+        registry.brokenAt(b.location)
+        
         val campfire = b.state as? org.bukkit.block.Campfire
         if (campfire != null) {
             for (i in 0 until campfire.size) {
-                campfire.setItem(i, ItemStack(Material.AIR))
+                campfire.setItem(i, null)
             }
-            campfire.update(true)
+            campfire.update(false)
         }
-        
-        registry.brokenAt(b.location)
     }
 
     private fun startStrikeTask(

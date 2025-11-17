@@ -16,32 +16,24 @@ class StrawFuelFeature(
 ) : CampfireRegistry.Listener {
 
     private val strawJobs = mutableMapOf<Location, Job>()
-    private val strawCount = mutableMapOf<Location, Int>() // Track actual straw count
+    private val strawCount = mutableMapOf<Location, Int>()
     private val atom get() = Atom.instance
 
     fun tryAddStrawFuel(registry: CampfireRegistry, loc: Location): Long? {
         val campfire = loc.block.state as? Campfire ?: return null
 
-        // 1) Capacity check BEFORE timer extension
         val slot = nextEmptySlot(campfire)
-        if (slot == -1) {
-            // Fully fueled -> do not extend time
-            return null
-        }
+        if (slot == -1) return null
 
-        // 2) Extend timer now that capacity exists
         val end = registry.addFuel(loc, strawExtensionMs) ?: return null
 
-        // 3) Place visual straw (re-check slot)
         campfire.setItem(slot, ItemStack(Material.WHEAT, 1))
         campfire.setCookTime(slot, 0)
         campfire.setCookTimeTotal(slot, Int.MAX_VALUE)
         campfire.update(true)
         
-        // Track straw count
         strawCount[loc] = (strawCount[loc] ?: 0) + 1
-
-        // 4) Schedule progressive visual burn using your scheduler (no coroutines)
+        persistStrawCount(loc)
         scheduleBurnVisual(loc, slot)
 
         return end
@@ -57,8 +49,8 @@ class StrawFuelFeature(
                 if (current != -1) {
                     campfire.setItem(current, ItemStack(Material.AIR))
                     campfire.update(true)
-                    // Decrement straw count when it burns away
                     strawCount[loc] = ((strawCount[loc] ?: 1) - 1).coerceAtLeast(0)
+                    persistStrawCount(loc)
                 }
                 current = nextFilledSlot(campfire)
                 if (current == -1) break
@@ -69,7 +61,6 @@ class StrawFuelFeature(
     }
 
     override fun onCampfireExtinguished(state: CampfireRegistry.CampfireState, reason: String) {
-        // Cleanup visual fuel slots
         Atom.instance.launch(Atom.instance.regionDispatcher(state.location)) {
             val cf = state.location.block.state as? Campfire ?: return@launch
             for (i in 0 until cf.size) {
@@ -84,7 +75,6 @@ class StrawFuelFeature(
     override fun onCampfireBroken(state: CampfireRegistry.CampfireState) {
         strawJobs.remove(state.location)?.cancel()
         
-        // Drop actual straw items
         val count = strawCount.remove(state.location) ?: 0
         if (count > 0) {
             val strawItem = net.momirealms.craftengine.bukkit.api.CraftEngineItems.byId(
@@ -95,6 +85,25 @@ class StrawFuelFeature(
                 state.location.world.dropItemNaturally(state.location, strawItem)
             }
         }
+    }
+    
+    override fun onResumeTimerScheduled(state: CampfireRegistry.CampfireState, remainingMs: Long) {
+        val count = loadStrawCount(state.location)
+        if (count > 0) {
+            strawCount[state.location] = count
+        }
+    }
+    
+    private fun persistStrawCount(loc: Location) {
+        val pos = net.momirealms.craftengine.core.world.BlockPos(loc.blockX, loc.blockY, loc.blockZ)
+        val data = org.shotrush.atom.content.workstation.core.WorkstationDataManager.getWorkstationData(pos, "campfire")
+        data.strawCount = strawCount[loc] ?: 0
+    }
+    
+    private fun loadStrawCount(loc: Location): Int {
+        val pos = net.momirealms.craftengine.core.world.BlockPos(loc.blockX, loc.blockY, loc.blockZ)
+        return org.shotrush.atom.content.workstation.core.WorkstationDataManager.getAllWorkstations()
+            .values.find { it.position == pos }?.strawCount ?: 0
     }
 
     private fun nextEmptySlot(cf: Campfire): Int {

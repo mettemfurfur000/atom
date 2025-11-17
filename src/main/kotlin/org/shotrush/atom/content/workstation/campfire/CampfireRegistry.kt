@@ -102,7 +102,8 @@ class CampfireRegistry(private val plugin: Plugin) {
     }
 
     fun addFuel(loc: Location, addedMs: Long): Long? {
-        val state = active[fix(loc)] ?: return null
+        val fixed = fix(loc)
+        val state = active[fixed] ?: return null
         if (!state.lit || state.startTime == null) return null
         val now = System.currentTimeMillis()
         val elapsed = now - state.startTime!!
@@ -140,41 +141,44 @@ class CampfireRegistry(private val plugin: Plugin) {
                     data.position.y().toDouble(),
                     data.position.z().toDouble()
                 )
-                val block = loc.block
                 
-                if (block.type != Material.CAMPFIRE && block.type != Material.SOUL_CAMPFIRE) {
-                    clearKey(data.position); return@forEach
-                }
-                val lightable = block.blockData as? Lightable ?: run {
-                    clearKey(data.position); return@forEach
-                }
+                org.bukkit.Bukkit.getServer().regionScheduler.run(plugin, loc) { _ ->
+                    try {
+                        val block = loc.block
+                        if (block.type != Material.CAMPFIRE && block.type != Material.SOUL_CAMPFIRE) {
+                            clearKey(data.position)
+                            return@run
+                        }
+                        
+                        val lightable = block.blockData as? Lightable
+                        if (lightable == null) {
+                            clearKey(data.position)
+                            return@run
+                        }
 
-                // Recreate state record
-                val state = CampfireState(loc, lightable.isLit, data.curingStartTime)
-                active[fix(loc)] = state
+                        val state = CampfireState(loc, lightable.isLit, data.curingStartTime)
+                        val elapsed = System.currentTimeMillis() - data.curingStartTime!!
+                        val remaining = BASE_BURN_MS - elapsed
 
-                val elapsed = System.currentTimeMillis() - data.curingStartTime!!
-                val remaining = BASE_BURN_MS - elapsed
-
-                if (remaining > 0 && lightable.isLit) {
-                    scheduleBurnout(state, remainingOverride = remaining)
-                    listeners.forEach { it.onResumeTimerScheduled(state, remaining) }
-                    resumed++
-                    atom.logger.info("  ✓ Resume (${xyz(state)}) ${remaining / 1000}s")
-                } else {
-                    // If already expired or unlit, normalize to extinguished
-                    atom.launch(atom.regionDispatcher(loc)) {
-                        setLit(loc, false)
+                        if (remaining > 0 && lightable.isLit) {
+                            active[fix(loc)] = state
+                            scheduleBurnout(state, remainingOverride = remaining)
+                            listeners.forEach { it.onResumeTimerScheduled(state, remaining) }
+                            atom.logger.info("  ✓ Resume (${xyz(state)}) ${remaining / 1000}s")
+                        } else {
+                            setLit(loc, false)
+                            listeners.forEach { it.onResumeTimerExpired(state) }
+                            clearPersistence(state)
+                            atom.logger.info("  ✗ Expired (${xyz(state)})")
+                        }
+                    } catch (e: Exception) {
+                        atom.logger.warning("  ⊗ Error resuming campfire at (${data.position.x()},${data.position.y()},${data.position.z()}): ${e.message}")
                     }
-                    listeners.forEach { it.onResumeTimerExpired(state) }
-                    clearPersistence(state)
-                    expired++
-                    atom.logger.info("  ✗ Expired (${xyz(state)})")
                 }
             }
         }
 
-        atom.logger.info("Resume summary: resumed=$resumed expired=$expired")
+        atom.logger.info("Resume summary: resumed=$resumed expired=$expired (final counts may differ due to async processing)")
     }
 
     private fun scheduleBurnout(state: CampfireState, remainingOverride: Long? = null) {

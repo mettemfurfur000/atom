@@ -160,8 +160,9 @@ object WorkstationDataManager {
             
             
             val curingStartTime = section.getLong("curing_start_time", 0L).takeIf { it > 0 }
+            val strawCount = section.getInt("straw_count", 0)
             
-            workstationData[key] = WorkstationData(pos, type, placedItems, curingStartTime)
+            workstationData[key] = WorkstationData(pos, type, placedItems, curingStartTime, strawCount)
         }
         
         Atom.instance.logger.info("Loaded ${workstationData.size} workstation data entries")
@@ -214,6 +215,10 @@ object WorkstationDataManager {
             data.curingStartTime?.let {
                 section.set("curing_start_time", it)
             }
+            
+            if (data.strawCount > 0) {
+                section.set("straw_count", data.strawCount)
+            }
         }
         
         
@@ -260,6 +265,7 @@ object WorkstationDataManager {
         val position: BlockPos,
         val type: String,
         val placedItems: MutableList<PlacedItem>,
-        var curingStartTime: Long? = null  
+        var curingStartTime: Long? = null,
+        var strawCount: Int = 0
     )
 }
