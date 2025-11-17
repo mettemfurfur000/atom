@@ -73,4 +73,3 @@ images:
     ascent: 13
     font: minecraft:ui
     file: minecraft:ui/knapping_table.png
-    char: '\ub200'

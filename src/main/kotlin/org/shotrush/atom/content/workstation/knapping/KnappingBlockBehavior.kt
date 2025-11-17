@@ -67,8 +67,7 @@ class KnappingBlockBehavior(block: CustomBlock) : AbstractBlockBehavior(block), 
             val clicks by clicksState
             containerType = chestContainer { rows = 5 }
             title(
-                MiniMessage.miniMessage()
-                    .deserialize("<shift:-8><white><font:minecraft:ui>\ub200</font><shift:-170><dark_gray>Knapping Station")
+                MiniMessage.miniMessage().deserialize("<shift:-8><white><image:atom:ui_knapping_table><shift:-170><dark_gray>Knapping Station")
             )
             component {
                 remember(clicksState)
