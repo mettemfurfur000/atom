@@ -6,26 +6,15 @@ import com.github.shynixn.mccoroutine.folia.regionDispatcher
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.withContext
-import net.momirealms.craftengine.bukkit.api.CraftEngineItems
 import net.momirealms.craftengine.bukkit.item.BukkitItemManager
-import net.momirealms.craftengine.core.block.CustomBlock
 import net.momirealms.craftengine.core.block.ImmutableBlockState
-import net.momirealms.craftengine.core.block.entity.BlockEntity
 import net.momirealms.craftengine.core.block.properties.Property
 import net.momirealms.craftengine.core.entity.player.InteractionResult
 import net.momirealms.craftengine.core.util.HorizontalDirection
-import net.momirealms.craftengine.core.util.Key
 import net.momirealms.craftengine.core.world.BlockPos
-import net.momirealms.craftengine.core.world.ChunkPos
 import net.momirealms.craftengine.core.world.Vec3d
 import net.momirealms.craftengine.libraries.nbt.CompoundTag
-import org.bukkit.Bukkit
-import org.bukkit.Color
-import org.bukkit.GameMode
-import org.bukkit.Location
-import org.bukkit.Particle
-import org.bukkit.Sound
-import org.bukkit.World
+import org.bukkit.*
 import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
 import org.shotrush.atom.Atom
@@ -33,24 +22,23 @@ import org.shotrush.atom.content.AnimalProduct
 import org.shotrush.atom.content.base.AtomBlockEntity
 import org.shotrush.atom.content.foraging.items.SharpenedFlint
 import org.shotrush.atom.content.workstation.Workstations
-import org.shotrush.atom.core.api.player.PlayerDataAPI
 import org.shotrush.atom.core.util.ActionBarManager
-import org.shotrush.atom.getNamespacedKey
+import org.shotrush.atom.getItemStack
+import org.shotrush.atom.inWholeTicks
 import org.shotrush.atom.item.Items
-import org.shotrush.atom.matches
-import plutoproject.adventurekt.component
-import plutoproject.adventurekt.text.style.textDarkGray
-import plutoproject.adventurekt.text.style.textGray
-import plutoproject.adventurekt.text.style.textGreen
-import plutoproject.adventurekt.text.style.textYellow
-import plutoproject.adventurekt.text.text
-import plutoproject.adventurekt.text.with
+import org.shotrush.atom.putItemStack
 import kotlin.random.Random
+import kotlin.time.Duration.Companion.minutes
 
 class LeatherBedBlockEntity(
     pos: BlockPos,
     blockState: ImmutableBlockState,
 ) : AtomBlockEntity(Workstations.LEATHER_BED, pos, blockState) {
+    companion object {
+        val CURING_TIME = 10.minutes.inWholeTicks
+        private const val PARTICLE_INTERVAL: Long = 15L
+    }
+
     val rotation: HorizontalDirection
         get() = blockState().get(blockState().properties.first() as Property<HorizontalDirection>)
     var storedItem: ItemStack = ItemStack.empty()
@@ -59,20 +47,20 @@ class LeatherBedBlockEntity(
             markDirty()
         }
 
+    var timeCuring: Long = 0L
+
     init {
         blockEntityRenderer = LeatherBedBlockDynamicRenderer(this)
     }
 
     override fun loadCustomData(tag: CompoundTag) {
-        val str = tag.get("key")
-        if (str != null) {
-            storedItem = CraftEngineItems.byId(Key.of(tag.getString("key")))?.buildItemStack() ?: ItemStack.empty()
-        }
+        storedItem = tag.getItemStack("storedItem")
+        timeCuring = tag.getLong("timeCuring")
     }
 
     override fun saveCustomData(tag: CompoundTag) {
-        if (!storedItem.isEmpty)
-            tag.putString("key", storedItem.getNamespacedKey())
+        tag.putItemStack("storedItem", storedItem)
+        tag.putLong("timeCuring", timeCuring)
     }
 
     override fun preRemove() {
@@ -101,12 +89,12 @@ class LeatherBedBlockEntity(
             val strokeCount = 20 + Random.Default.nextInt(11)
             var currentStroke = 0
 
-            ActionBarManager.sendStatus(player, "§7Scraping leather... Use the tool carefully")
+            ActionBarManager.send(player, "leather_bed", "<gray>Scraping leather...</gray>")
 
             while (currentStroke < strokeCount && isActive) {
                 delay(250)
                 if (!player.isHandRaised || !LeatherBedBlockBehavior.isScrapingTool(player.activeItem)) {
-                    ActionBarManager.sendStatus(player, "§cScraping cancelled - tool lowered")
+                    ActionBarManager.send(player, "leather_bed", "<red>Scraping cancelled</red>")
                     delay(1000)
                     break
                 }
@@ -159,14 +147,10 @@ class LeatherBedBlockEntity(
             // Convert to processed leather and start curing
             storedItem = Items.getAnimalProduct(animalType, AnimalProduct.Leather).buildItemStack()
 
-            // Trigger the curing process through the behavior using region dispatcher
-            val atom = Atom.instance
-            atom.launch(atom.regionDispatcher(location)) {
-                val behavior = LeatherBedBlockBehavior(blockState().owner().value())
-                behavior.startStabilization(pos())
-            }
-
-            ActionBarManager.send(player, "<green>Scraped the meat off! Leather will now stabilize over time...</green>")
+            ActionBarManager.send(
+                player,
+                "<green>Scraped the meat off! Leather will now stabilize over time...</green>"
+            )
         } else {
             // Just drop the item if it's not raw leather
             center.world.dropItemNaturally(center, storedItem)
@@ -233,6 +217,66 @@ class LeatherBedBlockEntity(
     }
 
     fun tick() {
-        // Tick logic if needed
+        if (Items.isAnimalProduct(storedItem)) {
+            val type = Items.getAnimalProductFromItem(storedItem)
+            if (type == AnimalProduct.Leather) {
+                if (timeCuring >= CURING_TIME) {
+                    val animal = Items.getAnimalFromProduct(storedItem)
+                    storedItem = Items.getAnimalProduct(animal, AnimalProduct.CuredLeather).buildItemStack()
+                    timeCuring = 0L
+                    // Optional: completion burst
+                    spawnCompletionParticles()
+                } else {
+                    timeCuring++
+
+                    // Spawn curing-in-progress particles at intervals
+                    if (timeCuring % PARTICLE_INTERVAL == 0L) {
+                        spawnCuringParticles(timeCuring.toFloat() / CURING_TIME.toFloat())
+                    }
+                }
+            }
+        } else {
+            timeCuring = 0L
+        }
+    }
+
+    private fun spawnCuringParticles(progress: Float) {
+        val baseCount = 2
+        val extraByProgress = (progress * 4f).toInt() // ramps up to +4
+        val count = baseCount + extraByProgress
+
+        val particle = Particle.SMOKE
+        val secondary = Particle.DRIPPING_WATER
+
+        repeat(count) {
+            val x = pos.x() + 0.5 + (Random.nextDouble() - 0.5) * 0.6
+            val y = pos.y() + 0.9 + Random.nextDouble() * 0.2
+            val z = pos.z() + 0.5 + (Random.nextDouble() - 0.5) * 0.6
+            val vx = (Random.nextDouble() - 0.5) * 0.01
+            val vy = 0.02 + Random.nextDouble() * 0.02
+            val vz = (Random.nextDouble() - 0.5) * 0.01
+            bukkitWorld.spawnParticle(particle, x, y, z, 1, vx, vy, vz, 0.0)
+        }
+
+        // Occasional secondary particle for variety (e.g., every ~2 seconds)
+        if (bukkitWorld.gameTime % 40L == 0L) {
+            val x = pos.x() + 0.5 + (Random.nextDouble() - 0.5) * 0.3
+            val y = pos.y() + 0.8
+            val z = pos.z() + 0.5 + (Random.nextDouble() - 0.5) * 0.3
+            bukkitWorld.spawnParticle(secondary, x, y, z, 1, 0.0, 0.0, 0.0, 0.0)
+        }
+    }
+
+    private fun spawnCompletionParticles() {
+        // A small burst to signal completion
+        repeat(8) {
+            val x = pos.x() + 0.5 + (Random.nextDouble() - 0.5) * 0.8
+            val y = pos.y() + 1.0 + Random.nextDouble() * 0.3
+            val z = pos.z() + 0.5 + (Random.nextDouble() - 0.5) * 0.8
+            val vx = (Random.nextDouble() - 0.5) * 0.03
+            val vy = 0.05 + Random.nextDouble() * 0.05
+            val vz = (Random.nextDouble() - 0.5) * 0.03
+            bukkitWorld.spawnParticle(Particle.HAPPY_VILLAGER, x, y, z, 1, vx, vy, vz, 0.0)
+        }
     }
 }

@@ -2,11 +2,6 @@ package org.shotrush.atom.content.workstation.clay_cauldron
 
 import com.github.shynixn.mccoroutine.folia.launch
 import com.github.shynixn.mccoroutine.folia.regionDispatcher
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
-import net.momirealms.craftengine.bukkit.api.CraftEngineItems
 import net.momirealms.craftengine.core.block.BlockBehavior
 import net.momirealms.craftengine.core.block.CustomBlock
 import net.momirealms.craftengine.core.block.ImmutableBlockState
@@ -18,26 +13,13 @@ import net.momirealms.craftengine.core.block.entity.BlockEntityType
 import net.momirealms.craftengine.core.block.entity.tick.BlockEntityTicker
 import net.momirealms.craftengine.core.entity.player.InteractionResult
 import net.momirealms.craftengine.core.item.context.UseOnContext
-import net.momirealms.craftengine.core.util.Key
 import net.momirealms.craftengine.core.world.BlockPos
 import net.momirealms.craftengine.core.world.CEWorld
-import org.bukkit.Bukkit
-import org.bukkit.Material
-import org.bukkit.Particle
-import org.bukkit.Sound
 import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
-import org.joml.AxisAngle4f
-import org.joml.Vector3f
 import org.shotrush.atom.Atom
 import org.shotrush.atom.content.workstation.Workstations
-import org.shotrush.atom.content.workstation.core.InteractiveSurface
-import org.shotrush.atom.content.workstation.core.PlacedItem
-import org.shotrush.atom.content.workstation.core.WorkstationDataManager
-import org.shotrush.atom.core.util.ActionBarManager
-import org.shotrush.atom.isCustomItem
 import org.shotrush.atom.item.Molds
-import org.shotrush.atom.matches
 
 
 class ClayCauldronBlockBehavior(block: CustomBlock) : AbstractBlockBehavior(block), EntityBlockBehavior {

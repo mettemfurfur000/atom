@@ -28,6 +28,9 @@ abstract class AtomBlockEntity(
             pos.z().toDouble()
         )
 
+    val bukkitWorld: World
+        get() = world.world.platformWorld() as World
+
     fun getChunk() = world?.getChunkAtIfLoaded(ChunkPos(pos))
 
     fun markDirty(updateRenderer: Boolean = true) {
