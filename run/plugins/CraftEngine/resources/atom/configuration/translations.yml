@@ -17,6 +17,10 @@ translations:
     item.straw.lore_3: Can be placed on the ground
     item.straw.lore_4: " used for <gray>kiln firing</gray>."
 
+    item.fire_wood.name: Fire Wood
+    item.fire_wood.lore_1: Chopped wood that can be used as fuel
+    item.fire_wood.lore_2: " in a <gray>Campfire</gray>."
+
     material.iron.name: Iron
     material.copper.name: Copper
     material.bronze.name: Bronze

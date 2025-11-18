@@ -29,7 +29,6 @@ import org.shotrush.atom.Atom
 import org.shotrush.atom.content.workstation.campfire.CampfireRegistry
 import org.shotrush.atom.content.workstation.campfire.features.BurnoutFeature
 import org.shotrush.atom.content.workstation.campfire.features.MoldFiringFeature
-import org.shotrush.atom.content.workstation.campfire.features.StrawFuelFeature
 import org.shotrush.atom.core.api.annotation.RegisterSystem
 import org.shotrush.atom.core.util.ActionBarManager
 import org.shotrush.atom.matches

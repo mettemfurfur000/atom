@@ -1,0 +1,14 @@
+ items:
+  atom:fire_wood:
+    material: stick
+    data:
+      item-name: <!i><white><l10n:item.fire_wood.name>
+      lore:
+        - ""
+        - <!i><dark_gray><l10n:item.fire_wood.lore_1>
+        - <!i><dark_gray><l10n:item.fire_wood.lore_2>
+        - ""
+        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+      components:
+        custom_data:
+          campfire_burn_time_seconds: 300

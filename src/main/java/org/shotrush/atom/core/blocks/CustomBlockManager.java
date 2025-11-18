@@ -463,7 +463,8 @@ public class CustomBlockManager implements Listener {
         
         Material blockType = event.getBlock().getType();
         
-        if (blockType != Material.BLACK_STAINED_GLASS && blockType != Material.CAMPFIRE) return;
+        // Only handle BLACK_STAINED_GLASS, exclude CAMPFIRE to avoid conflicts with CampfireSystem
+        if (blockType != Material.BLACK_STAINED_GLASS) return;
         
         Location blockLoc = event.getBlock().getLocation();
         for (int i = 0; i < blocks.size(); i++) {
@@ -498,7 +499,8 @@ public class CustomBlockManager implements Listener {
         
         Material blockType = event.getClickedBlock().getType();
         
-        if (blockType != Material.BLACK_STAINED_GLASS && blockType != Material.CAMPFIRE) return;
+        // Only handle BLACK_STAINED_GLASS, exclude CAMPFIRE to avoid conflicts with CampfireSystem
+        if (blockType != Material.BLACK_STAINED_GLASS) return;
         
         Location clickedLoc = event.getClickedBlock().getLocation();
         for (int i = 0; i < blocks.size(); i++) {

@@ -22,7 +22,7 @@ import org.bukkit.plugin.Plugin
 import org.shotrush.atom.Atom
 import org.shotrush.atom.content.workstation.campfire.features.BurnoutFeature
 import org.shotrush.atom.content.workstation.campfire.features.MoldFiringFeature
-import org.shotrush.atom.content.workstation.campfire.features.StrawFuelFeature
+import org.shotrush.atom.content.workstation.campfire.features.UniversalFuelFeature
 import org.shotrush.atom.core.api.annotation.RegisterSystem
 import org.shotrush.atom.core.util.ActionBarManager
 import org.shotrush.atom.matches
@@ -32,20 +32,23 @@ import kotlin.random.Random
     id = "campfire_system",
     priority = 5,
     toggleable = true,
-    description = "Unified campfire lifecycle (lighting, burnout, straw fuel, mold firing)",
+    description = "Unified campfire lifecycle (lighting, burnout, universal fuel, mold firing)",
     enabledByDefault = true
 )
 class CampfireSystem(private val plugin: Plugin) : Listener {
 
     private val registry = CampfireRegistry(plugin)
     private val burnout = BurnoutFeature()
-    private val straw = StrawFuelFeature()
     private val mold = MoldFiringFeature()
+    private val universalFuel = UniversalFuelFeature()
+
+    // Prevent duplicate fuel additions within 100ms
+    private val recentFuelAdditions = mutableMapOf<String, Long>()
 
     init {
         plugin.server.pluginManager.registerEvents(this, plugin)
         registry.addListener(burnout)
-        registry.addListener(straw)
+        registry.addListener(universalFuel)
         registry.addListener(mold)
     }
     
@@ -96,18 +99,33 @@ class CampfireSystem(private val plugin: Plugin) : Listener {
         val player = event.player
         val item = player.inventory.itemInMainHand
 
-        // Straw fuel add when lit
-        if (item.matches("atom:straw") && data.isLit) {
-            val end = straw.tryAddStrawFuel(registry, block.location)
+        // Universal fuel add when lit (any item with burn time component)
+        if (data.isLit) {
+            // Check for duplicate fuel additions within 100ms
+            val key = "${player.uniqueId}:${block.location}"
+            val now = System.currentTimeMillis()
+            val lastAddition = recentFuelAdditions[key] ?: 0L
+            if (now - lastAddition < 100L) {
+                return // Ignore duplicate event
+            }
+
+            val end = universalFuel.tryAddFuel(registry, block.location, item)
             if (end != null) {
                 event.isCancelled = true
+                recentFuelAdditions[key] = now
                 item.subtract(1)
                 val remaining = (end - System.currentTimeMillis()).coerceAtLeast(0)
                 val min = (remaining / 60000L).toInt()
                 val sec = ((remaining % 60000L) / 1000L).toInt()
-                ActionBarManager.send(player, "campfire", "<green>Added fuel! Time remaining:</green> <yellow>${min}m ${sec}s</yellow>")
+                val queueInfo = universalFuel.getFuelQueue(block.location)
+                val queueStatus = if (queueInfo.size >= 4) " (Queue Full!)" else " (${queueInfo.size}/4 in queue)"
+                ActionBarManager.send(player, "campfire", "<green>Added fuel! Time remaining:</green> <yellow>${min}m ${sec}s</yellow>${queueStatus}")
             } else {
-                ActionBarManager.send(player, "campfire","<red>Could not add fuel.</red>")
+                if (universalFuel.isQueueFull(block.location)) {
+                    ActionBarManager.send(player, "campfire","<red>Fuel queue is full (max 4 items).</red>")
+                } else {
+                    ActionBarManager.send(player, "campfire","<red>Item is not valid fuel.</red>")
+                }
             }
             return
         }
@@ -140,13 +158,21 @@ class CampfireSystem(private val plugin: Plugin) : Listener {
         
         registry.brokenAt(b.location)
         
-        val campfire = b.state as? org.bukkit.block.Campfire
-        if (campfire != null) {
-            for (i in 0 until campfire.size) {
-                campfire.setItem(i, null)
+    }
+
+    // Periodic task to process fuel queues
+    init {
+        // Process fuel queues every 2 seconds to consume fuel items as time passes
+        plugin.server.scheduler.runTaskTimer(plugin, { _ ->
+            registry.getAllStates().forEach { state ->
+                if (state.lit) {
+                    universalFuel.processFuelQueue(state.location, registry)
+                }
             }
-            campfire.update(false)
-        }
+            // Clean up old fuel addition timestamps (older than 1 second)
+            val now = System.currentTimeMillis()
+            recentFuelAdditions.entries.removeIf { now - it.value > 1000L }
+        }, 100L, 100L) // Start after 2 seconds, repeat every 2 seconds
     }
 
     private fun startStrikeTask(

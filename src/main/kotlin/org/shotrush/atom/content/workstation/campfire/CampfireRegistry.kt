@@ -46,6 +46,11 @@ class CampfireRegistry(private val plugin: Plugin) {
 
     fun isTracked(loc: Location) = active.containsKey(loc)
     fun getState(loc: Location) = active[loc]
+    
+    /**
+     * Get all active campfire states for iteration.
+     */
+    fun getAllStates(): Collection<CampfireState> = active.values
 
     fun trackOnPlace(loc: Location, lit: Boolean) {
         val fixed = fix(loc)
