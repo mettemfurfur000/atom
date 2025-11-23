@@ -24,12 +24,13 @@ recipes:
   atom:oak_log_to_stripped:
     type: shaped
     pattern:
-      - SI
+      - A
+      - L
     ingredients:
-      S: "#atom:tool_saw"
-      I: minecraft:oak_log
+      A: "#atom:tool_axe"
+      L: minecraft:stripped_oak_log
     result:
-      id: minecraft:stripped_oak_log
+      id: minecraft:oak_stripped_log
       count: 1
   atom:oak_planks_to_slab:
     type: shaped
@@ -130,12 +131,13 @@ recipes:
   atom:spruce_log_to_stripped:
     type: shaped
     pattern:
-      - SI
+      - A
+      - L
     ingredients:
-      S: "#atom:tool_saw"
-      I: minecraft:spruce_log
+      A: "#atom:tool_axe"
+      L: minecraft:stripped_spruce_log
     result:
-      id: minecraft:stripped_spruce_log
+      id: minecraft:spruce_stripped_log
       count: 1
   atom:spruce_planks_to_slab:
     type: shaped
@@ -236,12 +238,13 @@ recipes:
   atom:birch_log_to_stripped:
     type: shaped
     pattern:
-      - SI
+      - A
+      - L
     ingredients:
-      S: "#atom:tool_saw"
-      I: minecraft:birch_log
+      A: "#atom:tool_axe"
+      L: minecraft:stripped_birch_log
     result:
-      id: minecraft:stripped_birch_log
+      id: minecraft:birch_stripped_log
       count: 1
   atom:birch_planks_to_slab:
     type: shaped
@@ -342,12 +345,13 @@ recipes:
   atom:jungle_log_to_stripped:
     type: shaped
     pattern:
-      - SI
+      - A
+      - L
     ingredients:
-      S: "#atom:tool_saw"
-      I: minecraft:jungle_log
+      A: "#atom:tool_axe"
+      L: minecraft:stripped_jungle_log
     result:
-      id: minecraft:stripped_jungle_log
+      id: minecraft:jungle_stripped_log
       count: 1
   atom:jungle_planks_to_slab:
     type: shaped
@@ -448,12 +452,13 @@ recipes:
   atom:acacia_log_to_stripped:
     type: shaped
     pattern:
-      - SI
+      - A
+      - L
     ingredients:
-      S: "#atom:tool_saw"
-      I: minecraft:acacia_log
+      A: "#atom:tool_axe"
+      L: minecraft:stripped_acacia_log
     result:
-      id: minecraft:stripped_acacia_log
+      id: minecraft:acacia_stripped_log
       count: 1
   atom:acacia_planks_to_slab:
     type: shaped
@@ -554,12 +559,13 @@ recipes:
   atom:dark_oak_log_to_stripped:
     type: shaped
     pattern:
-      - SI
+      - A
+      - L
     ingredients:
-      S: "#atom:tool_saw"
-      I: minecraft:dark_oak_log
+      A: "#atom:tool_axe"
+      L: minecraft:stripped_dark_oak_log
     result:
-      id: minecraft:stripped_dark_oak_log
+      id: minecraft:dark_oak_stripped_log
       count: 1
   atom:dark_oak_planks_to_slab:
     type: shaped
@@ -660,12 +666,13 @@ recipes:
   atom:cherry_log_to_stripped:
     type: shaped
     pattern:
-      - SI
+      - A
+      - L
     ingredients:
-      S: "#atom:tool_saw"
-      I: minecraft:cherry_log
+      A: "#atom:tool_axe"
+      L: minecraft:stripped_cherry_log
     result:
-      id: minecraft:stripped_cherry_log
+      id: minecraft:cherry_stripped_log
       count: 1
   atom:cherry_planks_to_slab:
     type: shaped
@@ -766,12 +773,13 @@ recipes:
   atom:pale_oak_log_to_stripped:
     type: shaped
     pattern:
-      - SI
+      - A
+      - L
     ingredients:
-      S: "#atom:tool_saw"
-      I: minecraft:pale_oak_log
+      A: "#atom:tool_axe"
+      L: minecraft:stripped_pale_oak_log
     result:
-      id: minecraft:stripped_pale_oak_log
+      id: minecraft:pale_oak_stripped_log
       count: 1
   atom:pale_oak_planks_to_slab:
     type: shaped
@@ -872,12 +880,13 @@ recipes:
   atom:mangrove_log_to_stripped:
     type: shaped
     pattern:
-      - SI
+      - A
+      - L
     ingredients:
-      S: "#atom:tool_saw"
-      I: minecraft:mangrove_log
+      A: "#atom:tool_axe"
+      L: minecraft:stripped_mangrove_log
     result:
-      id: minecraft:stripped_mangrove_log
+      id: minecraft:mangrove_stripped_log
       count: 1
   atom:mangrove_planks_to_slab:
     type: shaped

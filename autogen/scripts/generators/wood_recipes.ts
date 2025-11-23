@@ -122,7 +122,12 @@ function generateWoodRecipes() {
     for (const wood of WOOD_TYPES) {
         recipes[`atom:${wood}_log_to_planks`] = buildSawRecipe(logId(wood), planksId(wood));
         recipes[`atom:${wood}_stripped_log_to_planks`] = buildSawRecipe(strippedLogId(wood), planksId(wood));
-        recipes[`atom:${wood}_log_to_stripped`] = buildSawRecipe(logId(wood), strippedLogId(wood), ["SI"], 1);
+        recipes[`atom:${wood}_log_to_stripped`] = buildShaped(
+            ["A", "L"],
+            {A: "#atom:tool_axe", L: strippedLogId(wood)},
+            `minecraft:${wood}_stripped_log`,
+            1
+        );
         recipes[`atom:${wood}_planks_to_slab`] = buildSawRecipe(planksId(wood), slabId(wood));
         recipes[`atom:${wood}_planks_to_stairs`] = buildSawRecipe(planksId(wood), stairsId(wood), ["SI", "II"], 4);
         recipes[`atom:${wood}_fence`] = buildShaped(["SPS", " P ", "SPS"], {
