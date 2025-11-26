@@ -129,10 +129,8 @@ class Atom : SuspendingJavaPlugin() {
                 }
             }
 
-            if (PlayerTemperatureSystem.instance != null) {
-                val temp = PlayerTemperatureSystem.instance.getPlayerTemperature(player)
-                PlayerDataAPI.setDouble(player, "temperature.body", temp)
-            }
+            val temp = PlayerTemperatureSystem.instance.getPlayerTemperature(player)
+            PlayerDataAPI.setDouble(player, "temperature.body", temp)
         }
 
         logger.info("Player data saved for " + Bukkit.getOnlinePlayers().size + " players")
