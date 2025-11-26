@@ -1,6 +1,5 @@
 package org.shotrush.atom.content.systems
 
-import io.papermc.paper.threadedregions.scheduler.ScheduledTask
 import org.bukkit.*
 import org.bukkit.entity.ItemDisplay
 import org.bukkit.inventory.ItemStack
@@ -16,14 +15,14 @@ object ItemTransformationHandler {
     private val COOLING_START_KEY = NamespacedKey("atom", "cooling_start_time")
     private val CLAY_DRYING_START_KEY = NamespacedKey("atom", "clay_drying_start_time")
 
-    const val moldCoolingTimeMs: Long = 30000L
+    const val MOLD_COOLING_START_TIME_MS: Long = 30000L
     private const val MOLD_COOLING_RATE = 0.005
     private const val MOLD_PARTICLE_HEAT_THRESHOLD = 50.0
 
-    const val clayDryTimeMs: Long = 30000L
+    const val CLAY_DRYING_START_TIME_MS: Long = 30000L
 
     // private static final long CLAY_DRY_TIME_MS = 900000L; // Actual Production Time
-    const val clayMinLightLevel: Int = 12
+    const val CLAY_MIN_LIGHT_LEVEL: Int = 12
 
     /**
      * Handles the cooling process for filled molds
@@ -31,7 +30,7 @@ object ItemTransformationHandler {
     fun handleFilledMoldCooling(
         itemDisplay: ItemDisplay, itemStack: ItemStack,
         loc: Location, currentHeat: Double,
-        heatDifference: Double, task: ScheduledTask?
+        heatDifference: Double
     ) {
         val heatChange = heatDifference * MOLD_COOLING_RATE
         val newHeat = currentHeat + heatChange
@@ -56,24 +55,23 @@ object ItemTransformationHandler {
             playCoolingSound(loc, startTime)
         }
         val elapsedMillis =
-            System.currentTimeMillis() - (if (startTime != null) startTime else System.currentTimeMillis())
-        if (elapsedMillis >= moldCoolingTimeMs) {
+            System.currentTimeMillis() - (startTime ?: System.currentTimeMillis())
+        if (elapsedMillis >= MOLD_COOLING_START_TIME_MS) {
             completeMoldCooling(itemDisplay, itemStack, loc)
         }
     }
 
     fun handleClayDrying(
         itemDisplay: ItemDisplay, itemStack: ItemStack,
-        loc: Location, task: ScheduledTask?
+        loc: Location
     ) {
         val block = loc.block
         val world = loc.world
 
         val isInSunlight =
-            block.lightFromSky >= clayMinLightLevel && world.time >= 0 && world.time <= 12000 && !world.hasStorm()
+            block.lightFromSky >= CLAY_MIN_LIGHT_LEVEL && world.time >= 0 && world.time <= 12000 && !world.hasStorm()
 
-        val meta = itemStack.itemMeta
-        if (meta == null) return
+        val meta = itemStack.itemMeta ?: return
 
         var startTime = meta.persistentDataContainer.get(
             CLAY_DRYING_START_KEY,
@@ -102,12 +100,12 @@ object ItemTransformationHandler {
         }
 
         val elapsedMillis = System.currentTimeMillis() - startTime
-        val progress = elapsedMillis.toFloat() / clayDryTimeMs.toFloat()
+        val progress = elapsedMillis.toFloat() / CLAY_DRYING_START_TIME_MS.toFloat()
 
         spawnDryingParticles(loc, world, progress)
         playDryingSound(loc, world, elapsedMillis)
 
-        if (elapsedMillis >= clayDryTimeMs) {
+        if (elapsedMillis >= CLAY_DRYING_START_TIME_MS) {
             convertClayToBrick(itemDisplay, itemStack, loc)
         }
     }
@@ -118,8 +116,8 @@ object ItemTransformationHandler {
     }
 
     private fun playCoolingSound(loc: Location, startTime: Long?) {
-        val elapsedTicks = (System.currentTimeMillis() - (if (startTime != null) startTime else 0)) / 50
-        if (elapsedTicks % 100 == 0L) { // Every 5 seconds
+        val elapsedTicks = (System.currentTimeMillis() - (startTime ?: 0)) / 50
+        if (elapsedTicks % 100 == 0L) {
             loc.world.playSound(loc, Sound.BLOCK_FIRE_EXTINGUISH, 0.1f, 0.5f)
         }
     }

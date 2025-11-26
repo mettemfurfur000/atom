@@ -440,13 +440,12 @@ class ItemHeatSystem(private val plugin: Plugin?) : Listener {
                         itemStack,
                         loc,
                         currentHeat,
-                        heatDifference,
-                        task
+                        heatDifference
                     )
                     return@runTaskTimer
                 }
                 if (itemStack.type == Material.CLAY_BALL) {
-                    ItemTransformationHandler.handleClayDrying(itemDisplay, itemStack, loc, task)
+                    ItemTransformationHandler.handleClayDrying(itemDisplay, itemStack, loc)
                     return@runTaskTimer
                 }
 
