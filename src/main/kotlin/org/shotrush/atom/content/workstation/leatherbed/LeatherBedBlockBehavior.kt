@@ -1,35 +1,23 @@
 package org.shotrush.atom.content.workstation.leatherbed
 
-import com.github.shynixn.mccoroutine.folia.launch
-import com.github.shynixn.mccoroutine.folia.regionDispatcher
 import net.momirealms.craftengine.core.block.BlockBehavior
 import net.momirealms.craftengine.core.block.CustomBlock
 import net.momirealms.craftengine.core.block.ImmutableBlockState
 import net.momirealms.craftengine.core.block.behavior.BlockBehaviorFactory
-import net.momirealms.craftengine.core.block.behavior.EntityBlockBehavior
-import net.momirealms.craftengine.core.block.entity.BlockEntity
-import net.momirealms.craftengine.core.block.entity.BlockEntityType
-import net.momirealms.craftengine.core.block.entity.tick.BlockEntityTicker
 import net.momirealms.craftengine.core.entity.player.InteractionResult
 import net.momirealms.craftengine.core.item.context.UseOnContext
-import net.momirealms.craftengine.core.world.BlockPos
-import net.momirealms.craftengine.core.world.CEWorld
 import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
-import org.shotrush.atom.Atom
 import org.shotrush.atom.content.base.AtomBlock
-import org.shotrush.atom.content.base.BlockEntityFactory
 import org.shotrush.atom.content.workstation.Workstations
 import org.shotrush.atom.core.util.ActionBarManager
 import org.shotrush.atom.matches
 
-
 class LeatherBedBlockBehavior(block: CustomBlock) : AtomBlock<LeatherBedBlockEntity>(
-    block, BlockEntityFactory(
-        Workstations.LEATHER_BED.type,
-        ::LeatherBedBlockEntity,
-        LeatherBedBlockEntity::tick
-    )
+    block,
+    Workstations.LEATHER_BED.type,
+    ::LeatherBedBlockEntity,
+    LeatherBedBlockEntity::tick
 ) {
 
     companion object {

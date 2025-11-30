@@ -4,8 +4,6 @@ package org.shotrush.atom.content.base
 
 import com.github.shynixn.mccoroutine.folia.launch
 import com.github.shynixn.mccoroutine.folia.regionDispatcher
-import kotlinx.coroutines.runBlocking
-import kotlinx.coroutines.withContext
 import net.momirealms.craftengine.core.block.CustomBlock
 import net.momirealms.craftengine.core.block.ImmutableBlockState
 import net.momirealms.craftengine.core.block.behavior.AbstractBlockBehavior
@@ -21,28 +19,23 @@ import org.bukkit.entity.Player
 import org.shotrush.atom.Atom
 import org.shotrush.atom.toBukkitLocation
 
-data class BlockEntityFactory<BE : BlockEntity>(
+abstract class AtomBlock<BE : BlockEntity>(
+    block: CustomBlock,
     val type: BlockEntityType<BlockEntity>,
     val factory: (pos: BlockPos, state: ImmutableBlockState) -> BE,
     val ticker: (suspend (BE) -> Unit)? = null,
-)
-
-abstract class AtomBlock<BE : BlockEntity>(
-    block: CustomBlock,
-    private val factory: BlockEntityFactory<BE>,
 ) : AbstractBlockBehavior(block), EntityBlockBehavior {
     final override fun <T : BlockEntity> blockEntityType(state: ImmutableBlockState): BlockEntityType<T> =
-        EntityBlockBehavior.blockEntityTypeHelper(factory.type)
+        EntityBlockBehavior.blockEntityTypeHelper(type)
 
     final override fun createBlockEntity(pos: BlockPos, state: ImmutableBlockState): BlockEntity =
-        factory.factory.invoke(pos, state)
+        factory.invoke(pos, state)
 
     final override fun <T : BlockEntity> createSyncBlockEntityTicker(
         level: CEWorld?,
         state: ImmutableBlockState?,
         blockEntityType: BlockEntityType<T>,
     ): BlockEntityTicker<T>? {
-        val ticker = factory.ticker
         if (ticker != null) {
             return BlockEntityTicker { world, pos, state, be ->
                 Atom.instance.launch(Atom.instance.regionDispatcher(pos.toBukkitLocation(world))) {

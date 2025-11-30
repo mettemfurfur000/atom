@@ -9,16 +9,16 @@ import net.momirealms.craftengine.core.item.context.UseOnContext
 import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
 import org.shotrush.atom.content.base.AtomBlock
-import org.shotrush.atom.content.base.BlockEntityFactory
 import org.shotrush.atom.content.workstation.Workstations
 import org.shotrush.atom.item.Molds
 
 
-class ClayCauldronBlockBehavior(block: CustomBlock) : AtomBlock<ClayCauldronBlockEntity>(block, BlockEntityFactory(
+class ClayCauldronBlockBehavior(block: CustomBlock) : AtomBlock<ClayCauldronBlockEntity>(
+    block,
     Workstations.CLAY_CAULDRON.type,
     ::ClayCauldronBlockEntity,
     ClayCauldronBlockEntity::tick
-)) {
+) {
     object Factory : BlockBehaviorFactory {
         override fun create(
             block: CustomBlock,
@@ -39,14 +39,14 @@ class ClayCauldronBlockBehavior(block: CustomBlock) : AtomBlock<ClayCauldronBloc
 
         if (blockEntity !is ClayCauldronBlockEntity) return InteractionResult.PASS
 
-        if(blockEntity.canStoreItem(item)) {
+        if (blockEntity.canStoreItem(item)) {
             val amountToTake = blockEntity.amountToStore(item)
             if (amountToTake == 0) return InteractionResult.PASS
             val clone = item.clone().apply { amount = amountToTake }
             blockEntity.storeItem(clone)
             item.amount -= amountToTake
             return InteractionResult.SUCCESS
-        } else if(Molds.isEmptyMold(item)) {
+        } else if (Molds.isEmptyMold(item)) {
             val type = Molds.getMoldType(item)
             val shape = Molds.getMoldShape(item)
             return blockEntity.fillMold(player, item, type, shape)

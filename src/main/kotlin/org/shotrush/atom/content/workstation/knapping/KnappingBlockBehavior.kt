@@ -32,7 +32,6 @@ import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
 import org.shotrush.atom.Atom
 import org.shotrush.atom.content.base.AtomBlock
-import org.shotrush.atom.content.base.BlockEntityFactory
 import org.shotrush.atom.content.workstation.Workstations
 import org.shotrush.atom.format
 import org.shotrush.atom.getNamespacedKey
@@ -47,10 +46,8 @@ private fun idxColMajor(r: Int, c: Int): Int = r + c * N
 
 class KnappingBlockBehavior(block: CustomBlock) : AtomBlock<KnappingBlockBehavior.KnappingBlockEntity>(
     block,
-    BlockEntityFactory(
-        Workstations.KNAPPING_STATION_ENTITY_TYPE,
-        ::KnappingBlockEntity
-    )
+    Workstations.KNAPPING_STATION_ENTITY_TYPE,
+    ::KnappingBlockEntity
 ) {
     object Factory : BlockBehaviorFactory {
         override fun create(

@@ -6,7 +6,6 @@ import net.momirealms.craftengine.core.block.CustomBlock
 import net.momirealms.craftengine.core.block.ImmutableBlockState
 import net.momirealms.craftengine.core.block.behavior.BlockBehaviorFactory
 import net.momirealms.craftengine.core.block.entity.BlockEntity
-import net.momirealms.craftengine.core.block.entity.BlockEntityType
 import net.momirealms.craftengine.core.entity.player.InteractionResult
 import net.momirealms.craftengine.core.item.context.UseOnContext
 import net.momirealms.craftengine.core.world.BlockPos
@@ -14,18 +13,15 @@ import net.momirealms.craftengine.libraries.nbt.CompoundTag
 import org.bukkit.entity.Player
 import org.bukkit.inventory.MenuType
 import org.shotrush.atom.Atom
-import org.shotrush.atom.content.workstation.Workstations
 import org.shotrush.atom.content.base.AtomBlock
-import org.shotrush.atom.content.base.BlockEntityFactory
-
+import org.shotrush.atom.content.workstation.Workstations
 
 class CraftingBasketBlockBehavior(
     block: CustomBlock,
 ) : AtomBlock<CraftingBasketBlockEntity>(
-    block, BlockEntityFactory(
-        Workstations.CRAFTING_BASKET_ENTITY_TYPE,
-        ::CraftingBasketBlockEntity
-    )
+    block,
+    Workstations.CRAFTING_BASKET_ENTITY_TYPE,
+    ::CraftingBasketBlockEntity
 ) {
 
     companion object {
