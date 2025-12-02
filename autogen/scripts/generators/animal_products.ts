@@ -31,14 +31,41 @@ const animals = [
 type AnimalId = (typeof animals)[number];
 
 type ItemType =
-    | "raw_meat"
-    | "undercooked_meat"
-    | "cooked_meat"
-    | "burnt_meat"
-    | "raw_leather"
+    | "meat_raw"
+    | "meat_undercooked"
+    | "meat_cooked"
+    | "meat_burnt"
+    | "leather_raw"
     | "leather"
-    | "cured_leather"
-    | "bone";
+    | "leather_cured"
+    | "bone"
+    | "organ"
+    | "heart"
+    | "liver"
+    | "kidney"
+    | "lungs"
+    | "fat";
+
+// Animals that have each organ type
+const organsForAnimal: Record<AnimalId, ItemType[]> = {
+    cow: ["organ", "heart", "liver", "kidney", "lungs", "fat"],
+    pig: ["organ", "heart", "liver", "kidney", "lungs", "fat"],
+    sheep: ["organ", "heart", "liver", "kidney", "lungs"],
+    chicken: ["organ", "heart", "liver"],
+    rabbit: ["organ"],
+    horse: ["organ", "heart", "liver", "kidney", "lungs"],
+    donkey: ["organ", "heart", "liver", "kidney", "lungs"],
+    mule: ["organ", "heart", "liver", "kidney", "lungs"],
+    llama: ["organ", "heart", "liver", "kidney", "lungs"],
+    goat: ["organ", "heart", "liver", "kidney", "lungs"],
+    cat: ["organ"],
+    wolf: ["organ"],
+    fox: ["organ"],
+    panda: ["organ", "lungs"],
+    polar_bear: ["organ", "heart", "liver", "lungs"],
+    ocelot: ["organ"],
+    camel: ["organ", "heart", "liver", "kidney", "lungs", "fat"],
+};
 
 const CATEGORY_KEY = "atom:animal_product";
 const CATEGORY = {
@@ -78,85 +105,120 @@ const meatNameOverrides: Record<string, string> = {
 };
 
 const recipeTransitions = [
-    { from: "raw_meat", to: "undercooked_meat", category: "food" },
-    { from: "undercooked_meat", to: "cooked_meat", category: "food" },
-    { from: "cooked_meat", to: "burnt_meat", category: "food" },
+    { from: "meat_raw", to: "meat_undercooked", category: "food" },
+    { from: "meat_undercooked", to: "meat_cooked", category: "food" },
+    { from: "meat_cooked", to: "meat_burnt", category: "food" },
 ] as const;
 
 // ---- Helpers ----
+// New shorter naming: atom:meat_raw_cow, atom:organ_cow, atom:bone_cow
 function itemKey(id: AnimalId, type: ItemType) {
-    if (type.includes("leather") && type !== "leather") {
-        return atom(`animal_leather_${type.split("_")[0]}_${id}`);
-    }
-    if (type.includes("meat")) {
-        return atom(`animal_meat_${type.split("_")[0]}_${id}`);
-    }
-    return atom(`animal_${type}_${id}`);
+    return atom(`${type}_${id}`);
 }
 
 function textureForType(type: ItemType) {
     switch (type) {
-        case "raw_meat":
+        case "meat_raw":
             return "minecraft:item/meat/raw";
-        case "undercooked_meat":
+        case "meat_undercooked":
             return "minecraft:item/meat/undercooked";
-        case "cooked_meat":
+        case "meat_cooked":
             return "minecraft:item/meat/cooked";
-        case "burnt_meat":
+        case "meat_burnt":
             return "minecraft:item/meat/burnt";
-        case "raw_leather":
+        case "leather_raw":
             return "minecraft:item/leather_meat";
         case "leather":
             return "minecraft:item/leather";
-        case "cured_leather":
+        case "leather_cured":
             return "minecraft:item/leather_cured";
         case "bone":
             return "minecraft:item/meat/bone";
+        case "organ":
+            return "minecraft:item/organ/organ";
+        case "heart":
+            return "minecraft:item/organ/heart";
+        case "liver":
+            return "minecraft:item/organ/liver";
+        case "kidney":
+            return "minecraft:item/organ/kidney";
+        case "lungs":
+            return "minecraft:item/organ/lungs";
+        case "fat":
+            return "minecraft:item/organ/fat";
         default:
             return "minecraft:item/redstone";
+    }
+}
+
+function baseMaterialForType(type: ItemType): string {
+    switch (type) {
+        case "leather_raw":
+        case "leather":
+        case "leather_cured":
+            return "leather";
+        case "bone":
+            return "bone";
+        case "organ":
+        case "heart":
+        case "liver":
+        case "kidney":
+        case "lungs":
+            return "porkchop";
+        case "fat":
+            return "honeycomb";
+        default:
+            return "beef";
     }
 }
 
 function makeLabel(id: AnimalId, type: ItemType): string {
     const a = animalDisplay[id];
     switch (type) {
-        case "raw_meat": {
+        case "meat_raw": {
             const b = meatNameOverrides[id] ?? `${a} Meat`;
             return `Raw ${b}`;
         }
-        case "undercooked_meat": {
+        case "meat_undercooked": {
             const b = meatNameOverrides[id] ?? `${a} Meat`;
             return `Undercooked ${b}`;
         }
-        case "cooked_meat": {
+        case "meat_cooked": {
             const b = meatNameOverrides[id] ?? `${a} Meat`;
             return `Cooked ${b}`;
         }
-        case "burnt_meat": {
+        case "meat_burnt": {
             const b = meatNameOverrides[id] ?? `${a} Meat`;
             return `Burnt ${b}`;
         }
         case "leather":
             return `${a} Leather`;
-        case "raw_leather":
+        case "leather_raw":
             return `Raw ${a} Leather`;
-        case "cured_leather":
+        case "leather_cured":
             return `Cured ${a} Leather`;
         case "bone":
             return `${a} Bone`;
+        case "organ":
+            return `${a} Organs`;
+        case "heart":
+            return `${a} Heart`;
+        case "liver":
+            return `${a} Liver`;
+        case "kidney":
+            return `${a} Kidney`;
+        case "lungs":
+            return `${a} Lungs`;
+        case "fat":
+            return `${a} Fat`;
     }
 }
 
 function itemBlock(id: AnimalId, type: ItemType) {
-    const baseMaterial = type.includes("leather")
-        ? "leather"
-        : type === "bone"
-            ? "bone"
-            : "beef";
-
+    const baseMaterial = baseMaterialForType(type);
     const texturePath = textureForType(type);
-    const name = `<!i><white><lang:item.animal_${type}.${id}.name>`;
-    const isFood = !(type.includes("leather") || type === "bone");
+    const name = `<!i><white><lang:item.${type}.${id}.name>`;
+    const isFood = !(type.includes("leather") || type === "bone" || type === "fat");
     const loreBadge = isFood
         ? "<!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>"
         : "<!i><white><image:atom:badge_material> <image:atom:badge_natural> <image:atom:badge_age_foraging>";
@@ -182,7 +244,7 @@ function generateRecipes() {
             const fromKey = itemKey(animal, transition.from);
             const toKey = itemKey(animal, transition.to);
             const recipeKey = atom(
-                `${toKey.replace("atom:", "")}_from_campfire_${transition.from}`,
+                `${toKey.replace("atom:", "")}_from_campfire`,
             );
 
             recipes[recipeKey] = {
@@ -203,19 +265,29 @@ function generateRecipes() {
 function generateDoc() {
     const items: Record<string, unknown> = {};
     const itemKeys: string[] = [];
-    const itemTypes: ItemType[] = [
-        "raw_meat",
-        "undercooked_meat",
-        "cooked_meat",
-        "burnt_meat",
+    
+    // Base item types that all animals have
+    const baseItemTypes: ItemType[] = [
+        "meat_raw",
+        "meat_undercooked",
+        "meat_cooked",
+        "meat_burnt",
         "leather",
-        "raw_leather",
-        "cured_leather",
+        "leather_raw",
+        "leather_cured",
         "bone",
     ];
 
     for (const id of animals) {
-        for (const type of itemTypes) {
+        // Add base items
+        for (const type of baseItemTypes) {
+            Object.assign(items, itemBlock(id, type));
+            itemKeys.push(itemKey(id, type));
+        }
+        
+        // Add organ items based on what this animal has
+        const organTypes = organsForAnimal[id] ?? [];
+        for (const type of organTypes) {
             Object.assign(items, itemBlock(id, type));
             itemKeys.push(itemKey(id, type));
         }
@@ -233,9 +305,24 @@ function generateDoc() {
         "category.animal_product.lore":
             "Contains all animal meats and materials",
     };
+    
+    // All item types including organs
+    const allItemTypes: ItemType[] = [
+        ...baseItemTypes,
+        "organ",
+        "heart",
+        "liver",
+        "kidney",
+        "lungs",
+        "fat",
+    ];
+    
     for (const id of animals) {
-        for (const t of itemTypes) {
-            en[`item.animal_${t}.${id}.name`] = makeLabel(id, t);
+        for (const t of allItemTypes) {
+            // Only add translation if this animal has this item type
+            if (baseItemTypes.includes(t) || (organsForAnimal[id]?.includes(t))) {
+                en[`item.${t}.${id}.name`] = makeLabel(id, t);
+            }
         }
     }
 

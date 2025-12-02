@@ -66,9 +66,6 @@ class Atom : SuspendingJavaPlugin() {
         AtomAPI.registerSystems()
 
         Workstations.init()
-        org.shotrush.atom.content.carcass.CarcassConfigs.load()
-        org.shotrush.atom.content.carcass.CarcassBlock.init()
-        org.shotrush.atom.content.carcass.CarcassGui.init()
 
         TestListener.register(this)
         PlayerDataTrackingListener.register(this)

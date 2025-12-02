@@ -239,6 +239,21 @@ items:
       lore:
         - ""
         - <!i><white><image:atom:badge_material> <image:atom:badge_age_iron>
+  minecraft:egg:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:brown_egg:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:blue_egg:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
   minecraft:apple:
     client-bound-data:
       lore:

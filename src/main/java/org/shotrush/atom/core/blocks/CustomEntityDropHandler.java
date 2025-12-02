@@ -4,6 +4,8 @@ import org.jetbrains.annotations.Nullable;
 import org.reflections.Reflections;
 import org.shotrush.atom.Atom;
 import org.shotrush.atom.content.AnimalType;
+import org.shotrush.atom.content.carcass.CarcassBlock;
+import org.shotrush.atom.content.carcass.CarcassConfigs;
 import org.shotrush.atom.core.api.annotation.RegisterSystem;
 import org.shotrush.atom.core.blocks.annotation.CustomEntityDrops;
 
@@ -118,6 +120,22 @@ public class CustomEntityDropHandler implements Listener {
         LivingEntity entity = event.getEntity();
         EntityType entityType = entity.getType();
 
+        // Check if this animal should spawn a carcass instead of drops
+        String animalId = getAnimalId(entityType);
+        AnimalType animalType = AnimalType.byId(animalId);
+        
+        if (animalType != null && CarcassConfigs.INSTANCE.hasCarcassConfig(animalType)) {
+            // Clear all drops and spawn carcass instead
+            event.getDrops().clear();
+            event.setDroppedExp(random.nextInt(3) + 1);
+            
+            boolean success = CarcassBlock.INSTANCE.spawnCarcassFor(entity, animalType);
+            if (success) {
+                Atom.getInstance().getLogger().info("Spawned carcass for " + animalType.getId() + " at " + entity.getLocation());
+            }
+            return;
+        }
+
         if (!customDrops.containsKey(entityType)) {
             return;
         }
@@ -152,8 +170,6 @@ public class CustomEntityDropHandler implements Listener {
 
 
         String animalName = getAnimalDisplayName(entityType);
-        String animalId = getAnimalId(entityType);
-        AnimalType animalType = AnimalType.byId(animalId);
         if(animalType == null) {
             return;
         }
