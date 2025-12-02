@@ -14,7 +14,7 @@ object Items {
     val SharpenedFlint by item("atom:sharpened_rock")
 
     fun getAnimalProduct(type: AnimalType, product: AnimalProduct): CustomItem<ItemStack> {
-        return CraftEngineItems.byId(Key.of("atom", "animal_${product.id}_${type.id}"))!!
+        return CraftEngineItems.byId(Key.of("atom", "${product.id}_${type.id}"))!!
     }
 
     fun getAnimalFromProduct(product: ItemStack): AnimalType {
@@ -29,7 +29,10 @@ object Items {
     }
 
     fun isAnimalProduct(item: ItemStack): Boolean {
-        return item.getNamespacedKey().startsWith("atom:animal_")
+        val key = item.getNamespacedKey()
+        if (!key.startsWith("atom:")) return false
+        val path = key.removePrefix("atom:")
+        return AnimalProduct.entries.any { path.startsWith(it.id + "_") }
     }
 
     object UI {

@@ -184,9 +184,9 @@ public class CustomEntityDropHandler implements Listener {
             if (amount > 0) {
                 String itemId = drop.customItemId;
                 if (drop.customItemId.equals("bone")) {
-                    itemId = "atom:animal_bone_" + animalId;
+                    itemId = "atom:bone_" + animalId;
                 } else if (drop.customItemId.equals("uncured_leather")) {
-                    itemId = "atom:animal_leather_raw_" + animalId;
+                    itemId = "atom:leather_raw_" + animalId;
                 }
 
                 ItemStack itemToDrop = null;

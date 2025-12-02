@@ -17,12 +17,10 @@ enum class AnimalProduct(val id: String) {
 
         fun decodeFromItemKey(string: String): AnimalProduct {
             val key = string.substringAfter(':', missingDelimiterValue = string)
-            require(key.startsWith("animal_")) { "Unrecognized item key format: $string" }
-            val rest = key.removePrefix("animal_")
             val product = entries
                 .sortedByDescending { it.id.length }
-                .firstOrNull { rest.startsWith(it.id + "_") }
-            return product ?: error("Unrecognized product ID: $rest")
+                .firstOrNull { key.startsWith(it.id + "_") }
+            return product ?: error("Unrecognized product ID: $key")
         }
     }
 }
