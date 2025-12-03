@@ -39,7 +39,7 @@ type ItemType =
     | "leather"
     | "leather_cured"
     | "bone"
-    | "organ"
+    | "intestine"
     | "heart"
     | "liver"
     | "kidney"
@@ -48,23 +48,23 @@ type ItemType =
 
 // Animals that have each organ type
 const organsForAnimal: Record<AnimalId, ItemType[]> = {
-    cow: ["organ", "heart", "liver", "kidney", "lungs", "fat"],
-    pig: ["organ", "heart", "liver", "kidney", "lungs", "fat"],
-    sheep: ["organ", "heart", "liver", "kidney", "lungs"],
-    chicken: ["organ", "heart", "liver"],
-    rabbit: ["organ"],
-    horse: ["organ", "heart", "liver", "kidney", "lungs"],
-    donkey: ["organ", "heart", "liver", "kidney", "lungs"],
-    mule: ["organ", "heart", "liver", "kidney", "lungs"],
-    llama: ["organ", "heart", "liver", "kidney", "lungs"],
-    goat: ["organ", "heart", "liver", "kidney", "lungs"],
-    cat: ["organ"],
-    wolf: ["organ"],
-    fox: ["organ"],
-    panda: ["organ", "lungs"],
-    polar_bear: ["organ", "heart", "liver", "lungs"],
-    ocelot: ["organ"],
-    camel: ["organ", "heart", "liver", "kidney", "lungs", "fat"],
+    cow: ["intestine", "heart", "liver", "kidney", "lungs", "fat"],
+    pig: ["intestine", "heart", "liver", "kidney", "lungs", "fat"],
+    sheep: ["intestine", "heart", "liver", "kidney", "lungs"],
+    chicken: ["intestine", "heart", "liver"],
+    rabbit: ["intestine"],
+    horse: ["intestine", "heart", "liver", "kidney", "lungs"],
+    donkey: ["intestine", "heart", "liver", "kidney", "lungs"],
+    mule: ["intestine", "heart", "liver", "kidney", "lungs"],
+    llama: ["intestine", "heart", "liver", "kidney", "lungs"],
+    goat: ["intestine", "heart", "liver", "kidney", "lungs"],
+    cat: ["intestine"],
+    wolf: ["intestine"],
+    fox: ["intestine"],
+    panda: ["intestine", "lungs"],
+    polar_bear: ["intestine", "heart", "liver", "lungs"],
+    ocelot: ["intestine"],
+    camel: ["intestine", "heart", "liver", "kidney", "lungs", "fat"],
 };
 
 const CATEGORY_KEY = "atom:animal_product";
@@ -134,8 +134,8 @@ function textureForType(type: ItemType) {
             return "minecraft:item/leather_cured";
         case "bone":
             return "minecraft:item/meat/bone";
-        case "organ":
-            return "minecraft:item/organ/organ";
+        case "intestine":
+            return "minecraft:item/organ/intestine";
         case "heart":
             return "minecraft:item/organ/heart";
         case "liver":
@@ -159,7 +159,7 @@ function baseMaterialForType(type: ItemType): string {
             return "leather";
         case "bone":
             return "bone";
-        case "organ":
+        case "intestine":
         case "heart":
         case "liver":
         case "kidney":
@@ -199,7 +199,7 @@ function makeLabel(id: AnimalId, type: ItemType): string {
             return `Cured ${a} Leather`;
         case "bone":
             return `${a} Bone`;
-        case "organ":
+        case "intestine":
             return `${a} Organs`;
         case "heart":
             return `${a} Heart`;
@@ -265,7 +265,7 @@ function generateRecipes() {
 function generateDoc() {
     const items: Record<string, unknown> = {};
     const itemKeys: string[] = [];
-    
+
     // Base item types that all animals have
     const baseItemTypes: ItemType[] = [
         "meat_raw",
@@ -284,7 +284,7 @@ function generateDoc() {
             Object.assign(items, itemBlock(id, type));
             itemKeys.push(itemKey(id, type));
         }
-        
+
         // Add organ items based on what this animal has
         const organTypes = organsForAnimal[id] ?? [];
         for (const type of organTypes) {
@@ -305,11 +305,11 @@ function generateDoc() {
         "category.animal_product.lore":
             "Contains all animal meats and materials",
     };
-    
+
     // All item types including organs
     const allItemTypes: ItemType[] = [
         ...baseItemTypes,
-        "organ",
+        "intestine",
         "heart",
         "liver",
         "kidney",
