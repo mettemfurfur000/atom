@@ -1,6 +1,5 @@
 package org.shotrush.atom.content.carcass
 
-import org.bukkit.Material
 import org.bukkit.configuration.ConfigurationSection
 import org.bukkit.configuration.file.YamlConfiguration
 import org.shotrush.atom.Atom
@@ -76,7 +75,6 @@ object CarcassConfigs {
                         minAmount = partSection.getInt("min_amount", 1),
                         maxAmount = partSection.getInt("max_amount", 1),
                         guiSlot = partSection.getInt("gui_slot", 0),
-                        displayMaterial = parseMaterial(partSection.getString("display_material", "PAPER") ?: "PAPER"),
                         external = partSection.getBoolean("external", false)
                     )
                     parts.add(part)
@@ -108,14 +106,6 @@ object CarcassConfigs {
             "axe" -> ToolRequirement.AXE
             "water_bucket" -> ToolRequirement.WATER_BUCKET
             else -> ToolRequirement.NONE
-        }
-    }
-
-    private fun parseMaterial(materialName: String): Material {
-        return try {
-            Material.valueOf(materialName.uppercase())
-        } catch (e: IllegalArgumentException) {
-            Material.PAPER
         }
     }
 

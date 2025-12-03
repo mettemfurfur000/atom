@@ -32,10 +32,6 @@ items:
           auto-state: non_tintable_leaves
           model:
             path: minecraft:block/carcass
-            generation:
-              parent: minecraft:block/cube_all
-              textures:
-                all: minecraft:block/carcass
 
 translations:
   en:

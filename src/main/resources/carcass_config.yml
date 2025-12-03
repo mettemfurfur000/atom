@@ -39,7 +39,7 @@ animals:
       organs:
         display_name: "Organs"
         tool: none
-        item: "atom:organ_cow"
+        item: "atom:intestine_cow"
         min_amount: 1
         max_amount: 2
         gui_slot: 3
@@ -55,7 +55,7 @@ animals:
       lungs:
         display_name: "Lungs"
         tool: none
-        item: "atom:lungs_cow"
+        item: "atom:lung_cow"
         min_amount: 1
         max_amount: 1
         gui_slot: 5
@@ -255,7 +255,7 @@ animals:
       organs:
         display_name: "Organs"
         tool: none
-        item: "atom:organ_pig"
+        item: "atom:intestine_pig"
         min_amount: 1
         max_amount: 2
         gui_slot: 3
@@ -271,7 +271,7 @@ animals:
       lungs:
         display_name: "Lungs"
         tool: none
-        item: "atom:lungs_pig"
+        item: "atom:lung_pig"
         min_amount: 1
         max_amount: 1
         gui_slot: 5
@@ -469,7 +469,7 @@ animals:
       organs:
         display_name: "Organs"
         tool: none
-        item: "atom:organ_sheep"
+        item: "atom:intestine_sheep"
         min_amount: 1
         max_amount: 1
         gui_slot: 3
@@ -485,7 +485,7 @@ animals:
       lungs:
         display_name: "Lungs"
         tool: none
-        item: "atom:lungs_sheep"
+        item: "atom:lung_sheep"
         min_amount: 1
         max_amount: 1
         gui_slot: 5
@@ -651,7 +651,7 @@ animals:
       organs:
         display_name: "Organs"
         tool: none
-        item: "atom:organ_horse"
+        item: "atom:intestine_horse"
         min_amount: 2
         max_amount: 3
         gui_slot: 3
@@ -667,7 +667,7 @@ animals:
       lungs:
         display_name: "Lungs"
         tool: none
-        item: "atom:lungs_horse"
+        item: "atom:lung_horse"
         min_amount: 1
         max_amount: 1
         gui_slot: 5
@@ -833,7 +833,7 @@ animals:
       organs:
         display_name: "Organs"
         tool: none
-        item: "atom:organ_goat"
+        item: "atom:intestine_goat"
         min_amount: 1
         max_amount: 2
         gui_slot: 3
@@ -849,7 +849,7 @@ animals:
       lungs:
         display_name: "Lungs"
         tool: none
-        item: "atom:lungs_goat"
+        item: "atom:lung_goat"
         min_amount: 1
         max_amount: 1
         gui_slot: 5
@@ -1015,7 +1015,7 @@ animals:
       organs:
         display_name: "Organs"
         tool: none
-        item: "atom:organ_donkey"
+        item: "atom:intestine_donkey"
         min_amount: 1
         max_amount: 2
         gui_slot: 3
@@ -1031,7 +1031,7 @@ animals:
       lungs:
         display_name: "Lungs"
         tool: none
-        item: "atom:lungs_donkey"
+        item: "atom:lung_donkey"
         min_amount: 1
         max_amount: 1
         gui_slot: 5
@@ -1197,7 +1197,7 @@ animals:
       organs:
         display_name: "Organs"
         tool: none
-        item: "atom:organ_mule"
+        item: "atom:intestine_mule"
         min_amount: 1
         max_amount: 2
         gui_slot: 3
@@ -1213,7 +1213,7 @@ animals:
       lungs:
         display_name: "Lungs"
         tool: none
-        item: "atom:lungs_mule"
+        item: "atom:lung_mule"
         min_amount: 1
         max_amount: 1
         gui_slot: 5
@@ -1379,7 +1379,7 @@ animals:
       organs:
         display_name: "Organs"
         tool: none
-        item: "atom:organ_llama"
+        item: "atom:intestine_llama"
         min_amount: 1
         max_amount: 2
         gui_slot: 3
@@ -1395,7 +1395,7 @@ animals:
       lungs:
         display_name: "Lungs"
         tool: none
-        item: "atom:lungs_llama"
+        item: "atom:lung_llama"
         min_amount: 1
         max_amount: 1
         gui_slot: 5
@@ -1561,7 +1561,7 @@ animals:
       organs:
         display_name: "Organs"
         tool: none
-        item: "atom:organ_camel"
+        item: "atom:intestine_camel"
         min_amount: 2
         max_amount: 3
         gui_slot: 3
@@ -1577,7 +1577,7 @@ animals:
       lungs:
         display_name: "Lungs"
         tool: none
-        item: "atom:lungs_camel"
+        item: "atom:lung_camel"
         min_amount: 1
         max_amount: 1
         gui_slot: 5
@@ -1763,7 +1763,7 @@ animals:
       organs:
         display_name: "Organs"
         tool: none
-        item: "atom:organ_chicken"
+        item: "atom:intestine_chicken"
         min_amount: 1
         max_amount: 1
         gui_slot: 3
@@ -1853,7 +1853,7 @@ animals:
       organs:
         display_name: "Organs"
         tool: none
-        item: "atom:organ_rabbit"
+        item: "atom:intestine_rabbit"
         min_amount: 1
         max_amount: 1
         gui_slot: 4

@@ -43,28 +43,28 @@ type ItemType =
     | "heart"
     | "liver"
     | "kidney"
-    | "lungs"
+    | "lung"
     | "fat";
 
 // Animals that have each organ type
 const organsForAnimal: Record<AnimalId, ItemType[]> = {
-    cow: ["intestine", "heart", "liver", "kidney", "lungs", "fat"],
-    pig: ["intestine", "heart", "liver", "kidney", "lungs", "fat"],
-    sheep: ["intestine", "heart", "liver", "kidney", "lungs"],
+    cow: ["intestine", "heart", "liver", "kidney", "lung", "fat"],
+    pig: ["intestine", "heart", "liver", "kidney", "lung", "fat"],
+    sheep: ["intestine", "heart", "liver", "kidney", "lung"],
     chicken: ["intestine", "heart", "liver"],
     rabbit: ["intestine"],
-    horse: ["intestine", "heart", "liver", "kidney", "lungs"],
-    donkey: ["intestine", "heart", "liver", "kidney", "lungs"],
-    mule: ["intestine", "heart", "liver", "kidney", "lungs"],
-    llama: ["intestine", "heart", "liver", "kidney", "lungs"],
-    goat: ["intestine", "heart", "liver", "kidney", "lungs"],
+    horse: ["intestine", "heart", "liver", "kidney", "lung"],
+    donkey: ["intestine", "heart", "liver", "kidney", "lung"],
+    mule: ["intestine", "heart", "liver", "kidney", "lung"],
+    llama: ["intestine", "heart", "liver", "kidney", "lung"],
+    goat: ["intestine", "heart", "liver", "kidney", "lung"],
     cat: ["intestine"],
     wolf: ["intestine"],
     fox: ["intestine"],
-    panda: ["intestine", "lungs"],
-    polar_bear: ["intestine", "heart", "liver", "lungs"],
+    panda: ["intestine", "lung"],
+    polar_bear: ["intestine", "heart", "liver", "lung"],
     ocelot: ["intestine"],
-    camel: ["intestine", "heart", "liver", "kidney", "lungs", "fat"],
+    camel: ["intestine", "heart", "liver", "kidney", "lung", "fat"],
 };
 
 const CATEGORY_KEY = "atom:animal_product";
@@ -142,8 +142,8 @@ function textureForType(type: ItemType) {
             return "minecraft:item/organ/liver";
         case "kidney":
             return "minecraft:item/organ/kidney";
-        case "lungs":
-            return "minecraft:item/organ/lungs";
+        case "lung":
+            return "minecraft:item/organ/lung";
         case "fat":
             return "minecraft:item/organ/fat";
         default:
@@ -163,7 +163,7 @@ function baseMaterialForType(type: ItemType): string {
         case "heart":
         case "liver":
         case "kidney":
-        case "lungs":
+        case "lung":
             return "porkchop";
         case "fat":
             return "honeycomb";
@@ -200,15 +200,15 @@ function makeLabel(id: AnimalId, type: ItemType): string {
         case "bone":
             return `${a} Bone`;
         case "intestine":
-            return `${a} Organs`;
+            return `${a} Intestine`;
         case "heart":
             return `${a} Heart`;
         case "liver":
             return `${a} Liver`;
         case "kidney":
             return `${a} Kidney`;
-        case "lungs":
-            return `${a} Lungs`;
+        case "lung":
+            return `${a} Lung`;
         case "fat":
             return `${a} Fat`;
     }
@@ -313,7 +313,7 @@ function generateDoc() {
         "heart",
         "liver",
         "kidney",
-        "lungs",
+        "lung",
         "fat",
     ];
     

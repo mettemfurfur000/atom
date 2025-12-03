@@ -1,9 +1,10 @@
 package org.shotrush.atom.content.carcass
 
-import io.papermc.paper.datacomponent.DataComponentTypes
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.format.NamedTextColor
 import net.kyori.adventure.text.format.TextDecoration
+import net.momirealms.craftengine.bukkit.api.CraftEngineItems
+import net.momirealms.craftengine.core.util.Key
 import org.bukkit.Bukkit
 import org.bukkit.Material
 import org.bukkit.entity.Player
@@ -81,7 +82,9 @@ object CarcassGui : Listener {
     }
     
     private fun createPartItem(def: CarcassPartDef, remaining: Int): ItemStack {
-        val item = ItemStack(def.displayMaterial, remaining.coerceIn(1, 64))
+        val customItem = CraftEngineItems.byId(Key.of(def.itemId))
+        val item = customItem?.buildItemStack(remaining.coerceIn(1, 64)) 
+            ?: ItemStack(Material.BARRIER, remaining.coerceIn(1, 64))
         
         val lore = mutableListOf<Component>()
         lore.add(Component.empty())

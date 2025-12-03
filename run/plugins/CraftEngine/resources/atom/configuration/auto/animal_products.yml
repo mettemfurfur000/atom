@@ -203,21 +203,21 @@ items:
       item-name: <!i><white><lang:item.kidney.cow.name>
       remove-components:
         - attribute_modifiers
-  atom:lungs_cow:
+  atom:lung_cow:
     material: porkchop
     model:
       template: default:model/simplified_generated
       arguments:
-        path: minecraft:item/organ/lungs
+        path: minecraft:item/organ/lung
     client-bound-data:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
     settings:
       tags:
-        - atom:lungs
+        - atom:lung
     data:
-      item-name: <!i><white><lang:item.lungs.cow.name>
+      item-name: <!i><white><lang:item.lung.cow.name>
       remove-components:
         - attribute_modifiers
   atom:fat_cow:
@@ -387,7 +387,7 @@ items:
       tags:
         - atom:intestine
     data:
-      item-name: <!i><white><lang:item.organ.pig.name>
+      item-name: <!i><white><lang:item.intestine.pig.name>
       remove-components:
         - attribute_modifiers
   atom:heart_pig:
@@ -441,21 +441,21 @@ items:
       item-name: <!i><white><lang:item.kidney.pig.name>
       remove-components:
         - attribute_modifiers
-  atom:lungs_pig:
+  atom:lung_pig:
     material: porkchop
     model:
       template: default:model/simplified_generated
       arguments:
-        path: minecraft:item/organ/lungs
+        path: minecraft:item/organ/lung
     client-bound-data:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
     settings:
       tags:
-        - atom:lungs
+        - atom:lung
     data:
-      item-name: <!i><white><lang:item.lungs.pig.name>
+      item-name: <!i><white><lang:item.lung.pig.name>
       remove-components:
         - attribute_modifiers
   atom:fat_pig:
@@ -625,7 +625,7 @@ items:
       tags:
         - atom:intestine
     data:
-      item-name: <!i><white><lang:item.organ.sheep.name>
+      item-name: <!i><white><lang:item.intestine.sheep.name>
       remove-components:
         - attribute_modifiers
   atom:heart_sheep:
@@ -679,21 +679,21 @@ items:
       item-name: <!i><white><lang:item.kidney.sheep.name>
       remove-components:
         - attribute_modifiers
-  atom:lungs_sheep:
+  atom:lung_sheep:
     material: porkchop
     model:
       template: default:model/simplified_generated
       arguments:
-        path: minecraft:item/organ/lungs
+        path: minecraft:item/organ/lung
     client-bound-data:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
     settings:
       tags:
-        - atom:lungs
+        - atom:lung
     data:
-      item-name: <!i><white><lang:item.lungs.sheep.name>
+      item-name: <!i><white><lang:item.lung.sheep.name>
       remove-components:
         - attribute_modifiers
   atom:meat_raw_chicken:
@@ -1240,21 +1240,21 @@ items:
       item-name: <!i><white><lang:item.kidney.horse.name>
       remove-components:
         - attribute_modifiers
-  atom:lungs_horse:
+  atom:lung_horse:
     material: porkchop
     model:
       template: default:model/simplified_generated
       arguments:
-        path: minecraft:item/organ/lungs
+        path: minecraft:item/organ/lung
     client-bound-data:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
     settings:
       tags:
-        - atom:lungs
+        - atom:lung
     data:
-      item-name: <!i><white><lang:item.lungs.horse.name>
+      item-name: <!i><white><lang:item.lung.horse.name>
       remove-components:
         - attribute_modifiers
   atom:meat_raw_donkey:
@@ -1461,21 +1461,21 @@ items:
       item-name: <!i><white><lang:item.kidney.donkey.name>
       remove-components:
         - attribute_modifiers
-  atom:lungs_donkey:
+  atom:lung_donkey:
     material: porkchop
     model:
       template: default:model/simplified_generated
       arguments:
-        path: minecraft:item/organ/lungs
+        path: minecraft:item/organ/lung
     client-bound-data:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
     settings:
       tags:
-        - atom:lungs
+        - atom:lung
     data:
-      item-name: <!i><white><lang:item.lungs.donkey.name>
+      item-name: <!i><white><lang:item.lung.donkey.name>
       remove-components:
         - attribute_modifiers
   atom:meat_raw_mule:
@@ -1682,21 +1682,21 @@ items:
       item-name: <!i><white><lang:item.kidney.mule.name>
       remove-components:
         - attribute_modifiers
-  atom:lungs_mule:
+  atom:lung_mule:
     material: porkchop
     model:
       template: default:model/simplified_generated
       arguments:
-        path: minecraft:item/organ/lungs
+        path: minecraft:item/organ/lung
     client-bound-data:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
     settings:
       tags:
-        - atom:lungs
+        - atom:lung
     data:
-      item-name: <!i><white><lang:item.lungs.mule.name>
+      item-name: <!i><white><lang:item.lung.mule.name>
       remove-components:
         - attribute_modifiers
   atom:meat_raw_llama:
@@ -1903,21 +1903,21 @@ items:
       item-name: <!i><white><lang:item.kidney.llama.name>
       remove-components:
         - attribute_modifiers
-  atom:lungs_llama:
+  atom:lung_llama:
     material: porkchop
     model:
       template: default:model/simplified_generated
       arguments:
-        path: minecraft:item/organ/lungs
+        path: minecraft:item/organ/lung
     client-bound-data:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
     settings:
       tags:
-        - atom:lungs
+        - atom:lung
     data:
-      item-name: <!i><white><lang:item.lungs.llama.name>
+      item-name: <!i><white><lang:item.lung.llama.name>
       remove-components:
         - attribute_modifiers
   atom:meat_raw_goat:
@@ -2124,21 +2124,21 @@ items:
       item-name: <!i><white><lang:item.kidney.goat.name>
       remove-components:
         - attribute_modifiers
-  atom:lungs_goat:
+  atom:lung_goat:
     material: porkchop
     model:
       template: default:model/simplified_generated
       arguments:
-        path: minecraft:item/organ/lungs
+        path: minecraft:item/organ/lung
     client-bound-data:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
     settings:
       tags:
-        - atom:lungs
+        - atom:lung
     data:
-      item-name: <!i><white><lang:item.lungs.goat.name>
+      item-name: <!i><white><lang:item.lung.goat.name>
       remove-components:
         - attribute_modifiers
   atom:meat_raw_cat:
@@ -2753,21 +2753,21 @@ items:
       item-name: <!i><white><lang:item.intestine.panda.name>
       remove-components:
         - attribute_modifiers
-  atom:lungs_panda:
+  atom:lung_panda:
     material: porkchop
     model:
       template: default:model/simplified_generated
       arguments:
-        path: minecraft:item/organ/lungs
+        path: minecraft:item/organ/lung
     client-bound-data:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
     settings:
       tags:
-        - atom:lungs
+        - atom:lung
     data:
-      item-name: <!i><white><lang:item.lungs.panda.name>
+      item-name: <!i><white><lang:item.lung.panda.name>
       remove-components:
         - attribute_modifiers
   atom:meat_raw_polar_bear:
@@ -2957,21 +2957,21 @@ items:
       item-name: <!i><white><lang:item.liver.polar_bear.name>
       remove-components:
         - attribute_modifiers
-  atom:lungs_polar_bear:
+  atom:lung_polar_bear:
     material: porkchop
     model:
       template: default:model/simplified_generated
       arguments:
-        path: minecraft:item/organ/lungs
+        path: minecraft:item/organ/lung
     client-bound-data:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
     settings:
       tags:
-        - atom:lungs
+        - atom:lung
     data:
-      item-name: <!i><white><lang:item.lungs.polar_bear.name>
+      item-name: <!i><white><lang:item.lung.polar_bear.name>
       remove-components:
         - attribute_modifiers
   atom:meat_raw_ocelot:
@@ -3331,21 +3331,21 @@ items:
       item-name: <!i><white><lang:item.kidney.camel.name>
       remove-components:
         - attribute_modifiers
-  atom:lungs_camel:
+  atom:lung_camel:
     material: porkchop
     model:
       template: default:model/simplified_generated
       arguments:
-        path: minecraft:item/organ/lungs
+        path: minecraft:item/organ/lung
     client-bound-data:
       lore:
         - ""
         - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
     settings:
       tags:
-        - atom:lungs
+        - atom:lung
     data:
-      item-name: <!i><white><lang:item.lungs.camel.name>
+      item-name: <!i><white><lang:item.lung.camel.name>
       remove-components:
         - attribute_modifiers
   atom:fat_camel:
@@ -3373,23 +3373,6 @@ categories:
       - <!i><gray><lang:category.animal_product.lore>
     icon: minecraft:leather
     list:
-      - atom:organ_wolf
-      - atom:organ_sheep
-      - atom:organ_rabbit
-      - atom:organ_polar_bear
-      - atom:organ_pig
-      - atom:organ_panda
-      - atom:organ_ocelot
-      - atom:organ_mule
-      - atom:organ_llama
-      - atom:organ_horse
-      - atom:organ_goat
-      - atom:organ_fox
-      - atom:organ_donkey
-      - atom:organ_cow
-      - atom:organ_chicken
-      - atom:organ_cat
-      - atom:organ_camel
       - atom:meat_undercooked_wolf
       - atom:meat_undercooked_sheep
       - atom:meat_undercooked_rabbit
@@ -3458,17 +3441,17 @@ categories:
       - atom:meat_burnt_chicken
       - atom:meat_burnt_cat
       - atom:meat_burnt_camel
-      - atom:lungs_sheep
-      - atom:lungs_polar_bear
-      - atom:lungs_pig
-      - atom:lungs_panda
-      - atom:lungs_mule
-      - atom:lungs_llama
-      - atom:lungs_horse
-      - atom:lungs_goat
-      - atom:lungs_donkey
-      - atom:lungs_cow
-      - atom:lungs_camel
+      - atom:lung_sheep
+      - atom:lung_polar_bear
+      - atom:lung_pig
+      - atom:lung_panda
+      - atom:lung_mule
+      - atom:lung_llama
+      - atom:lung_horse
+      - atom:lung_goat
+      - atom:lung_donkey
+      - atom:lung_cow
+      - atom:lung_camel
       - atom:liver_sheep
       - atom:liver_polar_bear
       - atom:liver_pig
@@ -3540,6 +3523,23 @@ categories:
       - atom:kidney_donkey
       - atom:kidney_cow
       - atom:kidney_camel
+      - atom:intestine_wolf
+      - atom:intestine_sheep
+      - atom:intestine_rabbit
+      - atom:intestine_polar_bear
+      - atom:intestine_pig
+      - atom:intestine_panda
+      - atom:intestine_ocelot
+      - atom:intestine_mule
+      - atom:intestine_llama
+      - atom:intestine_horse
+      - atom:intestine_goat
+      - atom:intestine_fox
+      - atom:intestine_donkey
+      - atom:intestine_cow
+      - atom:intestine_chicken
+      - atom:intestine_cat
+      - atom:intestine_camel
       - atom:heart_sheep
       - atom:heart_polar_bear
       - atom:heart_pig
@@ -3587,7 +3587,7 @@ lang:
     item.heart.cow.name: Cow Heart
     item.liver.cow.name: Cow Liver
     item.kidney.cow.name: Cow Kidney
-    item.lungs.cow.name: Cow Lungs
+    item.lung.cow.name: Cow Lung
     item.fat.cow.name: Cow Fat
     item.meat_raw.pig.name: Raw Pork
     item.meat_undercooked.pig.name: Undercooked Pork
@@ -3601,7 +3601,7 @@ lang:
     item.heart.pig.name: Pig Heart
     item.liver.pig.name: Pig Liver
     item.kidney.pig.name: Pig Kidney
-    item.lungs.pig.name: Pig Lungs
+    item.lung.pig.name: Pig Lung
     item.fat.pig.name: Pig Fat
     item.meat_raw.sheep.name: Raw Mutton
     item.meat_undercooked.sheep.name: Undercooked Mutton
@@ -3615,7 +3615,7 @@ lang:
     item.heart.sheep.name: Sheep Heart
     item.liver.sheep.name: Sheep Liver
     item.kidney.sheep.name: Sheep Kidney
-    item.lungs.sheep.name: Sheep Lungs
+    item.lung.sheep.name: Sheep Lung
     item.meat_raw.chicken.name: Raw Chicken
     item.meat_undercooked.chicken.name: Undercooked Chicken
     item.meat_cooked.chicken.name: Cooked Chicken
@@ -3648,7 +3648,7 @@ lang:
     item.heart.horse.name: Horse Heart
     item.liver.horse.name: Horse Liver
     item.kidney.horse.name: Horse Kidney
-    item.lungs.horse.name: Horse Lungs
+    item.lung.horse.name: Horse Lung
     item.meat_raw.donkey.name: Raw Donkey Meat
     item.meat_undercooked.donkey.name: Undercooked Donkey Meat
     item.meat_cooked.donkey.name: Cooked Donkey Meat
@@ -3661,7 +3661,7 @@ lang:
     item.heart.donkey.name: Donkey Heart
     item.liver.donkey.name: Donkey Liver
     item.kidney.donkey.name: Donkey Kidney
-    item.lungs.donkey.name: Donkey Lungs
+    item.lung.donkey.name: Donkey Lung
     item.meat_raw.mule.name: Raw Mule Meat
     item.meat_undercooked.mule.name: Undercooked Mule Meat
     item.meat_cooked.mule.name: Cooked Mule Meat
@@ -3674,7 +3674,7 @@ lang:
     item.heart.mule.name: Mule Heart
     item.liver.mule.name: Mule Liver
     item.kidney.mule.name: Mule Kidney
-    item.lungs.mule.name: Mule Lungs
+    item.lung.mule.name: Mule Lung
     item.meat_raw.llama.name: Raw Llama Meat
     item.meat_undercooked.llama.name: Undercooked Llama Meat
     item.meat_cooked.llama.name: Cooked Llama Meat
@@ -3687,7 +3687,7 @@ lang:
     item.heart.llama.name: Llama Heart
     item.liver.llama.name: Llama Liver
     item.kidney.llama.name: Llama Kidney
-    item.lungs.llama.name: Llama Lungs
+    item.lung.llama.name: Llama Lung
     item.meat_raw.goat.name: Raw Goat Meat
     item.meat_undercooked.goat.name: Undercooked Goat Meat
     item.meat_cooked.goat.name: Cooked Goat Meat
@@ -3700,7 +3700,7 @@ lang:
     item.heart.goat.name: Goat Heart
     item.liver.goat.name: Goat Liver
     item.kidney.goat.name: Goat Kidney
-    item.lungs.goat.name: Goat Lungs
+    item.lung.goat.name: Goat Lung
     item.meat_raw.cat.name: Raw Cat Meat
     item.meat_undercooked.cat.name: Undercooked Cat Meat
     item.meat_cooked.cat.name: Cooked Cat Meat
@@ -3749,7 +3749,7 @@ lang:
     item.intestine.polar_bear.name: Polar Bear Intestines
     item.heart.polar_bear.name: Polar Bear Heart
     item.liver.polar_bear.name: Polar Bear Liver
-    item.lungs.polar_bear.name: Polar Bear Lungs
+    item.lung.polar_bear.name: Polar Bear Lung
     item.meat_raw.ocelot.name: Raw Ocelot Meat
     item.meat_undercooked.ocelot.name: Undercooked Ocelot Meat
     item.meat_cooked.ocelot.name: Cooked Ocelot Meat
@@ -3771,5 +3771,5 @@ lang:
     item.heart.camel.name: Camel Heart
     item.liver.camel.name: Camel Liver
     item.kidney.camel.name: Camel Kidney
-    item.lungs.camel.name: Camel Lungs
+    item.lung.camel.name: Camel Lung
     item.fat.camel.name: Camel Fat

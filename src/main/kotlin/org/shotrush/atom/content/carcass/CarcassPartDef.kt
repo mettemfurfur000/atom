@@ -1,7 +1,5 @@
 package org.shotrush.atom.content.carcass
 
-import org.bukkit.Material
-
 data class CarcassPartDef(
     val id: String,
     val displayName: String,
@@ -10,7 +8,6 @@ data class CarcassPartDef(
     val minAmount: Int,
     val maxAmount: Int,
     val guiSlot: Int,
-    val displayMaterial: Material = Material.PAPER,
     val external: Boolean = false
 )
 
