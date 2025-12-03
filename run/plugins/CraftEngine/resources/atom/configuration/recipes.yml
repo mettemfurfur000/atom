@@ -55,3 +55,11 @@ recipes:
     result:
       id: minecraft:bookshelf
       count: 2
+  atom:waterskin:
+    type: shapeless
+    ingredients:
+      - "#atom:leather"
+      - minecraft:vine
+    result:
+      id: atom:waterskin
+      count: 1
