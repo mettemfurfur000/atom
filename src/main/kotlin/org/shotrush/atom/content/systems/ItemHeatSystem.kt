@@ -414,10 +414,18 @@ class ItemHeatSystem(private val plugin: Plugin?) : Listener {
             item.setItemMeta(meta)
         }
 
+        private val trackedDisplays = Collections.newSetFromMap(java.util.concurrent.ConcurrentHashMap<UUID, Boolean>())
+
         @JvmStatic
         fun startItemDisplayHeatTracking(itemDisplay: ItemDisplay) {
+            // Prevent duplicate schedulers
+            if (!trackedDisplays.add(itemDisplay.uniqueId)) {
+                return
+            }
+            
             SchedulerAPI.runTaskTimer(itemDisplay, { task: ScheduledTask? ->
                 if (itemDisplay.isDead || !itemDisplay.isValid) {
+                    trackedDisplays.remove(itemDisplay.uniqueId)
                     task?.cancel()
                     return@runTaskTimer
                 }
