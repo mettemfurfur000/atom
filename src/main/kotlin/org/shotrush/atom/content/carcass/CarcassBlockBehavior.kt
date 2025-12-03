@@ -37,12 +37,15 @@ class CarcassBlockBehavior(block: CustomBlock) : AtomBlock<CarcassBlockEntity>(
         }
 
         if (!blockEntity.opened) {
-            val heldItem = player.inventory.itemInMainHand
-            val hasKnife = ToolRequirement.KNIFE.isSatisfiedBy(heldItem)
-            
-            if (!hasKnife) {
-                player.sendActionBar(net.kyori.adventure.text.Component.text("You need a knife to open this carcass", net.kyori.adventure.text.format.NamedTextColor.RED))
-                return InteractionResult.PASS
+            val cfg = blockEntity.getConfig()
+            if (cfg != null && cfg.requiresButchering) {
+                val heldItem = player.inventory.itemInMainHand
+                val hasKnife = ToolRequirement.KNIFE.isSatisfiedBy(heldItem)
+                
+                if (!hasKnife) {
+                    player.sendActionBar(net.kyori.adventure.text.Component.text("You need a knife to open this carcass", net.kyori.adventure.text.format.NamedTextColor.RED))
+                    return InteractionResult.PASS
+                }
             }
             
             blockEntity.markOpened()

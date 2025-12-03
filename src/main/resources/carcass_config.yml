@@ -1740,7 +1740,7 @@ animals:
     display_name: "Chicken"
     decomposition_ticks: 24000
     gui_rows: 2
-    requires_butchering: true
+    requires_butchering: false
     parts:
       # Row 1: Feathers, meat, organs
       feathers_1:
