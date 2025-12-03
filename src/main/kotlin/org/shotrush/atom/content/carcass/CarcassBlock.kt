@@ -56,28 +56,34 @@ object CarcassBlock {
     private fun findSuitableLocation(loc: Location): Location? {
         val blockLoc = loc.block.location
         
+        data class Offset(val dx: Int, val dy: Int, val dz: Int) {
+            fun distanceSq() = dx * dx + dy * dy + dz * dz
+        }
+        
+        val offsets = mutableListOf<Offset>()
         for (dy in 0..2) {
             for (dx in -2..2) {
                 for (dz in -2..2) {
-                    val check = blockLoc.clone().add(dx.toDouble(), dy.toDouble(), dz.toDouble())
-                    val block = check.block
-                    val below = check.clone().add(0.0, -1.0, 0.0).block
-                    
-                    if (block.type.isAir && !below.type.isAir && below.isSolid) {
-                        return check
-                    }
+                    offsets.add(Offset(dx, dy, dz))
                 }
             }
         }
+        offsets.sortBy { it.distanceSq() }
         
-        for (dy in 0..2) {
-            for (dx in -2..2) {
-                for (dz in -2..2) {
-                    val check = blockLoc.clone().add(dx.toDouble(), dy.toDouble(), dz.toDouble())
-                    if (check.block.type.isAir) {
-                        return check
-                    }
-                }
+        for (offset in offsets) {
+            val check = blockLoc.clone().add(offset.dx.toDouble(), offset.dy.toDouble(), offset.dz.toDouble())
+            val block = check.block
+            val below = check.clone().add(0.0, -1.0, 0.0).block
+            
+            if (block.type.isAir && !below.type.isAir && below.isSolid) {
+                return check
+            }
+        }
+        
+        for (offset in offsets) {
+            val check = blockLoc.clone().add(offset.dx.toDouble(), offset.dy.toDouble(), offset.dz.toDouble())
+            if (check.block.type.isAir) {
+                return check
             }
         }
         
