@@ -265,7 +265,7 @@ function generateRecipes() {
 function generateDoc() {
     const items: Record<string, unknown> = {};
     const itemKeys: string[] = [];
-    
+
     // Base item types that all animals have
     const baseItemTypes: ItemType[] = [
         "meat_raw",
@@ -284,7 +284,7 @@ function generateDoc() {
             Object.assign(items, itemBlock(id, type));
             itemKeys.push(itemKey(id, type));
         }
-        
+
         // Add organ items based on what this animal has
         const organTypes = organsForAnimal[id] ?? [];
         for (const type of organTypes) {
@@ -305,7 +305,7 @@ function generateDoc() {
         "category.animal_product.lore":
             "Contains all animal meats and materials",
     };
-    
+
     // All item types including organs
     const allItemTypes: ItemType[] = [
         ...baseItemTypes,
