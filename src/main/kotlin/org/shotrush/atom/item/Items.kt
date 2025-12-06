@@ -11,8 +11,6 @@ import org.shotrush.atom.getNamespacedPath
 import kotlin.reflect.KProperty
 
 object Items {
-    val SharpenedFlint by item("atom:sharpened_rock")
-
     fun getAnimalProduct(type: AnimalType, product: AnimalProduct): CustomItem<ItemStack> {
         return CraftEngineItems.byId(Key.of("atom", "${product.id}_${type.id}"))!!
     }

@@ -9,7 +9,7 @@ import org.shotrush.atom.item.isItem
 import org.shotrush.atom.matches
 
 object SharpenedFlint {
-    fun isSharpenedFlint(stack: ItemStack): Boolean = stack.matches(Items.SharpenedFlint)
+    fun isSharpenedFlint(stack: ItemStack): Boolean = stack.matches("atom:sharpened_rock")
 
     fun damageItem(item: ItemStack?, player: Player, breakChance: Double = 0.4) {
         if (item == null || item.amount <= 0) return
