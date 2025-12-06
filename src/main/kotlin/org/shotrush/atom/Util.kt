@@ -17,6 +17,7 @@ import net.momirealms.craftengine.libraries.nbt.Tag
 import org.bukkit.Location
 import org.bukkit.World
 import org.bukkit.block.Block
+import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
 import org.shotrush.atom.item.isItem
 import java.util.function.Consumer
@@ -72,9 +73,9 @@ fun CompoundTag.putItemStack(key: String, item: ItemStack) {
     ).ifSuccess { success: Tag? ->
         val itemTag = success as CompoundTag
         this.put(key, itemTag)
-    }.ifError(Consumer { error: DataResult.Error<Tag> ->
+    }.ifError { error: DataResult.Error<Tag> ->
         Atom.instance.logger.severe("Error while saving storage item: $error")
-    })
+    }
 }
 
 val Duration.inWholeTicks: Long
@@ -84,6 +85,8 @@ val Duration.inWholeTicks: Long
 fun format(string: String) = MiniMessage.miniMessage().deserialize(string)
 fun format(vararg strings: String) = strings.map { format(it) }
 
+fun Player.sendMiniMessage(message: String) = sendMessage(format(message))
+fun Player.sendMiniMessages(vararg message: String) = message.forEach { sendMiniMessage(it) }
 
 fun BlockPos.toBukkitLocation(ceWorld: CEWorld?): Location {
     return Location(ceWorld?.world?.platformWorld() as? World, x().toDouble(), y().toDouble(), z().toDouble())

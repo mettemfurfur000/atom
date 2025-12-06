@@ -5,7 +5,7 @@ import co.aikar.commands.annotation.*
 import org.bukkit.entity.Player
 import org.shotrush.atom.core.api.world.EnvironmentalFactorAPI
 import org.shotrush.atom.core.api.world.SeasonAPI
-import org.shotrush.atom.core.util.ChatUtil
+import org.shotrush.atom.util.ChatUtil
 
 @CommandAlias("tempdebug")
 @CommandPermission("atom.debug.temp")

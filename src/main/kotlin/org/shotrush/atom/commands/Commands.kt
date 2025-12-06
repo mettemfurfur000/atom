@@ -6,7 +6,7 @@ import org.shotrush.atom.commands.debug.TemperatureDebugCommand
 object Commands {
     fun register(manager: PaperCommandManager) {
         manager.registerCommand(TemperatureDebugCommand())
-//        LivingCommands.register()
+        LivingCommands.register()
 //        MoldCommand.register()
     }
 }
