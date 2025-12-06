@@ -22,6 +22,7 @@ import org.shotrush.atom.core.blocks.CustomBlockManager
 import org.shotrush.atom.core.items.CustomItemRegistry
 import org.shotrush.atom.core.storage.DataStorage
 import org.shotrush.atom.core.workstations.WorkstationManager
+import org.shotrush.atom.listener.EventListeners
 import org.shotrush.atom.listener.PlayerDataTrackingListener
 import org.shotrush.atom.listener.PlayerMiningListener
 import org.shotrush.atom.listener.RecipeUnlockHandler
@@ -70,11 +71,8 @@ class Atom : SuspendingJavaPlugin() {
         org.shotrush.atom.content.carcass.CarcassBlock.init()
         org.shotrush.atom.content.carcass.CarcassGui.init()
 
-        TestListener.register(this)
-        PlayerDataTrackingListener.register(this)
-        PlayerMiningListener.register(this)
-        RecipeUnlockHandler.register(this)
-//        PlayerChatListener.register(this)
+        EventListeners.register(this)
+
         setupCommands()
         logger.info("Atom plugin has been enabled!")
     }
