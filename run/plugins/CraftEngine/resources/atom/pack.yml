@@ -2,3 +2,4 @@ author: Civlabs
 version: 0.0.1
 description: Assets for Atom
 namespace: atom
+enable: true

@@ -29,6 +29,7 @@ repositories {
     maven("https://repo.momirealms.net/releases/")
     maven("https://repo.triumphteam.dev/snapshots")
     maven("https://maven.nostal.ink/repository/maven-public/")
+    maven("https://repo.extendedclip.com/releases/")
 }
 
 dependencies {
@@ -57,6 +58,8 @@ dependencies {
     compileOnly("net.momirealms:craft-engine-bukkit:0.0.65")
     compileOnly("net.momirealms:craft-engine-nms-helper:1.0.127")
     compileOnly("io.github.toxicity188:bettermodel:1.14.1")
+    compileOnly("io.github.toxicity188:BetterHud-bukkit-api:1.14.0")
+    compileOnly("me.clip:placeholderapi:2.11.7")
     implementation("dev.triumphteam:triumph-gui-paper-kotlin:4.0.0-SNAPSHOT")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2")
     implementation("com.github.shynixn.mccoroutine:mccoroutine-folia-api:2.22.0")
@@ -84,8 +87,9 @@ tasks {
     var spec = runPaper.downloadPluginsSpec {
         url("https://github.com/dmulloy2/ProtocolLib/releases/download/5.4.0/ProtocolLib.jar")
         modrinth("terra", "6.6.6-BETA-bukkit")
-//        hangar("BetterModel", "1.14.2-SNAPSHOT-427")
-//        modrinth("betterhud2", "OUzj5ALL")
+        hangar("BetterModel", "1.14.2-SNAPSHOT-427")
+        modrinth("betterhud2", "OUzj5ALL")
+        hangar("PlaceholderAPI", "2.11.7")
     }
 
     // Configure run-paper

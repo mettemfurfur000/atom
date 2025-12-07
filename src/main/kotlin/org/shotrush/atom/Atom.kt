@@ -17,6 +17,7 @@ import net.benwoodworth.knbt.Nbt
 import org.bukkit.Bukkit
 import org.bukkit.Material
 import org.shotrush.atom.commands.Commands
+import org.shotrush.atom.compat.AtomPlaceholder
 import org.shotrush.atom.content.mobs.ai.debug.MobAIDebugCommand
 import org.shotrush.atom.content.mobs.ai.debug.VisualDebugger
 import org.shotrush.atom.content.mobs.commands.HerdCommand
@@ -58,6 +59,8 @@ class Atom : SuspendingJavaPlugin() {
         super.onEnable()
         CommandAPI.onEnable()
         instance = this
+
+        AtomPlaceholder.register()
 
 
         AtomAPI.initialize(this)
