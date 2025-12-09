@@ -1,5 +1,6 @@
 package org.shotrush.atom.systems.reinforce
 
+import com.github.shynixn.mccoroutine.folia.entityDispatcher
 import com.github.shynixn.mccoroutine.folia.regionDispatcher
 import kotlinx.serialization.Serializable
 import org.bukkit.Location
@@ -35,6 +36,9 @@ object ReinforcementSystem : AtomListener {
         },
         eventDef<ChunkUnloadEvent> {
             Atom.instance.regionDispatcher(it.world, it.chunk.x, it.chunk.z)
+        },
+        eventDef<PlayerInteractEvent> {
+            Atom.instance.entityDispatcher(it.player)
         }
     )
 
