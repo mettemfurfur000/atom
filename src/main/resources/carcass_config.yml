@@ -14,14 +14,14 @@ animals:
       # Row 1: Outer meat, hide in middle, chest organs center
       meat_1:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_cow"
         min_amount: 4
         max_amount: 6
         gui_slot: 0
       meat_2:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_cow"
         min_amount: 4
         max_amount: 6
@@ -63,14 +63,14 @@ animals:
         gui_slot: 6
       meat_3:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_cow"
         min_amount: 4
         max_amount: 6
         gui_slot: 7
       meat_4:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_cow"
         min_amount: 4
         max_amount: 6
@@ -78,14 +78,14 @@ animals:
       # Row 2: More meat outer, abdominal organs center
       meat_5:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_cow"
         min_amount: 4
         max_amount: 6
         gui_slot: 9
       meat_6:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_cow"
         min_amount: 4
         max_amount: 6
@@ -127,14 +127,14 @@ animals:
         gui_slot: 15
       meat_7:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_cow"
         min_amount: 4
         max_amount: 6
         gui_slot: 16
       meat_8:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_cow"
         min_amount: 4
         max_amount: 6
@@ -142,56 +142,56 @@ animals:
       # Row 3: Bones on edges, fat in middle
       bone_1:
         display_name: "Bones"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:bone_cow"
         min_amount: 2
         max_amount: 3
         gui_slot: 18
       bone_2:
         display_name: "Bones"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:bone_cow"
         min_amount: 2
         max_amount: 3
         gui_slot: 19
       fat_1:
         display_name: "Fat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:fat_cow"
         min_amount: 2
         max_amount: 3
         gui_slot: 20
       fat_2:
         display_name: "Fat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:fat_cow"
         min_amount: 2
         max_amount: 3
         gui_slot: 21
       fat_3:
         display_name: "Fat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:fat_cow"
         min_amount: 2
         max_amount: 3
         gui_slot: 23
       fat_4:
         display_name: "Fat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:fat_cow"
         min_amount: 2
         max_amount: 3
         gui_slot: 24
       bone_3:
         display_name: "Bones"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:bone_cow"
         min_amount: 2
         max_amount: 3
         gui_slot: 25
       bone_4:
         display_name: "Bones"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:bone_cow"
         min_amount: 2
         max_amount: 3
@@ -204,21 +204,21 @@ animals:
     parts:
       meat_1:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_pig"
         min_amount: 3
         max_amount: 5
         gui_slot: 0
       meat_2:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_pig"
         min_amount: 3
         max_amount: 5
         gui_slot: 1
       hide_1:
         display_name: "Hide"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:leather_raw_pig"
         min_amount: 1
         max_amount: 1
@@ -246,35 +246,35 @@ animals:
         gui_slot: 5
       hide_2:
         display_name: "Hide"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:leather_raw_pig"
         min_amount: 1
         max_amount: 1
         gui_slot: 6
       meat_3:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_pig"
         min_amount: 3
         max_amount: 5
         gui_slot: 7
       meat_4:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_pig"
         min_amount: 3
         max_amount: 5
         gui_slot: 8
       meat_5:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_pig"
         min_amount: 3
         max_amount: 5
         gui_slot: 9
       meat_6:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_pig"
         min_amount: 3
         max_amount: 5
@@ -316,70 +316,70 @@ animals:
         gui_slot: 15
       meat_7:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_pig"
         min_amount: 3
         max_amount: 5
         gui_slot: 16
       meat_8:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_pig"
         min_amount: 3
         max_amount: 5
         gui_slot: 17
       bone_1:
         display_name: "Bones"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:bone_pig"
         min_amount: 1
         max_amount: 2
         gui_slot: 18
       bone_2:
         display_name: "Bones"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:bone_pig"
         min_amount: 1
         max_amount: 2
         gui_slot: 19
       fat_1:
         display_name: "Fat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:fat_pig"
         min_amount: 3
         max_amount: 4
         gui_slot: 20
       fat_2:
         display_name: "Fat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:fat_pig"
         min_amount: 3
         max_amount: 4
         gui_slot: 21
       fat_3:
         display_name: "Fat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:fat_pig"
         min_amount: 3
         max_amount: 4
         gui_slot: 23
       fat_4:
         display_name: "Fat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:fat_pig"
         min_amount: 3
         max_amount: 4
         gui_slot: 24
       bone_3:
         display_name: "Bones"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:bone_pig"
         min_amount: 1
         max_amount: 2
         gui_slot: 25
       bone_4:
         display_name: "Bones"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:bone_pig"
         min_amount: 1
         max_amount: 2
@@ -392,14 +392,14 @@ animals:
     parts:
       meat_1:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_sheep"
         min_amount: 2
         max_amount: 4
         gui_slot: 0
       meat_2:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_sheep"
         min_amount: 2
         max_amount: 4
@@ -441,28 +441,28 @@ animals:
         gui_slot: 6
       meat_3:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_sheep"
         min_amount: 2
         max_amount: 4
         gui_slot: 7
       meat_4:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_sheep"
         min_amount: 2
         max_amount: 4
         gui_slot: 8
       meat_5:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_sheep"
         min_amount: 2
         max_amount: 4
         gui_slot: 9
       meat_6:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_sheep"
         min_amount: 2
         max_amount: 4
@@ -504,42 +504,42 @@ animals:
         gui_slot: 15
       meat_7:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_sheep"
         min_amount: 2
         max_amount: 4
         gui_slot: 16
       meat_8:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_sheep"
         min_amount: 2
         max_amount: 4
         gui_slot: 17
       bone_1:
         display_name: "Bones"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:bone_sheep"
         min_amount: 1
         max_amount: 2
         gui_slot: 18
       bone_2:
         display_name: "Bones"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:bone_sheep"
         min_amount: 1
         max_amount: 2
         gui_slot: 19
       bone_3:
         display_name: "Bones"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:bone_sheep"
         min_amount: 1
         max_amount: 2
         gui_slot: 25
       bone_4:
         display_name: "Bones"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:bone_sheep"
         min_amount: 1
         max_amount: 2
@@ -552,14 +552,14 @@ animals:
     parts:
       meat_1:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_horse"
         min_amount: 5
         max_amount: 7
         gui_slot: 0
       meat_2:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_horse"
         min_amount: 5
         max_amount: 7
@@ -601,28 +601,28 @@ animals:
         gui_slot: 6
       meat_3:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_horse"
         min_amount: 5
         max_amount: 7
         gui_slot: 7
       meat_4:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_horse"
         min_amount: 5
         max_amount: 7
         gui_slot: 8
       meat_5:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_horse"
         min_amount: 5
         max_amount: 7
         gui_slot: 9
       meat_6:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_horse"
         min_amount: 5
         max_amount: 7
@@ -664,42 +664,42 @@ animals:
         gui_slot: 15
       meat_7:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_horse"
         min_amount: 5
         max_amount: 7
         gui_slot: 16
       meat_8:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_horse"
         min_amount: 5
         max_amount: 7
         gui_slot: 17
       bone_1:
         display_name: "Bones"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:bone_horse"
         min_amount: 2
         max_amount: 4
         gui_slot: 18
       bone_2:
         display_name: "Bones"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:bone_horse"
         min_amount: 2
         max_amount: 4
         gui_slot: 19
       bone_3:
         display_name: "Bones"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:bone_horse"
         min_amount: 2
         max_amount: 4
         gui_slot: 25
       bone_4:
         display_name: "Bones"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:bone_horse"
         min_amount: 2
         max_amount: 4
@@ -712,14 +712,14 @@ animals:
     parts:
       meat_1:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_goat"
         min_amount: 2
         max_amount: 4
         gui_slot: 0
       meat_2:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_goat"
         min_amount: 2
         max_amount: 4
@@ -761,28 +761,28 @@ animals:
         gui_slot: 6
       meat_3:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_goat"
         min_amount: 2
         max_amount: 4
         gui_slot: 7
       meat_4:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_goat"
         min_amount: 2
         max_amount: 4
         gui_slot: 8
       meat_5:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_goat"
         min_amount: 2
         max_amount: 4
         gui_slot: 9
       meat_6:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_goat"
         min_amount: 2
         max_amount: 4
@@ -824,42 +824,42 @@ animals:
         gui_slot: 15
       meat_7:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_goat"
         min_amount: 2
         max_amount: 4
         gui_slot: 16
       meat_8:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_goat"
         min_amount: 2
         max_amount: 4
         gui_slot: 17
       bone_1:
         display_name: "Bones"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:bone_goat"
         min_amount: 1
         max_amount: 2
         gui_slot: 18
       bone_2:
         display_name: "Bones"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:bone_goat"
         min_amount: 1
         max_amount: 2
         gui_slot: 19
       bone_3:
         display_name: "Bones"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:bone_goat"
         min_amount: 1
         max_amount: 2
         gui_slot: 25
       bone_4:
         display_name: "Bones"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:bone_goat"
         min_amount: 1
         max_amount: 2
@@ -872,14 +872,14 @@ animals:
     parts:
       meat_1:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_donkey"
         min_amount: 4
         max_amount: 6
         gui_slot: 0
       meat_2:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_donkey"
         min_amount: 4
         max_amount: 6
@@ -921,28 +921,28 @@ animals:
         gui_slot: 6
       meat_3:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_donkey"
         min_amount: 4
         max_amount: 6
         gui_slot: 7
       meat_4:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_donkey"
         min_amount: 4
         max_amount: 6
         gui_slot: 8
       meat_5:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_donkey"
         min_amount: 4
         max_amount: 6
         gui_slot: 9
       meat_6:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_donkey"
         min_amount: 4
         max_amount: 6
@@ -984,42 +984,42 @@ animals:
         gui_slot: 15
       meat_7:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_donkey"
         min_amount: 4
         max_amount: 6
         gui_slot: 16
       meat_8:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_donkey"
         min_amount: 4
         max_amount: 6
         gui_slot: 17
       bone_1:
         display_name: "Bones"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:bone_donkey"
         min_amount: 2
         max_amount: 3
         gui_slot: 18
       bone_2:
         display_name: "Bones"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:bone_donkey"
         min_amount: 2
         max_amount: 3
         gui_slot: 19
       bone_3:
         display_name: "Bones"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:bone_donkey"
         min_amount: 2
         max_amount: 3
         gui_slot: 25
       bone_4:
         display_name: "Bones"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:bone_donkey"
         min_amount: 2
         max_amount: 3
@@ -1032,14 +1032,14 @@ animals:
     parts:
       meat_1:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_mule"
         min_amount: 4
         max_amount: 6
         gui_slot: 0
       meat_2:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_mule"
         min_amount: 4
         max_amount: 6
@@ -1081,28 +1081,28 @@ animals:
         gui_slot: 6
       meat_3:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_mule"
         min_amount: 4
         max_amount: 6
         gui_slot: 7
       meat_4:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_mule"
         min_amount: 4
         max_amount: 6
         gui_slot: 8
       meat_5:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_mule"
         min_amount: 4
         max_amount: 6
         gui_slot: 9
       meat_6:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_mule"
         min_amount: 4
         max_amount: 6
@@ -1144,42 +1144,42 @@ animals:
         gui_slot: 15
       meat_7:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_mule"
         min_amount: 4
         max_amount: 6
         gui_slot: 16
       meat_8:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_mule"
         min_amount: 4
         max_amount: 6
         gui_slot: 17
       bone_1:
         display_name: "Bones"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:bone_mule"
         min_amount: 2
         max_amount: 3
         gui_slot: 18
       bone_2:
         display_name: "Bones"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:bone_mule"
         min_amount: 2
         max_amount: 3
         gui_slot: 19
       bone_3:
         display_name: "Bones"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:bone_mule"
         min_amount: 2
         max_amount: 3
         gui_slot: 25
       bone_4:
         display_name: "Bones"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:bone_mule"
         min_amount: 2
         max_amount: 3
@@ -1192,14 +1192,14 @@ animals:
     parts:
       meat_1:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_llama"
         min_amount: 3
         max_amount: 5
         gui_slot: 0
       meat_2:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_llama"
         min_amount: 3
         max_amount: 5
@@ -1241,28 +1241,28 @@ animals:
         gui_slot: 6
       meat_3:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_llama"
         min_amount: 3
         max_amount: 5
         gui_slot: 7
       meat_4:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_llama"
         min_amount: 3
         max_amount: 5
         gui_slot: 8
       meat_5:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_llama"
         min_amount: 3
         max_amount: 5
         gui_slot: 9
       meat_6:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_llama"
         min_amount: 3
         max_amount: 5
@@ -1304,42 +1304,42 @@ animals:
         gui_slot: 15
       meat_7:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_llama"
         min_amount: 3
         max_amount: 5
         gui_slot: 16
       meat_8:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_llama"
         min_amount: 3
         max_amount: 5
         gui_slot: 17
       bone_1:
         display_name: "Bones"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:bone_llama"
         min_amount: 2
         max_amount: 3
         gui_slot: 18
       bone_2:
         display_name: "Bones"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:bone_llama"
         min_amount: 2
         max_amount: 3
         gui_slot: 19
       bone_3:
         display_name: "Bones"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:bone_llama"
         min_amount: 2
         max_amount: 3
         gui_slot: 25
       bone_4:
         display_name: "Bones"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:bone_llama"
         min_amount: 2
         max_amount: 3
@@ -1352,14 +1352,14 @@ animals:
     parts:
       meat_1:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_camel"
         min_amount: 5
         max_amount: 7
         gui_slot: 0
       meat_2:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_camel"
         min_amount: 5
         max_amount: 7
@@ -1401,28 +1401,28 @@ animals:
         gui_slot: 6
       meat_3:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_camel"
         min_amount: 5
         max_amount: 7
         gui_slot: 7
       meat_4:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_camel"
         min_amount: 5
         max_amount: 7
         gui_slot: 8
       meat_5:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_camel"
         min_amount: 5
         max_amount: 7
         gui_slot: 9
       meat_6:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_camel"
         min_amount: 5
         max_amount: 7
@@ -1464,63 +1464,63 @@ animals:
         gui_slot: 15
       meat_7:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_camel"
         min_amount: 5
         max_amount: 7
         gui_slot: 16
       meat_8:
         display_name: "Meat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_camel"
         min_amount: 5
         max_amount: 7
         gui_slot: 17
       bone_1:
         display_name: "Bones"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:bone_camel"
         min_amount: 2
         max_amount: 4
         gui_slot: 18
       bone_2:
         display_name: "Bones"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:bone_camel"
         min_amount: 2
         max_amount: 4
         gui_slot: 19
       fat_1:
         display_name: "Fat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:fat_camel"
         min_amount: 2
         max_amount: 3
         gui_slot: 21
       fat_2:
         display_name: "Fat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:fat_camel"
         min_amount: 2
         max_amount: 3
         gui_slot: 22
       fat_3:
         display_name: "Fat"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:fat_camel"
         min_amount: 2
         max_amount: 3
         gui_slot: 23
       bone_3:
         display_name: "Bones"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:bone_camel"
         min_amount: 2
         max_amount: 4
         gui_slot: 25
       bone_4:
         display_name: "Bones"
-        tool: "#atom:knives"
+        tool: "#minecraft:knives"
         item: "atom:bone_camel"
         min_amount: 2
         max_amount: 4

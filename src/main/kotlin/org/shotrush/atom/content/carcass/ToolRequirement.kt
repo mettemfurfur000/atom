@@ -1,9 +1,8 @@
 package org.shotrush.atom.content.carcass
 
-import org.bukkit.Bukkit
+import net.momirealms.craftengine.bukkit.api.CraftEngineItems
+import net.momirealms.craftengine.core.util.Key
 import org.bukkit.Material
-import org.bukkit.NamespacedKey
-import org.bukkit.Tag
 import org.bukkit.inventory.ItemStack
 
 /**
@@ -38,26 +37,25 @@ sealed class ToolRequirement {
      * - `#forge:tools/knives` - knives from any mod (Forge convention)
      */
     data class ItemTag(val tag: String, val customDisplayName: String? = null) : ToolRequirement() {
-        private val parsedTag: Tag<Material>? by lazy {
+        private val parsedKey: Key? by lazy {
             // Parse tag in format: #namespace:path
             if (!tag.startsWith("#")) return@lazy null
-
             val keyString = tag.substring(1) // Remove # prefix
-            val key = try {
-                NamespacedKey.fromString(keyString)
-            } catch (e: Exception) {
-                null
-            }
-
-            // Try to get the tag from Bukkit's tag registry
-            key?.let { Bukkit.getTag(Tag.REGISTRY_ITEMS, it, Material::class.java) }
+            Key.of(keyString)
         }
 
         override fun isSatisfiedBy(item: ItemStack): Boolean {
-            if (item.isEmpty) return false
+            if (item.isEmpty) {
+                return false
+            }
+            val key = parsedKey ?: return false
 
-            val tag = parsedTag ?: return false
-            return tag.isTagged(item.type)
+            // Check CraftEngine custom item tags
+            val customItemId = CraftEngineItems.getCustomItemId(item)
+            val customItem = customItemId?.let { CraftEngineItems.byId(it) }
+            val itemTags = customItem?.settings()?.tags() ?: emptySet()
+
+            return itemTags.contains(key)
         }
 
         override val displayName: String

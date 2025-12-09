@@ -41,7 +41,7 @@ class CarcassBlockBehavior(block: CustomBlock) : AtomBlock<CarcassBlockEntity>(
             val cfg = blockEntity.getConfig()
             if (cfg != null && cfg.requiresButchering) {
                 val heldItem = player.inventory.itemInMainHand
-                val knifeRequirement = ToolRequirement.ItemTag("#atom:knives")
+                val knifeRequirement = ToolRequirement.ItemTag("#minecraft:knives")
                 val hasKnife = knifeRequirement.isSatisfiedBy(heldItem)
 
                 if (!hasKnife) {
