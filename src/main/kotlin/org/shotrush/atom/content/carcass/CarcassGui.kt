@@ -94,7 +94,7 @@ object CarcassGui : Listener {
             .decoration(TextDecoration.ITALIC, false))
         lore.add(Component.empty())
         
-        if (def.requiredTool == ToolRequirement.NONE) {
+        if (def.requiredTool is ToolRequirement.None) {
             lore.add(Component.text("⬆ Pick up and click to harvest", NamedTextColor.YELLOW)
                 .decoration(TextDecoration.ITALIC, false))
         } else {
@@ -164,7 +164,7 @@ object CarcassGui : Listener {
         // Check tool requirement based on CURSOR item (what player picked up and is clicking with)
         val cursorItem = event.cursor
         if (!clickedPart.requiredTool.isSatisfiedBy(cursorItem)) {
-            val toolName = if (clickedPart.requiredTool == ToolRequirement.NONE) {
+            val toolName = if (clickedPart.requiredTool is ToolRequirement.None) {
                 "your hand"
             } else {
                 clickedPart.requiredTool.displayName.lowercase()
@@ -172,9 +172,9 @@ object CarcassGui : Listener {
             ActionBarManager.send(player, "carcass", "<red>Click with $toolName to harvest</red>")
             return
         }
-        
+
         // Damage the tool if it has durability
-        if (clickedPart.requiredTool != ToolRequirement.NONE && cursorItem.type.maxDurability > 0) {
+        if (clickedPart.requiredTool !is ToolRequirement.None && cursorItem.type.maxDurability > 0) {
             cursorItem.damage(1, player)
         }
         

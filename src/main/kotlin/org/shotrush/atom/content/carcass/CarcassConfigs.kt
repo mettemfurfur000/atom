@@ -22,19 +22,19 @@ object AnimalTypeSerializer : KSerializer<AnimalType> {
     }
 }
 
-// Custom serializer for ToolRequirement enum
+// Custom serializer for ToolRequirement (parses from string)
 object ToolRequirementSerializer : KSerializer<ToolRequirement> {
     override val descriptor = PrimitiveSerialDescriptor("ToolRequirement", PrimitiveKind.STRING)
-    override fun serialize(encoder: Encoder, value: ToolRequirement) = encoder.encodeString(value.name.lowercase())
-    override fun deserialize(decoder: Decoder): ToolRequirement {
-        val name = decoder.decodeString()
-        return when (name.lowercase()) {
-            "none" -> ToolRequirement.NONE
-            "knife" -> ToolRequirement.KNIFE
-            "axe" -> ToolRequirement.AXE
-            "water_bucket" -> ToolRequirement.WATER_BUCKET
-            else -> ToolRequirement.NONE
+    override fun serialize(encoder: Encoder, value: ToolRequirement) {
+        val stringValue = when (value) {
+            is ToolRequirement.None -> "none"
+            is ToolRequirement.ItemTag -> value.tag
+            is ToolRequirement.SpecificMaterial -> value.material.name
         }
+        encoder.encodeString(stringValue)
+    }
+    override fun deserialize(decoder: Decoder): ToolRequirement {
+        return ToolRequirement.parse(decoder.decodeString())
     }
 }
 
@@ -57,7 +57,7 @@ data class CarcassConfigAnimal(
 data class CarcassConfigPart(
     val display_name: String,
     @Serializable(with = ToolRequirementSerializer::class)
-    val tool: ToolRequirement = ToolRequirement.NONE,
+    val tool: ToolRequirement = ToolRequirement.None,
     val item: String,
     val min_amount: Int = 1,
     val max_amount: Int = 1,
