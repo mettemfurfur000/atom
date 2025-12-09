@@ -3,6 +3,7 @@ package org.shotrush.atom.systems.room
 import kotlinx.serialization.Serializable
 import org.bukkit.Bukkit
 import org.bukkit.World
+import org.shotrush.atom.api.ChunkKey
 import org.shotrush.atom.util.UUIDSerializer
 import java.util.*
 
@@ -48,13 +49,6 @@ data class SavedRoom(
     val minX: Int, val minY: Int, val minZ: Int,
     val maxX: Int, val maxY: Int, val maxZ: Int,
     val blocks: Set<Long>,
-)
-
-@Serializable
-data class ChunkKey(
-    @Serializable(with = UUIDSerializer::class)
-    val worldId: UUID,
-    val x: Int, val z: Int,
 )
 
 @Serializable

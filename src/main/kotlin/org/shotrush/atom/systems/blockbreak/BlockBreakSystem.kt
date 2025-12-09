@@ -18,6 +18,7 @@ import org.shotrush.atom.listener.AtomListener
 import org.shotrush.atom.listener.EventClass
 import org.shotrush.atom.listener.EventRunner
 import org.shotrush.atom.listener.eventDef
+import org.shotrush.atom.systems.reinforce.ReinforcementSystem
 
 object BlockBreakSystem : AtomListener {
     override val eventDefs: Map<EventClass, EventRunner> = mapOf(
@@ -71,6 +72,7 @@ object BlockBreakSystem : AtomListener {
         var multiplier = globalSpeed
         val ref = block.asReference()
         if (blockMultipliers.containsKey(ref)) multiplier *= blockMultipliers[ref]!!
+        ReinforcementSystem.getReinforcementLevel(block.location)?.let { multiplier *= it.speedMultiplier }
         return multiplier
     }
 }

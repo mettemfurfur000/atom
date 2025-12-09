@@ -102,3 +102,5 @@ fun Audience.sendMiniMessages(vararg message: String) = message.forEach { sendMi
 fun BlockPos.toBukkitLocation(ceWorld: CEWorld?): Location {
     return Location(ceWorld?.world?.platformWorld() as? World, x().toDouble(), y().toDouble(), z().toDouble())
 }
+
+fun Location.toVec3i() = BlockPos(x.toInt(), y.toInt(), z.toInt())
