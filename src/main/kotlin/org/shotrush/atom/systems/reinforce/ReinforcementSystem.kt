@@ -70,7 +70,7 @@ object ReinforcementSystem : AtomListener {
         val pos = block.location
         val level = getReinforcementLevel(pos) ?: return
         event.isCancelled = true
-        pos.world?.dropItemNaturally(pos, level.itemRef.createStack())
+        pos.world?.dropItemNaturally(pos, level.singleItemRef.createStack())
         setReinforcementLevel(pos, null)
     }
 
@@ -88,7 +88,7 @@ object ReinforcementSystem : AtomListener {
                         event.blockFace.modX.toDouble(),
                         event.blockFace.modY.toDouble(),
                         event.blockFace.modZ.toDouble()
-                    ), currentLevel.itemRef.createStack()
+                    ), currentLevel.singleItemRef.createStack()
                 )
             }
             setReinforcementLevel(block.location, requestedLevel)
