@@ -6,9 +6,14 @@ import kotlinx.serialization.json.Json
 import net.benwoodworth.knbt.Nbt
 import net.benwoodworth.knbt.NbtCompression
 import net.benwoodworth.knbt.NbtVariant
+import org.bukkit.plugin.Plugin
 import java.nio.file.Path
 import kotlin.io.path.createParentDirectories
 import kotlin.io.path.notExists
+
+// Extension property for plugin data folder as Path
+val Plugin.dataPath: Path
+    get() = dataFolder.toPath()
 
 sealed interface FileFormat {
     fun <T : Any> decodeFromFile(file: Path, serializer: KSerializer<T>): T

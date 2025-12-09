@@ -1,12 +1,77 @@
 package org.shotrush.atom.content.carcass
 
-import org.bukkit.configuration.ConfigurationSection
-import org.bukkit.configuration.file.YamlConfiguration
+import kotlinx.serialization.KSerializer
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.descriptors.PrimitiveKind
+import kotlinx.serialization.descriptors.PrimitiveSerialDescriptor
+import kotlinx.serialization.encoding.Decoder
+import kotlinx.serialization.encoding.Encoder
 import org.shotrush.atom.Atom
+import org.shotrush.atom.FileType
 import org.shotrush.atom.content.AnimalType
-import java.io.File
+import org.shotrush.atom.readSerializedFileOrNull
 import java.util.logging.Level
 
+// Custom serializer for AnimalType enum
+object AnimalTypeSerializer : KSerializer<AnimalType> {
+    override val descriptor = PrimitiveSerialDescriptor("AnimalType", PrimitiveKind.STRING)
+    override fun serialize(encoder: Encoder, value: AnimalType) = encoder.encodeString(value.id)
+    override fun deserialize(decoder: Decoder): AnimalType {
+        val id = decoder.decodeString()
+        return AnimalType.byId(id) ?: throw IllegalArgumentException("Unknown animal type: $id")
+    }
+}
+
+// Custom serializer for ToolRequirement enum
+object ToolRequirementSerializer : KSerializer<ToolRequirement> {
+    override val descriptor = PrimitiveSerialDescriptor("ToolRequirement", PrimitiveKind.STRING)
+    override fun serialize(encoder: Encoder, value: ToolRequirement) = encoder.encodeString(value.name.lowercase())
+    override fun deserialize(decoder: Decoder): ToolRequirement {
+        val name = decoder.decodeString()
+        return when (name.lowercase()) {
+            "none" -> ToolRequirement.NONE
+            "knife" -> ToolRequirement.KNIFE
+            "axe" -> ToolRequirement.AXE
+            "water_bucket" -> ToolRequirement.WATER_BUCKET
+            else -> ToolRequirement.NONE
+        }
+    }
+}
+
+// Serializable configuration structure matching the YAML file
+@Serializable
+data class CarcassConfigSettings(
+    val default_decomposition_ticks: Long = 48000L
+)
+
+@Serializable
+data class CarcassConfigAnimal(
+    val display_name: String,
+    val decomposition_ticks: Long? = null,
+    val gui_rows: Int = 3,
+    val requires_butchering: Boolean = true,
+    val parts: Map<String, CarcassConfigPart>
+)
+
+@Serializable
+data class CarcassConfigPart(
+    val display_name: String,
+    @Serializable(with = ToolRequirementSerializer::class)
+    val tool: ToolRequirement = ToolRequirement.NONE,
+    val item: String,
+    val min_amount: Int = 1,
+    val max_amount: Int = 1,
+    val gui_slot: Int = 0,
+    val external: Boolean = false
+)
+
+@Serializable
+data class CarcassConfigFile(
+    val settings: CarcassConfigSettings = CarcassConfigSettings(),
+    val animals: Map<String, CarcassConfigAnimal>
+)
+
+// Runtime configuration used by the system
 data class CarcassAnimalConfig(
     val animalType: AnimalType,
     val displayName: String,
@@ -26,88 +91,67 @@ object CarcassConfigs {
 
     fun load() {
         val plugin = Atom.instance
-        val configFile = File(plugin.dataFolder, CONFIG_FILE_NAME)
+        val configPath = plugin.dataPath.resolve(CONFIG_FILE_NAME)
 
-        if (!configFile.exists()) {
+        // Ensure config file exists by extracting from resources if needed
+        if (!configPath.toFile().exists()) {
             plugin.saveResource(CONFIG_FILE_NAME, false)
         }
 
-        val yaml = YamlConfiguration.loadConfiguration(configFile)
-        val defaultDecomposition = yaml.getLong("settings.default_decomposition_ticks", DEFAULT_DECOMPOSITION)
-        
-        val animalsSection: ConfigurationSection = yaml.getConfigurationSection("animals") ?: run {
-            plugin.logger.warning("No animals section found in $CONFIG_FILE_NAME")
+        // Load configuration using new Config system
+        val configFile = try {
+            readSerializedFileOrNull<CarcassConfigFile>(configPath, FileType.YAML)
+        } catch (e: Exception) {
+            plugin.logger.log(Level.SEVERE, "Failed to load $CONFIG_FILE_NAME", e)
+            null
+        }
+
+        if (configFile == null) {
+            plugin.logger.warning("No valid configuration found in $CONFIG_FILE_NAME")
             return
         }
 
+        val defaultDecomposition = configFile.settings.default_decomposition_ticks
         val loadedConfigs = mutableMapOf<AnimalType, CarcassAnimalConfig>()
 
-        for (animalKey in animalsSection.getKeys(false)) {
+        // Process each animal configuration
+        for ((animalKey, animalConfig) in configFile.animals) {
             val animalType = AnimalType.byId(animalKey)
             if (animalType == null) {
                 plugin.logger.warning("Unknown animal type in carcass config: $animalKey")
                 continue
             }
 
-            val animalSection: ConfigurationSection = animalsSection.getConfigurationSection(animalKey) ?: continue
-            
-            val displayName = animalSection.getString("display_name", animalKey.replaceFirstChar { it.uppercase() }) ?: animalKey
-            val decompositionTicks = animalSection.getLong("decomposition_ticks", defaultDecomposition)
-            val guiRows = animalSection.getInt("gui_rows", 3)
-            val requiresButchering = animalSection.getBoolean("requires_butchering", true)
-            
-            val partsSection: ConfigurationSection = animalSection.getConfigurationSection("parts") ?: run {
-                plugin.logger.warning("No parts section for animal: $animalKey")
-                continue
-            }
-
-            val parts = mutableListOf<CarcassPartDef>()
-            
-            for (partKey in partsSection.getKeys(false)) {
-                val partSection: ConfigurationSection = partsSection.getConfigurationSection(partKey) ?: continue
-                
-                try {
-                    val itemId = partSection.getString("item") ?: continue
-                    val part = CarcassPartDef(
-                        id = partKey,
-                        displayName = partSection.getString("display_name", partKey) ?: partKey,
-                        requiredTool = parseToolRequirement(partSection.getString("tool", "none") ?: "none"),
-                        itemId = itemId,
-                        minAmount = partSection.getInt("min_amount", 1),
-                        maxAmount = partSection.getInt("max_amount", 1),
-                        guiSlot = partSection.getInt("gui_slot", 0),
-                        external = partSection.getBoolean("external", false)
-                    )
-                    parts.add(part)
-                } catch (e: Exception) {
-                    plugin.logger.log(Level.WARNING, "Failed to parse part $partKey for animal $animalKey", e)
-                }
+            // Convert config parts to runtime part definitions
+            val parts = animalConfig.parts.map { (partKey, partConfig) ->
+                CarcassPartDef(
+                    id = partKey,
+                    displayName = partConfig.display_name,
+                    requiredTool = partConfig.tool,
+                    itemId = partConfig.item,
+                    minAmount = partConfig.min_amount,
+                    maxAmount = partConfig.max_amount,
+                    guiSlot = partConfig.gui_slot,
+                    external = partConfig.external
+                )
             }
 
             if (parts.isNotEmpty()) {
                 loadedConfigs[animalType] = CarcassAnimalConfig(
                     animalType = animalType,
-                    displayName = displayName,
-                    decompositionTicks = decompositionTicks,
-                    guiRows = guiRows,
+                    displayName = animalConfig.display_name,
+                    decompositionTicks = animalConfig.decomposition_ticks ?: defaultDecomposition,
+                    guiRows = animalConfig.gui_rows,
                     parts = parts,
-                    requiresButchering = requiresButchering
+                    requiresButchering = animalConfig.requires_butchering
                 )
+            } else {
+                plugin.logger.warning("No parts defined for animal: $animalKey")
             }
         }
 
         configs = loadedConfigs
         plugin.logger.info("Loaded carcass configs for ${configs.size} animals")
-    }
-
-    private fun parseToolRequirement(tool: String): ToolRequirement {
-        return when (tool.lowercase()) {
-            "none" -> ToolRequirement.NONE
-            "knife" -> ToolRequirement.KNIFE
-            "axe" -> ToolRequirement.AXE
-            "water_bucket" -> ToolRequirement.WATER_BUCKET
-            else -> ToolRequirement.NONE
-        }
     }
 
     fun configFor(animalType: AnimalType): CarcassAnimalConfig? = configs[animalType]
