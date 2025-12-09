@@ -5,12 +5,12 @@ import org.bukkit.plugin.Plugin;
 import org.shotrush.atom.core.api.BlockBreakSpeedAPI;
 import org.shotrush.atom.core.api.annotation.RegisterSystem;
 
-@RegisterSystem(
-    id = "block_break_system",
-    priority = 5,
-    toggleable = false,
-    description = "Configures block breaking speeds"
-)
+//@RegisterSystem(
+//    id = "block_break_system",
+//    priority = 5,
+//    toggleable = false,
+//    description = "Configures block breaking speeds"
+//)
 public class BlockBreakSystem {
     
     private final Plugin plugin;

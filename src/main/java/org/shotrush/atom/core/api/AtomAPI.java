@@ -39,7 +39,7 @@ public final class AtomAPI {
 
         plugin.getLogger().info("Initializing core APIs...");
         org.shotrush.atom.core.api.scheduler.SchedulerAPI.init(plugin);
-        org.shotrush.atom.core.api.BlockBreakSpeedAPI.initialize(plugin);
+//        org.shotrush.atom.core.api.BlockBreakSpeedAPI.initialize(plugin);
 
 
         plugin.getLogger().info("Initializing core components...");
