@@ -6,6 +6,7 @@ import dev.jorel.commandapi.kotlindsl.*
 import io.papermc.paper.threadedregions.scheduler.ScheduledTask
 import net.minecraft.core.Direction
 import org.bukkit.Color
+import org.bukkit.Material
 import org.bukkit.Particle
 import org.bukkit.World
 import org.bukkit.entity.Player
@@ -127,6 +128,11 @@ object RoomCommands {
         player.sendMiniMessage("<yellow>[FaceOpen]</yellow> <gray>Debug visualization</gray> <green>enabled</green>. <gray>Run again to disable.</gray>")
     }
 
+    private fun isAirLike(mat: Material): Boolean {
+        return mat == Material.AIR ||
+                mat == Material.CAVE_AIR ||
+                mat == Material.VOID_AIR
+    }
     private fun renderFaceOpenAround(player: Player, radius: Int = 3) {
         val world = player.world
         val bx = player.location.blockX
@@ -139,6 +145,9 @@ object RoomCommands {
                     val x = bx + dx
                     val y = by + dy
                     val z = bz + dz
+
+                    val mat = world.getBlockAt(x, y, z).type
+                    if (isAirLike(mat)) continue
 
                     // Skip if not occupiable to reduce clutter
                     if (!FaceOpenProvider.canOccupy(world, x, y, z)) {
