@@ -5,9 +5,9 @@ import org.bukkit.inventory.ItemStack
 import org.shotrush.atom.api.SingleItemRef
 
 enum class ReinforceType(val displayName: String, val singleItemRef: SingleItemRef, val speedMultiplier: Double) {
-    LIGHT("Light", SingleItemRef.vanilla(Material.COPPER_INGOT), 1.25),
-    MEDIUM("Medium", SingleItemRef.vanilla(Material.IRON_INGOT), 1.75),
-    HEAVY("Heavy", SingleItemRef.custom("steel_ingot"), 2.5);
+    LIGHT("Light", SingleItemRef.material(Material.COPPER_INGOT), 1.25),
+    MEDIUM("Medium", SingleItemRef.material(Material.IRON_INGOT), 1.75),
+    HEAVY("Heavy", SingleItemRef.atom("steel_ingot"), 2.5);
 
     fun isHigher(type: ReinforceType?): Boolean {
         if(type == null) return true
