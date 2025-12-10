@@ -46,7 +46,7 @@ fun ItemStack.matches(key: String) = getNamespacedKey() == key
 fun ItemStack.matches(namespace: String, path: String) = getNamespacedKey() == "$namespace:$path"
 fun ItemStack.matches(item: CustomItem<ItemStack>) = item.isItem(this)
 
-fun ItemStack.asReference() = CraftEngineItems.getCustomItemId(this)?.let { SingleItemRef.custom(it.asAtomKey()) }
+fun ItemStack.asReference() = CraftEngineItems.getCustomItemId(this)?.let { SingleItemRef.keyed(it.asAtomKey()) }
     ?: SingleItemRef.MaterialRef(type)
 
 fun Block.getNamespacedKey(): String = if (CraftEngineBlocks.isCustomBlock(this)) {
