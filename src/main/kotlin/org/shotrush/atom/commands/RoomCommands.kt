@@ -24,9 +24,14 @@ import kotlin.math.max
 object RoomCommands {
     // Debug: FaceOpen visualizer state
     private val faceOpenActive = ConcurrentHashMap<UUID, ScheduledTask>()
-    private val COLOR_OPEN = Particle.DustOptions(Color.fromRGB(20, 220, 60), 1.1f)
-    private val COLOR_CLOSED = Particle.DustOptions(Color.fromRGB(220, 20, 60), 1.1f)
+    private val COLOR_OPEN = Particle.DustOptions(Color.fromRGB(20, 220, 60), 0.9f)
+    private val COLOR_CLOSED = Particle.DustOptions(Color.fromRGB(220, 20, 60), 0.9f)
     private val COLOR_OCCUPY = Particle.DustOptions(Color.fromRGB(120, 120, 255), 0.9f)
+    // Debug: Room outline visualizer state
+    private val roomOutlineActive = ConcurrentHashMap<UUID, ScheduledTask>()
+    private val roomOutlineFacesCache = ConcurrentHashMap<UUID, Pair<UUID, List<BoundaryFace>>>() // playerId -> (roomId, faces)
+    private val roomOutlineIndex = ConcurrentHashMap<UUID, Int>()
+    private val COLOR_ROOM = Particle.DustOptions(Color.fromRGB(50, 200, 255), 0.9f)
 
     fun register() {
         commandTree("room") {
@@ -46,6 +51,13 @@ object RoomCommands {
                 withPermission("atom.debug.faceopen")
                 playerExecutor { player, _ ->
                     toggleFaceOpenDebug(player)
+                }
+            }
+            // Debug subcommand: outline the current room geometry (boundary faces)
+            literalArgument("outline", true) {
+                withPermission("atom.debug.room")
+                playerExecutor { player, _ ->
+                    toggleRoomOutline(player)
                 }
             }
             literalArgument("scan") {
@@ -128,6 +140,115 @@ object RoomCommands {
         player.sendMiniMessage("<yellow>[FaceOpen]</yellow> <gray>Debug visualization</gray> <green>enabled</green>. <gray>Run again to disable.</gray>")
     }
 
+    // =====================
+    // Room outline debug
+    // =====================
+    private fun toggleRoomOutline(player: Player) {
+        val id = player.uniqueId
+        val existing = roomOutlineActive.remove(id)
+        if (existing != null) {
+            existing.cancel()
+            roomOutlineFacesCache.remove(id)
+            roomOutlineIndex.remove(id)
+            player.sendMiniMessage("<yellow>[Room]</yellow> <gray>Outline debug</gray> <red>disabled</red>.")
+            return
+        }
+
+        val task = SchedulerAPI.runTaskTimer(player, { task ->
+            if (!player.isOnline) {
+                task?.cancel()
+                roomOutlineActive.remove(id)
+                roomOutlineFacesCache.remove(id)
+                roomOutlineIndex.remove(id)
+                return@runTaskTimer
+            }
+            try {
+                renderRoomOutlineTick(player)
+            } catch (_: Throwable) {
+                task?.cancel()
+                roomOutlineActive.remove(id)
+                roomOutlineFacesCache.remove(id)
+                roomOutlineIndex.remove(id)
+            }
+        }, 1L, 6L)
+
+        roomOutlineActive[id] = task
+        player.sendMiniMessage("<yellow>[Room]</yellow> <gray>Outline debug</gray> <green>enabled</green>. <gray>Run again to disable.</gray>")
+    }
+
+    private data class BoundaryFace(val x: Int, val y: Int, val z: Int, val dir: Direction)
+
+    private fun renderRoomOutlineTick(player: Player, maxFacesPerTick: Int = 1500) {
+        val pId = player.uniqueId
+        val room = RoomRegistry.roomAt(player.location) ?: run {
+            // Not in a room; nothing to display this tick
+            return
+        }
+
+        val cached = roomOutlineFacesCache[pId]
+        val faces: List<BoundaryFace> = if (cached == null || cached.first != room.id) {
+            val built = buildBoundaryFaces(room)
+            roomOutlineFacesCache[pId] = room.id to built
+            roomOutlineIndex[pId] = 0
+            built
+        } else {
+            cached.second
+        }
+
+        if (faces.isEmpty()) return
+
+        val startIndex = roomOutlineIndex.getOrDefault(pId, 0)
+        var i = 0
+        var idx = startIndex
+        val world = player.world
+        val total = faces.size
+        while (i < maxFacesPerTick) {
+            val f = faces[idx]
+            drawFaceOutline(world, f.x, f.y, f.z, f.dir, COLOR_ROOM, segments = 2)
+            i++
+            idx++
+            if (idx >= total) idx = 0
+            if (idx == startIndex) break // completed a cycle
+        }
+        roomOutlineIndex[pId] = idx
+    }
+
+    private fun buildBoundaryFaces(room: org.shotrush.atom.systems.room.Room): List<BoundaryFace> {
+        val set = room.blocks
+        // Pre-size roughly: many internal faces cancel; boundary faces usually ~surface area
+        val faces = ArrayList<BoundaryFace>(set.size)
+
+        // Direction deltas
+        val dirs = arrayOf(
+            Direction.EAST to intArrayOf(1, 0, 0),
+            Direction.WEST to intArrayOf(-1, 0, 0),
+            Direction.UP to intArrayOf(0, 1, 0),
+            Direction.DOWN to intArrayOf(0, -1, 0),
+            Direction.SOUTH to intArrayOf(0, 0, 1),
+            Direction.NORTH to intArrayOf(0, 0, -1),
+        )
+
+        for (packed in set) {
+            val (x, y, z) = org.shotrush.atom.util.LocationUtil.unpack(packed)
+            for ((dir, d) in dirs) {
+                val nx = x + d[0]
+                val ny = y + d[1]
+                val nz = z + d[2]
+                val neighborPacked = try {
+                    org.shotrush.atom.util.LocationUtil.pack(nx, ny, nz)
+                } catch (_: IllegalArgumentException) {
+                    // Out of allowed range counts as boundary
+                    faces.add(BoundaryFace(x, y, z, dir))
+                    continue
+                }
+                if (!set.contains(neighborPacked)) {
+                    faces.add(BoundaryFace(x, y, z, dir))
+                }
+            }
+        }
+        return faces
+    }
+
     private fun isAirLike(mat: Material): Boolean {
         return mat == Material.AIR ||
                 mat == Material.CAVE_AIR ||
@@ -177,11 +298,9 @@ object RoomCommands {
         val ox = x + 0.5
         val oy = y + 0.5
         val oz = z + 0.5
-
-        val half = 0.5
         val step = 1.0 / max(1, segments)
         val outward = 0.52
-
+        val half = 0.5
         fun spawn(px: Double, py: Double, pz: Double) {
             world.spawnParticle(Particle.DUST, px, py, pz, 1, 0.0, 0.0, 0.0, 0.0, color)
         }
