@@ -13,7 +13,7 @@ object EventListeners {
         RecipeUnlockHandler.register(atom)
 //        PlayerChatListener.register(this)
 
-//        RoomSystem.register()
+        RoomSystem.register()
         ReinforcementSystem.register()
         BlockBreakSystem.register()
     }
