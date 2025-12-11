@@ -1,7 +1,7 @@
 package org.shotrush.atom.systems.reinforce
 
-import com.github.shynixn.mccoroutine.folia.entityDispatcher
-import com.github.shynixn.mccoroutine.folia.regionDispatcher
+import com.github.shynixn.mccoroutine.folia.*
+import kotlinx.coroutines.*
 import kotlinx.serialization.Serializable
 import org.bukkit.Location
 import org.bukkit.event.Event
@@ -9,6 +9,8 @@ import org.bukkit.event.EventHandler
 import org.bukkit.event.block.Action
 import org.bukkit.event.block.BlockBreakEvent
 import org.bukkit.event.player.PlayerInteractEvent
+import org.bukkit.event.player.PlayerJoinEvent
+import org.bukkit.event.player.PlayerQuitEvent
 import org.bukkit.event.world.ChunkLoadEvent
 import org.bukkit.event.world.ChunkUnloadEvent
 import org.shotrush.atom.Atom
@@ -17,6 +19,7 @@ import org.shotrush.atom.api.chunkKey
 import org.shotrush.atom.listener.AtomListener
 import org.shotrush.atom.listener.eventDef
 import org.shotrush.atom.sendMiniMessage
+import java.util.*
 import java.util.concurrent.ConcurrentHashMap
 
 @Serializable
@@ -40,8 +43,15 @@ object ReinforcementSystem : AtomListener {
         },
         eventDef<PlayerInteractEvent> {
             Atom.instance.entityDispatcher(it.player)
+        },
+        eventDef<PlayerJoinEvent> {
+            Atom.instance.entityDispatcher(it.player)
+        },
+        eventDef<PlayerQuitEvent> {
+            Atom.instance.entityDispatcher(it.player)
         }
     )
+
 
     private val chunkCache = ConcurrentHashMap<ChunkKey, ChunkCache>()
 
@@ -97,4 +107,54 @@ object ReinforcementSystem : AtomListener {
             event.player.sendMiniMessage("<gray>Applied ${requestedLevel.displayName} reinforcement!</gray>")
         }
     }
+
+    private val pluginScope = CoroutineScope(SupervisorJob() + Dispatchers.Default)
+    private val outlineManager: OutlineManager = OutlineManager(
+        SnapshotCollector(VoxelShapeProvider.Default),
+        VoxelOutlineBuilder(),
+        ParticleOutlineRenderer3D(step = 0.25),
+        yBandHeight = 6,
+        defaultHalfSize = 8,
+        scope = pluginScope
+    )
+
+    private var job: Job? = null
+
+    fun start() {
+        job = Atom.instance.launch(Atom.instance.asyncDispatcher) {
+            while (!Atom.instance.server.isStopping) {
+                delay(1.ticks)
+                outlineManager.tick(Atom.instance.server.onlinePlayers.toList())
+            }
+        }
+    }
+
+    fun stop() {
+        job?.cancel()
+        pluginScope.cancel()
+    }
+
+    private val renderingJobs = mutableMapOf<UUID, Job>()
+    fun cancelRendering(player: UUID) {
+        renderingJobs.remove(player)?.cancel()
+    }
+
+    fun startRendering(player: UUID, job: Job) {
+        renderingJobs[player] = job
+    }
+
+//    @EventHandler
+//    fun onPlayerJoin(event: PlayerJoinEvent) {
+//        startRendering(event.player.uniqueId, Atom.instance.launch(Atom.instance.asyncDispatcher) {
+//            while (event.player.isOnline) {
+//                delay(1.ticks)
+//                outlineManager.
+//            }
+//        })
+//    }
+//
+//    @EventHandler
+//    fun onPlayerQuit(event: PlayerQuitEvent) {
+//        cancelRendering(event.player.uniqueId)
+//    }
 }

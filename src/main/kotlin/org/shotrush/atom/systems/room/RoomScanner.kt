@@ -13,7 +13,7 @@ object RoomScanner {
         world: World,
         start: Vector3i,
         maxVolume: Int = 800,
-        retries: Int = 0,
+        retries: Int = 1,
         scanner: RoomScan = RoomScanFace(world, start, maxVolume = maxVolume),
     ): Room? {
         repeat(retries + 1) { attempt ->
@@ -24,7 +24,7 @@ object RoomScanner {
                 val room = scanner.toRoom() ?: return null
                 return if (RoomRegistry.tryRegisterDedup(room)) room else null
             } else if (attempt < retries) {
-                delay((4 + Random.nextInt(5)).ticks)
+                delay((4..12).random().ticks)
             }
         }
         return null

@@ -79,6 +79,7 @@ class RoomScanFace(
         val sy = startPosition.y()
         val sz = startPosition.z()
         if (!inRangeY(sy)) return@coroutineScope false
+        if (!faceProvider.canOccupy(world, sx, sy, sz)) return@coroutineScope false
 
         val startKey = tryPack(sx, sy, sz) ?: return@coroutineScope false
         if (!ScanReservations.tryReserve(startKey, scanId)) return@coroutineScope false
@@ -88,10 +89,6 @@ class RoomScanFace(
         val startChunkZ = sz shr 4
         rememberEpoch(startChunkX, startChunkZ)
 
-        // First cell must be occupiable for airflow
-        if (!faceProvider.canOccupy(world, sx, sy, sz)) return@coroutineScope false
-
-        // Per-chunk queues: active + pending
         val frontier = HashMap<Long, ChunkQueues>()
         fun queues(cx: Int, cz: Int) =
             frontier.computeIfAbsent(packChunk(cx, cz)) { ChunkQueues() }
@@ -112,36 +109,42 @@ class RoomScanFace(
                     rememberEpoch(cx, cz)
 
                     var processed = 0
+                    val budget = nodesPerChunkHop.coerceAtLeast(1)
+                    val drainBudget = (budget / 2).coerceAtLeast(1)
+                    val expandBudget = budget - drainBudget
 
-                    // Drain and validate pending into active (bounded)
-                    while (q.pending.isNotEmpty() && processed < nodesPerChunkHop) {
+                    // Drain pending into active, bounded
+                    var drained = 0
+                    while (q.pending.isNotEmpty() && drained < drainBudget && processed < budget) {
                         val p = q.pending.removeFirst()
                         val px = p.x(); val py = p.y(); val pz = p.z()
                         if (!inRangeY(py)) {
-                            processed++
+                            drained++; processed++
                             continue
                         }
 
                         val key = tryPack(px, py, pz)
                         if (key == null) {
-                            processed++
+                            drained++; processed++
                             continue
                         }
 
-                        // Must be occupiable
                         if (!faceProvider.canOccupy(world, px, py, pz)) {
                             ScanReservations.releaseCells(listOf(key), scanId)
                         } else if (!scannedPositions.contains(key)) {
-                            // Accept cell into scan immediately
                             scannedPositions.add(key)
                             if (volume > maxVolume) return@withContext false
                             q.active.add(Vector3i(px, py, pz))
                         }
-                        processed++
+                        drained++; processed++
                     }
 
-                    // Expand within this chunk
-                    while (q.active.isNotEmpty() && processed < nodesPerChunkHop) {
+                    // Expand within this chunk, bounded
+                    var expanded = 0
+                    while (q.active.isNotEmpty()
+                        && expanded < expandBudget
+                        && processed < budget
+                    ) {
                         if (volume > maxVolume) return@withContext false
 
                         stepsSinceEpochCheck++
@@ -153,13 +156,11 @@ class RoomScanFace(
                         val p = q.active.removeFirst()
                         val px = p.x(); val py = p.y(); val pz = p.z()
 
-                        // Current cell must remain occupiable
                         if (!faceProvider.canOccupy(world, px, py, pz)) {
-                            processed++
+                            expanded++; processed++
                             continue
                         }
 
-                        // 6 neighbors
                         for (dir in Direction.entries) {
                             val nx = px + dir.stepX
                             val ny = py + dir.stepY
@@ -189,28 +190,27 @@ class RoomScanFace(
                             val nChunkX = nx shr 4
                             val nChunkZ = nz shr 4
 
+                            // Accept immediately
+                            scannedPositions.add(key)
+                            if (volume > maxVolume) return@withContext false
+
                             if (nChunkX == cx && nChunkZ == cz) {
-                                // Accept immediately
-                                scannedPositions.add(key)
-                                if (volume > maxVolume) return@withContext false
                                 q.active.add(Vector3i(nx, ny, nz))
                             } else {
                                 rememberEpoch(nChunkX, nChunkZ)
-                                // Accept immediately and queue into target's pending
-                                scannedPositions.add(key)
-                                if (volume > maxVolume) return@withContext false
+                                // Place directly into target ACTIVE (already validated)
                                 val tgt = queues(nChunkX, nChunkZ)
-                                tgt.pending.add(Vector3i(nx, ny, nz))
+                                tgt.active.add(Vector3i(nx, ny, nz))
                             }
                         }
-                        processed++
+                        expanded++; processed++
                     }
 
                     true
                 }
 
                 if (!keepBucket) return@coroutineScope false
-                // Remove this chunk if fully drained
+
                 val q2 = frontier[pk]
                 if (q2 != null && q2.active.isEmpty() && q2.pending.isEmpty()) {
                     frontier.remove(pk)
