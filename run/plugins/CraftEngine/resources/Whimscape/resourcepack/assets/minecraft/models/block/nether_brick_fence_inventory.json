@@ -1,7 +1,0 @@
-{
-    "parent": "block/template_fence_inventory_custom",
-    "textures": {
-        "texture": "block/nether_brick_fence",
-        "particle": "block/nether_bricks"
-    }
-}
