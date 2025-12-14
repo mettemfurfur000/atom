@@ -1,0 +1,317 @@
+items:
+  minecraft:vine:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:dirt:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:coarse_dirt:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:podzol:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:grass_block:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:mud:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:packed_mud:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:stone:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:calcite:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:dripstone_block:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:pointed_dripstone:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:deepslate:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:snow_block:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:snow:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:ice:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:obsidian:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:andesite:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:granite:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:tuff:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:sand:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:red_sand:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:sandstone:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:red_sandstone:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:gravel:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:terracotta:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:mossy_cobblestone:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:moss_block:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:moss_carpet:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:fern:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:rose_bush:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:poppy:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:dandelion:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:seeds:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:raw_coal:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:coal_ore:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:deepslate_coal_ore:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:raw_copper:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_copper>
+  minecraft:copper_ore:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_copper>
+  minecraft:deepslate_copper_ore:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_copper>
+  minecraft:raw_iron:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_iron>
+  minecraft:iron_ore:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_iron>
+  minecraft:deepslate_iron_ore:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_iron>
+  minecraft:stick:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+  minecraft:iron_ingot:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_material> <image:atom:badge_age_iron>
+  minecraft:copper_ingot:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_material> <image:atom:badge_age_copper>
+  minecraft:iron_nugget:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_material> <image:atom:badge_age_iron>
+  minecraft:copper_nugget:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_material> <image:atom:badge_age_copper>
+  minecraft:iron_block:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_material> <image:atom:badge_age_iron>
+  minecraft:egg:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:brown_egg:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:blue_egg:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:apple:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:wheat:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:potato:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:baked_potato:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:carrot:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:sweet_berries:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:glow_berries:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:bread:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_food> <image:atom:badge_age_foraging>
+  minecraft:beetroot:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_food> <image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:dried_kelp:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_material> <image:atom:badge_food> <image:atom:badge_natural>
+        - <!i><white><image:atom:badge_age_foraging>
+  minecraft:bucket:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_utility> <image:atom:badge_age_iron>
+  minecraft:shears:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_utility> <image:atom:badge_age_iron>

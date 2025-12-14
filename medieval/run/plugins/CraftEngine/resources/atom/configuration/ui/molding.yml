@@ -1,0 +1,37 @@
+items:
+  atom:ui_molding_clay:
+    material: paper
+    model:
+      template: atom:model/full_ui
+      arguments:
+        path: minecraft:ui/clay
+  atom:ui_molding_clay_pressed:
+    material: paper
+    model:
+      template: atom:model/full_ui
+      arguments:
+        path: minecraft:ui/clay_dark
+  atom:ui_molding_wax:
+    material: paper
+    model:
+      template: atom:model/full_ui
+      arguments:
+        path: minecraft:ui/wax
+  atom:ui_molding_wax_pressed:
+    material: paper
+    model:
+      template: atom:model/full_ui
+      arguments:
+        path: minecraft:ui/wax_dark
+  atom:ui_molding_stone:
+    material: paper
+    model:
+      template: atom:model/full_ui
+      arguments:
+        path: minecraft:ui/stone
+  atom:ui_molding_stone_pressed:
+    material: paper
+    model:
+      template: atom:model/full_ui
+      arguments:
+        path: minecraft:ui/stone_dark

@@ -1,0 +1,15 @@
+items:
+  minecraft:campfire:
+    client-bound-data:
+      lore:
+        - <!i><gray><l10n:item.campfire.lore_1>
+        - ""
+        - <!i><dark_gray><l10n:item.campfire.lore_2>
+        - <!i><dark_gray><l10n:item.campfire.lore_3>
+        - ""
+        - <!i><white><image:atom:badge_workstation> <image:atom:badge_age_foraging>
+translations:
+  en:
+    item.campfire.lore_1: "Early-game cooking and heat."
+    item.campfire.lore_2: "Light by striking with a <#969696>Pebble</#969696>."
+    item.campfire.lore_3: "Place fuel like <gray>Straw</gray> to extend burn time."

@@ -1,0 +1,42 @@
+translations:
+  en:
+    item.sharpened_rock.name: Sharpened Pebble
+    item.sharpened_rock.lore_1: Can be used to cut <gray>raw leather</gray>
+    item.sharpened_rock.lore_2: ' into <gray>raw meat</gray> and <gray>leather</gray>'
+    item.sharpened_rock.lore_3: ' on a <gray>Leather Drying Bed</gray>.'
+    item.flint_knife.name: Flint Knife
+    item.flint_knife.lore_1: A sharp cutting tool
+    item.flint_knife.lore_2: Made from high quality floor rock
+    item.flint_spear.name: Stone Spear
+    item.flint_spear.lore_1: A simple spear
+    item.flint_spear.lore_2: for hunting and combat
+
+    item.straw.name: Straw
+    item.straw.lore_1: Dry grass that can be used as fuel
+    item.straw.lore_2: " in a <gray>Campfire</gray>."
+    item.straw.lore_3: Can be placed on the ground
+    item.straw.lore_4: " used for <gray>kiln firing</gray>."
+
+    item.fire_wood.name: Fire Wood
+    item.fire_wood.lore_1: Chopped wood that can be used as fuel
+    item.fire_wood.lore_2: " in a <gray>Campfire</gray>."
+
+    material.iron.name: Iron
+    material.copper.name: Copper
+    material.bronze.name: Bronze
+
+    item.clay_cauldron.name: Terracotta Melting Pot
+    item.clay_cauldron.lore_1: "A clay pot for melting ores into liquid."
+    item.clay_cauldron.lore_2: "Place above a <gray>lit campfire</gray>."
+    item.clay_cauldron.lore_3: "Compatible ores:"
+    item.clay_cauldron.lore_4: " <#FF8065>Raw Copper</#FF8065>"
+    item.clay_cauldron.lore_5: " <#D2D2D2>Raw Iron</#D2D2D2>"
+
+    category.atom.name: Atom Assets
+    category.atom.lore: Contains all Atom assets
+    category.foraging.name: Foraging Age
+    category.foraging.lore: Contains all Foraging Age assets
+    category.copper.name: Copper Age
+    category.copper.lore: Contains all Copper Age assets
+    category.bronze.name: Bronze Age
+    category.bronze.lore: Contains all Bronze Age assets

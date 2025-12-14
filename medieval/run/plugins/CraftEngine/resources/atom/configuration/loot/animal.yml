@@ -1,0 +1,23 @@
+#vanilla-loots:
+#  minecraft:sheep_loot:
+#    type: entity
+#    target: "minecraft:sheep"
+#    override: true
+#    loot:
+#      pools:
+#        - rolls: 1
+#          entries:
+#            - type: item
+#              item: "atom:animal_bone_sheep"
+#              functions:
+#                - type: limit_count
+#                  min: 1
+#                  max: 3
+#        - rolls: 1
+#          entries:
+#            - type: item
+#              item: "atom:animal_raw_leather_sheep"
+#              functions:
+#                - type: limit_count
+#                  min: 1
+#                  max: 5

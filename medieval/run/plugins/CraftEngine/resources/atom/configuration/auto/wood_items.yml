@@ -1,0 +1,136 @@
+items:
+  minecraft:oak_log:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:oak_planks:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+  minecraft:oak_sapling:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:spruce_log:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:spruce_planks:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+  minecraft:spruce_sapling:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:birch_log:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:birch_planks:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+  minecraft:birch_sapling:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:jungle_log:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:jungle_planks:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+  minecraft:jungle_sapling:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:acacia_log:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:acacia_planks:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+  minecraft:acacia_sapling:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:dark_oak_log:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:dark_oak_planks:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+  minecraft:dark_oak_sapling:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:cherry_log:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:cherry_planks:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+  minecraft:cherry_sapling:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:pale_oak_log:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:pale_oak_planks:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+  minecraft:pale_oak_sapling:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:mangrove_log:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>
+  minecraft:mangrove_planks:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_material> <image:atom:badge_age_foraging>
+  minecraft:mangrove_sapling:
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_natural> <image:atom:badge_age_foraging>

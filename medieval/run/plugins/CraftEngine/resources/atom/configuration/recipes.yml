@@ -1,0 +1,65 @@
+recipes:
+  atom:bricks_from_campfire_clay:
+    type: campfire_cooking
+    category: misc
+    time: 2000
+    ingredient: minecraft:clay_ball
+    result:
+      id: minecraft:brick
+      count: 1
+  atom:campfire:
+    type: shaped
+    pattern:
+      - 'BBB'
+      - 'PLP'
+    ingredients:
+      P: atom:pebble
+      L: "#minecraft:logs"
+      B: atom:stick_bundle
+    result:
+      id: minecraft:campfire
+      count: 1
+  atom:ladder:
+    type: shaped
+    pattern:
+      - 'S S'
+      - 'SBS'
+      - 'S S'
+    ingredients:
+      S: minecraft:stick
+      B: atom:stick_bundle
+    result:
+      id: minecraft:ladder
+      count: 4
+  atom:composter:
+    type: shaped
+    pattern:
+      - 'P P'
+      - 'P P'
+      - 'PSP'
+    ingredients:
+      S: "#minecraft:wooden_slabs"
+      P: "#minecraft:planks"
+    result:
+      id: minecraft:composter
+      count: 1
+  atom:bookshelf:
+    type: shaped
+    pattern:
+      - 'SSS'
+      - 'BBB'
+      - 'SSS'
+    ingredients:
+      S: "#minecraft:wooden_slabs"
+      B: "atom:book_stack"
+    result:
+      id: minecraft:bookshelf
+      count: 2
+  atom:waterskin:
+    type: shapeless
+    ingredients:
+      - "#atom:leather"
+      - minecraft:vine
+    result:
+      id: atom:waterskin
+      count: 1

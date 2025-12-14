@@ -1,0 +1,5 @@
+thirst:
+  variable: thirst
+  placeholder: "%atom_thirst%"
+  update: 20
+  #async: true

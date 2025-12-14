@@ -1,0 +1,73 @@
+{
+  "pack": {
+    "pack_format": 18,
+    "min_format": 18,
+    "max_format": 69,
+    "supported_formats": [18, 69],
+    "description": "§6A crisp pixel art look \n§8|§7 1.20.2-1.21.10_r1"
+  },
+  "overlays": {
+    "entries": [
+      {
+        "directory": "format_18",
+        "min_format": 18,
+        "max_format": 18,
+        "formats": 18
+      },
+      {
+        "directory": "format_18-22",
+        "min_format": 18,
+        "max_format": 22,
+        "formats": [18, 22]
+      },
+      {
+        "directory": "format_18-32",
+        "min_format": 18,
+        "max_format": 32,
+        "formats": [18, 32]
+      },
+      {
+        "directory": "format_18-34",
+        "min_format": 18,
+        "max_format": 34,
+        "formats": [18, 34]
+      },
+      {
+        "directory": "format_18-42",
+        "min_format": 18,
+        "max_format": 42,
+        "formats": [18, 42]
+      },
+      {
+        "directory": "format_18-46",
+        "min_format": 18,
+        "max_format": 46,
+        "formats": [18, 46]
+      },
+      {
+        "directory": "format_18-64",
+        "min_format": 18,
+        "max_format": 64,
+        "formats": [18, 64]
+      },
+      {
+        "directory": "format_32-46",
+        "min_format": 32,
+        "max_format": 46,
+        "formats": [32, 46]
+      },
+      {
+        "directory": "format_34",
+        "min_format": 34,
+        "max_format": 34,
+        "formats": 34
+      },
+      {
+        "directory": "format_46",
+        "min_format": 46,
+        "max_format": 46,
+        "formats": 46
+      }
+    ]
+  }
+}

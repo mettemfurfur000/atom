@@ -1,0 +1,14 @@
+thirst:
+  images:
+    1:
+      name: thirst_empty
+      x: 0
+      y: 0
+    2:
+      name: thirst_bar
+      x: 0
+      y: 0
+  animations:
+    duration: 60
+    x-equation: 0
+    y-equation: 0

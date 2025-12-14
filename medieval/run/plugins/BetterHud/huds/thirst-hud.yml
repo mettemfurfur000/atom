@@ -1,0 +1,10 @@
+thirst_hud:
+  layouts:
+    1:
+      name: thirst
+      gui:
+        x: 50
+        y: 100
+      pixel:
+        x: 51
+        y: -59

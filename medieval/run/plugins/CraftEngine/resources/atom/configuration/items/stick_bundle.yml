@@ -1,0 +1,24 @@
+items:
+  atom:stick_bundle:
+    material: stick
+    client-bound-data:
+      lore:
+        - ""
+        - <!i><white><image:atom:badge_material> <image:atom:badge_age_bronze>
+    data:
+      item-name: <!i><white><l10n:item.stick_bundle.name>
+    model:
+      template: default:model/simplified_generated
+      arguments:
+        path: minecraft:item/wood/sticks
+recipes:
+  atom:stick_bundle:
+    type: shapeless
+    ingredients:
+      - minecraft:stick
+      - minecraft:stick
+      - minecraft:stick
+      - minecraft:vine
+    result:
+      id: atom:stick_bundle
+      count: 1
