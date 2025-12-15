@@ -14,28 +14,25 @@ animals:
       # Row 1: Outer meat, hide in middle, chest organs center
       meat_1:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_cow"
         min_amount: 4
         max_amount: 6
         gui_slot: 0
-        display_material: BEEF
       meat_2:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_cow"
         min_amount: 4
         max_amount: 6
         gui_slot: 1
-        display_material: BEEF
       hide_1:
         display_name: "Hide"
-        tool: axe
+        tool: "#minecraft:axes"
         item: "atom:leather_raw_cow"
         min_amount: 1
         max_amount: 1
         gui_slot: 2
-        display_material: LEATHER
       organs:
         display_name: "Organs"
         tool: none
@@ -43,7 +40,6 @@ animals:
         min_amount: 1
         max_amount: 2
         gui_slot: 3
-        display_material: PORKCHOP
       heart:
         display_name: "Heart"
         tool: none
@@ -51,7 +47,6 @@ animals:
         min_amount: 1
         max_amount: 1
         gui_slot: 4
-        display_material: BEEF
       lungs:
         display_name: "Lungs"
         tool: none
@@ -59,56 +54,49 @@ animals:
         min_amount: 1
         max_amount: 1
         gui_slot: 5
-        display_material: PORKCHOP
       hide_2:
         display_name: "Hide"
-        tool: axe
+        tool: "#minecraft:axes"
         item: "atom:leather_raw_cow"
         min_amount: 1
         max_amount: 1
         gui_slot: 6
-        display_material: LEATHER
       meat_3:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_cow"
         min_amount: 4
         max_amount: 6
         gui_slot: 7
-        display_material: BEEF
       meat_4:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_cow"
         min_amount: 4
         max_amount: 6
         gui_slot: 8
-        display_material: BEEF
       # Row 2: More meat outer, abdominal organs center
       meat_5:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_cow"
         min_amount: 4
         max_amount: 6
         gui_slot: 9
-        display_material: BEEF
       meat_6:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_cow"
         min_amount: 4
         max_amount: 6
         gui_slot: 10
-        display_material: BEEF
       hide_3:
         display_name: "Hide"
-        tool: axe
+        tool: "#minecraft:axes"
         item: "atom:leather_raw_cow"
         min_amount: 1
         max_amount: 1
         gui_slot: 11
-        display_material: LEATHER
       liver:
         display_name: "Liver"
         tool: none
@@ -116,7 +104,6 @@ animals:
         min_amount: 1
         max_amount: 1
         gui_slot: 12
-        display_material: BEEF
       kidney_1:
         display_name: "Kidney"
         tool: none
@@ -124,7 +111,6 @@ animals:
         min_amount: 1
         max_amount: 1
         gui_slot: 13
-        display_material: BEEF
       kidney_2:
         display_name: "Kidney"
         tool: none
@@ -132,96 +118,84 @@ animals:
         min_amount: 1
         max_amount: 1
         gui_slot: 14
-        display_material: BEEF
       hide_4:
         display_name: "Hide"
-        tool: axe
+        tool: "#minecraft:axes"
         item: "atom:leather_raw_cow"
         min_amount: 1
         max_amount: 1
         gui_slot: 15
-        display_material: LEATHER
       meat_7:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_cow"
         min_amount: 4
         max_amount: 6
         gui_slot: 16
-        display_material: BEEF
       meat_8:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_cow"
         min_amount: 4
         max_amount: 6
         gui_slot: 17
-        display_material: BEEF
       # Row 3: Bones on edges, fat in middle
       bone_1:
         display_name: "Bones"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:bone_cow"
         min_amount: 2
         max_amount: 3
         gui_slot: 18
-        display_material: BONE
       bone_2:
         display_name: "Bones"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:bone_cow"
         min_amount: 2
         max_amount: 3
         gui_slot: 19
-        display_material: BONE
       fat_1:
         display_name: "Fat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:fat_cow"
         min_amount: 2
         max_amount: 3
         gui_slot: 20
-        display_material: HONEYCOMB
       fat_2:
         display_name: "Fat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:fat_cow"
         min_amount: 2
         max_amount: 3
         gui_slot: 21
-        display_material: HONEYCOMB
       fat_3:
         display_name: "Fat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:fat_cow"
         min_amount: 2
         max_amount: 3
         gui_slot: 23
-        display_material: HONEYCOMB
       fat_4:
         display_name: "Fat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:fat_cow"
         min_amount: 2
         max_amount: 3
         gui_slot: 24
-        display_material: HONEYCOMB
       bone_3:
         display_name: "Bones"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:bone_cow"
         min_amount: 2
         max_amount: 3
         gui_slot: 25
-        display_material: BONE
       bone_4:
         display_name: "Bones"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:bone_cow"
         min_amount: 2
         max_amount: 3
         gui_slot: 26
-        display_material: BONE
 
   pig:
     display_name: "Pig"
@@ -230,28 +204,25 @@ animals:
     parts:
       meat_1:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_pig"
         min_amount: 3
         max_amount: 5
         gui_slot: 0
-        display_material: PORKCHOP
       meat_2:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_pig"
         min_amount: 3
         max_amount: 5
         gui_slot: 1
-        display_material: PORKCHOP
       hide_1:
         display_name: "Hide"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:leather_raw_pig"
         min_amount: 1
         max_amount: 1
         gui_slot: 2
-        display_material: LEATHER
       organs:
         display_name: "Organs"
         tool: none
@@ -259,7 +230,6 @@ animals:
         min_amount: 1
         max_amount: 2
         gui_slot: 3
-        display_material: PORKCHOP
       heart:
         display_name: "Heart"
         tool: none
@@ -267,7 +237,6 @@ animals:
         min_amount: 1
         max_amount: 1
         gui_slot: 4
-        display_material: PORKCHOP
       lungs:
         display_name: "Lungs"
         tool: none
@@ -275,55 +244,48 @@ animals:
         min_amount: 1
         max_amount: 1
         gui_slot: 5
-        display_material: PORKCHOP
       hide_2:
         display_name: "Hide"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:leather_raw_pig"
         min_amount: 1
         max_amount: 1
         gui_slot: 6
-        display_material: LEATHER
       meat_3:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_pig"
         min_amount: 3
         max_amount: 5
         gui_slot: 7
-        display_material: PORKCHOP
       meat_4:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_pig"
         min_amount: 3
         max_amount: 5
         gui_slot: 8
-        display_material: PORKCHOP
       meat_5:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_pig"
         min_amount: 3
         max_amount: 5
         gui_slot: 9
-        display_material: PORKCHOP
       meat_6:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_pig"
         min_amount: 3
         max_amount: 5
         gui_slot: 10
-        display_material: PORKCHOP
       hide_3:
         display_name: "Hide"
-        tool: axe
+        tool: "#minecraft:axes"
         item: "atom:leather_raw_pig"
         min_amount: 1
         max_amount: 1
         gui_slot: 11
-        display_material: LEATHER
       liver:
         display_name: "Liver"
         tool: none
@@ -331,7 +293,6 @@ animals:
         min_amount: 1
         max_amount: 1
         gui_slot: 12
-        display_material: PORKCHOP
       kidney_1:
         display_name: "Kidney"
         tool: none
@@ -339,7 +300,6 @@ animals:
         min_amount: 1
         max_amount: 1
         gui_slot: 13
-        display_material: PORKCHOP
       kidney_2:
         display_name: "Kidney"
         tool: none
@@ -347,95 +307,83 @@ animals:
         min_amount: 1
         max_amount: 1
         gui_slot: 14
-        display_material: PORKCHOP
       hide_4:
         display_name: "Hide"
-        tool: axe
+        tool: "#minecraft:axes"
         item: "atom:leather_raw_pig"
         min_amount: 1
         max_amount: 1
         gui_slot: 15
-        display_material: LEATHER
       meat_7:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_pig"
         min_amount: 3
         max_amount: 5
         gui_slot: 16
-        display_material: PORKCHOP
       meat_8:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_pig"
         min_amount: 3
         max_amount: 5
         gui_slot: 17
-        display_material: PORKCHOP
       bone_1:
         display_name: "Bones"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:bone_pig"
         min_amount: 1
         max_amount: 2
         gui_slot: 18
-        display_material: BONE
       bone_2:
         display_name: "Bones"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:bone_pig"
         min_amount: 1
         max_amount: 2
         gui_slot: 19
-        display_material: BONE
       fat_1:
         display_name: "Fat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:fat_pig"
         min_amount: 3
         max_amount: 4
         gui_slot: 20
-        display_material: HONEYCOMB
       fat_2:
         display_name: "Fat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:fat_pig"
         min_amount: 3
         max_amount: 4
         gui_slot: 21
-        display_material: HONEYCOMB
       fat_3:
         display_name: "Fat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:fat_pig"
         min_amount: 3
         max_amount: 4
         gui_slot: 23
-        display_material: HONEYCOMB
       fat_4:
         display_name: "Fat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:fat_pig"
         min_amount: 3
         max_amount: 4
         gui_slot: 24
-        display_material: HONEYCOMB
       bone_3:
         display_name: "Bones"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:bone_pig"
         min_amount: 1
         max_amount: 2
         gui_slot: 25
-        display_material: BONE
       bone_4:
         display_name: "Bones"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:bone_pig"
         min_amount: 1
         max_amount: 2
         gui_slot: 26
-        display_material: BONE
 
   sheep:
     display_name: "Sheep"
@@ -444,28 +392,25 @@ animals:
     parts:
       meat_1:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_sheep"
         min_amount: 2
         max_amount: 4
         gui_slot: 0
-        display_material: MUTTON
       meat_2:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_sheep"
         min_amount: 2
         max_amount: 4
         gui_slot: 1
-        display_material: MUTTON
       hide_1:
         display_name: "Wool Hide"
-        tool: axe
+        tool: "#minecraft:axes"
         item: "atom:leather_raw_sheep"
         min_amount: 1
         max_amount: 1
         gui_slot: 2
-        display_material: WHITE_WOOL
       organs:
         display_name: "Organs"
         tool: none
@@ -473,7 +418,6 @@ animals:
         min_amount: 1
         max_amount: 1
         gui_slot: 3
-        display_material: MUTTON
       heart:
         display_name: "Heart"
         tool: none
@@ -481,7 +425,6 @@ animals:
         min_amount: 1
         max_amount: 1
         gui_slot: 4
-        display_material: MUTTON
       lungs:
         display_name: "Lungs"
         tool: none
@@ -489,55 +432,48 @@ animals:
         min_amount: 1
         max_amount: 1
         gui_slot: 5
-        display_material: PORKCHOP
       hide_2:
         display_name: "Wool Hide"
-        tool: axe
+        tool: "#minecraft:axes"
         item: "atom:leather_raw_sheep"
         min_amount: 1
         max_amount: 1
         gui_slot: 6
-        display_material: WHITE_WOOL
       meat_3:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_sheep"
         min_amount: 2
         max_amount: 4
         gui_slot: 7
-        display_material: MUTTON
       meat_4:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_sheep"
         min_amount: 2
         max_amount: 4
         gui_slot: 8
-        display_material: MUTTON
       meat_5:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_sheep"
         min_amount: 2
         max_amount: 4
         gui_slot: 9
-        display_material: MUTTON
       meat_6:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_sheep"
         min_amount: 2
         max_amount: 4
         gui_slot: 10
-        display_material: MUTTON
       hide_3:
         display_name: "Wool Hide"
-        tool: axe
+        tool: "#minecraft:axes"
         item: "atom:leather_raw_sheep"
         min_amount: 1
         max_amount: 1
         gui_slot: 11
-        display_material: WHITE_WOOL
       liver:
         display_name: "Liver"
         tool: none
@@ -545,7 +481,6 @@ animals:
         min_amount: 1
         max_amount: 1
         gui_slot: 12
-        display_material: MUTTON
       kidney_1:
         display_name: "Kidney"
         tool: none
@@ -553,7 +488,6 @@ animals:
         min_amount: 1
         max_amount: 1
         gui_slot: 13
-        display_material: MUTTON
       kidney_2:
         display_name: "Kidney"
         tool: none
@@ -561,63 +495,55 @@ animals:
         min_amount: 1
         max_amount: 1
         gui_slot: 14
-        display_material: MUTTON
       hide_4:
         display_name: "Wool Hide"
-        tool: axe
+        tool: "#minecraft:axes"
         item: "atom:leather_raw_sheep"
         min_amount: 1
         max_amount: 1
         gui_slot: 15
-        display_material: WHITE_WOOL
       meat_7:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_sheep"
         min_amount: 2
         max_amount: 4
         gui_slot: 16
-        display_material: MUTTON
       meat_8:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_sheep"
         min_amount: 2
         max_amount: 4
         gui_slot: 17
-        display_material: MUTTON
       bone_1:
         display_name: "Bones"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:bone_sheep"
         min_amount: 1
         max_amount: 2
         gui_slot: 18
-        display_material: BONE
       bone_2:
         display_name: "Bones"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:bone_sheep"
         min_amount: 1
         max_amount: 2
         gui_slot: 19
-        display_material: BONE
       bone_3:
         display_name: "Bones"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:bone_sheep"
         min_amount: 1
         max_amount: 2
         gui_slot: 25
-        display_material: BONE
       bone_4:
         display_name: "Bones"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:bone_sheep"
         min_amount: 1
         max_amount: 2
         gui_slot: 26
-        display_material: BONE
 
   horse:
     display_name: "Horse"
@@ -626,28 +552,25 @@ animals:
     parts:
       meat_1:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_horse"
         min_amount: 5
         max_amount: 7
         gui_slot: 0
-        display_material: BEEF
       meat_2:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_horse"
         min_amount: 5
         max_amount: 7
         gui_slot: 1
-        display_material: BEEF
       hide_1:
         display_name: "Hide"
-        tool: axe
+        tool: "#minecraft:axes"
         item: "atom:leather_raw_horse"
         min_amount: 1
         max_amount: 1
         gui_slot: 2
-        display_material: LEATHER
       organs:
         display_name: "Organs"
         tool: none
@@ -655,7 +578,6 @@ animals:
         min_amount: 2
         max_amount: 3
         gui_slot: 3
-        display_material: BEEF
       heart:
         display_name: "Heart"
         tool: none
@@ -663,7 +585,6 @@ animals:
         min_amount: 1
         max_amount: 1
         gui_slot: 4
-        display_material: BEEF
       lungs:
         display_name: "Lungs"
         tool: none
@@ -671,55 +592,48 @@ animals:
         min_amount: 1
         max_amount: 1
         gui_slot: 5
-        display_material: PORKCHOP
       hide_2:
         display_name: "Hide"
-        tool: axe
+        tool: "#minecraft:axes"
         item: "atom:leather_raw_horse"
         min_amount: 1
         max_amount: 1
         gui_slot: 6
-        display_material: LEATHER
       meat_3:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_horse"
         min_amount: 5
         max_amount: 7
         gui_slot: 7
-        display_material: BEEF
       meat_4:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_horse"
         min_amount: 5
         max_amount: 7
         gui_slot: 8
-        display_material: BEEF
       meat_5:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_horse"
         min_amount: 5
         max_amount: 7
         gui_slot: 9
-        display_material: BEEF
       meat_6:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_horse"
         min_amount: 5
         max_amount: 7
         gui_slot: 10
-        display_material: BEEF
       hide_3:
         display_name: "Hide"
-        tool: axe
+        tool: "#minecraft:axes"
         item: "atom:leather_raw_horse"
         min_amount: 1
         max_amount: 1
         gui_slot: 11
-        display_material: LEATHER
       liver:
         display_name: "Liver"
         tool: none
@@ -727,7 +641,6 @@ animals:
         min_amount: 1
         max_amount: 1
         gui_slot: 12
-        display_material: BEEF
       kidney_1:
         display_name: "Kidney"
         tool: none
@@ -735,7 +648,6 @@ animals:
         min_amount: 1
         max_amount: 1
         gui_slot: 13
-        display_material: BEEF
       kidney_2:
         display_name: "Kidney"
         tool: none
@@ -743,63 +655,55 @@ animals:
         min_amount: 1
         max_amount: 1
         gui_slot: 14
-        display_material: BEEF
       hide_4:
         display_name: "Hide"
-        tool: axe
+        tool: "#minecraft:axes"
         item: "atom:leather_raw_horse"
         min_amount: 1
         max_amount: 1
         gui_slot: 15
-        display_material: LEATHER
       meat_7:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_horse"
         min_amount: 5
         max_amount: 7
         gui_slot: 16
-        display_material: BEEF
       meat_8:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_horse"
         min_amount: 5
         max_amount: 7
         gui_slot: 17
-        display_material: BEEF
       bone_1:
         display_name: "Bones"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:bone_horse"
         min_amount: 2
         max_amount: 4
         gui_slot: 18
-        display_material: BONE
       bone_2:
         display_name: "Bones"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:bone_horse"
         min_amount: 2
         max_amount: 4
         gui_slot: 19
-        display_material: BONE
       bone_3:
         display_name: "Bones"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:bone_horse"
         min_amount: 2
         max_amount: 4
         gui_slot: 25
-        display_material: BONE
       bone_4:
         display_name: "Bones"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:bone_horse"
         min_amount: 2
         max_amount: 4
         gui_slot: 26
-        display_material: BONE
 
   goat:
     display_name: "Goat"
@@ -808,28 +712,25 @@ animals:
     parts:
       meat_1:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_goat"
         min_amount: 2
         max_amount: 4
         gui_slot: 0
-        display_material: MUTTON
       meat_2:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_goat"
         min_amount: 2
         max_amount: 4
         gui_slot: 1
-        display_material: MUTTON
       hide_1:
         display_name: "Hide"
-        tool: axe
+        tool: "#minecraft:axes"
         item: "atom:leather_raw_goat"
         min_amount: 1
         max_amount: 1
         gui_slot: 2
-        display_material: LEATHER
       organs:
         display_name: "Organs"
         tool: none
@@ -837,7 +738,6 @@ animals:
         min_amount: 1
         max_amount: 2
         gui_slot: 3
-        display_material: MUTTON
       heart:
         display_name: "Heart"
         tool: none
@@ -845,7 +745,6 @@ animals:
         min_amount: 1
         max_amount: 1
         gui_slot: 4
-        display_material: MUTTON
       lungs:
         display_name: "Lungs"
         tool: none
@@ -853,55 +752,48 @@ animals:
         min_amount: 1
         max_amount: 1
         gui_slot: 5
-        display_material: PORKCHOP
       hide_2:
         display_name: "Hide"
-        tool: axe
+        tool: "#minecraft:axes"
         item: "atom:leather_raw_goat"
         min_amount: 1
         max_amount: 1
         gui_slot: 6
-        display_material: LEATHER
       meat_3:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_goat"
         min_amount: 2
         max_amount: 4
         gui_slot: 7
-        display_material: MUTTON
       meat_4:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_goat"
         min_amount: 2
         max_amount: 4
         gui_slot: 8
-        display_material: MUTTON
       meat_5:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_goat"
         min_amount: 2
         max_amount: 4
         gui_slot: 9
-        display_material: MUTTON
       meat_6:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_goat"
         min_amount: 2
         max_amount: 4
         gui_slot: 10
-        display_material: MUTTON
       hide_3:
         display_name: "Hide"
-        tool: axe
+        tool: "#minecraft:axes"
         item: "atom:leather_raw_goat"
         min_amount: 1
         max_amount: 1
         gui_slot: 11
-        display_material: LEATHER
       liver:
         display_name: "Liver"
         tool: none
@@ -909,7 +801,6 @@ animals:
         min_amount: 1
         max_amount: 1
         gui_slot: 12
-        display_material: MUTTON
       kidney_1:
         display_name: "Kidney"
         tool: none
@@ -917,7 +808,6 @@ animals:
         min_amount: 1
         max_amount: 1
         gui_slot: 13
-        display_material: MUTTON
       kidney_2:
         display_name: "Kidney"
         tool: none
@@ -925,63 +815,55 @@ animals:
         min_amount: 1
         max_amount: 1
         gui_slot: 14
-        display_material: MUTTON
       hide_4:
         display_name: "Hide"
-        tool: axe
+        tool: "#minecraft:axes"
         item: "atom:leather_raw_goat"
         min_amount: 1
         max_amount: 1
         gui_slot: 15
-        display_material: LEATHER
       meat_7:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_goat"
         min_amount: 2
         max_amount: 4
         gui_slot: 16
-        display_material: MUTTON
       meat_8:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_goat"
         min_amount: 2
         max_amount: 4
         gui_slot: 17
-        display_material: MUTTON
       bone_1:
         display_name: "Bones"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:bone_goat"
         min_amount: 1
         max_amount: 2
         gui_slot: 18
-        display_material: BONE
       bone_2:
         display_name: "Bones"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:bone_goat"
         min_amount: 1
         max_amount: 2
         gui_slot: 19
-        display_material: BONE
       bone_3:
         display_name: "Bones"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:bone_goat"
         min_amount: 1
         max_amount: 2
         gui_slot: 25
-        display_material: BONE
       bone_4:
         display_name: "Bones"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:bone_goat"
         min_amount: 1
         max_amount: 2
         gui_slot: 26
-        display_material: BONE
 
   donkey:
     display_name: "Donkey"
@@ -990,28 +872,25 @@ animals:
     parts:
       meat_1:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_donkey"
         min_amount: 4
         max_amount: 6
         gui_slot: 0
-        display_material: BEEF
       meat_2:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_donkey"
         min_amount: 4
         max_amount: 6
         gui_slot: 1
-        display_material: BEEF
       hide_1:
         display_name: "Hide"
-        tool: axe
+        tool: "#minecraft:axes"
         item: "atom:leather_raw_donkey"
         min_amount: 1
         max_amount: 1
         gui_slot: 2
-        display_material: LEATHER
       organs:
         display_name: "Organs"
         tool: none
@@ -1019,7 +898,6 @@ animals:
         min_amount: 1
         max_amount: 2
         gui_slot: 3
-        display_material: BEEF
       heart:
         display_name: "Heart"
         tool: none
@@ -1027,7 +905,6 @@ animals:
         min_amount: 1
         max_amount: 1
         gui_slot: 4
-        display_material: BEEF
       lungs:
         display_name: "Lungs"
         tool: none
@@ -1035,55 +912,48 @@ animals:
         min_amount: 1
         max_amount: 1
         gui_slot: 5
-        display_material: PORKCHOP
       hide_2:
         display_name: "Hide"
-        tool: axe
+        tool: "#minecraft:axes"
         item: "atom:leather_raw_donkey"
         min_amount: 1
         max_amount: 1
         gui_slot: 6
-        display_material: LEATHER
       meat_3:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_donkey"
         min_amount: 4
         max_amount: 6
         gui_slot: 7
-        display_material: BEEF
       meat_4:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_donkey"
         min_amount: 4
         max_amount: 6
         gui_slot: 8
-        display_material: BEEF
       meat_5:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_donkey"
         min_amount: 4
         max_amount: 6
         gui_slot: 9
-        display_material: BEEF
       meat_6:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_donkey"
         min_amount: 4
         max_amount: 6
         gui_slot: 10
-        display_material: BEEF
       hide_3:
         display_name: "Hide"
-        tool: axe
+        tool: "#minecraft:axes"
         item: "atom:leather_raw_donkey"
         min_amount: 1
         max_amount: 1
         gui_slot: 11
-        display_material: LEATHER
       liver:
         display_name: "Liver"
         tool: none
@@ -1091,7 +961,6 @@ animals:
         min_amount: 1
         max_amount: 1
         gui_slot: 12
-        display_material: BEEF
       kidney_1:
         display_name: "Kidney"
         tool: none
@@ -1099,7 +968,6 @@ animals:
         min_amount: 1
         max_amount: 1
         gui_slot: 13
-        display_material: BEEF
       kidney_2:
         display_name: "Kidney"
         tool: none
@@ -1107,63 +975,55 @@ animals:
         min_amount: 1
         max_amount: 1
         gui_slot: 14
-        display_material: BEEF
       hide_4:
         display_name: "Hide"
-        tool: axe
+        tool: "#minecraft:axes"
         item: "atom:leather_raw_donkey"
         min_amount: 1
         max_amount: 1
         gui_slot: 15
-        display_material: LEATHER
       meat_7:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_donkey"
         min_amount: 4
         max_amount: 6
         gui_slot: 16
-        display_material: BEEF
       meat_8:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_donkey"
         min_amount: 4
         max_amount: 6
         gui_slot: 17
-        display_material: BEEF
       bone_1:
         display_name: "Bones"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:bone_donkey"
         min_amount: 2
         max_amount: 3
         gui_slot: 18
-        display_material: BONE
       bone_2:
         display_name: "Bones"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:bone_donkey"
         min_amount: 2
         max_amount: 3
         gui_slot: 19
-        display_material: BONE
       bone_3:
         display_name: "Bones"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:bone_donkey"
         min_amount: 2
         max_amount: 3
         gui_slot: 25
-        display_material: BONE
       bone_4:
         display_name: "Bones"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:bone_donkey"
         min_amount: 2
         max_amount: 3
         gui_slot: 26
-        display_material: BONE
 
   mule:
     display_name: "Mule"
@@ -1172,28 +1032,25 @@ animals:
     parts:
       meat_1:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_mule"
         min_amount: 4
         max_amount: 6
         gui_slot: 0
-        display_material: BEEF
       meat_2:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_mule"
         min_amount: 4
         max_amount: 6
         gui_slot: 1
-        display_material: BEEF
       hide_1:
         display_name: "Hide"
-        tool: axe
+        tool: "#minecraft:axes"
         item: "atom:leather_raw_mule"
         min_amount: 1
         max_amount: 1
         gui_slot: 2
-        display_material: LEATHER
       organs:
         display_name: "Organs"
         tool: none
@@ -1201,7 +1058,6 @@ animals:
         min_amount: 1
         max_amount: 2
         gui_slot: 3
-        display_material: BEEF
       heart:
         display_name: "Heart"
         tool: none
@@ -1209,7 +1065,6 @@ animals:
         min_amount: 1
         max_amount: 1
         gui_slot: 4
-        display_material: BEEF
       lungs:
         display_name: "Lungs"
         tool: none
@@ -1217,55 +1072,48 @@ animals:
         min_amount: 1
         max_amount: 1
         gui_slot: 5
-        display_material: PORKCHOP
       hide_2:
         display_name: "Hide"
-        tool: axe
+        tool: "#minecraft:axes"
         item: "atom:leather_raw_mule"
         min_amount: 1
         max_amount: 1
         gui_slot: 6
-        display_material: LEATHER
       meat_3:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_mule"
         min_amount: 4
         max_amount: 6
         gui_slot: 7
-        display_material: BEEF
       meat_4:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_mule"
         min_amount: 4
         max_amount: 6
         gui_slot: 8
-        display_material: BEEF
       meat_5:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_mule"
         min_amount: 4
         max_amount: 6
         gui_slot: 9
-        display_material: BEEF
       meat_6:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_mule"
         min_amount: 4
         max_amount: 6
         gui_slot: 10
-        display_material: BEEF
       hide_3:
         display_name: "Hide"
-        tool: axe
+        tool: "#minecraft:axes"
         item: "atom:leather_raw_mule"
         min_amount: 1
         max_amount: 1
         gui_slot: 11
-        display_material: LEATHER
       liver:
         display_name: "Liver"
         tool: none
@@ -1273,7 +1121,6 @@ animals:
         min_amount: 1
         max_amount: 1
         gui_slot: 12
-        display_material: BEEF
       kidney_1:
         display_name: "Kidney"
         tool: none
@@ -1281,7 +1128,6 @@ animals:
         min_amount: 1
         max_amount: 1
         gui_slot: 13
-        display_material: BEEF
       kidney_2:
         display_name: "Kidney"
         tool: none
@@ -1289,63 +1135,55 @@ animals:
         min_amount: 1
         max_amount: 1
         gui_slot: 14
-        display_material: BEEF
       hide_4:
         display_name: "Hide"
-        tool: axe
+        tool: "#minecraft:axes"
         item: "atom:leather_raw_mule"
         min_amount: 1
         max_amount: 1
         gui_slot: 15
-        display_material: LEATHER
       meat_7:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_mule"
         min_amount: 4
         max_amount: 6
         gui_slot: 16
-        display_material: BEEF
       meat_8:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_mule"
         min_amount: 4
         max_amount: 6
         gui_slot: 17
-        display_material: BEEF
       bone_1:
         display_name: "Bones"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:bone_mule"
         min_amount: 2
         max_amount: 3
         gui_slot: 18
-        display_material: BONE
       bone_2:
         display_name: "Bones"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:bone_mule"
         min_amount: 2
         max_amount: 3
         gui_slot: 19
-        display_material: BONE
       bone_3:
         display_name: "Bones"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:bone_mule"
         min_amount: 2
         max_amount: 3
         gui_slot: 25
-        display_material: BONE
       bone_4:
         display_name: "Bones"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:bone_mule"
         min_amount: 2
         max_amount: 3
         gui_slot: 26
-        display_material: BONE
 
   llama:
     display_name: "Llama"
@@ -1354,28 +1192,25 @@ animals:
     parts:
       meat_1:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_llama"
         min_amount: 3
         max_amount: 5
         gui_slot: 0
-        display_material: MUTTON
       meat_2:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_llama"
         min_amount: 3
         max_amount: 5
         gui_slot: 1
-        display_material: MUTTON
       hide_1:
         display_name: "Hide"
-        tool: axe
+        tool: "#minecraft:axes"
         item: "atom:leather_raw_llama"
         min_amount: 1
         max_amount: 1
         gui_slot: 2
-        display_material: LEATHER
       organs:
         display_name: "Organs"
         tool: none
@@ -1383,7 +1218,6 @@ animals:
         min_amount: 1
         max_amount: 2
         gui_slot: 3
-        display_material: MUTTON
       heart:
         display_name: "Heart"
         tool: none
@@ -1391,7 +1225,6 @@ animals:
         min_amount: 1
         max_amount: 1
         gui_slot: 4
-        display_material: MUTTON
       lungs:
         display_name: "Lungs"
         tool: none
@@ -1399,55 +1232,48 @@ animals:
         min_amount: 1
         max_amount: 1
         gui_slot: 5
-        display_material: PORKCHOP
       hide_2:
         display_name: "Hide"
-        tool: axe
+        tool: "#minecraft:axes"
         item: "atom:leather_raw_llama"
         min_amount: 1
         max_amount: 1
         gui_slot: 6
-        display_material: LEATHER
       meat_3:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_llama"
         min_amount: 3
         max_amount: 5
         gui_slot: 7
-        display_material: MUTTON
       meat_4:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_llama"
         min_amount: 3
         max_amount: 5
         gui_slot: 8
-        display_material: MUTTON
       meat_5:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_llama"
         min_amount: 3
         max_amount: 5
         gui_slot: 9
-        display_material: MUTTON
       meat_6:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_llama"
         min_amount: 3
         max_amount: 5
         gui_slot: 10
-        display_material: MUTTON
       hide_3:
         display_name: "Hide"
-        tool: axe
+        tool: "#minecraft:axes"
         item: "atom:leather_raw_llama"
         min_amount: 1
         max_amount: 1
         gui_slot: 11
-        display_material: LEATHER
       liver:
         display_name: "Liver"
         tool: none
@@ -1455,7 +1281,6 @@ animals:
         min_amount: 1
         max_amount: 1
         gui_slot: 12
-        display_material: MUTTON
       kidney_1:
         display_name: "Kidney"
         tool: none
@@ -1463,7 +1288,6 @@ animals:
         min_amount: 1
         max_amount: 1
         gui_slot: 13
-        display_material: MUTTON
       kidney_2:
         display_name: "Kidney"
         tool: none
@@ -1471,63 +1295,55 @@ animals:
         min_amount: 1
         max_amount: 1
         gui_slot: 14
-        display_material: MUTTON
       hide_4:
         display_name: "Hide"
-        tool: axe
+        tool: "#minecraft:axes"
         item: "atom:leather_raw_llama"
         min_amount: 1
         max_amount: 1
         gui_slot: 15
-        display_material: LEATHER
       meat_7:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_llama"
         min_amount: 3
         max_amount: 5
         gui_slot: 16
-        display_material: MUTTON
       meat_8:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_llama"
         min_amount: 3
         max_amount: 5
         gui_slot: 17
-        display_material: MUTTON
       bone_1:
         display_name: "Bones"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:bone_llama"
         min_amount: 2
         max_amount: 3
         gui_slot: 18
-        display_material: BONE
       bone_2:
         display_name: "Bones"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:bone_llama"
         min_amount: 2
         max_amount: 3
         gui_slot: 19
-        display_material: BONE
       bone_3:
         display_name: "Bones"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:bone_llama"
         min_amount: 2
         max_amount: 3
         gui_slot: 25
-        display_material: BONE
       bone_4:
         display_name: "Bones"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:bone_llama"
         min_amount: 2
         max_amount: 3
         gui_slot: 26
-        display_material: BONE
 
   camel:
     display_name: "Camel"
@@ -1536,28 +1352,25 @@ animals:
     parts:
       meat_1:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_camel"
         min_amount: 5
         max_amount: 7
         gui_slot: 0
-        display_material: BEEF
       meat_2:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_camel"
         min_amount: 5
         max_amount: 7
         gui_slot: 1
-        display_material: BEEF
       hide_1:
         display_name: "Hide"
-        tool: axe
+        tool: "#minecraft:axes"
         item: "atom:leather_raw_camel"
         min_amount: 1
         max_amount: 1
         gui_slot: 2
-        display_material: LEATHER
       organs:
         display_name: "Organs"
         tool: none
@@ -1565,7 +1378,6 @@ animals:
         min_amount: 2
         max_amount: 3
         gui_slot: 3
-        display_material: BEEF
       heart:
         display_name: "Heart"
         tool: none
@@ -1573,7 +1385,6 @@ animals:
         min_amount: 1
         max_amount: 1
         gui_slot: 4
-        display_material: BEEF
       lungs:
         display_name: "Lungs"
         tool: none
@@ -1581,55 +1392,48 @@ animals:
         min_amount: 1
         max_amount: 1
         gui_slot: 5
-        display_material: PORKCHOP
       hide_2:
         display_name: "Hide"
-        tool: axe
+        tool: "#minecraft:axes"
         item: "atom:leather_raw_camel"
         min_amount: 1
         max_amount: 1
         gui_slot: 6
-        display_material: LEATHER
       meat_3:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_camel"
         min_amount: 5
         max_amount: 7
         gui_slot: 7
-        display_material: BEEF
       meat_4:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_camel"
         min_amount: 5
         max_amount: 7
         gui_slot: 8
-        display_material: BEEF
       meat_5:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_camel"
         min_amount: 5
         max_amount: 7
         gui_slot: 9
-        display_material: BEEF
       meat_6:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_camel"
         min_amount: 5
         max_amount: 7
         gui_slot: 10
-        display_material: BEEF
       hide_3:
         display_name: "Hide"
-        tool: axe
+        tool: "#minecraft:axes"
         item: "atom:leather_raw_camel"
         min_amount: 1
         max_amount: 1
         gui_slot: 11
-        display_material: LEATHER
       liver:
         display_name: "Liver"
         tool: none
@@ -1637,7 +1441,6 @@ animals:
         min_amount: 1
         max_amount: 1
         gui_slot: 12
-        display_material: BEEF
       kidney_1:
         display_name: "Kidney"
         tool: none
@@ -1645,7 +1448,6 @@ animals:
         min_amount: 1
         max_amount: 1
         gui_slot: 13
-        display_material: BEEF
       kidney_2:
         display_name: "Kidney"
         tool: none
@@ -1653,87 +1455,76 @@ animals:
         min_amount: 1
         max_amount: 1
         gui_slot: 14
-        display_material: BEEF
       hide_4:
         display_name: "Hide"
-        tool: axe
+        tool: "#minecraft:axes"
         item: "atom:leather_raw_camel"
         min_amount: 1
         max_amount: 1
         gui_slot: 15
-        display_material: LEATHER
       meat_7:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_camel"
         min_amount: 5
         max_amount: 7
         gui_slot: 16
-        display_material: BEEF
       meat_8:
         display_name: "Meat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:meat_raw_camel"
         min_amount: 5
         max_amount: 7
         gui_slot: 17
-        display_material: BEEF
       bone_1:
         display_name: "Bones"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:bone_camel"
         min_amount: 2
         max_amount: 4
         gui_slot: 18
-        display_material: BONE
       bone_2:
         display_name: "Bones"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:bone_camel"
         min_amount: 2
         max_amount: 4
         gui_slot: 19
-        display_material: BONE
       fat_1:
         display_name: "Fat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:fat_camel"
         min_amount: 2
         max_amount: 3
         gui_slot: 21
-        display_material: HONEYCOMB
       fat_2:
         display_name: "Fat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:fat_camel"
         min_amount: 2
         max_amount: 3
         gui_slot: 22
-        display_material: HONEYCOMB
       fat_3:
         display_name: "Fat"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:fat_camel"
         min_amount: 2
         max_amount: 3
         gui_slot: 23
-        display_material: HONEYCOMB
       bone_3:
         display_name: "Bones"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:bone_camel"
         min_amount: 2
         max_amount: 4
         gui_slot: 25
-        display_material: BONE
       bone_4:
         display_name: "Bones"
-        tool: knife
+        tool: "#minecraft:knives"
         item: "atom:bone_camel"
         min_amount: 2
         max_amount: 4
         gui_slot: 26
-        display_material: BONE
 
   # ===== SMALL ANIMALS (2 rows) =====
   chicken:
@@ -1750,7 +1541,6 @@ animals:
         min_amount: 2
         max_amount: 3
         gui_slot: 0
-        display_material: FEATHER
         external: true
       meat_1:
         display_name: "Meat"
@@ -1759,7 +1549,6 @@ animals:
         min_amount: 1
         max_amount: 2
         gui_slot: 1
-        display_material: CHICKEN
       organs:
         display_name: "Organs"
         tool: none
@@ -1767,7 +1556,6 @@ animals:
         min_amount: 1
         max_amount: 1
         gui_slot: 3
-        display_material: CHICKEN
       heart:
         display_name: "Heart"
         tool: none
@@ -1775,7 +1563,6 @@ animals:
         min_amount: 1
         max_amount: 1
         gui_slot: 4
-        display_material: CHICKEN
       liver:
         display_name: "Liver"
         tool: none
@@ -1783,7 +1570,6 @@ animals:
         min_amount: 1
         max_amount: 1
         gui_slot: 5
-        display_material: CHICKEN
       meat_2:
         display_name: "Meat"
         tool: none
@@ -1791,7 +1577,6 @@ animals:
         min_amount: 1
         max_amount: 2
         gui_slot: 7
-        display_material: CHICKEN
       feathers_2:
         display_name: "Feathers"
         tool: none
@@ -1799,7 +1584,6 @@ animals:
         min_amount: 2
         max_amount: 3
         gui_slot: 8
-        display_material: FEATHER
         external: true
       # Row 2: Bones
       bone_1:
@@ -1809,7 +1593,6 @@ animals:
         min_amount: 1
         max_amount: 2
         gui_slot: 12
-        display_material: BONE
       bone_2:
         display_name: "Bones"
         tool: none
@@ -1817,7 +1600,6 @@ animals:
         min_amount: 1
         max_amount: 2
         gui_slot: 14
-        display_material: BONE
 
   rabbit:
     display_name: "Rabbit"
@@ -1833,7 +1615,6 @@ animals:
         min_amount: 1
         max_amount: 1
         gui_slot: 0
-        display_material: RABBIT_HIDE
       meat_1:
         display_name: "Meat"
         tool: none
@@ -1841,7 +1622,6 @@ animals:
         min_amount: 1
         max_amount: 2
         gui_slot: 1
-        display_material: RABBIT
       meat_2:
         display_name: "Meat"
         tool: none
@@ -1849,7 +1629,6 @@ animals:
         min_amount: 1
         max_amount: 2
         gui_slot: 2
-        display_material: RABBIT
       organs:
         display_name: "Organs"
         tool: none
@@ -1857,7 +1636,6 @@ animals:
         min_amount: 1
         max_amount: 1
         gui_slot: 4
-        display_material: RABBIT
       meat_3:
         display_name: "Meat"
         tool: none
@@ -1865,7 +1643,6 @@ animals:
         min_amount: 1
         max_amount: 2
         gui_slot: 6
-        display_material: RABBIT
       meat_4:
         display_name: "Meat"
         tool: none
@@ -1873,7 +1650,6 @@ animals:
         min_amount: 1
         max_amount: 2
         gui_slot: 7
-        display_material: RABBIT
       hide_2:
         display_name: "Hide"
         tool: none
@@ -1881,7 +1657,6 @@ animals:
         min_amount: 1
         max_amount: 1
         gui_slot: 8
-        display_material: RABBIT_HIDE
       # Row 2: Bones
       bone_1:
         display_name: "Bones"
@@ -1890,7 +1665,6 @@ animals:
         min_amount: 1
         max_amount: 2
         gui_slot: 12
-        display_material: BONE
       bone_2:
         display_name: "Bones"
         tool: none
@@ -1898,4 +1672,3 @@ animals:
         min_amount: 1
         max_amount: 2
         gui_slot: 14
-        display_material: BONE

@@ -41,14 +41,15 @@ class CarcassBlockBehavior(block: CustomBlock) : AtomBlock<CarcassBlockEntity>(
             val cfg = blockEntity.getConfig()
             if (cfg != null && cfg.requiresButchering) {
                 val heldItem = player.inventory.itemInMainHand
-                val hasKnife = ToolRequirement.KNIFE.isSatisfiedBy(heldItem)
-                
+                val knifeRequirement = ToolRequirement.ItemTag("#minecraft:knives")
+                val hasKnife = knifeRequirement.isSatisfiedBy(heldItem)
+
                 if (!hasKnife) {
                     ActionBarManager.send(player, "carcass", "<red>You need a knife to open this carcass</red>")
                     return InteractionResult.PASS
                 }
             }
-            
+
             blockEntity.markOpened()
         }
         

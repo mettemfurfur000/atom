@@ -7,6 +7,9 @@ items:
         - <!i><gray><l10n:item.flint_knife.lore_2>
         - ""
         - <!i><white><image:atom:badge_tool> <image:atom:badge_age_foraging>
+    settings:
+      tags:
+        - minecraft:knives
     data:
       item-name: <!i><white><l10n:item.flint_knife.name>
       remove-components:
