@@ -12,7 +12,7 @@ public class SeasonAPI {
         WINTER(-10.0);
 
         @Getter
-        private final double tempModifier;
+        public final double tempModifier;
 
         Season(double tempModifier) {
             this.tempModifier = tempModifier;
