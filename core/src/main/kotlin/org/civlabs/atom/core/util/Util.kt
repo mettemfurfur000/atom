@@ -1,4 +1,4 @@
-package org.shotrush.atom
+package org.civlabs.atom.core.util
 
 import com.mojang.serialization.DataResult
 import net.kyori.adventure.audience.Audience
@@ -17,11 +17,9 @@ import org.bukkit.Location
 import org.bukkit.World
 import org.bukkit.block.Block
 import org.bukkit.inventory.ItemStack
-import org.shotrush.atom.api.BlockRef
-import org.shotrush.atom.api.SingleItemRef
-import org.shotrush.atom.item.isItem
-import org.shotrush.atom.util.Key
-import org.shotrush.atom.util.asAtomKey
+import org.civlabs.atom.core.CoreAtom
+import org.civlabs.atom.core.api.BlockRef
+import org.civlabs.atom.core.api.SingleItemRef
 import kotlin.jvm.optionals.getOrElse
 import kotlin.time.Duration
 import net.momirealms.craftengine.core.util.Key as CEKey
@@ -45,7 +43,9 @@ fun ItemStack.matches(key: CEKey) = getNamespacedKey() == key.toString()
 fun ItemStack.matches(key: String) = getNamespacedKey() == key
 fun ItemStack.matches(namespace: String, path: String) = getNamespacedKey() == "$namespace:$path"
 fun ItemStack.matches(item: CustomItem<ItemStack>) = item.isItem(this)
-
+fun CustomItem<ItemStack>.isItem(item: ItemStack): Boolean {
+    return CraftEngineItems.getCustomItemId(item) == this.id()
+}
 fun ItemStack.asReference() = CraftEngineItems.getCustomItemId(this)?.let { SingleItemRef.keyed(it.asAtomKey()) }
     ?: SingleItemRef.MaterialRef(type)
 
@@ -70,7 +70,7 @@ fun CompoundTag.getItemStack(key: String): ItemStack {
     if (getTagType(key).toInt() != 10) return ItemStack.empty()
     return getCompound(key)?.let { tag ->
         CoreReflections.`instance$ItemStack$CODEC`.parse(MRegistryOps.SPARROW_NBT, tag).resultOrPartial { err ->
-            Atom.instance.logger.severe("Tried to load invalid item: '$tag'. $err")
+            CoreAtom.instance.logger.severe("Tried to load invalid item: '$tag'. $err")
         }.map { result -> FastNMS.INSTANCE.`method$CraftItemStack$asCraftMirror`(result) }
             .getOrElse { ItemStack.empty() }
     } ?: ItemStack.empty()
@@ -85,7 +85,7 @@ fun CompoundTag.putItemStack(key: String, item: ItemStack) {
         val itemTag = success as CompoundTag
         this.put(key, itemTag)
     }.ifError { error: DataResult.Error<Tag> ->
-        Atom.instance.logger.severe("Error while saving storage item: $error")
+        CoreAtom.instance.logger.severe("Error while saving storage item: $error")
     }
 }
 

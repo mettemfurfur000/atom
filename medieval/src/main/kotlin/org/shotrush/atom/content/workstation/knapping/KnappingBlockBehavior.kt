@@ -33,9 +33,9 @@ import org.bukkit.inventory.ItemStack
 import org.shotrush.atom.Atom
 import org.shotrush.atom.blocks.AtomBlock
 import org.shotrush.atom.content.workstation.Workstations
-import org.shotrush.atom.format
-import org.shotrush.atom.getNamespacedKey
-import org.shotrush.atom.isCustomItem
+import org.civlabs.atom.core.util.format
+import org.civlabs.atom.core.util.getNamespacedKey
+import org.civlabs.atom.core.util.isCustomItem
 import org.shotrush.atom.item.Items
 import org.shotrush.atom.item.MoldShape
 import kotlin.time.Duration.Companion.seconds

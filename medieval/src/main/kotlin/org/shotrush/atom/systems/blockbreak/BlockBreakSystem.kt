@@ -12,12 +12,12 @@ import org.bukkit.event.block.BlockDamageAbortEvent
 import org.bukkit.event.block.BlockDamageEvent
 import org.bukkit.inventory.EquipmentSlotGroup
 import org.shotrush.atom.Atom
-import org.shotrush.atom.api.BlockRef
-import org.shotrush.atom.asReference
-import org.shotrush.atom.listener.AtomListener
-import org.shotrush.atom.listener.EventClass
-import org.shotrush.atom.listener.EventRunner
-import org.shotrush.atom.listener.eventDef
+import org.civlabs.atom.core.api.BlockRef
+import org.civlabs.atom.core.util.asReference
+import org.civlabs.atom.core.listener.AtomListener
+import org.civlabs.atom.core.listener.EventClass
+import org.civlabs.atom.core.listener.EventRunner
+import org.civlabs.atom.core.listener.eventDef
 import org.shotrush.atom.systems.reinforce.ReinforcementSystem
 
 object BlockBreakSystem : AtomListener {

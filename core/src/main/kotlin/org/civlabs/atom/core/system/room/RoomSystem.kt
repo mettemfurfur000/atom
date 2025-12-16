@@ -1,8 +1,9 @@
-package org.shotrush.atom.systems.room
+package org.civlabs.atom.core.system.room
 
 import com.github.shynixn.mccoroutine.folia.launch
 import com.github.shynixn.mccoroutine.folia.mainDispatcher
 import com.github.shynixn.mccoroutine.folia.regionDispatcher
+import org.bukkit.World
 import org.bukkit.event.EventHandler
 import org.bukkit.event.EventPriority
 import org.bukkit.event.block.BlockBreakEvent
@@ -10,29 +11,31 @@ import org.bukkit.event.block.BlockPlaceEvent
 import org.bukkit.event.world.ChunkLoadEvent
 import org.bukkit.event.world.ChunkUnloadEvent
 import org.bukkit.event.world.WorldSaveEvent
+import org.civlabs.atom.core.CoreAtom
+import org.civlabs.atom.core.listener.AtomListener
+import org.civlabs.atom.core.listener.eventDef
 import org.joml.Vector3i
-import org.shotrush.atom.Atom
 
-object RoomSystem : org.shotrush.atom.listener.AtomListener {
+object RoomSystem : AtomListener {
     override val eventDefs = mapOf(
-        org.shotrush.atom.listener.eventDef<ChunkLoadEvent> {
-            Atom.instance.regionDispatcher(it.world, it.chunk.x, it.chunk.z)
+        eventDef<ChunkLoadEvent> {
+            CoreAtom.instance.regionDispatcher(it.world, it.chunk.x, it.chunk.z)
         },
-        org.shotrush.atom.listener.eventDef<ChunkUnloadEvent> {
-            Atom.instance.regionDispatcher(it.world, it.chunk.x, it.chunk.z)
+        eventDef<ChunkUnloadEvent> {
+            CoreAtom.instance.regionDispatcher(it.world, it.chunk.x, it.chunk.z)
         },
-        org.shotrush.atom.listener.eventDef<BlockBreakEvent> {
-            Atom.instance.regionDispatcher(it.block.location)
+        eventDef<BlockBreakEvent> {
+            CoreAtom.instance.regionDispatcher(it.block.location)
         },
-        org.shotrush.atom.listener.eventDef<BlockPlaceEvent> {
-            Atom.instance.regionDispatcher(it.block.location)
+        eventDef<BlockPlaceEvent> {
+            CoreAtom.instance.regionDispatcher(it.block.location)
         },
-        org.shotrush.atom.listener.eventDef<WorldSaveEvent> {
-            Atom.instance.mainDispatcher
+        eventDef<WorldSaveEvent> {
+            CoreAtom.instance.mainDispatcher
         }
     )
 
-    fun onModifiedChunk(world: org.bukkit.World, chunkX: Int, chunkZ: Int) {
+    fun onModifiedChunk(world: World, chunkX: Int, chunkZ: Int) {
         WorldEpochs.bump(world.uid, chunkX, chunkZ)
     }
 
@@ -41,7 +44,7 @@ object RoomSystem : org.shotrush.atom.listener.AtomListener {
         val w = event.block.world
         onModifiedChunk(w, event.block.chunk.x, event.block.chunk.z)
 
-        Atom.instance.launch(Atom.instance.regionDispatcher(event.block.location)) {
+        CoreAtom.instance.launch(CoreAtom.instance.regionDispatcher(event.block.location)) {
             // Invalidate nearby rooms
             RoomRegistry.invalidateByBlock(w.uid, event.block.x, event.block.y, event.block.z)
             // Try scan from adjacent air cells (break leaves air)

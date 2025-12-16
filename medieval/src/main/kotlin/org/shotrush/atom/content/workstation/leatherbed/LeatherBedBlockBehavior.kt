@@ -11,7 +11,7 @@ import org.bukkit.inventory.ItemStack
 import org.shotrush.atom.blocks.AtomBlock
 import org.shotrush.atom.content.workstation.Workstations
 import org.shotrush.atom.core.util.ActionBarManager
-import org.shotrush.atom.matches
+import org.civlabs.atom.core.util.matches
 
 class LeatherBedBlockBehavior(block: CustomBlock) : AtomBlock<LeatherBedBlockEntity>(
     block,

@@ -10,24 +10,22 @@ version = "0.0.1 INDEV"
 
 dependencies {
     paperweight.foliaDevBundle("1.21.8-R0.1-SNAPSHOT")
-    implementation("co.aikar:acf-paper:0.5.1-SNAPSHOT")
-    implementation("org.reflections:reflections:0.10.2")
-    implementation("com.zaxxer:HikariCP:5.1.0")
-    implementation("org.xerial:sqlite-jdbc:3.46.1.0")
-    implementation("com.github.ben-manes.caffeine:caffeine:3.1.8")
-    implementation("org.yaml:snakeyaml:2.2")
-    implementation("com.google.code.gson:gson:2.10.1")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.9.0")
-    implementation("net.benwoodworth.knbt:knbt:0.11.9")
-    implementation("com.charleskorn.kaml:kaml:0.104.0")
+    api("co.aikar:acf-paper:0.5.1-SNAPSHOT")
+    api("org.reflections:reflections:0.10.2")
+    api("com.zaxxer:HikariCP:5.1.0")
+    api("org.xerial:sqlite-jdbc:3.46.1.0")
+    api("com.github.ben-manes.caffeine:caffeine:3.1.8")
+    api("org.yaml:snakeyaml:2.2")
+    api("com.google.code.gson:gson:2.10.1")
+    api("org.jetbrains.kotlinx:kotlinx-serialization-json:1.9.0")
+    api("net.benwoodworth.knbt:knbt:0.11.9")
+    api("com.charleskorn.kaml:kaml:0.104.0")
 
     compileOnly("org.projectlombok:lombok:1.18.38")
     annotationProcessor("org.projectlombok:lombok:1.18.38")
 
     testImplementation("org.junit.jupiter:junit-jupiter:5.10.1")
     testImplementation("org.mockito:mockito-core:5.8.0")
-
-    implementation("org.jetbrains.kotlin:kotlin-stdlib")
 
     compileOnly("net.dmulloy2:ProtocolLib:5.4.0")
     compileOnly("net.momirealms:craft-engine-core:0.0.65")
@@ -36,13 +34,13 @@ dependencies {
     compileOnly("io.github.toxicity188:bettermodel:1.14.1")
     compileOnly("io.github.toxicity188:BetterHud-bukkit-api:1.14.0")
     compileOnly("me.clip:placeholderapi:2.11.7")
-    implementation("dev.triumphteam:triumph-gui-paper-kotlin:4.0.0-SNAPSHOT")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2")
-    implementation("com.github.shynixn.mccoroutine:mccoroutine-folia-api:2.22.0")
-    implementation("com.github.shynixn.mccoroutine:mccoroutine-folia-core:2.22.0")
-    implementation("dev.jorel:commandapi-paper-shade:11.0.0")
-    implementation("dev.jorel:commandapi-kotlin-paper:11.0.0")
-    implementation("plutoproject.adventurekt:core:2.1.1")
+    api("dev.triumphteam:triumph-gui-paper-kotlin:4.0.0-SNAPSHOT")
+    api("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2")
+    api("com.github.shynixn.mccoroutine:mccoroutine-folia-api:2.22.0")
+    api("com.github.shynixn.mccoroutine:mccoroutine-folia-core:2.22.0")
+    api("dev.jorel:commandapi-paper-shade:11.0.0")
+    api("dev.jorel:commandapi-kotlin-paper:11.0.0")
+    api("plutoproject.adventurekt:core:2.1.1")
 }
 
 tasks.withType(xyz.jpenilla.runtask.task.AbstractRun::class) {

@@ -1,4 +1,4 @@
-package org.shotrush.atom.systems.room.face
+package org.civlabs.atom.core.system.room.face
 
 import net.minecraft.core.Direction
 import org.bukkit.World

@@ -1,8 +1,8 @@
-package org.shotrush.atom.systems.room
+package org.civlabs.atom.core.system.room
 
 import org.bukkit.event.Event
 import org.bukkit.event.HandlerList
-import org.shotrush.atom.EventObject
+import org.civlabs.atom.core.util.EventObject
 
 abstract class RoomEvent(room: Room) : Event(false) {
 

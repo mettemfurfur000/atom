@@ -10,7 +10,7 @@ import net.momirealms.craftengine.core.util.Key
 import org.bukkit.NamespacedKey
 import org.bukkit.inventory.ItemStack
 import org.bukkit.persistence.PersistentDataType
-import org.shotrush.atom.getNamespacedKey
+import org.civlabs.atom.core.util.getNamespacedKey
 
 object Molds {
     fun getMold(tool: MoldShape, variant: MoldType): CustomItem<ItemStack> {

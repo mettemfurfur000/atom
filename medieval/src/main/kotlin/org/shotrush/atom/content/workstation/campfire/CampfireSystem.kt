@@ -18,7 +18,6 @@ import org.bukkit.event.block.BlockBreakEvent
 import org.bukkit.event.block.BlockPlaceEvent
 import org.bukkit.event.player.PlayerInteractEvent
 import org.bukkit.inventory.EquipmentSlot
-import org.bukkit.inventory.ItemStack
 import org.bukkit.plugin.Plugin
 import org.shotrush.atom.Atom
 import org.shotrush.atom.content.workstation.campfire.features.BurnoutFeature
@@ -28,7 +27,7 @@ import org.shotrush.atom.core.api.annotation.RegisterSystem
 import org.shotrush.atom.core.util.ActionBarManager
 import org.shotrush.atom.item.MoldType
 import org.shotrush.atom.item.Molds
-import org.shotrush.atom.matches
+import org.civlabs.atom.core.util.matches
 import kotlin.random.Random
 
 @RegisterSystem(

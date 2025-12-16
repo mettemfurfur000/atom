@@ -14,13 +14,13 @@ import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
 import org.shotrush.atom.blocks.AtomBlockEntity
 import org.shotrush.atom.content.workstation.Workstations
-import org.shotrush.atom.getItemStack
+import org.civlabs.atom.core.util.getItemStack
 import org.shotrush.atom.item.Material
 import org.shotrush.atom.item.MoldType
 import org.shotrush.atom.item.Molds
 import org.shotrush.atom.item.MoldShape
-import org.shotrush.atom.matches
-import org.shotrush.atom.putItemStack
+import org.civlabs.atom.core.util.matches
+import org.civlabs.atom.core.util.putItemStack
 
 import org.bukkit.Particle
 import org.bukkit.Sound

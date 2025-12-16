@@ -1,4 +1,4 @@
-package org.shotrush.atom
+package org.civlabs.atom.core.util
 
 import com.charleskorn.kaml.Yaml
 import kotlinx.serialization.*
@@ -7,6 +7,7 @@ import net.benwoodworth.knbt.Nbt
 import net.benwoodworth.knbt.NbtCompression
 import net.benwoodworth.knbt.NbtVariant
 import org.bukkit.plugin.Plugin
+import org.civlabs.atom.core.CoreAtom
 import java.nio.file.Path
 import kotlin.io.path.createParentDirectories
 import kotlin.io.path.notExists
@@ -63,10 +64,10 @@ enum class FileType(val format: FileFormat) {
 }
 
 inline fun <reified T> readSerializedFile(path: String, type: FileType): T =
-    readSerializedFile(Atom.instance.dataPath.resolve(path), type)
+    readSerializedFile(CoreAtom.instance.dataPath.resolve(path), type)
 
 inline fun <reified T> readSerializedFileOrNull(str: String, type: FileType): T? {
-    val path = Atom.instance.dataPath.resolve(str)
+    val path = CoreAtom.instance.dataPath.resolve(str)
     if (path.notExists()) return null
     return try {
         readSerializedFile(path, type)
@@ -87,7 +88,7 @@ inline fun <reified T : Any> readSerializedFile(path: Path, type: FileType): T =
     type.format.decodeFromFile(path, T::class.serializer())
 
 inline fun <reified T : Any> writeSerializedFile(value: T, path: String, type: FileType) =
-    writeSerializedFile(value, Atom.instance.dataPath.resolve(path), type)
+    writeSerializedFile(value, CoreAtom.instance.dataPath.resolve(path), type)
 
 @OptIn(InternalSerializationApi::class)
 inline fun <reified T : Any> writeSerializedFile(value: T, path: Path, type: FileType) {

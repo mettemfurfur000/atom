@@ -7,9 +7,9 @@ import kotlinx.serialization.descriptors.PrimitiveSerialDescriptor
 import kotlinx.serialization.encoding.Decoder
 import kotlinx.serialization.encoding.Encoder
 import org.shotrush.atom.Atom
-import org.shotrush.atom.FileType
+import org.civlabs.atom.core.util.FileType
 import org.shotrush.atom.content.AnimalType
-import org.shotrush.atom.readSerializedFileOrNull
+import org.civlabs.atom.core.util.readSerializedFileOrNull
 import java.util.logging.Level
 
 // Custom serializer for AnimalType enum

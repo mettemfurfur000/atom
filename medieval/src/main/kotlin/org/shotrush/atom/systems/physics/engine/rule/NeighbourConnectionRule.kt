@@ -3,8 +3,8 @@ package org.shotrush.atom.systems.physics.engine.rule
 import net.minecraft.core.Direction
 import org.bukkit.World
 import org.bukkit.block.Block
+import org.civlabs.atom.core.util.nms
 import org.shotrush.atom.systems.physics.engine.PhysicsHelper
-import org.shotrush.atom.systems.physics.engine.nms
 
 interface NeighbourConnectionRule : PhysicsRule {
     suspend fun evaluate(world: World, block: Block, direction: Direction): Boolean

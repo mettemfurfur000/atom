@@ -1,10 +1,10 @@
-package org.shotrush.atom.api
+package org.civlabs.atom.core.api
 
 import net.momirealms.craftengine.bukkit.api.CraftEngineBlocks
 import org.bukkit.Material
 import org.bukkit.block.Block
-import org.shotrush.atom.matches
-import org.shotrush.atom.util.Key
+import org.civlabs.atom.core.util.Key
+import org.civlabs.atom.core.util.matches
 
 sealed class BlockRef {
     abstract fun matches(block: Block): Boolean

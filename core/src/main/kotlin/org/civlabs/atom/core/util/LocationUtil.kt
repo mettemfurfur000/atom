@@ -1,4 +1,4 @@
-package org.shotrush.atom.util
+package org.civlabs.atom.core.util
 
 object LocationUtil {
     private const val XZ_BITS = 27

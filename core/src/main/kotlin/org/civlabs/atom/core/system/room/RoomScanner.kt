@@ -1,4 +1,4 @@
-package org.shotrush.atom.systems.room
+package org.civlabs.atom.core.system.room
 
 import com.github.shynixn.mccoroutine.folia.ticks
 import kotlinx.coroutines.Dispatchers
@@ -6,7 +6,6 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
 import org.bukkit.World
 import org.joml.Vector3i
-import kotlin.random.Random
 
 object RoomScanner {
     suspend fun scanAt(

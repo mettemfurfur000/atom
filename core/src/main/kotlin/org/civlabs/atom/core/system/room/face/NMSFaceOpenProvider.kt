@@ -1,4 +1,4 @@
-package org.shotrush.atom.systems.room.face
+package org.civlabs.atom.core.system.room.face
 
 import net.minecraft.core.Direction
 import org.bukkit.Material
@@ -10,7 +10,7 @@ import org.bukkit.block.data.type.Door
 import org.bukkit.block.data.type.GlassPane
 import org.bukkit.block.data.type.TrapDoor
 import org.bukkit.craftbukkit.block.CraftBlock
-import org.shotrush.atom.systems.physics.engine.nms
+import org.civlabs.atom.core.util.nms
 
 object NMSFaceOpenProvider : FaceOpenProvider {
     private fun isAirLike(mat: Material): Boolean {

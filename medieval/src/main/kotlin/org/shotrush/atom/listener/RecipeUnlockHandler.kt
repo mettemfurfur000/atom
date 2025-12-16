@@ -17,6 +17,7 @@ import org.bukkit.event.player.PlayerJoinEvent
 import org.bukkit.inventory.RecipeChoice
 import org.bukkit.inventory.ShapedRecipe
 import org.bukkit.inventory.ShapelessRecipe
+import org.civlabs.atom.core.listener.eventDef
 import org.shotrush.atom.Atom
 
 object RecipeUnlockHandler : Listener {

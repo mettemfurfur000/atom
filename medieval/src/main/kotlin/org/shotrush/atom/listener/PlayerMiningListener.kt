@@ -12,10 +12,11 @@ import org.bukkit.event.block.Action
 import org.bukkit.event.block.BlockBreakEvent
 import org.bukkit.event.player.PlayerInteractEvent
 import org.bukkit.inventory.ItemStack
+import org.civlabs.atom.core.listener.eventDef
 import org.shotrush.atom.Atom
 import org.shotrush.atom.core.util.ActionBarManager
-import org.shotrush.atom.getNamespacedKey
-import org.shotrush.atom.getNamespacedPath
+import org.civlabs.atom.core.util.getNamespacedKey
+import org.civlabs.atom.core.util.getNamespacedPath
 import org.shotrush.atom.item.Material
 import org.shotrush.atom.item.MoldShape
 

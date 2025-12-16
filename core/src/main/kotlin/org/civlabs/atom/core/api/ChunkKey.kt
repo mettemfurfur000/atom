@@ -1,8 +1,8 @@
-package org.shotrush.atom.api
+package org.civlabs.atom.core.api
 
 import kotlinx.serialization.Serializable
 import org.bukkit.Location
-import org.shotrush.atom.util.UUIDSerializer
+import org.civlabs.atom.core.util.UUIDSerializer
 import java.util.*
 
 @Serializable

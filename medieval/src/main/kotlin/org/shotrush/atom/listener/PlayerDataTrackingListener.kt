@@ -13,6 +13,7 @@ import org.bukkit.event.entity.PlayerDeathEvent
 import org.bukkit.event.player.PlayerJoinEvent
 import org.bukkit.event.player.PlayerQuitEvent
 import org.bukkit.persistence.PersistentDataType
+import org.civlabs.atom.core.listener.eventDef
 import org.shotrush.atom.Atom
 import org.shotrush.atom.Age
 import plutoproject.adventurekt.component

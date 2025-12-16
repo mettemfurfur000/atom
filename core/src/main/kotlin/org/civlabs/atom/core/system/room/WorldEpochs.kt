@@ -1,10 +1,11 @@
-package org.shotrush.atom.systems.room
+package org.civlabs.atom.core.system.room
 
 import java.util.UUID
+import java.util.concurrent.ConcurrentHashMap
 import java.util.concurrent.atomic.AtomicLong
 
 object WorldEpochs {
-    private val chunkEpoch = java.util.concurrent.ConcurrentHashMap<Pair<UUID, Long>, AtomicLong>()
+    private val chunkEpoch = ConcurrentHashMap<Pair<UUID, Long>, AtomicLong>()
 
     fun key(worldId: UUID, chunkX: Int, chunkZ: Int): Pair<UUID, Long> {
         val k = (chunkX.toLong() shl 32) or (chunkZ.toLong() and 0xFFFF_FFFFL)

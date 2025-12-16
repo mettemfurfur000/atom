@@ -1,4 +1,4 @@
-package org.shotrush.atom.systems.room
+package org.civlabs.atom.core.system.room
 
 interface RoomScan {
     suspend fun scan(): Boolean

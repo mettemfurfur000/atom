@@ -4,9 +4,7 @@ import org.bukkit.Sound
 import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
 import org.shotrush.atom.core.util.ActionBarManager
-import org.shotrush.atom.item.Items
-import org.shotrush.atom.item.isItem
-import org.shotrush.atom.matches
+import org.civlabs.atom.core.util.matches
 
 object SharpenedFlint {
     fun isSharpenedFlint(stack: ItemStack): Boolean = stack.matches("atom:sharpened_rock")

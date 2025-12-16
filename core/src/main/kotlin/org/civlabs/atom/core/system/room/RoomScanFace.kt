@@ -1,14 +1,14 @@
-package org.shotrush.atom.systems.room
+package org.civlabs.atom.core.system.room
 
 import com.github.shynixn.mccoroutine.folia.regionDispatcher
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.withContext
 import net.minecraft.core.Direction
 import org.bukkit.World
+import org.civlabs.atom.core.CoreAtom
+import org.civlabs.atom.core.system.room.face.FaceOpenProvider
+import org.civlabs.atom.core.util.LocationUtil
 import org.joml.Vector3i
-import org.shotrush.atom.Atom
-import org.shotrush.atom.systems.room.face.FaceOpenProvider
-import org.shotrush.atom.util.LocationUtil
 import java.util.UUID
 import kotlin.collections.ArrayDeque
 
@@ -105,7 +105,7 @@ class RoomScanFace(
                 val cz = (pk and 0xFFFF_FFFFL).toInt()
                 val q = frontier[pk] ?: continue
 
-                val keepBucket = withContext(Atom.instance.regionDispatcher(world, cx, cz)) {
+                val keepBucket = withContext(CoreAtom.instance.regionDispatcher(world, cx, cz)) {
                     rememberEpoch(cx, cz)
 
                     var processed = 0

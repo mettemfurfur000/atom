@@ -1,4 +1,4 @@
-package org.shotrush.atom.systems.room
+package org.civlabs.atom.core.system.room
 
 import java.util.UUID
 import java.util.concurrent.ConcurrentHashMap

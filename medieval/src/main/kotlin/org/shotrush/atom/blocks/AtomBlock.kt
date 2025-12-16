@@ -16,8 +16,8 @@ import net.momirealms.craftengine.core.item.context.UseOnContext
 import net.momirealms.craftengine.core.world.BlockPos
 import net.momirealms.craftengine.core.world.CEWorld
 import org.bukkit.entity.Player
+import org.civlabs.atom.core.util.toBukkitLocation
 import org.shotrush.atom.Atom
-import org.shotrush.atom.toBukkitLocation
 
 abstract class AtomBlock<BE : BlockEntity>(
     block: CustomBlock,

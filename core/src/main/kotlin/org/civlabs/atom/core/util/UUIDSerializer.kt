@@ -1,4 +1,4 @@
-package org.shotrush.atom.util
+package org.civlabs.atom.core.util
 
 import kotlinx.serialization.KSerializer
 import kotlinx.serialization.descriptors.PrimitiveKind

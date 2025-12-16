@@ -1,4 +1,4 @@
-package org.shotrush.atom
+package org.civlabs.atom.core.util
 
 import org.bukkit.event.HandlerList
 

@@ -2,7 +2,7 @@ package org.shotrush.atom.systems.reinforce
 
 import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
-import org.shotrush.atom.api.SingleItemRef
+import org.civlabs.atom.core.api.SingleItemRef
 
 enum class ReinforceType(val displayName: String, val singleItemRef: SingleItemRef, val speedMultiplier: Double) {
     LIGHT("Light", SingleItemRef.material(Material.COPPER_INGOT), 1.25),

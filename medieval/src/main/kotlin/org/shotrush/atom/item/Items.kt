@@ -6,8 +6,8 @@ import net.momirealms.craftengine.core.util.Key
 import org.bukkit.inventory.ItemStack
 import org.shotrush.atom.content.AnimalProduct
 import org.shotrush.atom.content.AnimalType
-import org.shotrush.atom.getNamespacedKey
-import org.shotrush.atom.getNamespacedPath
+import org.civlabs.atom.core.util.getNamespacedKey
+import org.civlabs.atom.core.util.getNamespacedPath
 import kotlin.reflect.KProperty
 
 object Items {
@@ -49,8 +49,4 @@ data class CEItem(val key: Key) {
     operator fun getValue(thisRef: Any?, property: KProperty<*>): CustomItem<ItemStack> {
         return CraftEngineItems.byId(key) ?: throw IllegalStateException("Item $key not found!")
     }
-}
-
-fun CustomItem<ItemStack>.isItem(item: ItemStack): Boolean {
-    return CraftEngineItems.getCustomItemId(item) == this.id()
 }

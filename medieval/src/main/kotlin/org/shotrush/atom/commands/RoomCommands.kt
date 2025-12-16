@@ -10,14 +10,16 @@ import org.bukkit.Material
 import org.bukkit.Particle
 import org.bukkit.World
 import org.bukkit.entity.Player
+import org.civlabs.atom.core.system.room.Room
+import org.civlabs.atom.core.system.room.RoomRegistry
+import org.civlabs.atom.core.system.room.RoomScanner
+import org.civlabs.atom.core.system.room.face.FaceOpenProvider
+import org.civlabs.atom.core.util.LocationUtil
+import org.civlabs.atom.core.util.sendMiniMessage
 import org.joml.Vector3i
 import org.shotrush.atom.Atom
-import org.shotrush.atom.sendMiniMessage
 import org.shotrush.atom.core.api.scheduler.SchedulerAPI
-import org.shotrush.atom.systems.room.face.FaceOpenProvider
-import org.shotrush.atom.systems.room.RoomRegistry
-import org.shotrush.atom.systems.room.RoomScanner
-import java.util.UUID
+import java.util.*
 import java.util.concurrent.ConcurrentHashMap
 import kotlin.math.max
 
@@ -213,7 +215,7 @@ object RoomCommands {
         roomOutlineIndex[pId] = idx
     }
 
-    private fun buildBoundaryFaces(room: org.shotrush.atom.systems.room.Room): List<BoundaryFace> {
+    private fun buildBoundaryFaces(room: Room): List<BoundaryFace> {
         val set = room.blocks
         // Pre-size roughly: many internal faces cancel; boundary faces usually ~surface area
         val faces = ArrayList<BoundaryFace>(set.size)
@@ -229,13 +231,13 @@ object RoomCommands {
         )
 
         for (packed in set) {
-            val (x, y, z) = org.shotrush.atom.util.LocationUtil.unpack(packed)
+            val (x, y, z) = LocationUtil.unpack(packed)
             for ((dir, d) in dirs) {
                 val nx = x + d[0]
                 val ny = y + d[1]
                 val nz = z + d[2]
                 val neighborPacked = try {
-                    org.shotrush.atom.util.LocationUtil.pack(nx, ny, nz)
+                    LocationUtil.pack(nx, ny, nz)
                 } catch (_: IllegalArgumentException) {
                     // Out of allowed range counts as boundary
                     faces.add(BoundaryFace(x, y, z, dir))

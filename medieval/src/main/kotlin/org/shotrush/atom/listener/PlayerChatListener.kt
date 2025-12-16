@@ -5,29 +5,16 @@ import com.github.shynixn.mccoroutine.folia.entityDispatcher
 import com.github.shynixn.mccoroutine.folia.registerSuspendingEvents
 import io.papermc.paper.event.player.AsyncChatDecorateEvent
 import io.papermc.paper.event.player.AsyncChatEvent
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
 import net.kyori.adventure.text.minimessage.MiniMessage
 import net.kyori.adventure.text.serializer.plain.PlainTextComponentSerializer.plainText
-import net.kyori.adventure.title.Title
-import org.bukkit.NamespacedKey
-import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
-import org.bukkit.event.entity.PlayerDeathEvent
-import org.bukkit.event.player.PlayerChatEvent
 import org.bukkit.event.player.PlayerJoinEvent
 import org.bukkit.event.player.PlayerQuitEvent
 import org.bukkit.permissions.Permissible
-import org.bukkit.persistence.PersistentDataType
+import org.civlabs.atom.core.listener.eventDef
 import org.shotrush.atom.Atom
-import plutoproject.adventurekt.component
-import plutoproject.adventurekt.text.style.textGold
-import plutoproject.adventurekt.text.style.textGray
-import plutoproject.adventurekt.text.style.textRed
-import plutoproject.adventurekt.text.text
-import plutoproject.adventurekt.text.with
-import kotlin.time.Duration.Companion.milliseconds
 
 object PlayerChatListener : Listener {
     fun register(atom: Atom) {

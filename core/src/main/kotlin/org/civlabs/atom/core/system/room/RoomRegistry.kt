@@ -1,19 +1,18 @@
-package org.shotrush.atom.systems.room
+package org.civlabs.atom.core.system.room
 
 import org.bukkit.Bukkit
 import org.bukkit.Location
 import org.bukkit.World
+import org.civlabs.atom.core.CoreAtom
+import org.civlabs.atom.core.api.ChunkKey
+import org.civlabs.atom.core.util.FileType
+import org.civlabs.atom.core.util.LocationUtil
+import org.civlabs.atom.core.util.readSerializedFileOrNull
+import org.civlabs.atom.core.util.writeSerializedFile
 import org.joml.Vector3i
-import org.shotrush.atom.Atom
-import org.shotrush.atom.FileType
-import org.shotrush.atom.api.ChunkKey
-import org.shotrush.atom.readSerializedFileOrNull
-import org.shotrush.atom.util.LocationUtil
-import org.shotrush.atom.writeSerializedFile
 import java.util.*
 import java.util.concurrent.ConcurrentHashMap
 import java.util.concurrent.CopyOnWriteArraySet
-
 
 object RoomRegistry {
     private val roomsById = ConcurrentHashMap<UUID, Room>()
@@ -22,7 +21,7 @@ object RoomRegistry {
     fun register(room: Room) {
         roomsById[room.id] = room
         indexRoom(room)
-        Atom.instance.server.pluginManager.callEvent(RoomCreateEvent(room))
+        CoreAtom.instance.server.pluginManager.callEvent(RoomCreateEvent(room))
     }
 
     fun tryRegisterDedup(room: Room): Boolean {
@@ -42,7 +41,7 @@ object RoomRegistry {
 
     fun remove(roomId: UUID) {
         val room = roomsById.remove(roomId) ?: return
-        Atom.instance.server.pluginManager.callEvent(RoomDestroyEvent(room))
+        CoreAtom.instance.server.pluginManager.callEvent(RoomDestroyEvent(room))
         unindexRoom(room)
     }
 
@@ -141,7 +140,7 @@ object RoomRegistry {
 
     fun saveAllToDisk() {
         for (world in Bukkit.getWorlds()) saveWorldToDisk(world)
-        Atom.instance.logger.info("Saved ${roomsById.size} rooms to disk.")
+        CoreAtom.instance.logger.info("Saved ${roomsById.size} rooms to disk.")
     }
 
     fun saveWorldToDisk(world: World) {
@@ -151,7 +150,7 @@ object RoomRegistry {
         val dataFile = DataFile(saveRoomsById.toList(), chunks.map { FlatChunk(it.key, it.value.toList()) }.toList())
         writeSerializedFile(dataFile, world.worldPath.resolve("data/rooms.dat"), FileType.NBT)
 
-        Atom.instance.logger.info("Saved ${rooms.size} rooms from disk for world ${world.name}..")
+        CoreAtom.instance.logger.info("Saved ${rooms.size} rooms from disk for world ${world.name}..")
     }
 
     fun readWorldFromDisk(world: World) {
@@ -163,7 +162,7 @@ object RoomRegistry {
         roomsById.putAll(dataFile.rooms.map { Room.fromSavedRoom(it) }.associateBy { it.id })
         chunkIndex.putAll(dataFile.chunks.associateBy { it.key }.mapValues { it.value.rooms.toHashSet() })
 
-        Atom.instance.logger.info("Loaded ${dataFile.rooms.size} rooms from disk for world ${world.name}..")
+        CoreAtom.instance.logger.info("Loaded ${dataFile.rooms.size} rooms from disk for world ${world.name}..")
     }
 
     fun readAllFromDisk() {
@@ -171,6 +170,6 @@ object RoomRegistry {
         roomsById.clear()
 
         for (world in Bukkit.getWorlds()) readWorldFromDisk(world)
-        Atom.instance.logger.info("Loaded ${roomsById.size} rooms from disk.")
+        CoreAtom.instance.logger.info("Loaded ${roomsById.size} rooms from disk.")
     }
 }

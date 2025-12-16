@@ -1,4 +1,4 @@
-package org.shotrush.atom.util
+package org.civlabs.atom.core.util
 
 import org.bukkit.NamespacedKey
 import net.momirealms.craftengine.core.util.Key as CEKey

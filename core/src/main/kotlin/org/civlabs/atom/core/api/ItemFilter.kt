@@ -1,12 +1,12 @@
-package org.shotrush.atom.api
+package org.civlabs.atom.core.api
 
 import net.momirealms.craftengine.bukkit.api.CraftEngineItems
 import org.bukkit.Bukkit
 import org.bukkit.Material
 import org.bukkit.Tag
 import org.bukkit.inventory.ItemStack
-import org.shotrush.atom.isCustomItem
-import org.shotrush.atom.util.Key
+import org.civlabs.atom.core.util.Key
+import org.civlabs.atom.core.util.isCustomItem
 
 sealed interface ItemFilter {
     fun matches(stack: ItemStack): Boolean

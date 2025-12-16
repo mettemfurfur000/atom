@@ -2,8 +2,8 @@ package org.shotrush.atom.systems.physics.engine.rule
 
 import org.bukkit.World
 import org.bukkit.block.Block
+import org.civlabs.atom.core.util.nms
 import org.shotrush.atom.systems.physics.engine.PhysicsHelper
-import org.shotrush.atom.systems.physics.engine.nms
 
 interface SupportPillarRule : PhysicsRule {
     fun evaluate(world: World, block: Block): Boolean

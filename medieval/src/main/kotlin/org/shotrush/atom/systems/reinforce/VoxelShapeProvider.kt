@@ -3,7 +3,7 @@ package org.shotrush.atom.systems.reinforce
 import net.minecraft.core.BlockPos
 import net.minecraft.world.phys.shapes.VoxelShape
 import org.bukkit.World
-import org.shotrush.atom.systems.physics.engine.nms
+import org.civlabs.atom.core.util.nms
 
 interface VoxelShapeProvider {
     fun getShape(world: World, x: Int, y: Int, z: Int): VoxelShape

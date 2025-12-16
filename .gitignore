@@ -117,3 +117,5 @@ runs/
 !gradle-wrapper.jar
 
 .kotlin/
+
+exp/

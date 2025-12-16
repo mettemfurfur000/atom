@@ -14,6 +14,7 @@ import org.bukkit.World
 import org.bukkit.block.Block
 import org.bukkit.craftbukkit.CraftWorld
 import org.bukkit.craftbukkit.block.CraftBlockState
+import org.civlabs.atom.core.util.nms
 import org.shotrush.atom.Atom
 import net.minecraft.world.level.block.state.BlockState as NMSBlockState
 
@@ -80,9 +81,3 @@ object PhysicsHelper {
 
     fun isPassableBlock(block: Block): Boolean = FallingBlock.isFree(block.nms())
 }
-
-fun Block.nms(): NMSBlockState = (this.state as CraftBlockState).handle
-
-fun Location.nms(): BlockPos = BlockPos(blockX, blockY, blockZ)
-
-fun World.nms(): ServerLevel = (this as? CraftWorld)?.handle ?: error("World is not a CraftWorld, ${this.javaClass.simpleName}")

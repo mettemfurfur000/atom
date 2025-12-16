@@ -14,11 +14,11 @@ import org.bukkit.event.player.PlayerQuitEvent
 import org.bukkit.event.world.ChunkLoadEvent
 import org.bukkit.event.world.ChunkUnloadEvent
 import org.shotrush.atom.Atom
-import org.shotrush.atom.api.ChunkKey
-import org.shotrush.atom.api.chunkKey
-import org.shotrush.atom.listener.AtomListener
-import org.shotrush.atom.listener.eventDef
-import org.shotrush.atom.sendMiniMessage
+import org.civlabs.atom.core.api.ChunkKey
+import org.civlabs.atom.core.api.chunkKey
+import org.civlabs.atom.core.listener.AtomListener
+import org.civlabs.atom.core.listener.eventDef
+import org.civlabs.atom.core.util.sendMiniMessage
 import java.util.*
 import java.util.concurrent.ConcurrentHashMap
 

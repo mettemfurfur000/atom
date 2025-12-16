@@ -1,11 +1,11 @@
-package org.shotrush.atom.api
+package org.civlabs.atom.core.api
 
 import net.momirealms.craftengine.bukkit.api.CraftEngineItems
 import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
-import org.shotrush.atom.isCustomItem
-import org.shotrush.atom.matches
-import org.shotrush.atom.util.Key
+import org.civlabs.atom.core.util.Key
+import org.civlabs.atom.core.util.isCustomItem
+import org.civlabs.atom.core.util.matches
 
 sealed class SingleItemRef : ItemFilter {
     abstract fun createStack(amount: Int = 1): ItemStack
