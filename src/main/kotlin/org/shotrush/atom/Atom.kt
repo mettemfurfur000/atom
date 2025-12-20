@@ -25,6 +25,7 @@ import org.shotrush.atom.core.storage.DataStorage
 import org.shotrush.atom.listener.EventListeners
 import org.shotrush.atom.systems.reinforce.ReinforcementSystem
 import org.shotrush.atom.systems.room.RoomRegistry
+import org.shotrush.atom.systems.structure.StructureDefinitions
 
 class Atom : SuspendingJavaPlugin() {
     var blockManager: CustomBlockManager? = null
@@ -53,6 +54,7 @@ class Atom : SuspendingJavaPlugin() {
 
         AtomPlaceholder.register()
 
+        StructureDefinitions.registerDefaults()
 
         AtomAPI.initialize(this)
 
