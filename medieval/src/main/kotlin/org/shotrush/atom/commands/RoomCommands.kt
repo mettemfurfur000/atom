@@ -10,14 +10,16 @@ import org.bukkit.Material
 import org.bukkit.Particle
 import org.bukkit.World
 import org.bukkit.entity.Player
+import org.civlabs.atom.core.system.room.Room
+import org.civlabs.atom.core.system.room.RoomRegistry
+import org.civlabs.atom.core.system.room.RoomScanner
+import org.civlabs.atom.core.system.room.face.FaceOpenProvider
+import org.civlabs.atom.core.util.LocationUtil
+import org.civlabs.atom.core.util.sendMiniMessage
 import org.joml.Vector3i
 import org.shotrush.atom.Atom
-import org.shotrush.atom.sendMiniMessage
 import org.shotrush.atom.core.api.scheduler.SchedulerAPI
-import org.shotrush.atom.systems.room.face.FaceOpenProvider
-import org.shotrush.atom.systems.room.RoomRegistry
-import org.shotrush.atom.systems.room.RoomScanner
-import java.util.UUID
+import java.util.*
 import java.util.concurrent.ConcurrentHashMap
 import kotlin.math.max
 
@@ -36,51 +38,6 @@ object RoomCommands {
     private val COLOR_ROOM = Particle.DustOptions(Color.fromRGB(50, 200, 255), 0.9f)
 
     fun register() {
-        commandTree("struct") {
-            withPermission("atom.command.struct")
-            literalArgument("scan", true) {
-                playerExecutor { player, args ->
-                    val target = player.getTargetBlockExact(6)?.location;
-                    if (target == null) {
-                        player.sendMiniMessage("Not pointing at a block");
-                        return@playerExecutor
-                    }
-
-                    Atom.instance.launch(Atom.instance.entityDispatcher(player)) {
-                        player.sendMiniMessage("<green>Scanning for the structure...</green>")
-                        val scan = StructureScanner.scanAt(
-                            player.world,
-                            Vector3i(target.blockX, target.blockY, target.blockZ)
-                        )
-                        player.sendMiniMessage(
-                            "<green>Scanned room ${scan?.id ?: "<red>failed</red>"}</green>"
-                        )
-                    }
-
-
-                }
-            }
-
-            literalArgument("check", true) {
-                playerExecutor { player, args ->
-                    val target = player.getTargetBlockExact(6)?.location;
-                    if (target == null) {
-                        player.sendMiniMessage("Not pointing at a block");
-                        return@playerExecutor
-                    }
-                    val struct = StructureRegistry.structureAt(target);
-
-                    if (struct == null) {
-                        player.sendMiniMessage("No structure")
-                        return@playerExecutor
-                    }
-
-                    player.sendMiniMessage("Found structure ${struct.defName}:${struct.id}")
-                }
-            }
-        }
-
-
         commandTree("room") {
             literalArgument("current", true) {
                 withPermission("atom.command.room.current")
@@ -365,6 +322,7 @@ object RoomCommands {
                     spawn(ox + s, yFace, oz + half)
                 }
             }
+
             Direction.NORTH, Direction.SOUTH -> {
                 val zFace = oz + if (dir == Direction.SOUTH) half + 0.02 else -half - 0.02
                 for (t in 0..segments) {
@@ -375,6 +333,7 @@ object RoomCommands {
                     spawn(ox + s, oy + half, zFace)
                 }
             }
+
             Direction.EAST, Direction.WEST -> {
                 val xFace = ox + if (dir == Direction.EAST) half + 0.02 else -half - 0.02
                 for (t in 0..segments) {

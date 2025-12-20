@@ -1,15 +1,15 @@
-package org.shotrush.atom.systems.structure
+package org.civlabs.atom.core.system.structure
 
+import net.minecraft.util.parsing.packrat.Atom
 import org.bukkit.Bukkit
 import org.bukkit.Location
 import org.bukkit.World
-import org.joml.Vector3i
-import org.shotrush.atom.Atom
-import org.shotrush.atom.FileType
-import org.shotrush.atom.api.ChunkKey
-import org.shotrush.atom.readSerializedFileOrNull
-import org.shotrush.atom.util.LocationUtil
-import org.shotrush.atom.writeSerializedFile
+import org.civlabs.atom.core.CoreAtom
+import org.civlabs.atom.core.api.ChunkKey
+import org.civlabs.atom.core.util.FileType
+import org.civlabs.atom.core.util.LocationUtil
+import org.civlabs.atom.core.util.readSerializedFileOrNull
+import org.civlabs.atom.core.util.writeSerializedFile
 import java.util.*
 import java.util.concurrent.ConcurrentHashMap
 import java.util.concurrent.CopyOnWriteArraySet
@@ -21,7 +21,7 @@ object StructureRegistry {
     fun register(structure: Structure) {
         structuresById[structure.id] = structure
         indexStructure(structure)
-        Atom.instance.server.pluginManager.callEvent(StructureCreateEvent(structure))
+        CoreAtom.instance.server.pluginManager.callEvent(StructureCreateEvent(structure))
     }
 
     fun tryRegisterDedup(structure: Structure): Boolean {
@@ -39,7 +39,7 @@ object StructureRegistry {
 
     fun remove(structureId: UUID) {
         val s = structuresById.remove(structureId) ?: return
-        Atom.instance.server.pluginManager.callEvent(StructureDestroyEvent(s))
+        CoreAtom.instance.server.pluginManager.callEvent(StructureDestroyEvent(s))
         unindexStructure(s)
     }
 
@@ -117,17 +117,20 @@ object StructureRegistry {
 
     fun saveAllToDisk() {
         for (world in Bukkit.getWorlds()) saveWorldToDisk(world)
-        Atom.instance.logger.info("Saved ${structuresById.size} structures to disk.")
+        CoreAtom.instance.logger.info("Saved ${structuresById.size} structures to disk.")
     }
 
     fun saveWorldToDisk(world: World) {
         val structures = structuresById.values.filter { it.world.uid == world.uid }
         val chunks = chunkIndex.filterValues { it.any { id -> structures.any { s -> s.id == id } } }
         val saveStructures = structures.map { it.toSavedStructure() }
-        val dataFile = DataFileStructures(saveStructures.toList(), chunks.map { FlatChunkStructures(it.key, it.value.toList()) }.toList())
+        val dataFile = DataFileStructures(
+            saveStructures.toList(),
+            chunks.map { FlatChunkStructures(it.key, it.value.toList()) }.toList()
+        )
         writeSerializedFile(dataFile, world.worldPath.resolve("data/structures.dat"), FileType.NBT)
 
-        Atom.instance.logger.info("Saved ${structures.size} structures from disk for world ${world.name}..")
+        CoreAtom.instance.logger.info("Saved ${structures.size} structures from disk for world ${world.name}..")
     }
 
     fun readWorldFromDisk(world: World) {
@@ -139,7 +142,7 @@ object StructureRegistry {
         structuresById.putAll(dataFile.structures.map { Structure.fromSavedStructure(it) }.associateBy { it.id })
         chunkIndex.putAll(dataFile.chunks.associateBy { it.key }.mapValues { it.value.structures.toHashSet() })
 
-        Atom.instance.logger.info("Loaded ${dataFile.structures.size} structures from disk for world ${world.name}..")
+        CoreAtom.instance.logger.info("Loaded ${dataFile.structures.size} structures from disk for world ${world.name}..")
     }
 
     fun readAllFromDisk() {
@@ -147,6 +150,6 @@ object StructureRegistry {
         structuresById.clear()
 
         for (world in Bukkit.getWorlds()) readWorldFromDisk(world)
-        Atom.instance.logger.info("Loaded ${structuresById.size} structures from disk.")
+        CoreAtom.instance.logger.info("Loaded ${structuresById.size} structures from disk.")
     }
 }

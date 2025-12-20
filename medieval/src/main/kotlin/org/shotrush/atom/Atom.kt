@@ -1,11 +1,12 @@
 package org.shotrush.atom
 
 import co.aikar.commands.PaperCommandManager
-import com.github.shynixn.mccoroutine.folia.SuspendingJavaPlugin
 import dev.jorel.commandapi.CommandAPI
 import dev.jorel.commandapi.CommandAPIPaperConfig
 import org.bukkit.Bukkit
 import org.bukkit.Material
+import org.civlabs.atom.core.CoreAtom
+import org.civlabs.atom.core.system.structure.StructureDefinitions
 import org.shotrush.atom.commands.Commands
 import org.shotrush.atom.compat.AtomPlaceholder
 import org.shotrush.atom.content.mobs.ai.debug.MobAIDebugCommand
@@ -24,10 +25,8 @@ import org.shotrush.atom.core.items.CustomItemRegistry
 import org.shotrush.atom.core.storage.DataStorage
 import org.shotrush.atom.listener.EventListeners
 import org.shotrush.atom.systems.reinforce.ReinforcementSystem
-import org.shotrush.atom.systems.room.RoomRegistry
-import org.shotrush.atom.systems.structure.StructureDefinitions
 
-class Atom : SuspendingJavaPlugin() {
+class Atom : CoreAtom() {
     var blockManager: CustomBlockManager? = null
         private set
 
@@ -50,11 +49,8 @@ class Atom : SuspendingJavaPlugin() {
         CommandAPI.onEnable()
         instance = this
 
-        RoomRegistry.readAllFromDisk()
-
         AtomPlaceholder.register()
 
-        StructureDefinitions.registerDefaults()
 
         AtomAPI.initialize(this)
 
@@ -64,6 +60,7 @@ class Atom : SuspendingJavaPlugin() {
         itemRegistry = AtomAPI.itemRegistry
         blockManager = AtomAPI.blockManager
 
+        StructureDefinitions.registerDefaults()
 
         AtomAPI.registerAges()
         AtomAPI.registerItems()
@@ -102,7 +99,6 @@ class Atom : SuspendingJavaPlugin() {
     override fun onDisable() {
         ReinforcementSystem.stop()
         CommandAPI.onDisable()
-        RoomRegistry.saveAllToDisk()
         saveAllPlayerData()
 
         AtomAPI.shutdown()

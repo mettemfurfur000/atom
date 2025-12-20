@@ -1,11 +1,14 @@
-package org.shotrush.atom.systems.structure
+package org.civlabs.atom.core.system.structure
 
+import com.comphenix.protocol.scheduler.FoliaScheduler
+import com.github.shynixn.mccoroutine.folia.globalRegionDispatcher
+import io.papermc.paper.threadedregions.scheduler.FoliaGlobalRegionScheduler
+import io.papermc.paper.threadedregions.scheduler.FoliaRegionScheduler
+import io.papermc.paper.threadedregions.scheduler.GlobalRegionScheduler
+import org.bukkit.Location
 import org.bukkit.World
-import org.bukkit.block.Block
-import org.bukkit.block.BlockState
-import org.bukkit.block.data.BlockData
+import org.civlabs.atom.core.CoreAtom
 import org.joml.Vector3i
-import org.shotrush.atom.Atom
 
 /**
  * Defines what blocks are allowed in a structure and their roles.
@@ -80,6 +83,7 @@ object StructureDefinitions {
 
     fun register(def: StructureDefinition) {
         definitions[def.name] = def
+        CoreAtom.instance.logger.info { "DEBUH: registered ${def.name}" }
     }
 
     fun get(name: String): StructureDefinition? = definitions[name]
@@ -88,21 +92,20 @@ object StructureDefinitions {
     fun getAllNames(): List<String> = definitions.keys.toList()
 
     fun getAllMatching(world: World, position: Vector3i): List<StructureDefinition> {
-        val material = world.getBlockAt(position.x, position.y, position.z).blockData.material.key.toString()
-        Atom.instance.logger.info { "DEBUH: test material $material" }
+        val material = world.getBlockAt(position.x, position.y, position.z).type.key.toString()
+        CoreAtom.instance.logger.info { "DEBUH: test material $material" }
         return definitions.values.filter { d -> d.isMaterialAllowed(material) }
     }
 
-    // Example for testing/demo
     fun registerDefaults() {
-        // Example: Large Furnace made of stone bricks with furnace controllers at corners
+        // Example: Large Furnace made of stone bricks with furnace controllers at its sides, but not on the corners
         register(
             StructureDefinition(
                 name = "large_furnace",
-                bodyMaterials = setOf("minecraft:stone_bricks"),
+                bodyMaterials = setOf("minecraft:stone_bricks", "minecraft:furnace"),
                 blockLimit = 6 * 6 * 6,
                 controllerRules = listOf(
-                    ControllerRule("minecraft:furnace", minNeighbors = 4)
+                    ControllerRule("minecraft:furnace", minNeighbors = 4, maxNeighbors = 5)
                 )
             )
         )

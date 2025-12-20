@@ -1,15 +1,15 @@
-package org.shotrush.atom.systems.structure
+package org.civlabs.atom.core.system.structure
 
 import com.github.shynixn.mccoroutine.folia.regionDispatcher
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.withContext
 import net.minecraft.core.Direction
 import org.bukkit.World
+import org.civlabs.atom.core.CoreAtom
+import org.civlabs.atom.core.system.room.WorldEpochs
+import org.civlabs.atom.core.util.LocationUtil
 import org.joml.Vector3i
-import org.shotrush.atom.Atom
-import org.shotrush.atom.systems.room.WorldEpochs
-import org.shotrush.atom.util.LocationUtil
-import java.util.*
+import java.util.UUID
 import kotlin.collections.ArrayDeque
 
 /**
@@ -73,7 +73,7 @@ class StructureScanFace(
 
     override suspend fun scan(): Boolean {
         val ok = try {
-            Atom.instance.logger.info { "DEBUH: running batched" }
+            CoreAtom.instance.logger.info { "DEBUH: running batched" }
             runBatchedScan()
         } catch (e: Exception) {
             e.printStackTrace()
@@ -88,15 +88,15 @@ class StructureScanFace(
         val sy = startPosition.y()
         val sz = startPosition.z()
         if (!inRangeY(sy)) {
-            Atom.instance.logger.info { "DEBUH: not in Y range $sx $sy $sz" }
+            CoreAtom.instance.logger.info { "DEBUH: not in Y range $sx $sy $sz" }
             return@coroutineScope false
         }
 
-        // Start block must be part of the structure
-        if (!definition.isPartOfStructure(world, sx, sy, sz)) {
-            Atom.instance.logger.info { "DEBUH: not a part of the structure $sx $sy $sz" }
-            return@coroutineScope false
-        }
+//         Start block must be part of the structure
+//        if (!definition.isPartOfStructure(world, sx, sy, sz)) {
+//            CoreAtom.instance.logger.info { "DEBUH: not a part of the structure $sx $sy $sz" }
+//            return@coroutineScope false
+//        }
 
         val startKey = tryPack(sx, sy, sz) ?: return@coroutineScope false
         recordBlock(sx, sy, sz, startKey)
@@ -113,7 +113,7 @@ class StructureScanFace(
 
         var stepsSinceEpochCheck = 0
 
-        Atom.instance.logger.info { "DEBUH: running loopy loops" }
+        CoreAtom.instance.logger.info { "DEBUH: running loopy loops" }
 
         while (frontier.isNotEmpty()) {
             val keys = frontier.keys.toList()
@@ -123,7 +123,7 @@ class StructureScanFace(
                 val cz = (pk and 0xFFFF_FFFFL).toInt()
                 val q = frontier[pk] ?: continue
 
-                val keepBucket = withContext(Atom.instance.regionDispatcher(world, cx, cz)) {
+                val keepBucket = withContext(CoreAtom.instance.regionDispatcher(world, cx, cz)) {
                     rememberEpoch(cx, cz)
 
                     var processed = 0
@@ -150,7 +150,7 @@ class StructureScanFace(
                         }
 
                         if (!definition.isPartOfStructure(world, px, py, pz)) {
-                            Atom.instance.logger.info { "DEBUH: iter: not a structure $px $py $pz" }
+                            CoreAtom.instance.logger.info { "DEBUH: iter: not a structure $px $py $pz" }
                             drained++; processed++
                             continue
                         }
@@ -158,7 +158,7 @@ class StructureScanFace(
                         if (!scannedBlocks.containsKey(key)) {
                             recordBlock(px, py, pz, key)
                             if (volume > maxVolume) {
-                                Atom.instance.logger.info { "DEBUH: too big, bigger than $maxVolume" }
+                                CoreAtom.instance.logger.info { "DEBUH: too big, bigger than $maxVolume" }
                                 return@withContext false
                             }
                             q.active.add(Vector3i(px, py, pz))
@@ -173,7 +173,7 @@ class StructureScanFace(
                         && processed < budget
                     ) {
                         if (volume > maxVolume) {
-                            Atom.instance.logger.info { "DEBUH: too big, bigger than $maxVolume" }
+                            CoreAtom.instance.logger.info { "DEBUH: too big, bigger than $maxVolume" }
                             return@withContext false
                         }
 
@@ -213,7 +213,7 @@ class StructureScanFace(
                             // Accept immediately
                             recordBlock(nx, ny, nz, key)
                             if (volume > maxVolume) {
-                                Atom.instance.logger.info { "DEBUH: too big, bigger than $maxVolume" }
+                                CoreAtom.instance.logger.info { "DEBUH: too big, bigger than $maxVolume" }
                                 return@withContext false
                             }
 
@@ -248,12 +248,12 @@ class StructureScanFace(
         val blockKey = block.type.key.toString()
         scannedBlocks[packed] = blockKey
 
-        Atom.instance.logger.info { "DEBUH: iter: added $x $y $z $blockKey" }
+        CoreAtom.instance.logger.info { "DEBUH: iter: added $x $y $z $blockKey" }
 
         // Check if this is a controller block
         if (definition.isControllerBlock(world, x, y, z)) {
             controllerBlocks.add(packed)
-            Atom.instance.logger.info { "DEBUH: iter: as a controller" }
+            CoreAtom.instance.logger.info { "DEBUH: iter: as a controller" }
         }
     }
 

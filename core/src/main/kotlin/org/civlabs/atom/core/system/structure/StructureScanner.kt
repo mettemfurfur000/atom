@@ -1,14 +1,12 @@
-package org.shotrush.atom.systems.structure
+package org.civlabs.atom.core.system.structure
 
 import com.github.shynixn.mccoroutine.folia.ticks
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
 import org.bukkit.World
+import org.civlabs.atom.core.CoreAtom
 import org.joml.Vector3i
-import org.shotrush.atom.Atom
-import org.shotrush.atom.core.api.AtomAPI
-import kotlin.random.Random
 
 object StructureScanner {
     suspend fun scanAt(
@@ -18,10 +16,15 @@ object StructureScanner {
         retries: Int = 1,
     ): Structure? {
         repeat(retries + 1) { attempt ->
-            val def = StructureDefinitions.getAllMatching(world, start).firstOrNull() ?: return null
+            val def = StructureDefinitions.getAllMatching(world, start).firstOrNull()
+            if (def == null)
+            {
+                CoreAtom.instance.logger.info { "DEBUH: no defs found for said block" }
+                return@repeat
+            }
             val scanner = StructureScanFace(world,start, def , maxVolume)
 
-            Atom.instance.logger.info { "DEBUH: found ${def.name}, attempting scan" }
+            CoreAtom.instance.logger.info { "DEBUH: found ${def.name}, attempting scan" }
 
             val ok = withContext(Dispatchers.IO) {
                 scanner.scan()

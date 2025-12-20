@@ -1,8 +1,8 @@
-package org.shotrush.atom.systems.structure
+package org.civlabs.atom.core.system.structure
 
 import org.bukkit.event.Event
 import org.bukkit.event.HandlerList
-import org.shotrush.atom.EventObject
+import org.civlabs.atom.core.util.EventObject
 
 abstract class StructureEvent(structure: Structure) : Event(false) {
 

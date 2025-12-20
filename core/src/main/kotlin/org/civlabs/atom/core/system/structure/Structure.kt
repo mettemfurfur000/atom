@@ -1,10 +1,10 @@
-package org.shotrush.atom.systems.structure
+package org.civlabs.atom.core.system.structure
 
 import kotlinx.serialization.Serializable
 import org.bukkit.Bukkit
 import org.bukkit.World
-import org.shotrush.atom.api.ChunkKey
-import org.shotrush.atom.util.UUIDSerializer
+import org.civlabs.atom.core.api.ChunkKey
+import org.civlabs.atom.core.util.UUIDSerializer
 import java.util.*
 
 data class Structure(
