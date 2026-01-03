@@ -5,14 +5,11 @@ import com.github.shynixn.mccoroutine.folia.launch
 import dev.jorel.commandapi.kotlindsl.commandTree
 import dev.jorel.commandapi.kotlindsl.literalArgument
 import dev.jorel.commandapi.kotlindsl.playerExecutor
-import io.papermc.paper.threadedregions.scheduler.ScheduledTask
-import org.bukkit.Bukkit
 import org.civlabs.atom.core.system.structure.StructureRegistry
 import org.civlabs.atom.core.system.structure.StructureScanner
 import org.civlabs.atom.core.util.sendMiniMessage
 import org.joml.Vector3i
 import org.shotrush.atom.Atom
-import java.util.function.Consumer
 
 
 object StructCommands {
@@ -29,12 +26,12 @@ object StructCommands {
 
                     Atom.instance.launch(Atom.instance.globalRegionDispatcher) {
                         player.sendMiniMessage("<green>Scanning for the structure...</green>")
-                        val scan = StructureScanner.scanAt(
+                        val structure = StructureScanner.scanAt(
                             player.world,
                             Vector3i(target.blockX, target.blockY, target.blockZ)
                         )
                         player.sendMiniMessage(
-                            "<green>Scanned room ${scan?.id ?: "<red>failed</red>"}</green>"
+                            "<green>Scanned room ${structure?.id ?: "<red>failed</red>"}</green>"
                         )
                     }
                 }

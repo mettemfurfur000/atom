@@ -1,26 +1,30 @@
 package org.civlabs.atom.core.system.structure
 
-import com.comphenix.protocol.scheduler.FoliaScheduler
-import com.github.shynixn.mccoroutine.folia.globalRegionDispatcher
-import io.papermc.paper.threadedregions.scheduler.FoliaGlobalRegionScheduler
-import io.papermc.paper.threadedregions.scheduler.FoliaRegionScheduler
-import io.papermc.paper.threadedregions.scheduler.GlobalRegionScheduler
-import org.bukkit.Location
 import org.bukkit.World
 import org.civlabs.atom.core.CoreAtom
 import org.joml.Vector3i
+import kotlin.math.min
 
 /**
  * Defines what blocks are allowed in a structure and their roles.
  */
 data class StructureDefinition(
     val name: String,
-    var blockLimit: Int,
+    var maxBlocks: Int,
+    var minBlocks: Int,
     // Material blocks that form the main body of the structure
     val bodyMaterials: Set<String>,
     // Controller blocks and their constraints
     val controllerRules: List<ControllerRule> = emptyList(),
 ) {
+    fun matchesConstraints(volume: Int): Boolean {
+        return volume in minBlocks..maxBlocks
+    }
+
+    fun blockRulesSatisfied() : Boolean // validate that structure has all the controller blocks on it
+    {
+        return true
+    }
 
     fun isMaterialAllowed(material: String): Boolean {
         return material in bodyMaterials
@@ -49,7 +53,13 @@ data class ControllerRule(
     // If set, minimum neighbor count (including diagonal/vertical) the block must have
     val minNeighbors: Int = 0,
     val maxNeighbors: Int = Int.MAX_VALUE,
+    val minAmount: Int = 0,
+    val maxAmount: Int = Int.MAX_VALUE,
 ) {
+    fun isInConstraints(amount: Int): Boolean {
+        return amount in minAmount..maxAmount
+    }
+
     fun matches(key: String, world: World, x: Int, y: Int, z: Int, def: StructureDefinition): Boolean {
         if (key != blockKey) return false
         if (minNeighbors <= 0) return true
@@ -64,7 +74,7 @@ data class ControllerRule(
                     val ny = y + dy
                     val nz = z + dz
 //                    if (!world.getBlockAt(nx, ny, nz).isEmpty) {
-                    if (def.isBodyBlock(world, nx, ny, nz)) {
+                    if (def.isPartOfStructure(world, nx, ny, nz)) {
                         neighbors++
                     }
                 }
@@ -103,7 +113,8 @@ object StructureDefinitions {
             StructureDefinition(
                 name = "large_furnace",
                 bodyMaterials = setOf("minecraft:stone_bricks", "minecraft:furnace"),
-                blockLimit = 6 * 6 * 6,
+                maxBlocks = 6 * 6 * 6,
+                minBlocks = 3 * 3 * 3,
                 controllerRules = listOf(
                     ControllerRule("minecraft:furnace", minNeighbors = 4, maxNeighbors = 5)
                 )

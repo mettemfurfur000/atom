@@ -92,11 +92,11 @@ class StructureScanFace(
             return@coroutineScope false
         }
 
-//         Start block must be part of the structure
-//        if (!definition.isPartOfStructure(world, sx, sy, sz)) {
-//            CoreAtom.instance.logger.info { "DEBUH: not a part of the structure $sx $sy $sz" }
-//            return@coroutineScope false
-//        }
+        // Start block must be part of the structure
+        if (!definition.isPartOfStructure(world, sx, sy, sz)) {
+            CoreAtom.instance.logger.info { "DEBUH: not a part of the structure $sx $sy $sz" }
+            return@coroutineScope false
+        }
 
         val startKey = tryPack(sx, sy, sz) ?: return@coroutineScope false
         recordBlock(sx, sy, sz, startKey)
@@ -157,10 +157,8 @@ class StructureScanFace(
 
                         if (!scannedBlocks.containsKey(key)) {
                             recordBlock(px, py, pz, key)
-                            if (volume > maxVolume) {
-                                CoreAtom.instance.logger.info { "DEBUH: too big, bigger than $maxVolume" }
+                            if(isTooBig())
                                 return@withContext false
-                            }
                             q.active.add(Vector3i(px, py, pz))
                         }
                         drained++; processed++
@@ -172,10 +170,8 @@ class StructureScanFace(
                         && expanded < expandBudget
                         && processed < budget
                     ) {
-                        if (volume > maxVolume) {
-                            CoreAtom.instance.logger.info { "DEBUH: too big, bigger than $maxVolume" }
+                        if(isTooBig())
                             return@withContext false
-                        }
 
                         stepsSinceEpochCheck++
                         if (stepsSinceEpochCheck >= epochCheckInterval) {
@@ -212,10 +208,8 @@ class StructureScanFace(
 
                             // Accept immediately
                             recordBlock(nx, ny, nz, key)
-                            if (volume > maxVolume) {
-                                CoreAtom.instance.logger.info { "DEBUH: too big, bigger than $maxVolume" }
+                            if(isTooBig())
                                 return@withContext false
-                            }
 
                             if (nChunkX == cx && nChunkZ == cz) {
                                 q.active.add(Vector3i(nx, ny, nz))
@@ -257,9 +251,26 @@ class StructureScanFace(
         }
     }
 
+    private fun isTooBig(): Boolean {
+        if (volume > maxVolume) {
+            CoreAtom.instance.logger.info { "DEBUH: too big, bigger than $maxVolume" }
+            return true
+        }
+        return false
+    }
+
     override fun toStructure(): Structure? {
         if (!hasScanned) return null
         if (volume == 0 || volume > maxVolume) return null
+        if(!definition.matchesConstraints(volume)) {
+            CoreAtom.instance.logger.info { "DEBUH: doesn match the constraints: ${definition.minBlocks} >= $maxVolume <= ${definition.maxBlocks}" }
+            return null
+        }
+
+//        if(controllerBlocks.isEmpty())
+//        {
+//            CoreAtom.instance.logger.info { "DEBUH: no controller blocks" }
+//        }
 
         var minX = Int.MAX_VALUE
         var minY = Int.MAX_VALUE

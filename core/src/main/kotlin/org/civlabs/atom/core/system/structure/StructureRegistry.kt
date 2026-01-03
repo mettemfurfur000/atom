@@ -1,6 +1,5 @@
 package org.civlabs.atom.core.system.structure
 
-import net.minecraft.util.parsing.packrat.Atom
 import org.bukkit.Bukkit
 import org.bukkit.Location
 import org.bukkit.World
@@ -18,23 +17,24 @@ object StructureRegistry {
     private val structuresById = ConcurrentHashMap<UUID, Structure>()
     internal val chunkIndex = ConcurrentHashMap<ChunkKey, MutableSet<UUID>>()
 
-    fun register(structure: Structure) {
+    private fun register(structure: Structure) : Structure {
         structuresById[structure.id] = structure
         indexStructure(structure)
         CoreAtom.instance.server.pluginManager.callEvent(StructureCreateEvent(structure))
+        return structure
     }
 
-    fun tryRegisterDedup(structure: Structure): Boolean {
-        val candidates = structuresInAabb(
+    fun isOverlapping(structure: Structure): Boolean {
+        return structuresInAabb(
             structure.world.uid, structure.minX, structure.minY, structure.minZ,
             structure.maxX, structure.maxY, structure.maxZ
-        )
-        val overlaps = candidates.any { existing ->
+        ).any { existing ->
             existing.blocks.keys.any { it in structure.blocks.keys }
         }
-        if (overlaps) return false
-        register(structure)
-        return true
+    }
+
+    fun registerNonOverlapping(structure: Structure): Structure? {
+        return if (isOverlapping(structure)) null else register(structure)
     }
 
     fun remove(structureId: UUID) {
